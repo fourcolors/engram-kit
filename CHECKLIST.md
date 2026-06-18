@@ -26,9 +26,15 @@ Use this before sharing the participant kit.
   forbidden.
 - [x] Network/model-provider requirements must be declared by the participant.
 
-## Still Needed Before A Public Link
+## Public Link
 
-- [ ] Add final public repo URL.
+- [x] Add final public repo URL:
+  `https://github.com/saxenauts/engram-kit`
+- [x] Add direct release zip:
+  `https://github.com/saxenauts/engram-kit/releases/download/v0.1-real-first-two-weeks/engram-kit.zip`
+
+## Still Needed Before The Event
+
 - [ ] Add Discord or submission channel.
 - [ ] Add QR code or short URL for the presentation.
 - [ ] Decide public resource limits: timeout, disk, RAM, and network/model mode.

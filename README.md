@@ -17,6 +17,18 @@ This kit is the public participant facade. It does not contain private
 evaluation data, judge packets, answer keys, rubrics, QEMU details, dashboard
 internals, atlas/tracks artifacts, or provider credentials.
 
+Public repo:
+
+```text
+https://github.com/saxenauts/engram-kit
+```
+
+Direct zip download:
+
+```text
+https://github.com/saxenauts/engram-kit/releases/download/v0.1-real-first-two-weeks/engram-kit.zip
+```
+
 ## Files
 
 ```text

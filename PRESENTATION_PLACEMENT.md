@@ -25,7 +25,20 @@ Take-home kit:
 ./run.sh answer STATE_DIR MEMORY_DIR QUESTION_JSON ANSWER_JSON
 ```
 
+Public repo:
+
+```text
+https://github.com/saxenauts/engram-kit
+```
+
+Direct zip download:
+
+```text
+https://github.com/saxenauts/engram-kit/releases/download/v0.1-real-first-two-weeks/engram-kit.zip
+```
+
 Do not lead with QEMU, judge packets, dashboard, or private runtime internals.
 Those are operator details.
 
-The slide should link or QR-code this package once the public URL exists.
+The slide should link or QR-code the repo or direct zip. Add the Discord or
+submission channel separately once that exists.
