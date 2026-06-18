@@ -1,0 +1,54 @@
+{
+  "version": 1,
+  "created_at": "2026-04-21",
+  "task_id": "JCB-026",
+  "mode": "proxy_run_from_existing_matrix",
+  "selected_probes": [
+    "R05",
+    "R08",
+    "R14",
+    "R19"
+  ],
+  "rows": [
+    {
+      "probe_id": "R05",
+      "observation_count": 6,
+      "baseline_non_exact_rate": 0.6667,
+      "baseline_full_band_rate": 0.1667,
+      "baseline_invalid_or_missing_rate": 0.0,
+      "proxy_paraphrase_risk_bucket": "high"
+    },
+    {
+      "probe_id": "R08",
+      "observation_count": 6,
+      "baseline_non_exact_rate": 0.1667,
+      "baseline_full_band_rate": 0.0,
+      "baseline_invalid_or_missing_rate": 0.0,
+      "proxy_paraphrase_risk_bucket": "lower"
+    },
+    {
+      "probe_id": "R14",
+      "observation_count": 6,
+      "baseline_non_exact_rate": 0.6667,
+      "baseline_full_band_rate": 0.0,
+      "baseline_invalid_or_missing_rate": 0.3333,
+      "proxy_paraphrase_risk_bucket": "high"
+    },
+    {
+      "probe_id": "R19",
+      "observation_count": 6,
+      "baseline_non_exact_rate": 0.3333,
+      "baseline_full_band_rate": 0.1667,
+      "baseline_invalid_or_missing_rate": 0.0,
+      "proxy_paraphrase_risk_bucket": "high"
+    }
+  ],
+  "summary": {
+    "observations": 24,
+    "cells": 12,
+    "high_risk_probes": 3,
+    "medium_risk_probes": 0,
+    "lower_risk_probes": 1
+  },
+  "caveat": "Proxy robustness does not replace actual paraphrase reruns with rejudging; it estimates likely sensitivity from existing disagreement structure."
+}

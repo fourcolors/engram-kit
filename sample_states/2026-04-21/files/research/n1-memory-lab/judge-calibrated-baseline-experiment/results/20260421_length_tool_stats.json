@@ -1,0 +1,213 @@
+{
+  "scope": "descriptive only",
+  "by_category": {
+    "adjacent": {
+      "n": 23,
+      "mean_length": 3711,
+      "median_length": 2856,
+      "mean_tools": 27.087,
+      "median_tools": 26
+    },
+    "exact": {
+      "n": 32,
+      "mean_length": 2790.125,
+      "median_length": 2072.0,
+      "mean_tools": 26.875,
+      "median_tools": 24.5
+    },
+    "full_band": {
+      "n": 3,
+      "mean_length": 3261,
+      "median_length": 3044,
+      "mean_tools": 32.667,
+      "median_tools": 27
+    },
+    "invalid": {
+      "n": 2,
+      "mean_length": 962.5,
+      "median_length": 962.5,
+      "mean_tools": 18.5,
+      "median_tools": 18.5
+    }
+  },
+  "by_source": {
+    "gpt-5.4": {
+      "n": 30,
+      "mean_length": 3424.833,
+      "median_length": 2848.0,
+      "mean_tools": 20.2,
+      "median_tools": 21.0
+    },
+    "opus-4.6": {
+      "n": 30,
+      "mean_length": 2786.667,
+      "median_length": 2278.0,
+      "mean_tools": 33.733,
+      "median_tools": 32.5
+    }
+  },
+  "longest": [
+    {
+      "probe": "R05",
+      "condition": "pure",
+      "source": "gpt-5.4",
+      "category": "exact",
+      "length": 9926,
+      "tools": 22
+    },
+    {
+      "probe": "R05",
+      "condition": "zero",
+      "source": "opus-4.6",
+      "category": "adjacent",
+      "length": 8797,
+      "tools": 58
+    },
+    {
+      "probe": "R05",
+      "condition": "pure",
+      "source": "opus-4.6",
+      "category": "exact",
+      "length": 8758,
+      "tools": 56
+    },
+    {
+      "probe": "R05",
+      "condition": "zero",
+      "source": "gpt-5.4",
+      "category": "adjacent",
+      "length": 7868,
+      "tools": 39
+    },
+    {
+      "probe": "R18",
+      "condition": "production",
+      "source": "gpt-5.4",
+      "category": "exact",
+      "length": 7631,
+      "tools": 29
+    },
+    {
+      "probe": "R18",
+      "condition": "zero",
+      "source": "gpt-5.4",
+      "category": "adjacent",
+      "length": 7383,
+      "tools": 26
+    },
+    {
+      "probe": "R05",
+      "condition": "production",
+      "source": "gpt-5.4",
+      "category": "adjacent",
+      "length": 7306,
+      "tools": 21
+    },
+    {
+      "probe": "R07",
+      "condition": "production",
+      "source": "gpt-5.4",
+      "category": "adjacent",
+      "length": 6134,
+      "tools": 22
+    },
+    {
+      "probe": "R13",
+      "condition": "zero",
+      "source": "opus-4.6",
+      "category": "adjacent",
+      "length": 5326,
+      "tools": 36
+    },
+    {
+      "probe": "R05",
+      "condition": "production",
+      "source": "opus-4.6",
+      "category": "full_band",
+      "length": 5042,
+      "tools": 49
+    }
+  ],
+  "shortest": [
+    {
+      "probe": "R19",
+      "condition": "production",
+      "source": "opus-4.6",
+      "category": "exact",
+      "length": 33,
+      "tools": 0
+    },
+    {
+      "probe": "R08",
+      "condition": "pure",
+      "source": "opus-4.6",
+      "category": "exact",
+      "length": 494,
+      "tools": 10
+    },
+    {
+      "probe": "R14",
+      "condition": "production",
+      "source": "gpt-5.4",
+      "category": "invalid",
+      "length": 589,
+      "tools": 19
+    },
+    {
+      "probe": "R08",
+      "condition": "production",
+      "source": "gpt-5.4",
+      "category": "exact",
+      "length": 967,
+      "tools": 15
+    },
+    {
+      "probe": "R08",
+      "condition": "zero",
+      "source": "opus-4.6",
+      "category": "exact",
+      "length": 976,
+      "tools": 9
+    },
+    {
+      "probe": "R19",
+      "condition": "pure",
+      "source": "gpt-5.4",
+      "category": "exact",
+      "length": 1150,
+      "tools": 28
+    },
+    {
+      "probe": "R19",
+      "condition": "production",
+      "source": "gpt-5.4",
+      "category": "exact",
+      "length": 1178,
+      "tools": 17
+    },
+    {
+      "probe": "R09",
+      "condition": "zero",
+      "source": "opus-4.6",
+      "category": "exact",
+      "length": 1199,
+      "tools": 10
+    },
+    {
+      "probe": "R14",
+      "condition": "zero",
+      "source": "gpt-5.4",
+      "category": "invalid",
+      "length": 1336,
+      "tools": 18
+    },
+    {
+      "probe": "R08",
+      "condition": "zero",
+      "source": "gpt-5.4",
+      "category": "adjacent",
+      "length": 1340,
+      "tools": 8
+    }
+  ]
+}

@@ -1,0 +1,398 @@
+{
+  "experiment": "judge-calibrated-baseline",
+  "last_updated": "2026-04-21",
+  "current_phase": "end_to_end_executable_lane_complete",
+  "tracker": "TASKS.json",
+  "latest_artifacts": [
+    "datasets/abstention_false_premise_cells.json",
+    "datasets/claim_audit_template.json",
+    "datasets/construct_validity_labels.json",
+    "datasets/human_calibration_subset.json",
+    "datasets/paraphrase_robustness_plan.json",
+    "datasets/probe_metadata.json",
+    "datasets/reference_perturbation_cells.json",
+    "datasets/session_boundary_checks.json",
+    "datasets/unsupported_false_premise_probe_set.json",
+    "datasets/zero_condition_cells.json",
+    "results/20260421_20min_exploration_memo.md",
+    "results/20260421_abstention_coverage_metrics.json",
+    "results/20260421_abstention_false_premise_audit.md",
+    "results/20260421_calibration_cell_matrix.csv",
+    "results/20260421_calibration_cell_matrix.json",
+    "results/20260421_calibration_cell_matrix.md",
+    "results/20260421_calibration_subset_packets.json",
+    "results/20260421_calibration_subset_packets.md",
+    "results/20260421_calibration_subset_triage.md",
+    "results/20260421_claim_lineage_matrix.csv",
+    "results/20260421_construct_validity_audit.md",
+    "results/20260421_exploration_counts.json",
+    "results/20260421_exploration_counts.md",
+    "results/20260421_failure_atlas_examples.md",
+    "results/20260421_failure_attribution_table.csv",
+    "results/20260421_failure_attribution_table.md",
+    "results/20260421_failure_pattern_taxonomy.json",
+    "results/20260421_foundations_memex_neuro_alignment.json",
+    "results/20260421_foundations_memex_neuro_alignment.md",
+    "results/20260421_generation_variance_readiness_audit.json",
+    "results/20260421_generation_variance_readiness_audit.md",
+    "results/20260421_high_priority_claim_audit.md",
+    "results/20260421_judge_family_sensitivity.json",
+    "results/20260421_judge_family_sensitivity.md",
+    "results/20260421_length_tool_stats.json",
+    "results/20260421_length_tool_stats.md",
+    "results/20260421_measurement_audit.json",
+    "results/20260421_measurement_audit.md",
+    "results/20260421_paraphrase_robustness_proxy.json",
+    "results/20260421_paraphrase_robustness_proxy.md",
+    "results/20260421_phrase_density.json",
+    "results/20260421_probe_difficulty_audit.json",
+    "results/20260421_probe_difficulty_audit.md",
+    "results/20260421_provenance_lineage_audit.md",
+    "results/20260421_reference_perturbation_proxy.md",
+    "results/20260421_retrieval_answer_axis_separation.md",
+    "results/20260421_retrieval_vs_answer_split.md",
+    "results/20260421_rubric_diagnostic_examples.md",
+    "results/20260421_rubric_minimal_vs_full_diag.json",
+    "results/20260421_rubric_minimal_vs_full_diag.md",
+    "results/20260421_session_boundary_audit.md",
+    "results/20260421_task_axis_taxonomy.json",
+    "results/20260421_task_axis_taxonomy.md",
+    "results/20260421_temporal_disambiguation_audit.md",
+    "results/20260421_unsupported_false_premise_probe_set.md",
+    "results/20260421_zero_condition_smoke_test.md",
+    "scratch/20260421_measurement_audit.py"
+  ],
+  "completed_this_batch": [
+    "JCB-006",
+    "JCB-007",
+    "JCB-008",
+    "JCB-009",
+    "JCB-010",
+    "JCB-011",
+    "JCB-012",
+    "JCB-013",
+    "JCB-014",
+    "JCB-015",
+    "JCB-017",
+    "JCB-019",
+    "JCB-020",
+    "JCB-022",
+    "JCB-023",
+    "JCB-026",
+    "JCB-027",
+    "JCB-028",
+    "JCB-029",
+    "JCB-031",
+    "JCB-032",
+    "JCB-033",
+    "JCB-037",
+    "JCB-038",
+    "JCB-041",
+    "JCB-046",
+    "JCB-047",
+    "JCB-048",
+    "JCB-049",
+    "JCB-050",
+    "JCB-051",
+    "JCB-052",
+    "JCB-053",
+    "JCB-054",
+    "JCB-055",
+    "JCB-056",
+    "JCB-057",
+    "JCB-058",
+    "JCB-059",
+    "JCB-060",
+    "JCB-061",
+    "JCB-062",
+    "JCB-063"
+  ],
+  "headline_results": {
+    "denominator": {
+      "canonical_gpt_final": "57/57 valid",
+      "canonical_opus_final": "57/57 valid",
+      "gpt_answers_opus_judge": "54/57 valid",
+      "opus_answers_gpt_mini_judge": "57/57 valid"
+    },
+    "same_answer_judge_swaps": {
+      "gpt_answers_gpt_vs_opus": {
+        "overlap": 54,
+        "exact": 0.481,
+        "weighted_kappa": 0.239,
+        "mean_delta_opus_minus_gpt": 0.5,
+        "useful_exact": 0.87
+      },
+      "opus_answers_opus_vs_gpt_mini": {
+        "overlap": 57,
+        "exact": 0.509,
+        "weighted_kappa": 0.34,
+        "mean_delta_gpt_mini_minus_opus": -0.491,
+        "useful_exact": 0.912
+      }
+    },
+    "same_judge_repeats": {
+      "opus_four_calls": {
+        "common_valid_cells": 45,
+        "flip_rate": 0.422,
+        "adjacent_flip_cells": 19,
+        "full_band_flip_cells": 0,
+        "mean_cell_sigma": 0.187
+      },
+      "gpt_mini_available_calls": {
+        "common_valid_cells": 51,
+        "flip_rate": 0.49,
+        "adjacent_flip_cells": 25,
+        "full_band_flip_cells": 0,
+        "mean_cell_sigma": 0.231
+      }
+    },
+    "rubric_diagnostics": {
+      "gpt_judge_pooled": {
+        "full_r2": 0.754,
+        "drop_state_transition_r2": 0.738,
+        "state_transition_only_r2": 0.606,
+        "max_abs_axis_corr": 0.841
+      },
+      "opus_judge_pooled": {
+        "full_r2": 0.862,
+        "drop_state_transition_r2": 0.84,
+        "state_transition_only_r2": 0.731,
+        "max_abs_axis_corr": 0.911
+      }
+    }
+  },
+  "probe_metadata": {
+    "scope": "R01-R19",
+    "target_slice_counts": {
+      "tip": 6,
+      "historical": 6,
+      "both": 2,
+      "landscape": 5
+    },
+    "criterion_referenceability_counts": {
+      "high": 6,
+      "medium": 9,
+      "low": 4
+    },
+    "retrieval_character_counts": {
+      "search-like": 13,
+      "reconstruction-like": 6
+    }
+  },
+  "human_calibration_subset": {
+    "status": "selected_not_reviewed",
+    "cells": 30,
+    "probes": [
+      "R03",
+      "R05",
+      "R07",
+      "R08",
+      "R09",
+      "R13",
+      "R14",
+      "R15",
+      "R18",
+      "R19"
+    ],
+    "conditions": [
+      "production",
+      "pure",
+      "zero"
+    ]
+  },
+  "first_pass_triage": {
+    "status": "agent_assisted_not_human_truth",
+    "high_priority_cells": [
+      "R03/pure",
+      "R07/zero",
+      "R08/production",
+      "R08/pure",
+      "R08/zero",
+      "R09/production",
+      "R09/zero",
+      "R14/production",
+      "R14/pure",
+      "R14/zero",
+      "R19/production",
+      "R19/pure",
+      "R19/zero"
+    ],
+    "dominant_pattern": "Most selected cells look like answer quality, freshness target ambiguity, packet insufficiency, or rubric ambiguity rather than judge-bias-only cases."
+  },
+  "claim_audit": {
+    "status": "agent_assisted_not_human_truth",
+    "artifact": "results/20260421_high_priority_claim_audit.md",
+    "recurring_failure_modes": [
+      "unsupported syke.db/MEMEX persistence claims",
+      "stale or wrong thread selection for tip-state asks",
+      "storage-state confused with work-state",
+      "invented identifiers or overtrusted thread handles",
+      "uncheckable or inflated numeric counts",
+      "packet insufficiency for replay-design history",
+      "generation timeout classified separately from answer failure"
+    ]
+  },
+  "timed_exploration": {
+    "status": "completed",
+    "scope": "descriptive only; no decisions; no architecture ranking",
+    "start_time": "2026-04-21T10:54:10-07:00",
+    "artifacts": [
+      "results/20260421_20min_exploration_memo.md",
+      "results/20260421_exploration_counts.md",
+      "results/20260421_calibration_cell_matrix.md",
+      "results/20260421_rubric_diagnostic_examples.md",
+      "results/20260421_failure_pattern_taxonomy.json",
+      "results/20260421_phrase_density.json",
+      "results/20260421_length_tool_stats.md"
+    ],
+    "observations": [
+      "Exact judge agreement is stability evidence, not correctness evidence.",
+      "R08 is dominated by storage-state vs work-state confusion.",
+      "R19 has split evidence surfaces between LM Studio/model work and sandbox/replay work.",
+      "R18 and R19 share the same slice shape but ask different questions over it.",
+      "Several answer handles are extremely dense in the raw slice, supporting separation of retrieval/search surface from reconstruction quality."
+    ]
+  },
+  "critical_caveats": [
+    "Available GPT same-judge repeats are gpt-5.4-mini judge-config repeats, not clean full gpt-5.4 repeats.",
+    "Old ab07 rows are replication checks, not canonical Apr 20 architecture evidence.",
+    "OLS diagnostics are audit calculations, not final psychometrics.",
+    "Architecture ranking remains out of scope."
+  ],
+  "next_recommended_tasks": [
+    "Collect clean repeated answer generations to unblock JCB-030",
+    "Obtain human-reviewed calibration labels to unblock JCB-021",
+    "Optionally replace proxy runs for JCB-026/JCB-027/JCB-041 with explicit reruns",
+    "Keep architecture ranking out of scope until alpha/beta are cleanly estimable"
+  ],
+  "foundations_alignment": {
+    "status": "completed",
+    "source_docs": [
+      "FOUNDATIONS.md",
+      "docs/MEMEX_EVOLUTION.md"
+    ],
+    "key_gaps_identified": [
+      "provenance-lineage auditing needs explicit operational step",
+      "temporal-first normalization needs explicit operational step",
+      "construct-validity reclassification needs dedicated report lane"
+    ],
+    "artifacts": [
+      "results/20260421_foundations_memex_neuro_alignment.md",
+      "results/20260421_foundations_memex_neuro_alignment.json"
+    ]
+  },
+  "neuroscience_mapping": {
+    "status": "completed",
+    "construct_count": 8,
+    "constructs": [
+      "consolidation",
+      "interference",
+      "retrieval_cue_dependence",
+      "recency_gradient",
+      "reconsolidation",
+      "forgetting_residue_control",
+      "state_reinstatement_continuity",
+      "precision_gating"
+    ],
+    "artifacts": [
+      "results/20260421_foundations_memex_neuro_alignment.md",
+      "results/20260421_foundations_memex_neuro_alignment.json"
+    ]
+  },
+  "axis_taxonomy": {
+    "status": "completed",
+    "artifact": "results/20260421_task_axis_taxonomy.md",
+    "rule": "Recall axis and beyond-recall axes are measured separately before any aggregation."
+  },
+  "temporal_first_audit": {
+    "status": "completed_first_pass",
+    "artifact": "results/20260421_temporal_disambiguation_audit.md",
+    "temporal_flagged_observations": 11,
+    "audited_observations": 32
+  },
+  "provenance_lineage_audit": {
+    "status": "completed_first_pass",
+    "artifacts": [
+      "results/20260421_provenance_lineage_audit.md",
+      "results/20260421_claim_lineage_matrix.csv"
+    ],
+    "audited_answer_rows": 32,
+    "template_empty_claim_audit": {
+      "numerator": 60,
+      "denominator": 60
+    }
+  },
+  "retrieval_answer_split": {
+    "status": "completed_first_pass",
+    "artifact": "results/20260421_retrieval_vs_answer_split.md",
+    "observation_count": 60,
+    "joined_with_lineage_count": 32
+  },
+  "end_to_end_batch": {
+    "status": "completed",
+    "completed_tasks": [
+      "JCB-019",
+      "JCB-022",
+      "JCB-023",
+      "JCB-026",
+      "JCB-027",
+      "JCB-028",
+      "JCB-029",
+      "JCB-033",
+      "JCB-037",
+      "JCB-038",
+      "JCB-041",
+      "JCB-051",
+      "JCB-052",
+      "JCB-054",
+      "JCB-057",
+      "JCB-058",
+      "JCB-059",
+      "JCB-060"
+    ],
+    "proxy_completed_tasks": [
+      "JCB-026",
+      "JCB-027",
+      "JCB-041",
+      "JCB-051"
+    ],
+    "direct_completed_tasks": [
+      "JCB-019",
+      "JCB-022",
+      "JCB-023",
+      "JCB-028",
+      "JCB-029",
+      "JCB-033",
+      "JCB-037",
+      "JCB-038",
+      "JCB-052",
+      "JCB-054",
+      "JCB-057",
+      "JCB-058",
+      "JCB-059",
+      "JCB-060"
+    ],
+    "open_tasks": {
+      "blocked": [
+        "JCB-021"
+      ],
+      "deferred": [
+        "JCB-018",
+        "JCB-024",
+        "JCB-025"
+      ],
+      "requires_new_generations": [
+        "JCB-030"
+      ],
+      "continuous_maintenance": [
+        "JCB-043",
+        "JCB-044",
+        "JCB-045"
+      ]
+    }
+  },
+  "generation_variance_readiness": {
+    "status": "blocked",
+    "artifact": "results/20260421_generation_variance_readiness_audit.md"
+  }
+}

@@ -1,0 +1,200 @@
+{
+  "version": 1,
+  "created_at": "2026-04-21",
+  "source_files": [
+    "../NE_1_3_REAL_ASK_EVAL_SET.yaml",
+    "../ASK_PRESSURE_MATRIX_NE13_15D_20260419.tsv"
+  ],
+  "scope": "NE-1.3 R01-R19 canonical 15-day judge-calibration slice",
+  "labels_are": "working labels for measurement calibration; revise after human review",
+  "probes": [
+    {
+      "probe_id": "R01",
+      "target_slice": "tip",
+      "probe_types": ["state_now", "thread_map"],
+      "criterion_referenceability": "high",
+      "expected_evidence_surfaces": ["slice", "memex_snapshot", "session_transcript"],
+      "ambiguity_notes": "Active/latest can split fresh tip from broader current frame.",
+      "retrieval_character": "search-like"
+    },
+    {
+      "probe_id": "R02",
+      "target_slice": "historical",
+      "probe_types": ["time_window", "quant", "committed_state"],
+      "criterion_referenceability": "high",
+      "expected_evidence_surfaces": ["slice", "local_git_anchor", "commit_log"],
+      "ambiguity_notes": "Exhaustive list can miss boundary items; date-window leaks matter.",
+      "retrieval_character": "search-like"
+    },
+    {
+      "probe_id": "R03",
+      "target_slice": "both",
+      "probe_types": ["last_thread", "concept_recall", "next_steps"],
+      "criterion_referenceability": "medium",
+      "expected_evidence_surfaces": ["slice", "current_status_notes", "git_thread_history"],
+      "ambiguity_notes": "Mixes last-thread recovery with status and next-step interpretation.",
+      "retrieval_character": "search-like"
+    },
+    {
+      "probe_id": "R04",
+      "target_slice": "historical",
+      "probe_types": ["time_window", "quant", "committed_state"],
+      "criterion_referenceability": "high",
+      "expected_evidence_surfaces": ["slice", "day_log", "session_transcript", "git_anchor"],
+      "ambiguity_notes": "Today PST is time-anchor sensitive.",
+      "retrieval_character": "search-like"
+    },
+    {
+      "probe_id": "R05",
+      "target_slice": "landscape",
+      "probe_types": ["thread_map", "quant", "concept_recall"],
+      "criterion_referenceability": "medium",
+      "expected_evidence_surfaces": ["memex_thread_board", "slice", "issue_bug_list", "git_anchor"],
+      "ambiguity_notes": "Prioritization and completeness are partly subjective; stale-memex risk.",
+      "retrieval_character": "search-like"
+    },
+    {
+      "probe_id": "R06",
+      "target_slice": "both",
+      "probe_types": ["last_thread", "next_steps", "decision"],
+      "criterion_referenceability": "medium",
+      "expected_evidence_surfaces": ["slice", "transcript", "decision_trail", "git_issue_notes"],
+      "ambiguity_notes": "Pulls different anchors: last work, remaining work, recent decisions.",
+      "retrieval_character": "search-like"
+    },
+    {
+      "probe_id": "R07",
+      "target_slice": "historical",
+      "probe_types": ["time_window", "cross_source", "delta"],
+      "criterion_referenceability": "high",
+      "expected_evidence_surfaces": ["cross_harness_transcripts", "slice", "timeline_notes", "git_anchor"],
+      "ambiguity_notes": "Source-authority ordering across surfaces is the main ambiguity.",
+      "retrieval_character": "search-like"
+    },
+    {
+      "probe_id": "R08",
+      "target_slice": "tip",
+      "probe_types": ["state_now"],
+      "criterion_referenceability": "low",
+      "expected_evidence_surfaces": ["memex_snapshot", "immediate_slice"],
+      "ambiguity_notes": "No named handle; referent and completeness are underspecified.",
+      "retrieval_character": "reconstruction-like"
+    },
+    {
+      "probe_id": "R09",
+      "target_slice": "landscape",
+      "probe_types": ["thread_map", "state_now", "delta"],
+      "criterion_referenceability": "medium",
+      "expected_evidence_surfaces": ["thread_map", "memex", "slice", "session_transcript"],
+      "ambiguity_notes": "Updated map can flatten numbered-thread structure or invent taxonomy.",
+      "retrieval_character": "search-like"
+    },
+    {
+      "probe_id": "R10",
+      "target_slice": "landscape",
+      "probe_types": ["concept_recall"],
+      "criterion_referenceability": "medium",
+      "expected_evidence_surfaces": ["research_notes", "docs", "slice", "memex_study_summary"],
+      "ambiguity_notes": "Retrospective study summary vs current field landscape is borderline.",
+      "retrieval_character": "search-like"
+    },
+    {
+      "probe_id": "R11",
+      "target_slice": "historical",
+      "probe_types": ["reconstruction"],
+      "criterion_referenceability": "low",
+      "expected_evidence_surfaces": ["claude_code_slice", "session_jsonl", "design_notes"],
+      "ambiguity_notes": "Aspirational design recall; not a live-state ask.",
+      "retrieval_character": "reconstruction-like"
+    },
+    {
+      "probe_id": "R12",
+      "target_slice": "tip",
+      "probe_types": ["object_continuity", "temporal_update"],
+      "criterion_referenceability": "medium",
+      "expected_evidence_surfaces": ["claude_code_slice", "replay_time_state", "memex_open_items"],
+      "ambiguity_notes": "Depends on whether Phase 2 next steps were captured as open items.",
+      "retrieval_character": "search-like"
+    },
+    {
+      "probe_id": "R13",
+      "target_slice": "historical",
+      "probe_types": ["reconstruction", "temporal_update"],
+      "criterion_referenceability": "low",
+      "expected_evidence_surfaces": ["claude_code_slice", "session_jsonl", "concept_history_notes"],
+      "ambiguity_notes": "Narrative evolution, no single tip anchor.",
+      "retrieval_character": "reconstruction-like"
+    },
+    {
+      "probe_id": "R14",
+      "target_slice": "tip",
+      "probe_types": ["search", "temporal_update"],
+      "criterion_referenceability": "high",
+      "expected_evidence_surfaces": ["opencode_session_log", "replay_time_state", "latest_session_close"],
+      "ambiguity_notes": "Last session can be read multiple ways, but matrix resolves it to latest session close.",
+      "retrieval_character": "search-like"
+    },
+    {
+      "probe_id": "R15",
+      "target_slice": "tip",
+      "probe_types": ["object_continuity", "search"],
+      "criterion_referenceability": "high",
+      "expected_evidence_surfaces": ["opencode_session_log", "run_traces", "test_thread_transcript"],
+      "ambiguity_notes": "Canonical previous thread must be selected, but prompt is fairly direct.",
+      "retrieval_character": "search-like"
+    },
+    {
+      "probe_id": "R16",
+      "target_slice": "landscape",
+      "probe_types": ["reconstruction", "temporal_update"],
+      "criterion_referenceability": "medium",
+      "expected_evidence_surfaces": ["claude_code_slice", "day_bounded_state", "git_anchor"],
+      "ambiguity_notes": "Bounded by yesterday plus topic filter; can miss adjacent work.",
+      "retrieval_character": "reconstruction-like"
+    },
+    {
+      "probe_id": "R17",
+      "target_slice": "landscape",
+      "probe_types": ["reconstruction", "cross_surface", "temporal_update"],
+      "criterion_referenceability": "medium",
+      "expected_evidence_surfaces": ["multi_surface_session_logs", "run_traces", "git_anchor", "memex"],
+      "ambiguity_notes": "Broad one-week sweep across all platforms invites summarization drift.",
+      "retrieval_character": "reconstruction-like"
+    },
+    {
+      "probe_id": "R18",
+      "target_slice": "historical",
+      "probe_types": ["reconstruction", "committed_truth"],
+      "criterion_referenceability": "low",
+      "expected_evidence_surfaces": ["claude_code_slice", "design_docs", "dataset_config", "git_anchor"],
+      "ambiguity_notes": "Design-doc recall; no operative-state anchor.",
+      "retrieval_character": "reconstruction-like"
+    },
+    {
+      "probe_id": "R19",
+      "target_slice": "tip",
+      "probe_types": ["search", "object_continuity", "temporal_update"],
+      "criterion_referenceability": "medium",
+      "expected_evidence_surfaces": ["claude_code_slice", "replay_time_state", "git_anchor", "session_jsonl"],
+      "ambiguity_notes": "Surface-agnostic latest-work ask has documented tie risk.",
+      "retrieval_character": "search-like"
+    }
+  ],
+  "summary": {
+    "target_slice_counts": {
+      "tip": 6,
+      "historical": 6,
+      "both": 2,
+      "landscape": 5
+    },
+    "criterion_referenceability_counts": {
+      "high": 6,
+      "medium": 9,
+      "low": 4
+    },
+    "retrieval_character_counts": {
+      "search-like": 13,
+      "reconstruction-like": 6
+    }
+  }
+}

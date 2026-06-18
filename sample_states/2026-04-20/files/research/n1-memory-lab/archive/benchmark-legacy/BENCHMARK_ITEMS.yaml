@@ -1,0 +1,985 @@
+version: v3
+benchmark: N1-Coherence
+principle: probes derived from real traces, not generated from templates
+
+datasets:
+  - dataset_id: NE-1.1
+    window: "2026-01-09 -> 2026-02-08"
+  - dataset_id: NE-1.2
+    window: "2026-02-09 -> 2026-03-08"
+  - dataset_id: NE-1.3
+    window: "2026-03-09 -> 2026-04-08"
+
+items:
+  # ── NE-1.1 probes (12 probes, P43 moved to cross-dataset) ──────────
+
+  - probe_id: P03
+    dataset_id: NE-1.1
+    reference_dt: 2025-12-24
+    family: decision-archaeology
+    source: S01
+    prompt_text: "What was the actual push around the golden set / benchmark work in this period?"
+    must_recover:
+      - benchmark-related decision trace
+      - underlying decision pressure
+      - codex activity context
+    likely_failures:
+      - summarizes repo work but misses decision pressure
+    observer_provenance:
+      - NE_1_1_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P03
+
+  - probe_id: P04
+    dataset_id: NE-1.1
+    reference_dt: 2026-01-29
+    family: multi-agent-reconstruction
+    source: S02
+    prompt_text: "What was happening across all those parallel sessions that day, and what was the shared objective?"
+    must_recover:
+      - multi-session reconstruction
+      - shared objective across agents
+      - coherent line of work
+    likely_failures:
+      - reports one session well but loses global thread
+    observer_provenance:
+      - NE_1_1_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P04
+
+  - probe_id: P05
+    dataset_id: NE-1.1
+    reference_dt: 2026-01-29
+    family: architecture-comparison-retrieval
+    source: S02
+    prompt_text: "Which competitor or architecture constraints were being investigated across those research threads?"
+    must_recover:
+      - distributed research lanes
+      - competitor or architecture constraints
+      - targeted subquestions
+    likely_failures:
+      - collapses many subquestions into one vague competitor summary
+    observer_provenance:
+      - NE_1_1_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P05
+
+  - probe_id: P36
+    dataset_id: NE-1.1
+    reference_dt: 2026-02-08
+    family: uncertainty-calibration
+    source: S02 + S06
+    prompt_text: "Where are the gaps in my work history from January through March? Which periods are well-recorded and which are thin?"
+    must_recover:
+      - calibrated confidence levels
+      - identification of thin vs well-recorded periods
+      - uncertainty boundaries
+    likely_failures:
+      - presents smooth overconfident narrative where evidence is thin
+    observer_provenance:
+      - NE_1_1_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P36
+
+  - probe_id: P51
+    dataset_id: NE-1.1
+    reference_dt: 2026-01-30
+    family: evidence-provenance
+    source: NE11-W1
+    prompt_text: "Which claims in the eval report from late January are directly supported by artifacts, and which are inference?"
+    must_recover:
+      - distinction between evidence and inference
+      - artifact-backed claims
+      - unsupported inferences
+    likely_failures:
+      - treats all claims as equally supported
+    observer_provenance:
+      - NE_1_1_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P51
+
+  - probe_id: P52
+    dataset_id: NE-1.1
+    reference_dt: 2026-02-03
+    family: resumption-after-gap
+    source: NE11-W2
+    prompt_text: "What was the last completed eval run, and what is the current live task?"
+    must_recover:
+      - last completed run identity
+      - current live task
+      - distinction between completed and in-progress
+    likely_failures:
+      - confuses completed runs with in-progress runs
+    observer_provenance:
+      - NE_1_1_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P52
+
+  - probe_id: P53
+    dataset_id: NE-1.1
+    reference_dt: 2026-02-03
+    family: priority-extraction
+    source: NE11-W2
+    prompt_text: "Which finding from the release-eval review is highest severity, and what artifact supports it?"
+    must_recover:
+      - severity ranking of findings
+      - highest-severity finding
+      - supporting artifact
+    likely_failures:
+      - lists findings without ranking
+      - picks recency over severity
+    observer_provenance:
+      - NE_1_1_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P53
+
+  - probe_id: P54
+    dataset_id: NE-1.1
+    reference_dt: 2026-02-05
+    family: architecture-boundary
+    source: NE11-W3
+    prompt_text: "What is the difference between the eval harness codepaths and the production codepaths? Where do they diverge?"
+    must_recover:
+      - eval harness codepaths
+      - production codepaths
+      - divergence points
+    likely_failures:
+      - collapses eval and production into one description
+    observer_provenance:
+      - NE_1_1_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P54
+
+  - probe_id: P55
+    dataset_id: NE-1.1
+    reference_dt: 2026-02-08
+    family: resumption-after-gap
+    source: NE11-W4
+    prompt_text: "Figure out what we were working on last session and what the current state is."
+    must_recover:
+      - specific working state from last session
+      - current state
+      - session trace recovery
+    likely_failures:
+      - gives generic summary instead of specific working state
+    observer_provenance:
+      - NE_1_1_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P55
+
+  - probe_id: P56
+    dataset_id: NE-1.1
+    reference_dt: 2026-02-08
+    family: causal-diagnosis
+    source: NE11-W4
+    prompt_text: "Build a causal model separating prompt failure, tool-loop failure, and data failure in the BEAM regressions."
+    must_recover:
+      - prompt failure causes
+      - tool-loop failure causes
+      - data failure causes
+    likely_failures:
+      - attributes all failures to one cause
+      - gives vague "it's complex" answer
+    observer_provenance:
+      - NE_1_1_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P56
+
+  - probe_id: P57
+    dataset_id: NE-1.1
+    reference_dt: 2026-02-08
+    family: priority-extraction
+    source: NE11-W4
+    prompt_text: "What is the smallest next experiment that would reduce uncertainty the most?"
+    must_recover:
+      - most informative experiment
+      - uncertainty reduction reasoning
+      - actionable next step
+    likely_failures:
+      - suggests largest or most recent experiment instead of most informative
+    observer_provenance:
+      - NE_1_1_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P57
+
+  - probe_id: P58
+    dataset_id: NE-1.1
+    reference_dt: 2026-02-08
+    family: evidence-provenance
+    source: NE11-W1+W4
+    prompt_text: "Reconstruct the minimum evidence chain needed to defend the eval report to a skeptical reviewer."
+    must_recover:
+      - defensible evidence chain
+      - artifact tracing for claims
+      - distributed source linkage
+    likely_failures:
+      - restates claims without tracing to artifacts
+    observer_provenance:
+      - NE_1_1_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P58
+
+  # ── NE-1.2 probes (20 probes) ──────────────────────────────────────
+
+  - probe_id: P01
+    dataset_id: NE-1.2
+    status: blocked-deadzone
+    reference_dt: 2026-02-23
+    family: resumption-after-gap
+    source: S03
+    prompt_text: "I just came back. What happened since I left, and what plan were we already using?"
+    must_recover:
+      - active thread
+      - established plan
+      - next step
+    likely_failures:
+      - latest-status only
+      - no plan recovery
+    observer_provenance:
+      - NE_1_2_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P01
+
+  - probe_id: P02
+    dataset_id: NE-1.2
+    status: blocked-deadzone
+    reference_dt: 2026-02-23
+    family: forgotten-analysis-recovery
+    source: S03
+    prompt_text: "You forgot we already analyzed this with data. What earlier analysis are you missing?"
+    must_recover:
+      - prior evidence
+      - earlier data-backed reasoning
+      - specific analysis reference
+    likely_failures:
+      - paraphrases issue generically without recovering earlier data-backed reasoning
+    observer_provenance:
+      - NE_1_2_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P02
+
+  - probe_id: P06
+    dataset_id: NE-1.2
+    status: blocked-deadzone
+    reference_dt: 2026-02-26
+    family: practical-value / doc-hygiene
+    source: S04
+    prompt_text: "Why did the memex-evolution doc matter, and what operational value was it trying to unlock?"
+    must_recover:
+      - practical-value interpretation
+      - reduced confusion and re-explanation
+      - operational value
+    likely_failures:
+      - answers with "it documented snapshots"
+      - misses why it reduces confusion
+    observer_provenance:
+      - NE_1_2_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P06
+
+  - probe_id: P07
+    dataset_id: NE-1.2
+    status: blocked-deadzone
+    reference_dt: 2026-02-26
+    family: latent-constraint-retrieval
+    source: S04
+    prompt_text: "What was the real goal behind requesting the memex-evolution doc?"
+    must_recover:
+      - implicit need for canonicalization
+      - day-by-day legibility
+      - underlying constraint
+    likely_failures:
+      - only reports doc request literally
+    observer_provenance:
+      - NE_1_2_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P07
+
+  - probe_id: P08
+    dataset_id: NE-1.2
+    status: blocked-deadzone
+    reference_dt: 2026-03-01
+    family: source-migration
+    source: S05
+    prompt_text: "What changed in the memory situation when Hermes entered the trace?"
+    must_recover:
+      - source arrival as architecture signal
+      - new memory regime
+      - change in continuity meaning
+    likely_failures:
+      - treats Hermes as another source row rather than new memory regime
+    observer_provenance:
+      - NE_1_2_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P08
+
+  - probe_id: P09
+    dataset_id: NE-1.2
+    status: blocked-deadzone
+    reference_dt: 2026-03-01
+    family: routing-under-noise
+    source: S05
+    prompt_text: "What memory-layer failures were observed across harnesses in late February?"
+    must_recover:
+      - architecture-aware routing
+      - specific failures per harness
+      - slice-level properties
+    likely_failures:
+      - gives generic answer detached from slice properties
+    observer_provenance:
+      - NE_1_2_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P09
+
+  - probe_id: P14
+    dataset_id: NE-1.2
+    status: blocked-deadzone
+    reference_dt: 2026-02-26
+    family: search-entropy-reduction
+    source: S03 + S04
+    prompt_text: "Around late February, what was the single most important artifact that would help resume work without searching?"
+    must_recover:
+      - single high-leverage object
+      - narrowed search space
+      - resumption-ready artifact
+    likely_failures:
+      - dumps long recap instead of surfacing one high-leverage object
+    observer_provenance:
+      - NE_1_2_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P14
+
+  - probe_id: P16
+    dataset_id: NE-1.2
+    status: blocked-deadzone
+    reference_dt: 2026-02-23
+    family: contradiction-detection
+    source: S03
+    prompt_text: "On February 23, I'd already discussed a plan with evidence. Did the system lose track of it later that day?"
+    must_recover:
+      - prior plan with evidence
+      - contradiction with already-discussed evidence
+      - drift detection
+    likely_failures:
+      - restates current answer without checking for conflict with prior analysis
+    observer_provenance:
+      - NE_1_2_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P16
+
+  - probe_id: P17a
+    dataset_id: NE-1.2
+    status: blocked-deadzone
+    reference_dt: 2026-02-26
+    family: tool-chain-explanation
+    source: S04
+    prompt_text: "What was the replay work around Feb 25-26?"
+    must_recover:
+      - multi-step workflow reconstruction
+      - pipeline explanation
+      - artifact connections
+    likely_failures:
+      - lists files or actions separately without explaining the pipeline
+    observer_provenance:
+      - NE_1_2_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P17a
+
+  - probe_id: P17b
+    dataset_id: NE-1.2
+    status: blocked-deadzone
+    reference_dt: 2026-02-26
+    family: tool-chain-explanation
+    source: S04
+    prompt_text: "How did memex evolution connect to routing-table work?"
+    must_recover:
+      - connection between memex evolution and routing-table
+      - workflow pipeline
+      - artifact relationships
+    likely_failures:
+      - lists files or actions separately without explaining the pipeline
+    observer_provenance:
+      - NE_1_2_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P17b
+
+  - probe_id: P18
+    dataset_id: NE-1.2
+    status: blocked-deadzone
+    reference_dt: 2026-02-26
+    family: canonicalization-retrieval
+    source: S04
+    prompt_text: "If the user wanted one readable canonical place to understand that window, what object should the system point to first and why?"
+    must_recover:
+      - canonical artifact identity
+      - why it supersedes others
+      - route-setting object
+    likely_failures:
+      - gives broad summary of everything instead of selecting one route-setting object
+    observer_provenance:
+      - NE_1_2_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P18
+
+  - probe_id: P19
+    dataset_id: NE-1.2
+    status: blocked-deadzone
+    reference_dt: 2026-02-26
+    family: coherence-maintenance
+    source: S04 + PRACTICAL_VALUE
+    prompt_text: "On February 25-26, you updated the memex eight times and ran a coherence audit. Was this cleanup, or was the system's memory drifting from reality?"
+    must_recover:
+      - recognition of active coherence repair
+      - decision alignment and naming cleanup
+      - route maintenance as memory work
+    likely_failures:
+      - treats slice as passive documentation rather than active coherence repair
+    observer_provenance:
+      - NE_1_2_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P19
+
+  - probe_id: P20
+    dataset_id: NE-1.2
+    status: blocked-deadzone
+    reference_dt: 2026-03-01
+    family: architecture-trust-boundary
+    source: S05
+    prompt_text: "When Hermes joined the workflow in late February, what information could only be recovered by looking across tools, not from Hermes alone?"
+    must_recover:
+      - cross-tool information
+      - single-layer scope limitations
+      - release/research overlap across tools
+    likely_failures:
+      - over-trusts newest provider memory surface
+      - ignores cross-tool release/research overlap
+    observer_provenance:
+      - NE_1_2_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P20
+
+  - probe_id: P21
+    dataset_id: NE-1.2
+    status: blocked-deadzone
+    reference_dt: 2026-03-01
+    family: scope-assumption-trap
+    source: S05
+    prompt_text: "If you only had Claude Code's view of the hermes-agent project in early March, you'd think it was stalled. What does the Hermes trace show instead?"
+    must_recover:
+      - hidden scope error
+      - Hermes trace evidence of activity
+      - cross-tool evaluation target shift
+    likely_failures:
+      - describes period accurately inside one tool but misses evaluation target change across tools
+    observer_provenance:
+      - NE_1_2_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P21
+
+  - probe_id: P22
+    dataset_id: NE-1.2
+    status: blocked-deadzone
+    reference_dt: 2026-03-01
+    family: release-vs-research-disentangling
+    source: S05
+    prompt_text: "Separate the release/branch work from the memory-architecture research work in this window. Which threads belonged to which lane?"
+    must_recover:
+      - release/branch work threads
+      - memory-architecture research threads
+      - lane assignments
+    likely_failures:
+      - merges release chores and architecture investigation into one generic progress report
+    observer_provenance:
+      - NE_1_2_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P22
+
+  - probe_id: P25
+    dataset_id: NE-1.2
+    status: blocked-deadzone
+    reference_dt: 2026-03-08
+    family: routing-correction-under-noise
+    source: S05 + S06
+    prompt_text: "In late February and early March, I was juggling memory architecture, release prep, and research. Which one was actually driving the others?"
+    must_recover:
+      - primary driver identification
+      - relationship between concurrent lanes
+      - routing discipline
+    likely_failures:
+      - answers everything at once
+      - picks loudest recent thread instead of real driver
+    observer_provenance:
+      - NE_1_2_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P25
+
+  - probe_id: P33
+    dataset_id: NE-1.2
+    status: blocked-deadzone
+    reference_dt: 2026-02-26
+    family: timeline-anchoring
+    source: S03 + S04
+    prompt_text: "Between February 23 and February 25-26, did the work change direction? What was the shift?"
+    must_recover:
+      - temporal anchoring
+      - phase separation across slices
+      - before/after shift
+    likely_failures:
+      - merges windows into one generic "memory work" period
+      - loses before/after shift
+    observer_provenance:
+      - NE_1_2_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P33
+
+  - probe_id: P35
+    dataset_id: NE-1.2
+    status: blocked-deadzone
+    reference_dt: 2026-03-08
+    family: evidence-provenance
+    source: S03 + S07
+    prompt_text: "Find a specific case between February and March where earlier analysis was available in the traces but was not surfaced when needed."
+    must_recover:
+      - specific unsurfaced analysis case
+      - recoverable evidence source
+      - provenance-aware recall
+    likely_failures:
+      - says "we discussed this before" without grounding in recoverable evidence source
+    observer_provenance:
+      - NE_1_2_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P35
+
+  - probe_id: P41
+    dataset_id: NE-1.2
+    status: blocked-deadzone
+    reference_dt: 2026-03-01
+    family: external-constraint-carryover
+    source: S05 + rare-source traces
+    prompt_text: "Which external constraints or platform realities entered during this window and should keep shaping later decisions even after the local task changes?"
+    must_recover:
+      - external constraints that entered
+      - carry-forward requirements
+      - constraint outliving the originating task
+    likely_failures:
+      - remembers the task but drops the constraint once the visible surface changes
+    observer_provenance:
+      - NE_1_2_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P41
+
+  - probe_id: P47
+    dataset_id: NE-1.2
+    status: blocked-deadzone
+    reference_dt: 2026-02-23
+    family: contradiction-repair
+    source: S03 + contradiction cases surfaced in P16
+    prompt_text: "On February 23, the system drifted away from an earlier plan. What specifically should have been preserved?"
+    must_recover:
+      - earlier evidence and plan
+      - what should have been preserved
+      - repair action (not just admission)
+    likely_failures:
+      - apologizes vaguely or doubles down
+      - fails to rethread earlier evidence and restored plan
+    observer_provenance:
+      - NE_1_2_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P47
+
+  # ── NE-1.3 probes (14 probes) ──────────────────────────────────────
+
+  - probe_id: P10
+    dataset_id: NE-1.3
+    reference_dt: 2026-03-14
+    family: cross-harness-recall
+    source: S07
+    prompt_text: "Map the threads we were trying to build yesterday and today across the different harnesses."
+    must_recover:
+      - cross-harness thread map
+      - cross-day merge
+      - same-user continuity
+    likely_failures:
+      - answers from one harness only
+      - loses cross-day merge
+    observer_provenance:
+      - NE_1_3_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P10
+
+  - probe_id: P11
+    dataset_id: NE-1.3
+    reference_dt: 2026-03-14
+    family: contract-preservation
+    source: S07
+    prompt_text: "On March 13-14 you asked the system to maintain many threads and keep going autonomously. What specifically was promised, and did it deliver?"
+    must_recover:
+      - implied contract to remember
+      - obligation to reorganize active work graph
+      - delivery assessment
+    likely_failures:
+      - answers with content not obligation
+    observer_provenance:
+      - NE_1_3_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P11
+
+  - probe_id: P13
+    dataset_id: NE-1.3
+    reference_dt: 2026-03-16
+    family: burst-carryover
+    source: S08
+    prompt_text: "A lot happened around March 14. What's still worth tracking and what can I ignore now?"
+    must_recover:
+      - post-spike stabilization
+      - currentness assessment
+      - triage of what to track vs ignore
+    likely_failures:
+      - over-preserves everything
+      - over-prunes everything
+    observer_provenance:
+      - NE_1_3_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P13
+
+  - probe_id: P23
+    dataset_id: NE-1.3
+    reference_dt: 2026-03-12
+    family: medium-density-coherence
+    source: S06
+    prompt_text: "What was I actually working on during March 7-12, across all my tools? Was there a pattern forming?"
+    must_recover:
+      - buildup-phase coherence
+      - pattern identification across tools
+      - setup arc before burst
+    likely_failures:
+      - ignores corridor and jumps to largest burst day
+      - loses setup arc
+    observer_provenance:
+      - NE_1_3_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P23
+
+  - probe_id: P26
+    dataset_id: NE-1.3
+    reference_dt: 2026-03-14
+    family: cross-harness-disagreement-reconciliation
+    source: S07
+    prompt_text: "On March 13-14, I was using both claude-code and opencode. What was each one doing, and were they duplicating work or covering different ground?"
+    must_recover:
+      - per-harness activity
+      - duplication vs complementary assessment
+      - merged work graph
+    likely_failures:
+      - picks one harness as authoritative
+      - silently discards the other harness threads
+    observer_provenance:
+      - NE_1_3_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P26
+
+  - probe_id: P27
+    dataset_id: NE-1.3
+    reference_dt: 2026-03-16
+    family: live-thread-naming
+    source: S07 + S08
+    prompt_text: "Name the threads that deserved to stay live after the Mar 14 burst rather than becoming archived residue."
+    must_recover:
+      - concrete thread names or objectives
+      - live vs archived distinction
+      - carry-forward threads
+    likely_failures:
+      - summarizes in vague categories
+      - loses concrete thread names
+    observer_provenance:
+      - NE_1_3_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P27
+
+  - probe_id: P28
+    dataset_id: NE-1.3
+    reference_dt: 2026-03-14
+    family: promise-carry-forward
+    source: S07
+    prompt_text: "On March 13 you asked the system to remember all the threads from yesterday and map the timeline. What threads should it have recovered, and which did it actually surface?"
+    must_recover:
+      - expected thread recovery list
+      - actually surfaced threads
+      - gap between promised and delivered
+    likely_failures:
+      - repeats timeline request but never operationalizes successful carry-forward
+    observer_provenance:
+      - NE_1_3_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P28
+
+  - probe_id: P30
+    dataset_id: NE-1.3
+    reference_dt: 2026-03-16
+    family: post-spike-compaction
+    source: S08
+    prompt_text: "What should a good memory system compress from the Mar 14 spike into a compact handoff for Mar 15-16, and what should it leave out?"
+    must_recover:
+      - selective compaction criteria
+      - usable restart artifact
+      - what to keep vs leave out
+    likely_failures:
+      - reproduces bloated recap
+      - compresses so aggressively that live issues disappear
+    observer_provenance:
+      - NE_1_3_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P30
+
+  - probe_id: P31
+    dataset_id: NE-1.3
+    reference_dt: 2026-03-16
+    family: stale-summary-rejection
+    source: S08
+    prompt_text: "If I only read my March 14 summary, what would I get wrong about the state of things on March 16?"
+    must_recover:
+      - staleness of prior summary
+      - shifted live priorities
+      - what the summary gets wrong
+    likely_failures:
+      - treats biggest prior summary as permanently canonical
+    observer_provenance:
+      - NE_1_3_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P31
+
+  - probe_id: P44
+    dataset_id: NE-1.3
+    reference_dt: 2026-03-16
+    family: priority-extraction
+    source: S08
+    prompt_text: "Out of everything alive after the Mar 14 spike, what were the top three priorities that most deserved attention next?"
+    must_recover:
+      - actionable priority ranking
+      - top three items
+      - importance over recency
+    likely_failures:
+      - returns large unordered list
+      - confuses importance with recency
+    observer_provenance:
+      - NE_1_3_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P44
+
+  - probe_id: P45
+    dataset_id: NE-1.3
+    reference_dt: 2026-03-16
+    family: abandoned-thread-detection
+    source: S06 + S08
+    prompt_text: "What was I working on in early-to-mid March that I ended up dropping? Which threads died?"
+    must_recover:
+      - unfinished threads
+      - distinction between unfinished and still-relevant
+      - dropped thread identification
+    likely_failures:
+      - keeps every unresolved thread in live set forever
+    observer_provenance:
+      - NE_1_3_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P45
+
+  - probe_id: P59
+    dataset_id: NE-1.3
+    reference_dt: 2026-03-16
+    family: system-health
+    source: S07 + S08
+    prompt_text: "After a large burst of work, did the memex actually advance with new information, or did synthesis stall?"
+    must_recover:
+      - synthesis run status
+      - memex advancement assessment
+      - detection of stalled learning
+    likely_failures:
+      - reports memex content as current without checking if synthesis actually ran
+    observer_provenance:
+      - NE_1_3_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P59
+
+  - probe_id: P60
+    dataset_id: NE-1.3
+    reference_dt: 2026-03-14
+    family: reconstruction-completeness
+    source: S07
+    prompt_text: "Reconstruct the full timeline of March 13-14 across all tools. Is the picture complete or are there gaps?"
+    must_recover:
+      - cross-tool full timeline
+      - completeness assessment
+      - gap identification
+    likely_failures:
+      - returns partial timeline from one tool and presents it as complete
+    observer_provenance:
+      - NE_1_3_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P60
+
+  - probe_id: P61
+    dataset_id: NE-1.3
+    reference_dt: 2026-03-16
+    family: compaction-quality
+    source: S08
+    prompt_text: "The March 14 spike generated massive amounts of trace data. What survived into the next day's working memory, and was anything important lost?"
+    must_recover:
+      - what survived compaction
+      - what was lost
+      - signal preservation assessment
+    likely_failures:
+      - keeps everything (no compaction)
+      - drops too aggressively (loses signal)
+    observer_provenance:
+      - NE_1_3_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P61
+
+  # ── Cross-dataset probes (10 probes) ───────────────────────────────
+
+  - probe_id: P24
+    dataset_id: cross-dataset
+    primary_dataset_id: NE-1.3
+    reference_dt: 2026-03-12
+    family: harness-braid-explanation
+    source: S06
+    prompt_text: "How were opencode and claude-code relating to each other in that Mar 7-12 period: duplicate effort, handoff, or complementary lanes?"
+    must_recover:
+      - harness relationship explanation
+      - duplicate vs handoff vs complementary
+      - cross-trace coherence
+    likely_failures:
+      - collapses harnesses together
+      - describes them as unrelated streams
+    observer_provenance:
+      - NE_1_2_EVAL_CANDIDATES_V1.md
+      - NE_1_3_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P24
+
+  - probe_id: P29
+    dataset_id: cross-dataset
+    primary_dataset_id: NE-1.3
+    status: needs-cross-bundle-merge
+    reference_dt: 2026-03-16
+    family: rare-event-recovery
+    source: S04 + S07 + S08
+    prompt_text: "Which low-volume sources in these overlap-heavy slices were easy to flatten away but still changed the right interpretation of the work?"
+    must_recover:
+      - rare but high-signal traces
+      - manual notes or github activity
+      - interpretation-changing evidence
+    likely_failures:
+      - ignores small-source traces because numerically tiny
+    observer_provenance:
+      - NE_1_2_EVAL_CANDIDATES_V1.md
+      - NE_1_3_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P29
+
+  - probe_id: P34
+    dataset_id: cross-dataset
+    primary_dataset_id: NE-1.3
+    status: needs-cross-bundle-merge
+    reference_dt: 2026-03-16
+    family: supersession-tracking
+    source: S04 + S08
+    prompt_text: "Between late February and mid March, which documents or plans got replaced? What took their place?"
+    must_recover:
+      - obsolete documents or plans
+      - replacement pointers
+      - supersession chain
+    likely_failures:
+      - preserves every prior artifact as equally live
+    observer_provenance:
+      - NE_1_2_EVAL_CANDIDATES_V1.md
+      - NE_1_3_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P34
+
+  - probe_id: P38
+    dataset_id: cross-dataset
+    primary_dataset_id: NE-1.3
+    status: needs-cross-bundle-merge
+    reference_dt: 2026-03-14
+    family: user-intent-inference
+    source: S04 + S07
+    prompt_text: "When I kept asking about memory stuff in February and March, what was I actually trying to get to? What was the real goal?"
+    must_recover:
+      - latent objective recovery
+      - stable user preference
+      - real goal beneath surface requests
+    likely_failures:
+      - treats each request literally
+      - misses stable user preference underneath
+    observer_provenance:
+      - NE_1_2_EVAL_CANDIDATES_V1.md
+      - NE_1_3_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P38
+
+  - probe_id: P39
+    dataset_id: cross-dataset
+    primary_dataset_id: NE-1.3
+    status: needs-cross-bundle-merge
+    reference_dt: 2026-03-16
+    family: plan-vs-status-separation
+    source: S03 + S08
+    prompt_text: "Separate what had already been decided as the plan from what had merely happened recently. Which items belong to plan, and which belong only to status?"
+    must_recover:
+      - durable intent items
+      - transient activity items
+      - plan vs status classification
+    likely_failures:
+      - treats most recent activity as the plan
+    observer_provenance:
+      - NE_1_2_EVAL_CANDIDATES_V1.md
+      - NE_1_3_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P39
+
+  - probe_id: P40
+    dataset_id: cross-dataset
+    primary_dataset_id: NE-1.3
+    reference_dt: 2026-03-14
+    family: interrupt-recovery
+    source: S06 + S07
+    prompt_text: "If the user was interrupted mid-braid and came back cold, what is the smallest restart packet that would let them re-enter without rereading the whole trace?"
+    must_recover:
+      - compact restart packet
+      - key live branches
+      - next-step hooks
+    likely_failures:
+      - gives exhaustive recap
+      - omits key live branches and next-step hooks
+    observer_provenance:
+      - NE_1_2_EVAL_CANDIDATES_V1.md
+      - NE_1_3_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P40
+
+  - probe_id: P42
+    dataset_id: cross-dataset
+    primary_dataset_id: NE-1.3
+    status: needs-cross-bundle-merge
+    reference_dt: 2026-03-14
+    family: alias-naming-resolution
+    source: S04 + S06 + S07
+    prompt_text: "Were there things between February and March that I called by different names but were actually the same project?"
+    must_recover:
+      - thread identity across renamings
+      - local shorthand resolution
+      - same-project identification
+    likely_failures:
+      - splits one thread into many names
+      - merges separate threads due to vocabulary overlap
+    observer_provenance:
+      - NE_1_2_EVAL_CANDIDATES_V1.md
+      - NE_1_3_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P42
+
+  - probe_id: P43
+    dataset_id: cross-dataset
+    primary_dataset_id: NE-1.1
+    status: needs-cross-bundle-merge
+    reference_dt: 2026-02-08
+    family: perspective-shift
+    source: S02 + S05
+    prompt_text: "Explain this period once as a product-memory story and once as an operations/release story. What stays the same and what changes?"
+    must_recover:
+      - product-memory perspective
+      - operations/release perspective
+      - invariant core facts across viewpoints
+    likely_failures:
+      - gives one blended answer
+      - neither operationally useful nor conceptually clear
+    observer_provenance:
+      - NE_1_1_EVAL_CANDIDATES_V1.md
+      - NE_1_2_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P43
+
+  - probe_id: P46
+    dataset_id: cross-dataset
+    primary_dataset_id: NE-1.3
+    status: needs-cross-bundle-merge
+    reference_dt: 2026-03-16
+    family: handoff-readiness
+    source: S04 + S08
+    prompt_text: "If a different agent had to take over after this window, what minimum handoff would preserve intent, constraints, and next step without replaying the whole archive?"
+    must_recover:
+      - transfer-ready summarization
+      - rationale and constraints
+      - next-step shape for takeover
+    likely_failures:
+      - preserves facts but drops rationale, constraints, or next-step shape
+    observer_provenance:
+      - NE_1_2_EVAL_CANDIDATES_V1.md
+      - NE_1_3_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P46
+
+  - probe_id: P48
+    dataset_id: cross-dataset
+    primary_dataset_id: NE-1.3
+    status: needs-cross-bundle-merge
+    reference_dt: 2026-03-16
+    family: comparative-routing-diagnosis
+    source: S05 + S07 + S08
+    prompt_text: "If someone needed to catch up on what happened from late February through mid March, what single thing should they read first?"
+    must_recover:
+      - single best entry-point recommendation
+      - routing choice reasoning
+      - cost of wrong route
+    likely_failures:
+      - names preferred surface without analyzing failure modes of alternatives
+    observer_provenance:
+      - NE_1_2_EVAL_CANDIDATES_V1.md
+      - NE_1_3_EVAL_CANDIDATES_V1.md
+      - PROBE_SEEDS_V1.md:P48

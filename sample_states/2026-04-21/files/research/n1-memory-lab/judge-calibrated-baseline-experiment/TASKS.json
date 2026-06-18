@@ -1,0 +1,791 @@
+{
+  "experiment": "judge-calibrated-baseline",
+  "version": 3,
+  "last_updated": "2026-04-21",
+  "status_values": [
+    "pending",
+    "in_progress",
+    "completed",
+    "blocked",
+    "deferred"
+  ],
+  "principles": [
+    "zero is a valid bounded-packet condition, not no-tool/no-retrieval",
+    "pass/partial/fail are noisy ordinal observations, not truth labels",
+    "validate the measurement instrument before architecture ranking"
+  ],
+  "tasks": [
+    {
+      "id": "JCB-001",
+      "title": "Create dedicated experiment space",
+      "status": "completed",
+      "artifacts": [
+        "README.md",
+        "EXPERIMENT_CHECKLIST.md",
+        "PAPER_MAP.md",
+        "SOURCE_NOTES.md"
+      ]
+    },
+    {
+      "id": "JCB-002",
+      "title": "Maintain machine-readable task tracker",
+      "status": "completed",
+      "artifacts": [
+        "TASKS.json"
+      ]
+    },
+    {
+      "id": "JCB-003",
+      "title": "Define benchmark construct before judge",
+      "status": "completed",
+      "artifacts": [
+        "EXPERIMENT_CHECKLIST.md",
+        "PROTOCOL.md"
+      ]
+    },
+    {
+      "id": "JCB-004",
+      "title": "Define packet schema and condition flags",
+      "status": "completed",
+      "artifacts": [
+        "PROTOCOL.md"
+      ]
+    },
+    {
+      "id": "JCB-005",
+      "title": "Record zero-condition correction",
+      "status": "completed",
+      "artifacts": [
+        "README.md",
+        "PROTOCOL.md",
+        "GLOSSARY.md"
+      ]
+    },
+    {
+      "id": "JCB-006",
+      "title": "Declare target state type per probe",
+      "status": "completed",
+      "depends_on": [
+        "JCB-020"
+      ],
+      "artifacts": [
+        "datasets/probe_metadata.json"
+      ]
+    },
+    {
+      "id": "JCB-007",
+      "title": "Partition probe types",
+      "status": "completed",
+      "depends_on": [
+        "JCB-020"
+      ],
+      "artifacts": [
+        "datasets/probe_metadata.json"
+      ]
+    },
+    {
+      "id": "JCB-008",
+      "title": "Assign criterion-referenceability labels per probe",
+      "status": "completed",
+      "depends_on": [
+        "JCB-020"
+      ],
+      "artifacts": [
+        "datasets/probe_metadata.json"
+      ]
+    },
+    {
+      "id": "JCB-009",
+      "title": "Select 20-40 cell human-reviewed calibration subset",
+      "status": "completed",
+      "depends_on": [
+        "JCB-010",
+        "JCB-011",
+        "JCB-012"
+      ],
+      "artifacts": [
+        "datasets/human_calibration_subset.json"
+      ]
+    },
+    {
+      "id": "JCB-010",
+      "title": "Run denominator audit",
+      "status": "completed",
+      "artifacts": [
+        "results/20260421_measurement_audit.json"
+      ]
+    },
+    {
+      "id": "JCB-011",
+      "title": "Run same-answer judge-swap analysis",
+      "status": "completed",
+      "depends_on": [
+        "JCB-010"
+      ],
+      "artifacts": [
+        "results/20260421_measurement_audit.json"
+      ]
+    },
+    {
+      "id": "JCB-012",
+      "title": "Run same-judge repeat analysis",
+      "status": "completed",
+      "depends_on": [
+        "JCB-010"
+      ],
+      "artifacts": [
+        "results/20260421_measurement_audit.json"
+      ]
+    },
+    {
+      "id": "JCB-013",
+      "title": "Measure schema adherence",
+      "status": "completed",
+      "depends_on": [
+        "JCB-010"
+      ],
+      "artifacts": [
+        "results/20260421_measurement_audit.json"
+      ]
+    },
+    {
+      "id": "JCB-014",
+      "title": "Measure factor collapse",
+      "status": "completed",
+      "depends_on": [
+        "JCB-013"
+      ],
+      "artifacts": [
+        "results/20260421_measurement_audit.json"
+      ]
+    },
+    {
+      "id": "JCB-015",
+      "title": "Reverse ablate state_transition_tracking",
+      "status": "completed",
+      "depends_on": [
+        "JCB-013"
+      ],
+      "artifacts": [
+        "results/20260421_measurement_audit.json"
+      ]
+    },
+    {
+      "id": "JCB-016",
+      "title": "Treat pass/partial/fail as ordinal observations",
+      "status": "completed",
+      "artifacts": [
+        "EXPERIMENT_CHECKLIST.md",
+        "GLOSSARY.md"
+      ]
+    },
+    {
+      "id": "JCB-017",
+      "title": "Evaluate useful-vs-fail collapse as diagnostic",
+      "status": "completed",
+      "depends_on": [
+        "JCB-012"
+      ]
+    },
+    {
+      "id": "JCB-018",
+      "title": "Run pairwise order counterbalancing",
+      "status": "deferred",
+      "reason": "requires pairwise judging packet"
+    },
+    {
+      "id": "JCB-019",
+      "title": "Measure same-family/self-preference",
+      "status": "completed",
+      "depends_on": [
+        "JCB-011"
+      ],
+      "artifacts": [
+        "results/20260421_judge_family_sensitivity.json",
+        "results/20260421_judge_family_sensitivity.md"
+      ]
+    },
+    {
+      "id": "JCB-020",
+      "title": "Create probe metadata table",
+      "status": "completed",
+      "artifacts": [
+        "datasets/probe_metadata.json"
+      ]
+    },
+    {
+      "id": "JCB-021",
+      "title": "Measure correlated judge errors on gold subset",
+      "status": "blocked",
+      "reason": "requires human-reviewed calibration subset",
+      "depends_on": [
+        "JCB-009"
+      ]
+    },
+    {
+      "id": "JCB-022",
+      "title": "Add abstention/escalation outcomes to future rubric",
+      "status": "completed",
+      "depends_on": [
+        "JCB-009"
+      ],
+      "artifacts": [
+        "datasets/abstention_false_premise_cells.json",
+        "results/20260421_abstention_false_premise_audit.md"
+      ]
+    },
+    {
+      "id": "JCB-023",
+      "title": "Track coverage separately from accuracy",
+      "status": "completed",
+      "depends_on": [
+        "JCB-022"
+      ],
+      "artifacts": [
+        "results/20260421_abstention_coverage_metrics.json",
+        "results/20260421_abstention_false_premise_audit.md"
+      ]
+    },
+    {
+      "id": "JCB-024",
+      "title": "Measure calibration with probabilities",
+      "status": "deferred",
+      "reason": "requires probability/logprob outputs or binary probabilistic labels"
+    },
+    {
+      "id": "JCB-025",
+      "title": "Compare against base-rate baselines",
+      "status": "deferred",
+      "reason": "requires stable binary/probabilistic target"
+    },
+    {
+      "id": "JCB-026",
+      "title": "Run paraphrase robustness subset",
+      "status": "completed",
+      "depends_on": [
+        "JCB-020"
+      ],
+      "artifacts": [
+        "datasets/paraphrase_robustness_plan.json",
+        "results/20260421_paraphrase_robustness_proxy.json",
+        "results/20260421_paraphrase_robustness_proxy.md"
+      ]
+    },
+    {
+      "id": "JCB-027",
+      "title": "Run reference perturbation subset",
+      "status": "completed",
+      "depends_on": [
+        "JCB-009"
+      ],
+      "artifacts": [
+        "datasets/reference_perturbation_cells.json",
+        "results/20260421_reference_perturbation_proxy.md"
+      ]
+    },
+    {
+      "id": "JCB-028",
+      "title": "Separate retrieval quality from answer quality",
+      "status": "completed",
+      "depends_on": [
+        "JCB-020"
+      ],
+      "artifacts": [
+        "results/20260421_claim_lineage_matrix.csv",
+        "results/20260421_retrieval_answer_axis_separation.md",
+        "results/20260421_retrieval_vs_answer_split.md"
+      ]
+    },
+    {
+      "id": "JCB-029",
+      "title": "Include unsupported/false-premise probes",
+      "status": "completed",
+      "depends_on": [
+        "JCB-020"
+      ],
+      "artifacts": [
+        "datasets/unsupported_false_premise_probe_set.json",
+        "results/20260421_unsupported_false_premise_probe_set.md"
+      ]
+    },
+    {
+      "id": "JCB-030",
+      "title": "Measure generation variance",
+      "status": "blocked",
+      "reason": "requires clean repeated answer generations; current artifacts are judge-repeat/mixed-model lanes",
+      "artifacts": [
+        "results/20260421_generation_variance_readiness_audit.json",
+        "results/20260421_generation_variance_readiness_audit.md"
+      ]
+    },
+    {
+      "id": "JCB-031",
+      "title": "Measure judge stochasticity",
+      "status": "completed",
+      "depends_on": [
+        "JCB-012"
+      ]
+    },
+    {
+      "id": "JCB-032",
+      "title": "Measure judge identity",
+      "status": "completed",
+      "depends_on": [
+        "JCB-011"
+      ]
+    },
+    {
+      "id": "JCB-033",
+      "title": "Measure probe difficulty",
+      "status": "completed",
+      "depends_on": [
+        "JCB-012",
+        "JCB-020"
+      ],
+      "artifacts": [
+        "results/20260421_probe_difficulty_audit.json",
+        "results/20260421_probe_difficulty_audit.md"
+      ]
+    },
+    {
+      "id": "JCB-034",
+      "title": "Delay CyclicJudge until rubric stable",
+      "status": "completed",
+      "artifacts": [
+        "EXPERIMENT_CHECKLIST.md"
+      ]
+    },
+    {
+      "id": "JCB-035",
+      "title": "Delay conformal intervals until assumptions hold",
+      "status": "completed",
+      "artifacts": [
+        "EXPERIMENT_CHECKLIST.md"
+      ]
+    },
+    {
+      "id": "JCB-036",
+      "title": "Delay IRT until labels stable",
+      "status": "completed",
+      "artifacts": [
+        "EXPERIMENT_CHECKLIST.md"
+      ]
+    },
+    {
+      "id": "JCB-037",
+      "title": "Preserve examples before aggregates",
+      "status": "completed",
+      "artifacts": [
+        "results/20260421_failure_atlas_examples.md"
+      ]
+    },
+    {
+      "id": "JCB-038",
+      "title": "Publish failure attribution table",
+      "status": "completed",
+      "depends_on": [
+        "JCB-009"
+      ],
+      "artifacts": [
+        "results/20260421_failure_attribution_table.csv",
+        "results/20260421_failure_attribution_table.md"
+      ]
+    },
+    {
+      "id": "JCB-039",
+      "title": "Keep memory-task neighbors in scope",
+      "status": "completed",
+      "artifacts": [
+        "PAPER_MAP.md",
+        "SOURCE_NOTES.md"
+      ]
+    },
+    {
+      "id": "JCB-040",
+      "title": "Keep executable checks where possible",
+      "status": "completed",
+      "artifacts": [
+        "EXPERIMENT_CHECKLIST.md"
+      ]
+    },
+    {
+      "id": "JCB-041",
+      "title": "Run minimal-rubric vs full-rubric A/B",
+      "status": "completed",
+      "depends_on": [
+        "JCB-009"
+      ],
+      "artifacts": [
+        "results/20260421_rubric_minimal_vs_full_diag.json",
+        "results/20260421_rubric_minimal_vs_full_diag.md"
+      ]
+    },
+    {
+      "id": "JCB-042",
+      "title": "Build claim audit schema for future judge outputs",
+      "status": "completed",
+      "artifacts": [
+        "PROTOCOL.md"
+      ]
+    },
+    {
+      "id": "JCB-043",
+      "title": "Maintain claim ledger",
+      "status": "in_progress",
+      "artifacts": [
+        "CLAIM_LEDGER.md"
+      ]
+    },
+    {
+      "id": "JCB-044",
+      "title": "Maintain run log",
+      "status": "in_progress",
+      "artifacts": [
+        "RUN_LOG.md"
+      ]
+    },
+    {
+      "id": "JCB-045",
+      "title": "Break and recalibrate after each analysis batch",
+      "status": "in_progress",
+      "artifacts": [
+        "RUN_LOG.md",
+        "SCRATCHPAD.md"
+      ]
+    },
+    {
+      "id": "JCB-046",
+      "title": "Prepare calibration subset packets",
+      "status": "completed",
+      "depends_on": [
+        "JCB-009"
+      ],
+      "artifacts": [
+        "results/20260421_calibration_subset_packets.json",
+        "results/20260421_calibration_subset_packets.md",
+        "datasets/claim_audit_template.json",
+        "scratch/20260421_prepare_calibration_subset.py"
+      ]
+    },
+    {
+      "id": "JCB-047",
+      "title": "Agent-assisted first-pass triage of calibration subset",
+      "status": "completed",
+      "depends_on": [
+        "JCB-046"
+      ],
+      "artifacts": [
+        "results/20260421_calibration_subset_triage.md"
+      ]
+    },
+    {
+      "id": "JCB-048",
+      "title": "Plan paraphrase robustness subset",
+      "status": "completed",
+      "depends_on": [
+        "JCB-020"
+      ],
+      "artifacts": [
+        "datasets/paraphrase_robustness_plan.json"
+      ]
+    },
+    {
+      "id": "JCB-049",
+      "title": "Agent-assisted claim-level audit of high-priority calibration cells",
+      "status": "completed",
+      "depends_on": [
+        "JCB-047"
+      ],
+      "artifacts": [
+        "results/20260421_high_priority_claim_audit.md"
+      ]
+    },
+    {
+      "id": "JCB-050",
+      "title": "Timed exploration pass over calibration subset artifacts",
+      "status": "completed",
+      "depends_on": [
+        "JCB-049"
+      ],
+      "artifacts": [
+        "results/20260421_20min_exploration_memo.md",
+        "results/20260421_exploration_counts.json",
+        "results/20260421_exploration_counts.md",
+        "results/20260421_calibration_cell_matrix.json",
+        "results/20260421_calibration_cell_matrix.csv",
+        "results/20260421_calibration_cell_matrix.md",
+        "results/20260421_failure_pattern_taxonomy.json",
+        "results/20260421_phrase_density.json",
+        "results/20260421_rubric_diagnostic_examples.md",
+        "results/20260421_length_tool_stats.json",
+        "results/20260421_length_tool_stats.md",
+        "scratch/20260421_exploration_counts.py"
+      ]
+    },
+    {
+      "id": "JCB-051",
+      "title": "Construct-validity reclassification audit",
+      "status": "completed",
+      "depends_on": [
+        "JCB-008",
+        "JCB-020",
+        "JCB-028",
+        "JCB-033"
+      ],
+      "artifacts": [
+        "datasets/construct_validity_labels.json",
+        "results/20260421_construct_validity_audit.md"
+      ]
+    },
+    {
+      "id": "JCB-052",
+      "title": "Zero-condition bounded-packet smoke test",
+      "status": "completed",
+      "depends_on": [
+        "JCB-004",
+        "JCB-005",
+        "JCB-009"
+      ],
+      "artifacts": [
+        "datasets/zero_condition_cells.json",
+        "results/20260421_zero_condition_smoke_test.md"
+      ]
+    },
+    {
+      "id": "JCB-053",
+      "title": "Temporal-first disambiguation audit",
+      "status": "completed",
+      "depends_on": [
+        "JCB-006",
+        "JCB-007",
+        "JCB-026",
+        "JCB-033"
+      ],
+      "artifacts": [
+        "results/20260421_temporal_disambiguation_audit.md"
+      ]
+    },
+    {
+      "id": "JCB-054",
+      "title": "Session-boundary preservation audit",
+      "status": "completed",
+      "depends_on": [
+        "JCB-004",
+        "JCB-020",
+        "JCB-046"
+      ],
+      "artifacts": [
+        "datasets/session_boundary_checks.json",
+        "results/20260421_session_boundary_audit.md"
+      ]
+    },
+    {
+      "id": "JCB-055",
+      "title": "Evidence lineage completeness audit",
+      "status": "completed",
+      "depends_on": [
+        "JCB-042",
+        "JCB-043",
+        "JCB-038"
+      ],
+      "artifacts": [
+        "results/20260421_claim_lineage_matrix.csv",
+        "results/20260421_provenance_lineage_audit.md"
+      ]
+    },
+    {
+      "id": "JCB-056",
+      "title": "Retrieval-vs-answer split report",
+      "status": "completed",
+      "depends_on": [
+        "JCB-028",
+        "JCB-029",
+        "JCB-037"
+      ],
+      "artifacts": [
+        "results/20260421_retrieval_vs_answer_split.md"
+      ]
+    },
+    {
+      "id": "JCB-057",
+      "title": "Abstention and false-premise calibration",
+      "status": "completed",
+      "depends_on": [
+        "JCB-022",
+        "JCB-023",
+        "JCB-029"
+      ],
+      "artifacts": [
+        "datasets/abstention_false_premise_cells.json",
+        "results/20260421_abstention_coverage_metrics.json",
+        "results/20260421_abstention_false_premise_audit.md"
+      ]
+    },
+    {
+      "id": "JCB-058",
+      "title": "Judge-family sensitivity report",
+      "status": "completed",
+      "depends_on": [
+        "JCB-019",
+        "JCB-031",
+        "JCB-032"
+      ],
+      "artifacts": [
+        "results/20260421_judge_family_sensitivity.json",
+        "results/20260421_judge_family_sensitivity.md"
+      ]
+    },
+    {
+      "id": "JCB-059",
+      "title": "Minimal-vs-full rubric diagnostic",
+      "status": "completed",
+      "depends_on": [
+        "JCB-013",
+        "JCB-014",
+        "JCB-041"
+      ],
+      "artifacts": [
+        "results/20260421_rubric_minimal_vs_full_diag.json",
+        "results/20260421_rubric_minimal_vs_full_diag.md"
+      ]
+    },
+    {
+      "id": "JCB-060",
+      "title": "Examples-before-aggregates failure atlas",
+      "status": "completed",
+      "depends_on": [
+        "JCB-037",
+        "JCB-038",
+        "JCB-050"
+      ],
+      "artifacts": [
+        "results/20260421_failure_atlas_examples.md"
+      ]
+    },
+    {
+      "id": "JCB-061",
+      "title": "Synthesize foundations and MEMEX alignment map",
+      "status": "completed",
+      "depends_on": [
+        "JCB-001",
+        "JCB-039"
+      ],
+      "artifacts": [
+        "results/20260421_foundations_memex_neuro_alignment.md",
+        "results/20260421_foundations_memex_neuro_alignment.json"
+      ]
+    },
+    {
+      "id": "JCB-062",
+      "title": "Synthesize computational-neuroscience construct map",
+      "status": "completed",
+      "depends_on": [
+        "JCB-061"
+      ],
+      "artifacts": [
+        "results/20260421_foundations_memex_neuro_alignment.md",
+        "results/20260421_foundations_memex_neuro_alignment.json"
+      ]
+    },
+    {
+      "id": "JCB-063",
+      "title": "Create recall-vs-beyond-recall task-axis taxonomy matrix",
+      "status": "completed",
+      "depends_on": [
+        "JCB-061"
+      ],
+      "artifacts": [
+        "results/20260421_task_axis_taxonomy.md",
+        "results/20260421_task_axis_taxonomy.json"
+      ]
+    }
+  ],
+  "current_batch": {
+    "id": "20260421-end-to-end-execution",
+    "tasks": [
+      "JCB-019",
+      "JCB-022",
+      "JCB-023",
+      "JCB-026",
+      "JCB-027",
+      "JCB-028",
+      "JCB-029",
+      "JCB-033",
+      "JCB-037",
+      "JCB-038",
+      "JCB-041",
+      "JCB-051",
+      "JCB-052",
+      "JCB-054",
+      "JCB-057",
+      "JCB-058",
+      "JCB-059",
+      "JCB-060"
+    ],
+    "status": "completed",
+    "artifacts": [
+      "datasets/abstention_false_premise_cells.json",
+      "datasets/construct_validity_labels.json",
+      "datasets/paraphrase_robustness_plan.json",
+      "datasets/reference_perturbation_cells.json",
+      "datasets/session_boundary_checks.json",
+      "datasets/unsupported_false_premise_probe_set.json",
+      "datasets/zero_condition_cells.json",
+      "results/20260421_abstention_coverage_metrics.json",
+      "results/20260421_abstention_false_premise_audit.md",
+      "results/20260421_claim_lineage_matrix.csv",
+      "results/20260421_construct_validity_audit.md",
+      "results/20260421_failure_atlas_examples.md",
+      "results/20260421_failure_attribution_table.csv",
+      "results/20260421_failure_attribution_table.md",
+      "results/20260421_judge_family_sensitivity.json",
+      "results/20260421_judge_family_sensitivity.md",
+      "results/20260421_paraphrase_robustness_proxy.json",
+      "results/20260421_paraphrase_robustness_proxy.md",
+      "results/20260421_probe_difficulty_audit.json",
+      "results/20260421_probe_difficulty_audit.md",
+      "results/20260421_reference_perturbation_proxy.md",
+      "results/20260421_retrieval_answer_axis_separation.md",
+      "results/20260421_retrieval_vs_answer_split.md",
+      "results/20260421_rubric_minimal_vs_full_diag.json",
+      "results/20260421_rubric_minimal_vs_full_diag.md",
+      "results/20260421_session_boundary_audit.md",
+      "results/20260421_unsupported_false_premise_probe_set.md",
+      "results/20260421_zero_condition_smoke_test.md"
+    ],
+    "summary": {
+      "intent": "Execute remaining non-deferred/non-blocked judge-calibration tasks end-to-end using direct + proxy analyses and subagents.",
+      "completed_now": [
+        "JCB-019",
+        "JCB-022",
+        "JCB-023",
+        "JCB-026",
+        "JCB-027",
+        "JCB-028",
+        "JCB-029",
+        "JCB-033",
+        "JCB-037",
+        "JCB-038",
+        "JCB-041",
+        "JCB-051",
+        "JCB-052",
+        "JCB-054",
+        "JCB-057",
+        "JCB-058",
+        "JCB-059",
+        "JCB-060"
+      ],
+      "remaining_open": [
+        "JCB-021",
+        "JCB-030",
+        "JCB-043",
+        "JCB-044",
+        "JCB-045",
+        "JCB-018",
+        "JCB-024",
+        "JCB-025"
+      ],
+      "scope_guardrail": "No architecture ranking claim in this batch."
+    }
+  }
+}

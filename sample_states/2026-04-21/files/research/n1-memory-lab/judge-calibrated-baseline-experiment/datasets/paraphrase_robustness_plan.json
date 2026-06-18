@@ -1,0 +1,57 @@
+{
+  "version": 1,
+  "created_at": "2026-04-21",
+  "purpose": "Small paraphrase robustness subset for judge/rubric stability, not answer-generation benchmarking.",
+  "status": "planned_not_run",
+  "selection_rule": "Choose probes where wording ambiguity likely affects judge interpretation and where the selected human calibration subset already gives comparison coverage.",
+  "selected_probes": [
+    {
+      "probe_id": "R08",
+      "reason": "Shortest, handle-poor current-state ask; tests referent ambiguity.",
+      "original": "okay where are we now",
+      "paraphrases": [
+        "what is the current live state right now?",
+        "where should I pick things back up from here?",
+        "what is the latest active thread I should resume?"
+      ]
+    },
+    {
+      "probe_id": "R14",
+      "reason": "Last-session wording has tip/recency ambiguity.",
+      "original": "check it what happened in the last session don't forget it please",
+      "paraphrases": [
+        "what happened in the immediately previous session?",
+        "recover the latest session state so we do not lose it",
+        "what should I remember from the last session before continuing?"
+      ]
+    },
+    {
+      "probe_id": "R19",
+      "reason": "Most-recent-work ask is surface-agnostic and known to have target-slice tie risk.",
+      "original": "what happened last? what was I working on most recently?",
+      "paraphrases": [
+        "what was the latest thing I was working on?",
+        "what is the most recent work thread before this point?",
+        "what should I resume from the immediately prior work?"
+      ]
+    },
+    {
+      "probe_id": "R05",
+      "reason": "Open-thread/priorities ask mixes completeness and subjective salience.",
+      "original": "what are all my current open threads, priorities, and unfinished work? include: research vectors (ACE, GEPA, sleep/dream, filesystem), open bugs, hackathon plans, memory system studies, continual learning research",
+      "paraphrases": [
+        "list the active unfinished threads and priorities, including research, bugs, hackathon work, memory studies, and continual learning",
+        "what work is still open right now across research vectors, bugs, plans, and memory-system studies?",
+        "map my current unfinished work and priorities without dropping the named research areas"
+      ]
+    }
+  ],
+  "planned_measurements": [
+    "same-answer judge verdict movement under paraphrased ask text",
+    "target_slice stability",
+    "claim-audit stability",
+    "cannot_determine/escalation rate",
+    "whether paraphrase changes useful-vs-fail diagnostic"
+  ],
+  "run_rule": "Do not run broad paraphrase experiments until the claim-audit template has been applied to the 30-cell calibration subset."
+}

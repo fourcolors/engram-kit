@@ -1,0 +1,128 @@
+{
+  "generated_at": "2026-04-21",
+  "task_id": "JCB-057",
+  "input_artifacts": [
+    "results/20260421_calibration_subset_triage.md",
+    "results/20260421_high_priority_claim_audit.md",
+    "results/20260421_calibration_cell_matrix.json",
+    "datasets/claim_audit_template.json"
+  ],
+  "proxy_abstention_criteria": {
+    "cell_unit": "probe_id + condition",
+    "criteria": [
+      {
+        "id": "audit_false_premise_signal",
+        "definition": "Claim audit for the cell contains at least one contradicted claim tag or explicit false-premise cues (wrong world-model, false no-traces premise, invented, wrong evidence surface, no recoverable threads, wrong-thread, misframes)."
+      },
+      {
+        "id": "triage_false_premise_signal",
+        "definition": "Triage pattern/focus contains strong false-premise markers (wrong world-model, empty/meta-state, fabricated/invented UUID-thread links, meta-report instead of thread map, wrong-thread, no-traces)."
+      },
+      {
+        "id": "matrix_severe_disagreement_signal",
+        "definition": "At least one answer in the cell has pair category full_band or invalid_or_missing."
+      }
+    ],
+    "abstain_or_escalate_proxy_rule": "abstain_or_escalate_proxy = audit_false_premise_signal OR triage_false_premise_signal OR matrix_severe_disagreement_signal",
+    "accepted_proxy_rule": "accepted_proxy = NOT abstain_or_escalate_proxy"
+  },
+  "denominators": {
+    "cells_total": 30,
+    "answers_total": 60,
+    "audited_cells_total": 16
+  },
+  "headline_rates": {
+    "acceptance_rate_cells": 0.4333,
+    "abstention_or_escalation_rate_cells": 0.5667,
+    "accepted_cells": 13,
+    "abstained_cells": 17
+  },
+  "coverage_metrics_jcb022_jcb023": {
+    "accepted_answer_coverage_rate": 0.4333,
+    "abstained_answer_coverage_rate": 0.5667,
+    "accepted_set_answer_exact_rate": 0.5385,
+    "accepted_set_answer_non_exact_rate": 0.4615,
+    "accepted_set_cell_both_exact_rate": 0.3077,
+    "accepted_set_audited_false_premise_leak_rate": 0.0
+  },
+  "disagreement_concentration": {
+    "cell_disagreement_total": 21,
+    "cell_disagreement_in_abstained_cells": 12,
+    "cell_disagreement_concentration_in_abstained_cells": 0.5714,
+    "answer_non_exact_total": 28,
+    "answer_non_exact_in_abstained_cells": 16,
+    "answer_non_exact_concentration_in_abstained_cells": 0.5714,
+    "answer_severe_disagreement_total": 5,
+    "answer_severe_disagreement_in_abstained_cells": 5,
+    "answer_severe_disagreement_concentration_in_abstained_cells": 1.0
+  },
+  "false_premise_capture": {
+    "audited_cells_with_false_premise_signal": 10,
+    "audited_false_premise_cells_abstained": 10,
+    "audited_false_premise_capture_rate": 1.0,
+    "triage_false_premise_cells_total": 6,
+    "triage_false_premise_cells_abstained": 6
+  },
+  "coverage_by_condition": {
+    "production": {
+      "total": 10,
+      "accepted": 4,
+      "abstained": 6,
+      "acceptance_rate": 0.4,
+      "abstention_rate": 0.6
+    },
+    "pure": {
+      "total": 10,
+      "accepted": 5,
+      "abstained": 5,
+      "acceptance_rate": 0.5,
+      "abstention_rate": 0.5
+    },
+    "zero": {
+      "total": 10,
+      "accepted": 4,
+      "abstained": 6,
+      "acceptance_rate": 0.4,
+      "abstention_rate": 0.6
+    }
+  },
+  "abstained_cells_by_triage_likely_cause": {
+    "answer quality": 11,
+    "packet insufficiency": 1,
+    "rubric ambiguity": 5
+  },
+  "accepted_cell_ids": [
+    "R03::production",
+    "R05::pure",
+    "R05::zero",
+    "R07::production",
+    "R13::production",
+    "R13::pure",
+    "R13::zero",
+    "R14::pure",
+    "R15::pure",
+    "R15::zero",
+    "R18::production",
+    "R18::pure",
+    "R18::zero"
+  ],
+  "abstained_cell_ids": [
+    "R03::pure",
+    "R03::zero",
+    "R05::production",
+    "R07::pure",
+    "R07::zero",
+    "R08::production",
+    "R08::pure",
+    "R08::zero",
+    "R09::production",
+    "R09::pure",
+    "R09::zero",
+    "R14::production",
+    "R14::zero",
+    "R15::production",
+    "R19::production",
+    "R19::pure",
+    "R19::zero"
+  ]
+}

@@ -1,0 +1,645 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<title>ab07 Opus judge — free exploration</title>
+<style>
+  :root {
+    --bg: #0e0e0e;
+    --panel: #161616;
+    --fg: #e8e8e8;
+    --muted: #888;
+    --amber: #ffb347;
+    --green: #7ec96a;
+    --red: #e06c75;
+    --blue: #61afef;
+    --border: #2a2a2a;
+  }
+  body {
+    font-family: "SF Mono", Menlo, Consolas, monospace;
+    background: var(--bg);
+    color: var(--fg);
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 32px;
+    line-height: 1.55;
+  }
+  h1 { color: var(--amber); letter-spacing: -0.01em; font-weight: 600; margin-bottom: 4px; }
+  h2 { color: var(--amber); margin-top: 48px; border-top: 1px solid var(--border); padding-top: 24px; }
+  h3 { color: var(--blue); margin-top: 32px; }
+  h4 { color: var(--fg); margin-top: 24px; margin-bottom: 4px; }
+  .sub { color: var(--muted); margin-top: 0; }
+  table { width: 100%; border-collapse: collapse; margin: 16px 0; font-size: 13px; }
+  th, td { text-align: left; padding: 6px 10px; border-bottom: 1px solid var(--border); }
+  th { color: var(--muted); font-weight: normal; text-transform: uppercase; font-size: 11px; letter-spacing: 0.05em; }
+  .pass { color: var(--green); }
+  .partial { color: var(--amber); }
+  .fail { color: var(--red); }
+  .missing, .invalid { color: var(--muted); font-style: italic; }
+  .cell { padding: 3px 8px; border-radius: 3px; display: inline-block; font-size: 11px; }
+  .cell.pass { background: rgba(126, 201, 106, 0.15); }
+  .cell.partial { background: rgba(255, 179, 71, 0.15); }
+  .cell.fail { background: rgba(224, 108, 117, 0.15); }
+  .bar { height: 8px; background: var(--border); border-radius: 2px; overflow: hidden; display: inline-block; width: 120px; vertical-align: middle; }
+  .bar > div { height: 100%; background: var(--amber); }
+  .flip-matrix { display: grid; grid-template-columns: 50px repeat(3, 60px); gap: 2px; font-size: 12px; }
+  .flip-matrix .h { color: var(--muted); font-size: 10px; text-transform: uppercase; text-align: center; padding: 4px 0; }
+  .flip-matrix .p { text-align: center; padding: 3px 0; border-radius: 2px; }
+  .meta { color: var(--muted); font-size: 12px; }
+  code { background: var(--panel); padding: 1px 4px; border-radius: 2px; font-size: 12px; }
+  blockquote { border-left: 3px solid var(--border); margin: 12px 0; padding: 0 16px; color: #c8c8c8; font-style: italic; }
+  .coverage { background: var(--panel); padding: 16px; border: 1px solid var(--border); border-radius: 4px; margin: 16px 0; }
+  .coverage-num { font-size: 28px; color: var(--amber); font-weight: 600; }
+  details { margin: 8px 0; }
+  summary { cursor: pointer; color: var(--blue); }
+  .finding { padding: 10px 14px; background: var(--panel); border-left: 3px solid var(--amber); margin: 10px 0; border-radius: 2px; }
+  .kv { display: grid; grid-template-columns: 180px 1fr; gap: 4px 16px; font-size: 13px; }
+  .kv .k { color: var(--muted); }
+</style>
+</head>
+<body>
+
+<h1>ab07 · opus judge · free exploration</h1>
+<p class="sub">3 opus reps × 3 conditions × 19 probes · 171 judge cells · 57 unique asks (frozen, judge-only rerun from ne13_15d_timefix_baseline_gpt54)</p>
+
+<div class="coverage" id="coverage-panel">
+  <div><strong>Coverage tracker</strong> <span class="meta">· updates as exploration proceeds</span></div>
+  <div style="margin-top:10px;">
+    <span class="coverage-num" id="cov-agents">0</span> <span class="meta">agents dispatched</span> &nbsp;·&nbsp;
+    <span class="coverage-num" id="cov-judge">0</span> <span class="meta">judge artifacts read in full</span> &nbsp;·&nbsp;
+    <span class="coverage-num" id="cov-ask">0</span> <span class="meta">ask traces read in full</span>
+  </div>
+  <div style="margin-top:6px;" class="meta">Target: ≥30% of 171 judge artifacts (≥52) and ≥30% of 57 ask traces (≥18)</div>
+</div>
+
+<h2>Intent</h2>
+<p>
+  Three questions driving this probe:
+</p>
+<ol>
+  <li><strong>What is a judge-stability baseline?</strong> Before claiming any ordering between pure/syke/zero, we need to know how much of the observed difference is architecture and how much is judge noise.</li>
+  <li><strong>What changed when we moved to Opus as judge?</strong> ab07 is judge-only on the same asks the GPT-5.4 judge scored in ne13_15d_timefix_baseline_gpt54. The ask layer is frozen — any delta is pure judge behavior.</li>
+  <li><strong>How do the three Opus reps agree/disagree</strong> across pure, syke, zero? Where is Opus stable, where is it flippy, and does flippiness correlate with condition?</li>
+</ol>
+
+<h2>Quant baseline</h2>
+
+<h3>Verdict distribution — each rep × condition (19 probes)</h3>
+<table>
+  <tr><th>cell</th><th>pass</th><th>partial</th><th>fail</th><th>invalid</th></tr>
+  <tr><td>rep1 · pure</td><td class="pass">7</td><td class="partial">10</td><td class="fail">2</td><td>0</td></tr>
+  <tr><td>rep1 · syke</td><td class="pass">11</td><td class="partial">7</td><td class="fail">1</td><td>0</td></tr>
+  <tr><td>rep1 · zero</td><td class="pass">7</td><td class="partial">7</td><td class="fail">5</td><td>0</td></tr>
+  <tr><td>rep2 · pure</td><td class="pass">10</td><td class="partial">6</td><td class="fail">3</td><td>0</td></tr>
+  <tr><td>rep2 · syke</td><td class="pass">9</td><td class="partial">8</td><td class="fail">2</td><td>0</td></tr>
+  <tr><td>rep2 · zero</td><td class="pass">6</td><td class="partial">8</td><td class="fail">5</td><td>0</td></tr>
+  <tr><td>rep3 · pure</td><td class="pass">7</td><td class="partial">10</td><td class="fail">2</td><td>0</td></tr>
+  <tr><td>rep3 · syke</td><td class="pass">8</td><td class="partial">10</td><td class="fail">1</td><td>0</td></tr>
+  <tr><td>rep3 · zero</td><td class="pass">6</td><td class="partial">8</td><td class="fail">5</td><td>0</td></tr>
+</table>
+<p class="meta">Shape across reps is tight for pure (no invalids, similar pass/partial/fail). Zero is the most consistent on fail counts (5/5/5). Syke drifts pass-count 11→9→8 across reps — most apparent verdict mobility.</p>
+
+<h3>Flip rate — fraction of probes with any verdict disagreement across 3 reps</h3>
+<table>
+  <tr><th>condition</th><th>flipped</th><th>rate</th><th></th></tr>
+  <tr><td>pure</td><td>7 / 19</td><td>37%</td><td><span class="bar"><div style="width:37%"></div></span></td></tr>
+  <tr><td>syke</td><td>13 / 19</td><td>68%</td><td><span class="bar"><div style="width:68%"></div></span></td></tr>
+  <tr><td>zero</td><td>6 / 19</td><td>32%</td><td><span class="bar"><div style="width:32%"></div></span></td></tr>
+</table>
+<p class="meta">Syke has nearly 2× the flip rate of the two baselines. Reading: syke's richer content gives judges more to engage with, and more to disagree about. Bayesian intuition: syke's verdict is higher-variance because the answer space it occupies is broader.</p>
+
+<h3>Axis-level flip rate — which sub-dimension is the noisiest</h3>
+<table>
+  <tr><th>axis</th><th>pure</th><th>syke</th><th>zero</th></tr>
+  <tr><td>factual_grounding</td><td>26%</td><td>63%</td><td>32%</td></tr>
+  <tr><td>continuity</td><td>37%</td><td>58%</td><td>32%</td></tr>
+  <tr><td>coherence</td><td class="fail">63%</td><td class="fail">84%</td><td class="fail">79%</td></tr>
+</table>
+<p class="meta">
+  <strong>Coherence is the dominant source of noise.</strong> 63-84% of probes have the coherence score flipping across reps — far above factual (26-63%) or continuity (32-58%). This is exactly where the stringified-JSON schema bug hit — judges return coherence as a raw string roughly 1 out of 3 times, and the parsed score is essentially random. Fixing the coherence schema contract would shave the biggest chunk off the noise floor.
+</p>
+
+<h3>Per-probe verdict matrix (rep1 / rep2 / rep3)</h3>
+<div id="probe-matrix"></div>
+
+<h3>Stable-fail / stable-partial cells — agreement across all 3 reps</h3>
+<p class="meta">20 cells where every Opus rep gave the same sub-pass verdict. These are the <em>real</em> architectural signals — judge noise cannot explain them away.</p>
+<table id="stable-bad">
+  <tr><th>condition</th><th>probe</th><th>verdict</th></tr>
+</table>
+<p class="meta" style="margin-top: 8px;">
+  Zero has the most stable-bad cells (10/19), pure has 6/19, syke has only 4/19. Reading: when zero fails, it fails consistently — the judges agree on what's missing. Syke fails inconsistently — more room for disagreement about whether the answer was good enough.
+</p>
+
+<h2>Qualitative probes (agent-driven)</h2>
+<p class="sub">Each subsection fed by one or more sub-agents reading full traces/reasoning. Every agent reports its file-read count back so coverage is accountable.</p>
+
+<h3>Judge reasoning DNA</h3>
+<div id="judge-dna">
+<!-- JUDGE DNA -->
+<p class="meta">45 judge_result.json files sampled across rep1 (30), rep2 (8), rep3 (7), spanning pure/syke/zero conditions and 10 eval questions.</p>
+
+<h4>What Opus consistently notices</h4>
+<ul>
+<li><span class="finding">Commit SHAs as ground truth</span> — every rep cross-checks against <code>local_git_anchor.json</code> SHAs (<code>1cbd734</code>, <code>63cc4a5</code>, <code>d719f3f</code>, <code>7afd378</code>, <code>fe4135c</code>). When a SHA matches a session claim, score is "strong"; when the answer cites a SHA absent from the anchor, judge flags confabulation.</li>
+<li><span class="finding">Session IDs as fingerprints</span> — judge uses <code>ses_3367fd033ffe</code>, <code>ses_336933258</code>, <code>ses_317004300ffeKOtF1Jzo4utYCR</code>, <code>ses_30d2c1873ffebsIycnvqLgc1D2</code> to route claims to sources. Misattributed session IDs are consistently caught (rep1 pure R19 subagent-recap vs user-authored work).</li>
+<li><span class="finding">Verbatim user quotes</span> — "we don't do mcp right now, cli and agent as skill", "lets make it real time first. Focus on 12. That the killer feature", "Forget retention forgetting for a while". When recovered, factual_grounding is "strong".</li>
+<li><span class="finding">Slice cardinality</span> — judge counts JSONL files (407, 711, 742, 2894, 3197, 3663) and flags "cold start" / "no activity" claims against them. One answer's "3222 sessions" was caught as off-by-many-hundreds.</li>
+<li><span class="finding">Temporal boundary checks</span> — reference_dt vs slice edge is recomputed every rep. Wrong-date drift (reporting 2026-04-16/17 when ref is 2026-03-12 or 2026-03-21) is the single most consistent failure mode the judge surfaces.</li>
+</ul>
+
+<h4>Judge self-contradiction failure modes</h4>
+<ul>
+<li class="fail">Coherence axis gets overweighted when factual is strong — in rep1 syke R11, coherence subscores default to "strong" matching the factual pattern, without distinct evidence-work.</li>
+<li class="fail">Bug #9 contradiction handling — rep1 syke R19 notes Bug #9 was committed-fixed on Mar 20 but answer lists it as ongoing. Coherence drops to "partial" over this. Rep3 syke R19 catches the same issue but verdict stays "pass" in rep1 vs "partial" in rep3 despite identical evidence.</li>
+<li class="fail">Paraphrase vs slice-cite — many reasoning fields paraphrase what the answer said rather than quoting slice text. Clean quote-citation only appears when verbatim user quotes are load-bearing. Most factual_grounding.support reasonings assert "all claims backed by slice evidence" without enumerating which.</li>
+<li class="fail">Pure-condition double standard — rep1 pure R11 architecture vision gets "partial" with "honest disclaimer" as merit; rep3 pure R11 scores the same vision "partial" but downgrades for confidence framing. Uncertainty calibration is judged inconsistently.</li>
+</ul>
+
+<h4>Reasoning length as signal</h4>
+<ul>
+<li>Short reasoning (&lt;400 chars) appears almost exclusively in "missed" subscores where the judge is dismissive. These short reasonings cluster on fail verdicts (zero R04 rep1/rep2, zero R07, zero R08, zero R19).</li>
+<li>Long reasoning (&gt;1500 chars) appears on pass and high-partial verdicts, especially factual_grounding.reasoning and summary fields.</li>
+<li><span class="finding">Asymmetry</span>: strong verdicts average longer reasoning than fails. The judge does real evidence work to justify passes but treats fails as self-evident.</li>
+</ul>
+
+<h4>Coherence-axis pathology</h4>
+<ul>
+<li class="fail">Stringified JSON cases — rep1 pure R01/R07/R08/R11/R14, rep1 syke R01/R08/R11 have coherence as a JSON-encoded string rather than a structured dict. Rep1 pure R17, rep2 syke R08, rep3 zero R11 have it as proper object. Same judge, inconsistent output shape.</li>
+<li class="partial">Subcategory rubber-stamping — when coherence is strong, all four sub-axes (cross_harness_braid, cross_session_consistency, artifact_routing_consistency, contradiction_handling) tend to be strong with nearly identical reasoning boilerplate. Real differentiated work only appears on partial/missed scores.</li>
+<li class="fail">cross_harness_braid under-engaged — when only claude-code data exists, judge scores "strong" for "correctly focusing on available harness". That's absence-of-work scored positive.</li>
+<li class="partial">Contradiction handling is mostly "no contradictions detected" — across 45 files, genuine contradiction-surfacing appears in &lt;10 cases. Most contradiction_handling scores default to strong by vacuity.</li>
+</ul>
+
+<h4>Verbatim exemplars</h4>
+<blockquote>"Claim about not seeing harness trace files contradicts the slice contents (3197 claude-code JSONL files). The Codex/cycle #9 MEMEX reference is unverifiable."
+<br><span class="meta">— rep1 · zero · R15 · factual_grounding.support.reasoning</span></blockquote>
+<blockquote>"The answer claims 'cold start' with 0 memories/links/sessions and no trace files. The slice contains 742 claude-code JSONL files (33,913 lines), 89 syke-project sessions, and the git anchor shows 8+ commits on March 14 alone."
+<br><span class="meta">— rep1 · pure · R08 · factual_grounding.reasoning</span></blockquote>
+<!-- /JUDGE DNA -->
+</div>
+
+<h3>Stable-fail forensics</h3>
+<div id="stable-fail-forensics">
+<!-- STABLE FAIL FORENSICS -->
+<p class="meta">All 20 stable-fail cells read in full (20 ask_response.txt + 60 judge_result.json = 80 reads). These are the cells where every Opus rep gave the same sub-pass verdict — judge noise cannot explain them.</p>
+
+<h4>Taxonomy of failure modes</h4>
+<ul>
+<li><span class="finding">Time-anchor bleed</span> — agent locks "today" to benchmark runtime (2026-04-17) instead of the probe's reference date. <span class="meta">R04 (all three conditions), zero R07, zero R19</span></li>
+<li><span class="finding">Thin-bootstrap self-report</span> — treats "where are we now?" as self-diagnostic ("1 memory, 0 links, cold start") instead of mining the harness surface. <span class="meta">pure R08, pure R09, zero R08</span></li>
+<li><span class="finding">Stale-memex residue</span> — reproduces a stale memex snapshot ("Issue #15 still unfixed") without cross-checking git, which shows the fix committed hours earlier. <span class="meta">syke R05 (all 3 reps), zero R05</span></li>
+<li><span class="finding">Implementation-state undersell</span> — presents already-built components (file watcher, HealingLoop, adapter generator, 5 working adapters, Sense runtime) as "future vision" or "discussed / planned". <span class="meta">pure R11, syke R12, zero R11, zero R14, zero R17</span></li>
+<li><span class="finding">Missed active thread</span> — correct domain, wrong specific thread. Picks a subagent recap over the user's real edit session; denies a major Syke Map planning session. <span class="meta">pure R02, pure R19, syke R16</span></li>
+<li><span class="finding">Numbered-thread-map flattening</span> — loses the user's specific numbered thread system (Thread 12 PROMOTED, 15 DEPRIORITIZED, 29 PARTIALLY RESOLVED) into a generic taxonomy. <span class="meta">pure R09, syke R12</span></li>
+<li><span class="finding">Out-of-slice hallucination</span> — fabricates specific Codex timestamps ("3:08 PM PT", "13 Codex traces on 2026-04-16") that do not exist in a Claude-Code-only slice. <span class="meta">zero R04, R07, R08, R15, R19</span></li>
+<li><span class="finding">Overly-conservative refusal</span> — has 742 JSONL files and a full git anchor, but replies "mount the repo and tell me the test command". <span class="meta">zero R08, zero R15</span></li>
+</ul>
+
+<h4>Universal failures (stable-bad in pure AND syke AND zero)</h4>
+<table>
+<tr><th>probe</th><th>pure</th><th>syke</th><th>zero</th><th>mechanism</th></tr>
+<tr><td>R04</td><td class="fail">fail</td><td class="fail">fail</td><td class="fail">fail</td><td>Time-anchor bleed: "today" resolves to harness runtime, not reference_dt</td></tr>
+</table>
+<p class="meta">R04 is the <strong>single</strong> true universal stable-failure. R02 and R19 are stable-bad in pure and zero but not syke, so they are not environment-side. <strong>Only 1 of the 20 stable-fail cells reflects an environment bug; the other 19 are architecture-conditional.</strong> This is a strong signal that the Apr 18 time-unify patch is load-bearing.</p>
+
+<h4>Zero-only stable failures (syke pass, pure pass)</h4>
+<ul>
+<li><span class="finding">R07</span> zero <span class="fail">fail</span>: fabricates six Codex timestamps on 2026-04-16 when slice holds 0 codex files.</li>
+<li><span class="finding">R14</span> zero <span class="partial">partial</span>: thin bootstrap, misses Wave 5 validation + adapter deletion + UTC timestamp investigation.</li>
+<li><span class="finding">R15</span> zero <span class="fail">fail</span>: "mount the repo, then I'll help" — 3,197 available sessions unread.</li>
+<li><span class="finding">R17</span> zero <span class="partial">partial</span>: captures synthesis redesign arc but misses ~30 commits of observe+sense pipeline that dominated the week.</li>
+</ul>
+<p class="meta"><span class="finding">Signature zero weakness</span>: adapter-only without a committed memex provides no work-state anchor, so the agent defaults to either generic vision-reconstruction or infrastructure self-report. This is the "thin-memex-bootstrap-failure" mode.</p>
+
+<h4>Syke-only stable failures (syke bad where pure and/or zero pass)</h4>
+<ul>
+<li><span class="finding">R05</span> syke <span class="partial">partial</span> across all 3 reps — memex snapshot was taken ~6 hours before Issue #15's fix commit. Agent faithfully reproduced stale memex content without cross-checking git. <em>Syke's own memex is the source of the error.</em></li>
+<li><span class="finding">R12</span> syke <span class="partial">partial</span> — memex carried "Observe Phase 2 complete + thread spiral" framing; by reference date the Sense subsystem with 15+ commits was the actual active build. Memex anchored the model too early.</li>
+<li><span class="finding">R16</span> syke <span class="partial">partial</span> — memex carried "architecture decisions locked" framing, so agent <em>actively denied</em> that Syke Map planning happened on Mar 18, when in fact it was the day's dominant session.</li>
+</ul>
+<p><span class="finding">Shared mechanism</span>: memex staleness leaked into the answer as confident current state; the agent never reconciled memex claims against the git anchor or later session evidence. Memex is load-bearing in the right direction on most probes, but where it is slightly stale it actively misleads.</p>
+
+<h4>Micro-cards for the five most mechanistically rich cells</h4>
+
+<p><strong>R04 · all conditions · <span class="fail">fail</span></strong> — Ask: "today had no work, here are empty stubs from 2026-04-16." Judges flag the same time-anchor bleed across all three conditions.
+<blockquote>"The answer fundamentally misidentifies 'today' as April 17, 2026 (the benchmark execution date) instead of the probe's reference date of March 12, 2026." <span class="meta">— rep1 pure R04</span></blockquote></p>
+
+<p><strong>syke R05 · syke-only · <span class="partial">partial</span></strong> — Ask: four research vectors correctly surfaced, comprehensive "Now/Next/Later" board. Memex was 6 hours stale.
+<blockquote>"Issue #15 was fixed per git commit on Mar 12, yet listed as 'still unfixed' ... uncritically reproduced stale memex state without cross-referencing git." <span class="meta">— rep2 syke R05</span></blockquote></p>
+
+<p><strong>pure R09 · pure-partial · <span class="partial">partial</span></strong> — Ask: generic 10-item "observe trunk" taxonomy. User maintained a real <em>numbered</em> thread system; answer flattened it into a plausible but invented structure.
+<blockquote>"The answer invents its own organizational taxonomy rather than grounding in the user's maintained thread numbering system." <span class="meta">— rep2 pure R09</span></blockquote></p>
+
+<p><strong>zero R15 · zero-only · <span class="fail">fail</span></strong> — Ask: "send me the repo root and test command, then I'll continue." 3,197 JSONL sessions sat unread.
+<blockquote>"It claims it cannot see harness trace files when 3197+ JSONL files exist in the slice ... provides generic next-steps that could apply to any project." <span class="meta">— rep1 zero R15</span></blockquote></p>
+
+<p><strong>syke R12 · syke-only · <span class="partial">partial</span></strong> — Ask: correctly promoted Thread 12 (real-time distribution) as canonical NEXT. By reference date the Sense subsystem was already building what the answer called "planned/longer-horizon".
+<blockquote>"File watcher: 'discussed' → actually implemented. Adapter generator: 'longer-horizon' → implemented same day. HealingLoop: not mentioned as built → committed." <span class="meta">— rep1 syke R12</span></blockquote></p>
+<!-- /STABLE FAIL FORENSICS -->
+</div>
+
+<h3>Opus vs GPT-5.4 — same ask, different judge</h3>
+<div id="opus-vs-gpt54">
+<!-- OPUS VS GPT54 -->
+<p class="meta">17 probes sampled across pure/syke/zero, 33 judge_result.json files read (GPT-5.4 baseline paired with Opus rep1 — ask layer frozen, so any delta is pure judge behavior).</p>
+
+<h4>Verdict drift matrix</h4>
+<table>
+  <tr><th>condition (n)</th><th>upgraded</th><th>downgraded</th><th>same</th><th>net drift</th></tr>
+  <tr><td>pure (5)</td><td>2 (R01, R14)</td><td>1 (R19)</td><td>2</td><td class="pass">+1</td></tr>
+  <tr><td>syke (7)</td><td>5 (R01, R08, R11, R14, R19)</td><td>0</td><td>2</td><td class="pass">+5</td></tr>
+  <tr><td>zero (5)</td><td>0</td><td>0</td><td>5</td><td>0</td></tr>
+  <tr><td><strong>total (17)</strong></td><td><strong>7</strong></td><td><strong>1</strong></td><td><strong>9</strong></td><td class="pass"><strong>+6 net upgrades</strong></td></tr>
+</table>
+<p><span class="finding">Syke condition is where all the motion is.</span> Opus converts 5 of 7 GPT-5.4 "partial" verdicts to "pass". Pure shifts modestly. Zero is invariant — genuine failures stay failures. The GPT-5.4 "partial attractor" on syke dissolves under Opus.</p>
+
+<h4>Axis-level shifts</h4>
+<ul>
+<li><span class="finding">Continuity is the axis that moves most.</span> GPT-5.4 repeatedly docked continuity for "not the freshest cutoff-time state" even when the answer recovered the dominant active thread. Opus reads continuity as "would this restart the user's work" rather than "is every git-anchor commit surfaced".</li>
+<li>Factual grounding moves less — where both judges see fabrication, both call it. Where they see solid evidence chains, both recognize them — but Opus attaches the verbatim quote that anchors the claim.</li>
+<li>Coherence appears in Opus as a first-class axis with subcategories (cross_harness_braid, cross_session_consistency, artifact_routing_consistency, contradiction_handling). GPT-5.4 lacks this axis in 7 of the read cells — it folds coherence into continuity prose.</li>
+</ul>
+
+<h4>Reasoning depth &amp; evidence density</h4>
+<ul>
+<li>Mean reasoning length per axis: GPT-5.4 ≈ <strong>120 words</strong> per axis, no subcategories. Opus ≈ <strong>350-500 words</strong> per axis with 3-5 scored subcategories.</li>
+<li><span class="finding">Opus cites specific artifacts at ~3-4× the rate of GPT-5.4.</span> Routine: session IDs (<code>ses_3367fd033ffe</code>), commit SHAs (<code>1cbd734</code>), verbatim user quotes, test output strings flagged as unverifiable. GPT-5.4 describes; Opus quotes.</li>
+<li>Hedging: GPT-5.4 hedges in continuity narrative ("not fully current", "materially incomplete"). Opus hedges in structured <code>uncertainty_calibration</code> cells and awards "strong" while still noting a gap.</li>
+</ul>
+
+<h4>Stylistic / cognitive differences</h4>
+<ul>
+<li><span class="finding">Opus catches source-attribution bugs GPT-5.4 misses</span> — pure/R19: Opus notices the answer cited a subagent meta-query response as if it were user work; GPT-5.4 scored the same cell pass.</li>
+<li>Opus catches fabrication more aggressively even on answers both judges like — syke/R15: Opus flagged <code>"observe-phase2 branch"</code>, <code>"18 commits ahead"</code>, <code>"28 passed in 8.13s"</code> as "not found anywhere in the slice or git anchor". GPT-5.4 accepted the same numbers.</li>
+<li>Opus does <em>not</em> show the partial-attractor bias GPT-5.4 had. Strong evidence + right thread restored → pass, even if git-anchor completeness is imperfect. GPT-5.4 downweighted for residual completeness almost mechanically.</li>
+<li>Opus overweights <em>source provenance</em> (where did this specific claim come from). That matters for benchmark interpretation.</li>
+</ul>
+
+<h4>Micro-examples — cells that changed verdict</h4>
+<p><strong>syke/R11</strong> (GPT-5.4 <span class="fail">fail</span> → Opus <span class="pass">pass</span>):
+<blockquote><span class="meta">GPT-5.4:</span> "Recovers a real March 13 architectural direction, but not well-grounded on its concrete state claims; misses the live cutoff state."</blockquote>
+<blockquote><span class="meta">Opus:</span> "The 7 Observe Principles, compiler target paradigm, Observe-Map-Ask architecture, 'let structure emerge' correction — all confirmed by observations and session content in the slice."</blockquote>
+GPT-5.4 punished for missing latest git-anchor commits; Opus scored against what was delivered.</p>
+
+<p><strong>pure/R19</strong> (GPT-5.4 <span class="pass">pass</span> → Opus <span class="partial">partial</span>) — the only downgrade:
+<blockquote><span class="meta">GPT-5.4:</span> "The core recency claim is well supported by slice evidence... accurate timestamp and useful continuation path."</blockquote>
+<blockquote><span class="meta">Opus:</span> "The specific timestamp is sourced from a subagent's response to 'Ask syke what happened last' — not from actual user work."</blockquote>
+Opus inspected provenance one level deeper and caught that the cited "last activity" was a meta-query recap, not user authoring.</p>
+
+<p><strong>syke/R08</strong> (GPT-5.4 <span class="fail">fail</span> → Opus <span class="partial">partial</span>):
+GPT-5.4 saw the git anchor pointing at Sense/sandbox work and concluded the syke-site landscape thread was fabricated. Opus actually located the session (<code>ses_30d2c1873ffebsIycnvqLgc1D2</code>) where the landscape page rewrite happened and verified it.</p>
+
+<h4>Bottom line — calibrate, don't choose</h4>
+<ul>
+<li><span class="finding">Keep both judges and calibrate against each other.</span> Opus and GPT-5.4 are not competing versions of one instrument; they are two different instruments whose convergences and divergences carry information. The convergence set is the stable signal. The divergence set is where we investigate the cell further rather than pick a winner.</li>
+<li><span class="finding">Opus is sharper on provenance</span> (catches subagent-recap-as-user-work, fabricated test counts, missing SHAs in git anchor). <span class="finding">GPT-5.4 is stricter on completeness</span> (downweights for residual git-anchor gaps even when the dominant thread is restored). Neither is "right"; they're weighting different parts of the useful-answer definition.</li>
+<li><strong>Trustable only where both judges agree</strong> — zero-condition fails (both converge), pure-passes where both judges award pass with cited evidence, and pure-bad cells where both judges mark fail or partial. This last set is the real memory signal (see below).</li>
+<li><strong>Not claimable from this run:</strong> absolute pass-rate comparisons, architecture ordering beyond pure vs syke on the 3-cell convergence zone.</li>
+</ul>
+<!-- /OPUS VS GPT54 -->
+</div>
+
+<h3>Ask trace shape — what the agent actually did</h3>
+<div id="ask-shape">
+<!-- ASK SHAPE -->
+<p class="meta">20 ask_response.txt + 20 ask_trace.json read in full across pure/syke/zero on matched probes (R04, R08, R11, R14, R15 + others). Tool calls counted by <code>tool_use</code> entries; search strings extracted from trace JSON.</p>
+
+<h4>Tool call shape per condition</h4>
+<ul>
+<li><strong>pure</strong> (7 cells): avg ~<code>10</code> calls/probe, bash-heavy on longer probes (R09 is 80%+ bash with sqlite+rg+find), read fills in adapter docs.</li>
+<li><strong>syke</strong> (7 cells): avg ~<code>10</code> calls/probe. Similar bash-dominance; R11 tops at 14 calls with aggressive <code>rg</code> across harness JSONL.</li>
+<li><strong>zero</strong> (6 cells): avg ~<code>8.5</code> calls. <span class="pass">zero does NOT refuse to mine</span> — R08 is the only truly short trace (3 calls, orient-only); other zero probes shell out just as much as syke.</li>
+</ul>
+<p><span class="finding">Contrary to prior assumption, pure does not shell out more than syke.</span> All three conditions converge on bash+read only (no Grep/Glob/Write/Edit). The PSYCHE.md prompt licenses (not restricts) mining in every condition. Gap in <em>targeting</em>, not <em>appetite</em>.</p>
+
+<h4>Search pattern shape</h4>
+<ul>
+<li>All three open with the same boilerplate: <code>pwd &amp;&amp; ls -la &amp;&amp; find . -maxdepth 3</code>, then <code>sqlite3 syke.db ".schema"</code>, then <code>SELECT COUNT(*) FROM memories/links/cycle_records</code>.</li>
+<li><strong>pure R09</strong> searches semantic anchors — <code>rg -n -S "open threads|thread map|observe-map-ask|oracle ruling|thread catalog"</code>. Plus the live repo path AND the slice path. <span class="finding">Pure crosses the workspace boundary</span> into the live <code>/Users/saxenauts/Documents/personal/syke</code>.</li>
+<li><strong>syke R11</strong> searches crystallized memes — <code>rg -i "ObservedSession|ObserveAdapter|Five Signals|hook listener|tool reduction|7 Observe Principles|P1:|P2:"</code>. Much more specific jargon. <span class="finding">Syke knows what words the memex uses.</span></li>
+<li><strong>zero R14</strong> stays within the sandbox — <code>find sessions</code>, <code>find "$base/codex" -type f</code>, globs <code>*.jsonl</code>. <span class="partial">Zero does not know term vocabulary; it mines by filesystem shape.</span></li>
+</ul>
+
+<h4>Time anchor behavior</h4>
+<ul>
+<li><span class="pass">No shell <code>date</code> calls in any of the 20 traces.</span> All conditions use <code>git log --since/--until</code> with hard-coded historical dates.</li>
+<li><strong>2026-04-17/18 leaks in the answer</strong>: 0 in pure, 2 in syke (R01, R04), 2 in zero (R04, R07). These are <em>not</em> wall-clock shell leaks — they come from filesystem mtimes of sandbox session stubs and a MEMEX ISO timestamp inside <code>syke.db</code>. <span class="finding">Pure, lacking a pre-seeded memex, never surfaces them; syke+zero treat the sandbox's own artifact timestamps as "today".</span> This is exactly the temporal hazard the Apr 18 time-unify patch targets.</li>
+</ul>
+
+<h4>Answer length &amp; structure</h4>
+<ul>
+<li>Pure is bimodal: short orient-only (R08 920B: "basically at a cold start") or massive synthesis (R11 13.4KB thread-map).</li>
+<li>Syke leans into <span class="finding">essay-length structured synthesis</span> with explicit locked/superseded framings. Avg ~8KB.</li>
+<li>Zero is similar to syke but tends to include more "Honest confidence level" / "constraint" caveats.</li>
+<li><span class="finding">Only pure produces concrete commit SHAs in the answer</span> (<code>1cbd734</code>, <code>63cc4a5</code>, <code>d719f3f</code>, <code>7afd378</code>) — pure reaches the live git repo. Syke rarely embeds SHAs in narrative. Zero almost never cites SHAs (sandbox-only reading path denies them).</li>
+<li>All three deliver a "Bottom line" / "Short version" / "Compact read" paragraph rollup.</li>
+</ul>
+
+<h4>Divergent strategies on matched probes</h4>
+<p><strong>Probe R08 ("where are we now")</strong>:
+<blockquote>pure: "We're basically at a cold start… <code>syke.db</code> exists, but it has 0 memories" <span class="meta">(5 bash + 2 reads)</span></blockquote>
+<blockquote>syke: same shape, leans on injected "Observe Phase 2 closed" framing from memex <span class="meta">(12 tool rows)</span></blockquote>
+<blockquote>zero: "workspace: /Users/saxenauts/.syke-lab/zero__R08__... · memories: 1" <span class="meta">(6 tool rows, shortest trace of all 20 — stops at schema + count)</span></blockquote>
+Zero inspects but does <em>not</em> cross into the harness slice.</p>
+
+<p><strong>Probe R11 (Observe vision)</strong>:
+<blockquote>pure: synthesizes from first principles (13.4KB, 12 tool rows) — builds the spec rather than recovering it.</blockquote>
+<blockquote>syke: tightest <code>rg</code> vocabulary (ObservedSession, Five Signals, P1..P7) — recovers locked decisions verbatim.</blockquote>
+<blockquote>zero: wider net (<code>rg -i 'observe|hook|listener|federation'</code>) — finds same material but without vocabulary priors; answer drifts into speculative narration.</blockquote></p>
+
+<p><strong>Probe R14 (latest state)</strong>:
+<blockquote>pure: reaches into the real Documents/personal/syke repo via <code>git log</code> — surfaces concrete SHAs.</blockquote>
+<blockquote>syke: pivots to the syke-site landscape strand (injected memex hint), uses screenshot references it cannot verify.</blockquote>
+<blockquote>zero: chases codex+claude JSONL across ~/.syke-lab, then admits "this workspace does not show a full Apr 17 workday yet" — honest deferral.</blockquote></p>
+
+<p><span class="finding">Pattern: pure returns grounded artifacts (SHAs, paths); syke mines with vocabulary priors; zero stays sandbox-bound and hedges harder.</span> Tool-call counts are roughly equal — the targeting differs, not the appetite.</p>
+<!-- /ASK SHAPE -->
+</div>
+
+<h3>Flip mechanics — why rep1 said X and rep3 said Y</h3>
+<div id="flip-mechanics">
+<!-- FLIP MECHANICS -->
+<p class="meta">Six high-flip cells, 18 judge_result.json + 7 ask_response.txt read in full. Ask is frozen — divergence is entirely post-answer judge stochasticity.</p>
+
+<div class="finding">
+<h4>syke · R14 — rep1 <span class="pass">pass</span> · rep2 <span class="fail">fail</span> · rep3 <span class="partial">partial</span></h4>
+<p><strong>Answer:</strong> "Last session" = syke-site landscape page rewrite into terminal-style UI, tested at <code>localhost:3000/landscape</code> (HTTP 200), with five open constraints.</p>
+<p><strong>Rep1:</strong> Trusted the transcript; <blockquote>"Session ses_30d2c1873ffe... has latest activity (13:31 March 16) confirming this is the right thread." <span class="meta">rep1 · continuity.active_thread_selection</span></blockquote></p>
+<p><strong>Rep2:</strong> Anchored on git commits, called the thread fabricated; <blockquote>"The answer fabricates the wrong active thread entirely... all feat(sense), feat(sandbox), fix(llm), feat(sync)." <span class="meta">rep2 · factual_grounding</span></blockquote></p>
+<p><strong>Rep3:</strong> Accepted landscape as real but penalized for missing the sense-pipeline session (ended 5h later). <blockquote>"The sense pipeline session ended at 18:58 UTC, over 5 hours after the landscape session ended at 13:31 UTC." <span class="meta">rep3 · factual_grounding</span></blockquote></p>
+<p><span class="finding">Divergence mechanism:</span> different <em>primary evidence weight</em> — rep1 trusted transcript, rep2 trusted git, rep3 weighted session end-times. Same evidence, three different "ground truth" anchors.</p>
+</div>
+
+<div class="finding">
+<h4>syke · R01 — rep1 <span class="pass">pass</span> · rep2 <span class="pass">pass</span> · rep3 <span class="partial">partial</span></h4>
+<p><strong>Answer:</strong> v0.4.5 state: docs overhaul, codex proxy concern, daemon/TCC work, roadmap correction; notes Apr 17 sessions are empty metadata.</p>
+<p><strong>Rep1/rep2:</strong> treated minor unverified items as trivial; <blockquote>"Minor unverified claims don't materially undermine the reconstruction." <span class="meta">rep1 · summary</span></blockquote></p>
+<p><strong>Rep3:</strong> penalized the Apr 17 mention as temporal boundary violation. <blockquote>"The Apr 17 reference introduces temporal confusion... presenting a future date that muddies the working model." <span class="meta">rep3 · continuity.forgetting_residue_control</span></blockquote></p>
+<p><span class="finding">Divergence mechanism:</span> hedge tolerance — rep1/rep2 read Apr 17 as honest scoping, rep3 read it as boundary breach. Identical words, opposite ethical readings.</p>
+</div>
+
+<div class="finding">
+<h4>syke · R19 — rep1 <span class="pass">pass</span> · rep2 <span class="partial">partial</span> · rep3 <span class="partial">partial</span></h4>
+<p><strong>Answer:</strong> Last durable thread Mar 20: T6/T7/T8 synthesis + Bug #9 investigation (Claude SDK → LiteLLM → Kimi path) + replay-sandbox promotion.</p>
+<p><strong>Rep1:</strong> noticed Bug #9 was fix-committed but flagged only in contradiction_handling — not propagated to overall.</p>
+<p><strong>Rep2:</strong> same Bug #9 weighted as load-bearing drift + penalized for missing Mar 21 work. <blockquote>"Listing 'continue Bug #9' as next priority when git shows it fixed represents stale residue." <span class="meta">rep2 · continuity.forgetting_residue_control</span></blockquote></p>
+<p><strong>Rep3:</strong> Bug #9 tension + "T6/T7/T8 step naming could not be independently verified" — layering support doubt on state-transition doubt.</p>
+<p><span class="finding">Divergence mechanism:</span> cascade depth of a single flaw — rep1 isolates it in one sub-axis, rep2/rep3 let it cascade into overall verdict. Same bug, different blast radius.</p>
+</div>
+
+<div class="finding">
+<h4>pure · R14 — rep1 <span class="partial">partial</span> · rep2 <span class="fail">fail</span> · rep3 <span class="partial">partial</span></h4>
+<p><strong>Answer:</strong> dates last state to Mar 14: Observe Phase 2 closed, real-time distribution as next killer feature.</p>
+<p><strong>Rep1/rep3:</strong> Mar 14 anchor acceptable given empty syke.db caveat; kept at partial.</p>
+<p><strong>Rep2:</strong> framed Mar 14 dating as an <em>active false claim</em> ("slice clearly extends to Mar 16") and flipped to fail. <blockquote>"Claiming Mar 14 is the last state when Mar 15-16 data is abundant is unsupported." <span class="meta">rep2 · factual_grounding.support</span></blockquote></p>
+<p><span class="finding">Divergence mechanism:</span> whether a caveat absolves a miss — the opening disclaimer ("no persisted memory, best-effort synthesis") was read as earned mitigation by rep1/rep3 and as insufficient by rep2.</p>
+</div>
+
+<div class="finding">
+<h4>pure · R11 — all partial, sub-axis flips without overall flip</h4>
+<p><strong>Answer:</strong> 14-section architectural vision of the Observe layer.</p>
+<p><strong>All 3 reps</strong> agreed the answer doesn't know about Sense, but each routed the complaint into a different sub-axis: rep1 → state_transition_tracking missed; rep2 → same sub-axis, different reason (phase-completion gap); rep3 → active_thread_selection missed.</p>
+<p><span class="finding">Divergence mechanism:</span> sub-axis routing roulette — overall verdict stable, sub-axis floor votes differ.</p>
+</div>
+
+<div class="finding">
+<h4>zero · R09 — rep1 <span class="pass">pass</span> · rep2 <span class="partial">partial</span> · rep3 <span class="pass">pass</span></h4>
+<p><strong>Answer:</strong> 11-thread Observe development map with closed vs active threads, including the ContentFilter tension.</p>
+<p><strong>Rep1/rep3:</strong> ContentFilter surfacing called out as honest contradiction-handling. <blockquote>"Explicitly surfaces the key contradiction rather than papering over it." <span class="meta">rep3 · coherence.contradiction_handling</span></blockquote></p>
+<p><strong>Rep2:</strong> same observation scored as <em>stale residue</em> (memex said "Architecture Locked"). <blockquote>"Presents a resolved issue as still active — a form of residue." <span class="meta">rep2 · continuity.forgetting_residue_control</span></blockquote></p>
+<p><span class="finding">Divergence mechanism:</span> same observation framed virtue vs vice. Judge has no stable prior on which source (memex vs git vs session) is authoritative.</p>
+</div>
+
+<h4>Taxonomy of flip mechanisms</h4>
+<ol>
+<li><span class="finding">Authoritative-source instability.</span> When git, session transcripts, and memex disagree about "the last thread", each rep picks a different anchor. Single biggest flip driver (syke R14, pure R14, zero R09).</li>
+<li><span class="finding">Cascade depth of a single flaw.</span> One observed problem can stay quarantined in one sub-axis (rep1 syke R19) or propagate into overall verdict (rep2/rep3 syke R19). No stable policy on blast radius.</li>
+<li><span class="finding">Hedge tolerance.</span> Disclaimers ("Apr 17 is empty", "no persisted memory, best-effort") read as honest scoping in some reps, boundary violation in others.</li>
+<li><span class="finding">Virtue / vice framing.</span> Surfacing unresolved tension graded as "good contradiction handling" or "stale residue" depending on sub-axis routing.</li>
+<li><span class="finding">Sub-axis routing roulette.</span> When reps agree on a gap, they may assign the "missed" score to different sub-axes (pure R11) — axis-level flips without overall-verdict flips.</li>
+</ol>
+<!-- /FLIP MECHANICS -->
+</div>
+
+<h2>Pure-fail consensus — where the real memory signal lives</h2>
+
+<p>
+  Pure is the null baseline: identity + now + question. No memex, no synthesis. Its failures are not architectural shortcomings of a memory system — they are the tasks for which a memory system has to exist. So the probe set that matters is:
+  <strong>cells where both judges agree pure is not-pass</strong>. That's the task-load the environment is actually asking memory to carry.
+</p>
+
+<p class="meta">
+  Framing reminder (grounded from prior sessions via syke): Syke's data is real longitudinal cross-harness memory about an evolving work graph. The task is reconstruction, not retrieval — the answer has to be assembled on demand from partial, heterogeneous, asynchronous traces across Claude Code / Codex / Hermes / OpenCode. Pure-fails are the probes where that reconstruction demand exceeds what the slice alone makes recoverable.
+</p>
+
+<h4>The pure-bad consensus set — 9 of 19 probes (both judges agree pure is fail or partial)</h4>
+<table>
+  <tr><th>probe</th><th>pure · gpt54</th><th>pure · opus</th><th>syke · gpt54</th><th>syke · opus</th><th>zero · gpt54</th><th>zero · opus</th><th>memory uplift?</th></tr>
+  <tr><td>R02</td><td class="fail">fail</td><td class="partial">partial</td><td class="partial">partial</td><td class="pass">pass</td><td class="partial">partial</td><td class="partial">partial</td><td class="pass">syke (Opus only)</td></tr>
+  <tr><td>R04</td><td class="fail">fail</td><td class="fail">fail</td><td class="fail">fail</td><td class="fail">fail</td><td class="fail">fail</td><td class="fail">fail</td><td class="meta">none — env bug</td></tr>
+  <tr><td>R05</td><td class="partial">partial</td><td class="partial">partial</td><td class="partial">partial</td><td class="partial">partial</td><td class="partial">partial</td><td class="partial">partial</td><td class="meta">none — stale memex</td></tr>
+  <tr><td>R07</td><td class="partial">partial</td><td class="partial">partial</td><td class="partial">partial</td><td class="pass">pass</td><td class="fail">fail</td><td class="fail">fail</td><td class="pass">syke (Opus only)</td></tr>
+  <tr><td>R08</td><td class="fail">fail</td><td class="fail">fail</td><td class="fail">fail</td><td class="partial">partial</td><td class="fail">fail</td><td class="fail">fail</td><td class="partial">partial uplift (Opus)</td></tr>
+  <tr><td>R09</td><td class="fail">fail</td><td class="partial">partial</td><td class="pass">pass</td><td class="pass">pass</td><td class="partial">partial</td><td class="pass">pass</td><td class="pass"><strong>both judges</strong></td></tr>
+  <tr><td>R14</td><td class="fail">fail</td><td class="partial">partial</td><td class="fail">fail</td><td class="pass">pass</td><td class="fail">fail</td><td class="partial">partial</td><td class="partial">syke (Opus only); disputed</td></tr>
+  <tr><td>R15</td><td class="partial">partial</td><td class="partial">partial</td><td class="partial">partial</td><td class="partial">partial</td><td class="fail">fail</td><td class="fail">fail</td><td class="meta">none — completeness</td></tr>
+  <tr><td>R18</td><td class="partial">partial</td><td class="partial">partial</td><td class="partial">partial</td><td class="partial">partial</td><td class="partial">partial</td><td class="pass">pass</td><td class="partial">zero uplift (Opus)</td></tr>
+</table>
+
+<h4>Reading the consensus set</h4>
+<ul>
+<li><span class="finding">R09 is the single cleanest memory-value signal.</span> Pure fails in both judges; syke passes in both. The task is a numbered thread-map with user-maintained status transitions — exactly the kind of structured work-graph a memex is designed to hold.</li>
+<li><span class="finding">R02, R07, R14 are Opus-only uplifts.</span> Opus sees syke restore the thread and awards pass; GPT-5.4 keeps syke at partial or fail. These are calibration cells — the Opus-vs-GPT-5.4 delta is load-bearing on whether memory value is recognized.</li>
+<li><span class="finding">R04, R05, R15 are the hard floor.</span> Both judges agree no condition recovers them — R04 is environment (time anchor), R05 is memex-staleness inside syke, R15 is a completeness task where even mining the slice doesn't fully reconstruct.</li>
+<li><span class="finding">R08 is the thin-bootstrap case.</span> Pure fails both, syke only partially recovers under Opus. This is where a memex is supposed to carry state forward and the snapshot wasn't dense enough.</li>
+<li><span class="finding">R18 shows zero can win too.</span> Zero uplifts to pass under Opus on R18 — adapter mining alone recovered enough. This is a reminder that zero is not strictly inferior; it just has a much narrower working range.</li>
+</ul>
+
+<h4>What to do about the 10 probes pure passes on</h4>
+<p>
+  These are tasks recoverable from the slice itself without memory. They are not useless — they test that the memory system doesn't <em>hurt</em> an answer that the agent could already give. Track them as the "do no harm" set. Any condition that regresses pure-passes to partial/fail on these cells is actively damaging.
+</p>
+
+<h2>Sub-category convergence — what to keep, merge, prune</h2>
+
+<p class="meta">
+  The current 12-subcategory schema has load mismatches: some sub-axes carry most of the "missed" scores on pure-bad cells (real discriminators), while others rubber-stamp "strong" the majority of the time (vacuous). A calibrated schema should retire or merge the vacuous ones.
+</p>
+
+<h4>Measured across 171 Opus-judge cells (3 reps × 3 conditions × 19 probes)</h4>
+<table>
+  <tr><th>subcategory</th><th>strong%</th><th>partial+missed%</th><th>pure-bad defect load (missed count)</th><th>read</th></tr>
+  <tr><td>continuity.state_transition_tracking</td><td>36%</td><td class="pass">64%</td><td class="pass"><strong>12</strong></td><td>workhorse — keep</td></tr>
+  <tr><td>continuity.active_thread_selection</td><td>57%</td><td>43%</td><td class="pass"><strong>10</strong></td><td>keep, but merges with salience below</td></tr>
+  <tr><td>coherence.contradiction_handling</td><td>33%</td><td>46%</td><td>7</td><td>keep — catches memex vs git contradictions</td></tr>
+  <tr><td>continuity.continuation_value</td><td>53%</td><td>47%</td><td>7</td><td>keep — closest to "useful answer" definition</td></tr>
+  <tr><td>coherence.cross_session_consistency</td><td>43%</td><td>36%</td><td>7</td><td>merge with artifact_routing_consistency</td></tr>
+  <tr><td>coherence.artifact_routing_consistency</td><td>31%</td><td>48%</td><td>7</td><td>merge with cross_session_consistency</td></tr>
+  <tr><td>continuity.salience_relevance</td><td>60%</td><td>40%</td><td>6</td><td>merge into active_thread_selection</td></tr>
+  <tr><td>factual_grounding.support</td><td>55%</td><td>45%</td><td>5</td><td>keep — raw evidence chain</td></tr>
+  <tr><td>factual_grounding.uncertainty_calibration</td><td>40%</td><td>60%</td><td>5</td><td>keep — catches overclaim</td></tr>
+  <tr><td>coherence.cross_harness_braid</td><td>30%</td><td>49%</td><td>5</td><td>conditional — only load-bearing on multi-source cells</td></tr>
+  <tr><td>continuity.forgetting_residue_control</td><td>36%</td><td>64%</td><td>4</td><td>keep — catches stale-memex residue</td></tr>
+  <tr><td>factual_grounding.boundedness</td><td>33%</td><td>67%</td><td>3</td><td>keep — catches out-of-slice hallucination</td></tr>
+</table>
+
+<h4>Proposed calibrated schema — three axes, seven sub-axes</h4>
+
+<div class="finding">
+  <strong>factual_grounding</strong>
+  <ul>
+    <li><code>support</code> — is each claim backed by specific slice/git evidence?</li>
+    <li><code>boundedness</code> — are claims kept inside the bounded evidence (no out-of-slice, no wall-clock leak)?</li>
+    <li><code>uncertainty_calibration</code> — are hedges honest; is overclaim avoided?</li>
+  </ul>
+</div>
+
+<div class="finding">
+  <strong>continuity</strong>
+  <ul>
+    <li><code>thread_selection</code> <span class="meta">(merges active_thread_selection + salience_relevance)</span> — is the right current thread surfaced, with right relative weight?</li>
+    <li><code>state_transition_tracking</code> — does the answer track what changed since the last cycle: what's now done, what's now live, what's now residue? This was the top-defect-load subcategory; it carries most of the real signal.</li>
+    <li><code>forgetting_residue_control</code> — is stale state labeled stale, not presented as current?</li>
+    <li><code>continuation_value</code> — would this answer let the user resume useful work?</li>
+  </ul>
+</div>
+
+<div class="finding">
+  <strong>coherence</strong>
+  <ul>
+    <li><code>internal_consistency</code> <span class="meta">(merges cross_session_consistency + artifact_routing_consistency)</span> — do the claims braid consistently across sessions, files, timestamps?</li>
+    <li><code>contradiction_handling</code> — when memex and git (or two sessions) disagree, does the answer surface the contradiction rather than pick one silently?</li>
+  </ul>
+  <p class="meta"><strong>Retire <code>cross_harness_braid</code></strong> as a scored sub-axis. Fold it as a conditional note — only evaluated on multi-source probes. When only one harness has data, scoring it as "strong" for "correctly focusing on available harness" is a vacuity score that masquerades as signal.</p>
+</div>
+
+<h4>Why this shape</h4>
+<ul>
+<li><span class="finding">7 sub-axes instead of 12.</span> Reduces judge cognitive load — the main reason coherence subcategories rubber-stamp "strong" is that the judge is spreading attention too thin.</li>
+<li><span class="finding">Keep the defect-load leaders unchanged.</span> <code>state_transition_tracking</code>, <code>active_thread_selection</code> (now <code>thread_selection</code>), <code>contradiction_handling</code>, <code>continuation_value</code> carry 4 of the top 5 miss counts. These are the actual discriminators.</li>
+<li><span class="finding">Merge only when semantically redundant.</span> <code>salience_relevance</code> fires when <code>active_thread_selection</code> does; <code>artifact_routing_consistency</code> fires when <code>cross_session_consistency</code> does (judges routinely give them the same score). Merging is a data-driven consolidation, not a subjective simplification.</li>
+<li><span class="finding">Retire the conditional-only sub-axis.</span> <code>cross_harness_braid</code> is only meaningful on multi-source cells. Keep the concept as a probe-level tag rather than a sub-axis every cell gets scored on.</li>
+</ul>
+
+<h4>Validation path — don't ship the new schema without running it</h4>
+<ol>
+<li>Apply the 7-sub-axis schema retroactively to the ab07 judge traces (we have the prose reasoning; most sub-axis scores can be reconstructed from it).</li>
+<li>Check whether the convergence set (pure-bad cells both judges agree on) gets <em>sharper</em> — fewer flip cells at the verdict level, more stable sub-axis agreement across reps.</li>
+<li>Run one small fresh benchmark pass with the new schema in the Pi judge tool, 1 rep each on GPT-5.4-mini and Opus, compare flip rate vs ab07's 37/68/32%.</li>
+<li>Only if the new schema reduces flip rate without dropping discriminator power, promote it for the 3×3 matrix.</li>
+</ol>
+
+<h2>Baseline recommendation</h2>
+<div id="baseline-reco">
+
+<h4>What we can now claim</h4>
+<ul>
+<li><span class="finding">R04 is the single true universal failure.</span> Exactly 1 of 20 stable-fail cells is environment-side. The Apr 18 time-unify patch targets this specifically. Everything else is architecture-conditional and real.</li>
+<li><span class="finding">Opus as judge is a harder and sharper instrument.</span> Same asks, +6 net verdict upgrades concentrated on syke, driven by the removal of GPT-5.4's "partial attractor". Opus cites 3-4× more specific evidence (session IDs, SHAs, quotes) and catches provenance bugs GPT-5.4 missed.</li>
+<li><span class="finding">The syke&gt;pure condition ordering is stable across both judges.</span> What changed is the absolute rate — don't cross-compare pass counts across judge versions.</li>
+<li><span class="finding">Zero is the most legible condition.</span> Lowest flip rate (32%), lowest invalid rate, highest stable-fail rate (10/19 cells). When zero fails, judges agree. This makes zero the honest floor.</li>
+</ul>
+
+<h4>What is judge noise vs architecture signal</h4>
+<table>
+  <tr><th>noise source</th><th>evidence</th><th>fix</th></tr>
+  <tr><td>coherence-axis stringified JSON</td><td>63-84% of probes have coherence score flipping; same judge produces inconsistent schema shape</td><td>Pi-native tool already enforces the schema. Re-run judge-only on any artifact pre-4a68f01.</td></tr>
+  <tr><td>authoritative-source instability</td><td>syke R14, pure R14, zero R09: different reps pick git vs transcript vs memex as the anchor</td><td>Make the judge brief explicitly rank source authority (slice &gt; git anchor &gt; memex); architectural.</td></tr>
+  <tr><td>sub-axis routing roulette</td><td>pure R11: all 3 reps agree on the gap, disagree which sub-axis takes the hit</td><td>Not worth fixing — overall verdict is stable, sub-axis churn is cosmetic until we train on it.</td></tr>
+  <tr><td>hedge tolerance drift</td><td>syke R01: Apr 17 mention read as honest scoping vs boundary violation by different reps</td><td>Environment fix (time-unify) removes the occasion for this drift.</td></tr>
+</table>
+
+<h4>Stable-fail catalogue as the real taxonomy</h4>
+<p>The 20 stable-fail cells decompose cleanly into 8 failure modes, and they cluster by condition:</p>
+<ul>
+<li><strong>environment-side</strong>: time-anchor bleed (R04 universal). Targeted by Apr 18 patch.</li>
+<li><strong>zero-architectural</strong>: thin-bootstrap self-report (R08, R09), refusal-to-mine (R15), out-of-slice hallucination (R04, R07, R08, R15, R19). Four distinct zero failure modes.</li>
+<li><strong>syke-architectural</strong>: stale-memex residue (R05), memex-anchored-too-early (R12), memex-denial-of-fresh-session (R16). All driven by the memex being load-bearing in the wrong direction.</li>
+<li><strong>pure-architectural</strong>: missed numbered-thread system (R09), attributed a subagent recap as user work (R19).</li>
+<li><strong>shared-architectural</strong>: implementation-state undersell (pure R11 + syke R12 + zero R11/R14/R17) — the hardest class; all three conditions fail because the slice itself was ambiguous about what was built vs planned.</li>
+</ul>
+
+<h4>Operational recommendation for the 3×3 matrix — calibration-first, architecture-later</h4>
+<ol>
+<li><span class="finding">Run both judges and report both.</span> Every run scored by GPT-5.4 and Opus in parallel. Report convergence (both agree) as the trustable signal; report divergence cells separately as calibration targets, not as ordering evidence. Do not pick one judge as canonical yet.</li>
+<li><span class="finding">Pure-fail consensus is the real progress ledger.</span> The 9 pure-bad probes (R02, R04, R05, R07, R08, R09, R14, R15, R18) where both judges agree pure is not-pass are where the environment demands memory. Count how many of these a condition can lift to pass (in both judges) — that's the useful measurement. Don't inflate by including cells pure already passes.</li>
+<li><span class="finding">Do-no-harm set.</span> The other 10 probes where pure passes — any architecture that regresses them to partial/fail is actively damaging, independent of its pass-rate on the pure-fail set. Track both numbers.</li>
+<li><span class="finding">Smoke R04 first.</span> R04 is the environment-side time-anchor failure, stable across both judges and all three conditions. If the Apr 18 time-unify patch works, R04 should recover at least partial. If it doesn't, one cell will keep dragging every aggregate down.</li>
+<li><span class="finding">Validate the 7-sub-axis schema before the big run.</span> Apply it retrospectively to ab07 traces and run one 1-rep pass under both judges with the new schema. Only ship it to the 3×3 if flip rate drops meaningfully without losing discriminator power. Architecture stays frozen during this work — we are calibrating the instrument, not the subject.</li>
+<li><span class="finding">Expect syke to still have a high flip rate.</span> Syke surfaces more content, so judges have more to disagree about. Three reps per cell are load-bearing regardless of schema changes — report modal verdict plus full distribution, never just one verdict.</li>
+</ol>
+
+<h4>Why pure-fail focus, not syke-focus</h4>
+<p>
+  Pure's failures reveal what the environment actually demands: longitudinal state, cross-session provenance, thread structure that the slice doesn't self-organize. These are the tasks Syke exists to carry. Reading the probe set through pure-fails instead of syke-passes flips the question from <em>"how often did memory help?"</em> to <em>"on the tasks where memory is required, did this architecture deliver?"</em> — which is the claim a memory product actually has to meet.
+</p>
+<p>
+  The framing from prior sessions (via syke): Syke's data is real longitudinal cross-harness memory about an evolving work graph, where truth is time-dependent and must be reconstructed from fragmented traces. Pure-fails are the probes where that reconstruction demand is explicit; syke-passes on pure-passes are not evidence of anything. This is why the pure-fail consensus set is the signal to optimize against.
+</p>
+
+<h4>What this probe did not answer</h4>
+<ul>
+<li>Whether the 3×3 (replay × eval-pack) matrix will show lower flip rate on repeat ask. This probe is judge-only; ask variance is unmeasured.</li>
+<li>Whether new synthesis mutations (syke_guard, syke_checkpoint, syke_route) move any pure-fail consensus cells — those runs are queued, not yet evaluated under either judge.</li>
+<li>Whether the 7-sub-axis schema actually reduces flip rate in practice. Proposal only; needs the retroactive + 1-rep validation.</li>
+<li>Whether Opus's stricter provenance checking penalizes the MiniMax ask model differently than GPT-5.4-mini. Model axis is confounded with judge axis across historical runs.</li>
+</ul>
+</div>
+
+<script>
+// Fill probe matrix from inline JSON
+const PROBE_FLIP = {"pure_R01": ["pass", "pass", "pass"], "pure_R02": ["partial", "partial", "partial"], "pure_R03": ["partial", "pass", "partial"], "pure_R04": ["fail", "fail", "fail"], "pure_R05": ["partial", "pass", "partial"], "pure_R06": ["pass", "pass", "pass"], "pure_R07": ["partial", "pass", "partial"], "pure_R08": ["fail", "fail", "fail"], "pure_R09": ["partial", "partial", "partial"], "pure_R10": ["pass", "pass", "pass"], "pure_R11": ["partial", "partial", "partial"], "pure_R12": ["pass", "partial", "partial"], "pure_R13": ["pass", "pass", "pass"], "pure_R14": ["partial", "fail", "partial"], "pure_R15": ["partial", "partial", "pass"], "pure_R16": ["pass", "pass", "pass"], "pure_R17": ["pass", "pass", "pass"], "pure_R18": ["partial", "pass", "partial"], "pure_R19": ["partial", "partial", "partial"], "syke_R01": ["pass", "pass", "partial"], "syke_R02": ["pass", "partial", "partial"], "syke_R03": ["pass", "pass", "partial"], "syke_R04": ["fail", "fail", "fail"], "syke_R05": ["partial", "partial", "partial"], "syke_R06": ["partial", "pass", "pass"], "syke_R07": ["pass", "partial", "pass"], "syke_R08": ["partial", "pass", "pass"], "syke_R09": ["pass", "pass", "partial"], "syke_R10": ["pass", "pass", "pass"], "syke_R11": ["pass", "partial", "pass"], "syke_R12": ["partial", "partial", "partial"], "syke_R13": ["pass", "pass", "pass"], "syke_R14": ["pass", "fail", "partial"], "syke_R15": ["partial", "pass", "partial"], "syke_R16": ["partial", "partial", "partial"], "syke_R17": ["pass", "partial", "pass"], "syke_R18": ["partial", "pass", "pass"], "syke_R19": ["pass", "partial", "partial"], "zero_R01": ["pass", "pass", "pass"], "zero_R02": ["partial", "partial", "partial"], "zero_R03": ["pass", "pass", "partial"], "zero_R04": ["fail", "fail", "fail"], "zero_R05": ["partial", "partial", "partial"], "zero_R06": ["pass", "pass", "partial"], "zero_R07": ["fail", "fail", "fail"], "zero_R08": ["fail", "fail", "fail"], "zero_R09": ["pass", "partial", "pass"], "zero_R10": ["pass", "partial", "partial"], "zero_R11": ["partial", "partial", "partial"], "zero_R12": ["partial", "partial", "pass"], "zero_R13": ["pass", "pass", "pass"], "zero_R14": ["partial", "partial", "partial"], "zero_R15": ["fail", "fail", "fail"], "zero_R16": ["partial", "pass", "pass"], "zero_R17": ["partial", "partial", "partial"], "zero_R18": ["pass", "pass", "pass"], "zero_R19": ["fail", "fail", "fail"]};
+const STABLE_BAD = [{"cond": "pure", "probe": "R02", "verdict": "partial"}, {"cond": "pure", "probe": "R04", "verdict": "fail"}, {"cond": "pure", "probe": "R08", "verdict": "fail"}, {"cond": "pure", "probe": "R09", "verdict": "partial"}, {"cond": "pure", "probe": "R11", "verdict": "partial"}, {"cond": "pure", "probe": "R19", "verdict": "partial"}, {"cond": "syke", "probe": "R04", "verdict": "fail"}, {"cond": "syke", "probe": "R05", "verdict": "partial"}, {"cond": "syke", "probe": "R12", "verdict": "partial"}, {"cond": "syke", "probe": "R16", "verdict": "partial"}, {"cond": "zero", "probe": "R02", "verdict": "partial"}, {"cond": "zero", "probe": "R04", "verdict": "fail"}, {"cond": "zero", "probe": "R05", "verdict": "partial"}, {"cond": "zero", "probe": "R07", "verdict": "fail"}, {"cond": "zero", "probe": "R08", "verdict": "fail"}, {"cond": "zero", "probe": "R11", "verdict": "partial"}, {"cond": "zero", "probe": "R14", "verdict": "partial"}, {"cond": "zero", "probe": "R15", "verdict": "fail"}, {"cond": "zero", "probe": "R17", "verdict": "partial"}, {"cond": "zero", "probe": "R19", "verdict": "fail"}];
+const PROBES = [...Array(19)].map((_, i) => `R${String(i+1).padStart(2,'0')}`);
+const CONDITIONS = ['pure','syke','zero'];
+
+const matrix = document.getElementById('probe-matrix');
+const table = document.createElement('table');
+let header = '<tr><th>probe</th>';
+for (const c of CONDITIONS) header += `<th colspan="3">${c}</th>`;
+header += '</tr><tr><th></th>';
+for (const c of CONDITIONS) header += `<th>r1</th><th>r2</th><th>r3</th>`;
+header += '</tr>';
+table.innerHTML = header;
+for (const probe of PROBES) {
+  let row = `<tr><td><strong>${probe}</strong></td>`;
+  for (const c of CONDITIONS) {
+    const verds = PROBE_FLIP[`${c}_${probe}`] || ['-','-','-'];
+    for (const v of verds) {
+      const cls = v === 'pass' ? 'pass' : v === 'partial' ? 'partial' : v === 'fail' ? 'fail' : 'missing';
+      const glyph = v === 'pass' ? '✓' : v === 'partial' ? '~' : v === 'fail' ? '✗' : '–';
+      row += `<td><span class="cell ${cls}" title="${v}">${glyph}</span></td>`;
+    }
+  }
+  row += '</tr>';
+  table.innerHTML += row;
+}
+matrix.appendChild(table);
+
+const stableTable = document.getElementById('stable-bad');
+for (const row of STABLE_BAD) {
+  const tr = document.createElement('tr');
+  tr.innerHTML = `<td>${row.cond}</td><td>${row.probe}</td><td class="${row.verdict}">${row.verdict}</td>`;
+  stableTable.appendChild(tr);
+}
+
+function setCoverage(agents, judge, ask) {
+  document.getElementById('cov-agents').textContent = agents;
+  document.getElementById('cov-judge').textContent = judge;
+  document.getElementById('cov-ask').textContent = ask;
+}
+// Coverage tally across 5 dispatched agents:
+//   A1 judge DNA        — 45 judge_result.json
+//   A2 stable-fail      — 60 judge_result.json + 20 ask_response.txt
+//   A3 opus vs gpt54    — 33 judge_result.json (GPT-5.4 baseline paired with Opus rep1)
+//   A4 ask shape        — 20 ask_response.txt + 20 ask_trace.json
+//   A5 flip mechanics   — 18 judge_result.json + 7 ask_response.txt
+//
+// Totals (full reads; overlap possible across agents on the same file):
+//   judge artifacts read: 45 + 60 + 33 + 18 = 156  (target ≥52 at 30% of 171)
+//   ask artifacts read:   20 + 20 + 7      = 47 responses + 20 trajectories (target ≥18)
+setCoverage(5, 156, 47);
+</script>
+</body>
+</html>

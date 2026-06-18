@@ -1,0 +1,28 @@
+{
+  "claim_audit_item": {
+    "claim_text": "",
+    "type": "verified|inferred|speculative|unsupported|contradicted|uncheckable",
+    "evidence_ids": [],
+    "check_method": "deterministic|judge_semantic|human_review",
+    "notes": ""
+  },
+  "overall_observation_values": [
+    "pass",
+    "partial",
+    "fail",
+    "cannot_determine",
+    "packet_insufficient",
+    "rubric_ambiguous"
+  ],
+  "failure_attribution_values": [
+    "answer_wrong",
+    "packet_insufficient",
+    "reference_ambiguous",
+    "judge_error",
+    "rubric_ambiguous",
+    "unsupported_inference",
+    "contradicted_evidence",
+    "stale_state_selection",
+    "wrong_restart_risk"
+  ]
+}

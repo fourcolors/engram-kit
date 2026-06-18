@@ -1,0 +1,22 @@
+{
+  "version": 1,
+  "created_at": "2026-04-21",
+  "rows": [
+    {
+      "judge_group": "gpt_judge_pooled",
+      "full_r2": 0.7537997173577015,
+      "drop_state_transition_r2": 0.7378309545249815,
+      "state_transition_only_r2": 0.6063821512960308,
+      "delta_full_minus_drop": 0.015968762832719974,
+      "delta_full_minus_one_axis": 0.14741756606167067
+    },
+    {
+      "judge_group": "opus_judge_pooled",
+      "full_r2": 0.8621389065233833,
+      "drop_state_transition_r2": 0.8397430098960383,
+      "state_transition_only_r2": 0.7306220628475739,
+      "delta_full_minus_drop": 0.02239589662734498,
+      "delta_full_minus_one_axis": 0.1315168436758094
+    }
+  ]
+}

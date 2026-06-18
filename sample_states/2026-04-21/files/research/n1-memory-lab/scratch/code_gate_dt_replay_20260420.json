@@ -1,0 +1,6041 @@
+{
+  "summary_by_run": {
+    "opus_ask_opus_judge": {
+      "n": 57,
+      "axis_FAIL_counts": {
+        "d_artifact_code": 2,
+        "d_committed_code": 2,
+        "d_time_code": 1
+      },
+      "flip_directions": {
+        "pass->fail": 2,
+        "partial->fail": 1
+      }
+    },
+    "gpt_ask_gpt_judge": {
+      "n": 57,
+      "axis_FAIL_counts": {
+        "d_committed_code": 1,
+        "d_artifact_code": 3
+      },
+      "flip_directions": {
+        "partial->fail": 3
+      }
+    },
+    "opus_ask_gpt_judge": {
+      "n": 57,
+      "axis_FAIL_counts": {
+        "d_artifact_code": 2,
+        "d_committed_code": 2,
+        "d_time_code": 1
+      },
+      "flip_directions": {
+        "pass->fail": 1,
+        "partial->fail": 1
+      }
+    },
+    "gpt_ask_opus_judge": {
+      "n": 57,
+      "axis_FAIL_counts": {
+        "d_committed_code": 1,
+        "d_artifact_code": 3
+      },
+      "flip_directions": {
+        "pass->fail": 3,
+        "partial->fail": 1
+      }
+    }
+  },
+  "cells_by_run": {
+    "opus_ask_opus_judge": [
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R01",
+        "condition": "zero",
+        "ref_dt": "2026-03-08",
+        "llm_verdict": "fail",
+        "d_time_code": "PASS",
+        "d_artifact_code": "FAIL",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "REFERENCE_TIME.md"
+          ],
+          [
+            "file",
+            "claude-code.md"
+          ],
+          [
+            "file",
+            "PSYCHE.md"
+          ],
+          [
+            "file",
+            "codex.md"
+          ]
+        ],
+        "missing_artifacts": [
+          [
+            "file",
+            "REFERENCE_TIME.md"
+          ],
+          [
+            "file",
+            "PSYCHE.md"
+          ]
+        ],
+        "codegate_verdict": "fail",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/zero/R01/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R01",
+        "condition": "production",
+        "ref_dt": "2026-03-08",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "formatters.py"
+          ],
+          [
+            "file",
+            "SECURITY.md"
+          ],
+          [
+            "file",
+            "AGENTS.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/production/R01/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R01",
+        "condition": "pure",
+        "ref_dt": "2026-03-08",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "AGENTS.md"
+          ],
+          [
+            "file",
+            "BRAINSTORM.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/pure/R01/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R02",
+        "condition": "production",
+        "ref_dt": "2026-03-08",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "issue",
+            "#11"
+          ],
+          [
+            "issue",
+            "#13"
+          ],
+          [
+            "file",
+            "CONFIG_REFERENCE.md"
+          ],
+          [
+            "file",
+            "config_file.py"
+          ],
+          [
+            "file",
+            "PROVIDERS.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/production/R02/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R02",
+        "condition": "zero",
+        "ref_dt": "2026-03-08",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "issue",
+            "#11"
+          ],
+          [
+            "file",
+            "test-and-monitor.sh"
+          ],
+          [
+            "file",
+            "syke/config.toml"
+          ],
+          [
+            "file",
+            "formatters.py"
+          ],
+          [
+            "file",
+            "AGENTS.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/zero/R02/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R03",
+        "condition": "production",
+        "ref_dt": "2026-03-11",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "MEMEX_EVOLUTION.md"
+          ],
+          [
+            "file",
+            "SKILL.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/production/R03/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R02",
+        "condition": "pure",
+        "ref_dt": "2026-03-08",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "AGENTS.md"
+          ],
+          [
+            "file",
+            "formatters.py"
+          ],
+          [
+            "file",
+            "CLAUDE.md"
+          ],
+          [
+            "file",
+            "strategies/ingest/gmail-oauth.md"
+          ],
+          [
+            "file",
+            "docs/CONFIG_REFERENCE.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/pure/R02/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R03",
+        "condition": "zero",
+        "ref_dt": "2026-03-11",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "synthesis.py"
+          ],
+          [
+            "file",
+            "ARCHITECTURE.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/zero/R03/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R04",
+        "condition": "production",
+        "ref_dt": "2026-03-12",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "issue",
+            "#14"
+          ],
+          [
+            "file",
+            "MEMEX_EVOLUTION.md"
+          ],
+          [
+            "file",
+            "FOUNDATIONS.md"
+          ],
+          [
+            "issue",
+            "#10"
+          ],
+          [
+            "issue",
+            "#15"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/production/R04/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R03",
+        "condition": "pure",
+        "ref_dt": "2026-03-11",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "issue",
+            "#23039"
+          ],
+          [
+            "issue",
+            "#23160"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/pure/R03/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R04",
+        "condition": "zero",
+        "ref_dt": "2026-03-12",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "SKILL.md"
+          ],
+          [
+            "file",
+            "FOUNDATIONS.md"
+          ],
+          [
+            "file",
+            "MEMEX_EVOLUTION.md"
+          ],
+          [
+            "file",
+            "syke/llm/env.py"
+          ],
+          [
+            "file",
+            "syke/cli.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/zero/R04/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R04",
+        "condition": "pure",
+        "ref_dt": "2026-03-12",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "issue",
+            "#14"
+          ],
+          [
+            "issue",
+            "#10"
+          ],
+          [
+            "file",
+            "research/roadmap-internal.md"
+          ],
+          [
+            "file",
+            "FOUNDATIONS.md"
+          ],
+          [
+            "file",
+            "daemon.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/pure/R04/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R05",
+        "condition": "production",
+        "ref_dt": "2026-03-13",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "FAIL",
+        "d_committed_note": "1/1 shas not in anchor: ['508b4e1']",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "fitness.py"
+          ],
+          [
+            "issue",
+            "#18"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "fail",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/production/R05/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R05",
+        "condition": "pure",
+        "ref_dt": "2026-03-13",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "issue",
+            "#12"
+          ],
+          [
+            "file",
+            "roadmap-internal.md"
+          ],
+          [
+            "file",
+            "MEMEX_EVOLUTION.md"
+          ],
+          [
+            "file",
+            "FOUNDATIONS.md"
+          ],
+          [
+            "file",
+            "synthesis.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/pure/R05/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R05",
+        "condition": "zero",
+        "ref_dt": "2026-03-13",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "research/memory-landscape.md"
+          ],
+          [
+            "file",
+            "MEMEX_EVOLUTION.md"
+          ],
+          [
+            "issue",
+            "#15"
+          ],
+          [
+            "issue",
+            "#3"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/zero/R05/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R06",
+        "condition": "zero",
+        "ref_dt": "2026-03-13",
+        "llm_verdict": "fail",
+        "d_time_code": "FAIL",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [
+          "2026-04-16"
+        ],
+        "top_artifacts": [
+          [
+            "issue",
+            "#7"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "fail",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/zero/R06/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R06",
+        "condition": "pure",
+        "ref_dt": "2026-03-13",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "roadmap-internal.md"
+          ],
+          [
+            "file",
+            "FOUNDATIONS.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/pure/R06/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R06",
+        "condition": "production",
+        "ref_dt": "2026-03-13",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "issue",
+            "#18"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/production/R06/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R07",
+        "condition": "production",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "OBSERVE-PLAN.md"
+          ],
+          [
+            "file",
+            "FOUNDATIONS.md"
+          ],
+          [
+            "file",
+            "parsers.py"
+          ],
+          [
+            "issue",
+            "#10"
+          ],
+          [
+            "issue",
+            "#14"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/production/R07/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R08",
+        "condition": "zero",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "fail",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "claude-code.md"
+          ],
+          [
+            "file",
+            "codex.md"
+          ],
+          [
+            "issue",
+            "#8"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "fail",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/zero/R08/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R07",
+        "condition": "zero",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "issue",
+            "#9"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/zero/R07/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R07",
+        "condition": "pure",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "MEMEX.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/pure/R07/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R08",
+        "condition": "pure",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "fail",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "fail",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/pure/R08/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R09",
+        "condition": "zero",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "fail",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "claude-code.md"
+          ],
+          [
+            "file",
+            "codex.md"
+          ],
+          [
+            "issue",
+            "#8"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "fail",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/zero/R09/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R09",
+        "condition": "production",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/production/R09/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R08",
+        "condition": "production",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "constants.py"
+          ],
+          [
+            "file",
+            "parsers.py"
+          ],
+          [
+            "issue",
+            "#2"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/production/R08/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R09",
+        "condition": "pure",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "OBSERVE-PRINCIPLES.md"
+          ],
+          [
+            "file",
+            "claude_code.py"
+          ],
+          [
+            "file",
+            "constants.py"
+          ],
+          [
+            "file",
+            "synthesis.py"
+          ],
+          [
+            "file",
+            "observe.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/pure/R09/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R10",
+        "condition": "zero",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "fail",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "fail",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/zero/R10/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R10",
+        "condition": "pure",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "fail",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "fail",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/pure/R10/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R10",
+        "condition": "production",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/production/R10/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R11",
+        "condition": "pure",
+        "ref_dt": "2026-03-15",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "SKILL.md"
+          ],
+          [
+            "file",
+            "OBSERVE-PRINCIPLES.md"
+          ],
+          [
+            "file",
+            "aider.chat.history.md"
+          ],
+          [
+            "file",
+            "claude/settings.json"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/pure/R11/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R11",
+        "condition": "production",
+        "ref_dt": "2026-03-15",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "health.py"
+          ],
+          [
+            "file",
+            "AGENTS.md"
+          ],
+          [
+            "file",
+            "CLAUDE.md"
+          ],
+          [
+            "file",
+            "cli.py"
+          ],
+          [
+            "file",
+            "db.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/production/R11/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R11",
+        "condition": "zero",
+        "ref_dt": "2026-03-15",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "SKILL.md"
+          ],
+          [
+            "file",
+            "ADAPTER-PROTOCOL.md"
+          ],
+          [
+            "file",
+            "handler.py"
+          ],
+          [
+            "file",
+            "watcher.py"
+          ],
+          [
+            "file",
+            "tailer.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/zero/R11/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R12",
+        "condition": "production",
+        "ref_dt": "2026-03-15",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "OBSERVE-PRINCIPLES.md"
+          ],
+          [
+            "file",
+            "parsers.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/production/R12/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R12",
+        "condition": "zero",
+        "ref_dt": "2026-03-15",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/zero/R12/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R13",
+        "condition": "production",
+        "ref_dt": "2026-03-15",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "FAIL",
+        "d_committed_note": "6/6 shas not in anchor: ['80acb6c', '4d3f4c0', '0195a8b', '2a9b29d', '7afd378']",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "SKILL.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "fail",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/production/R13/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R13",
+        "condition": "zero",
+        "ref_dt": "2026-03-15",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "docs/OBSERVE-SCHEMA.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/zero/R13/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R13",
+        "condition": "pure",
+        "ref_dt": "2026-03-15",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "claude_code.py"
+          ],
+          [
+            "file",
+            "codex.py"
+          ],
+          [
+            "file",
+            "pi.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/pure/R13/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R12",
+        "condition": "pure",
+        "ref_dt": "2026-03-15",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/pure/R12/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R14",
+        "condition": "zero",
+        "ref_dt": "2026-03-16",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/zero/R14/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R14",
+        "condition": "production",
+        "ref_dt": "2026-03-16",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "sisyphus/notepads/observe-sense/HANDOFF.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/production/R14/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R15",
+        "condition": "production",
+        "ref_dt": "2026-03-16",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "experiments/memory_replay.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/production/R15/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R14",
+        "condition": "pure",
+        "ref_dt": "2026-03-16",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "intelligence.py"
+          ],
+          [
+            "file",
+            "registry.py"
+          ],
+          [
+            "file",
+            "healing.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/pure/R14/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R15",
+        "condition": "zero",
+        "ref_dt": "2026-03-16",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "experiments/memory_replay.py"
+          ],
+          [
+            "file",
+            "sense/intelligence.py"
+          ],
+          [
+            "file",
+            "sense/registry.py"
+          ],
+          [
+            "file",
+            "sense/healing.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/zero/R15/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R15",
+        "condition": "pure",
+        "ref_dt": "2026-03-16",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "experiments/memory_replay.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/pure/R15/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R16",
+        "condition": "production",
+        "ref_dt": "2026-03-19",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "Observe-architecture.html"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/production/R16/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R16",
+        "condition": "zero",
+        "ref_dt": "2026-03-19",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "observe-architecture.html"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/zero/R16/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R17",
+        "condition": "zero",
+        "ref_dt": "2026-03-20",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/zero/R17/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R16",
+        "condition": "pure",
+        "ref_dt": "2026-03-19",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "syke/memory/skills/synthesis.md"
+          ],
+          [
+            "file",
+            "synthesis.py"
+          ],
+          [
+            "file",
+            "syke-map.md"
+          ],
+          [
+            "file",
+            "tools.py"
+          ],
+          [
+            "file",
+            "db.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/pure/R16/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R17",
+        "condition": "production",
+        "ref_dt": "2026-03-20",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "issue",
+            "#9"
+          ],
+          [
+            "file",
+            "SKILL.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/production/R17/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R17",
+        "condition": "pure",
+        "ref_dt": "2026-03-20",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "synthesis-architecture.html"
+          ],
+          [
+            "file",
+            "observe-architecture.html"
+          ],
+          [
+            "file",
+            "synthesis.py"
+          ],
+          [
+            "issue",
+            "#9"
+          ],
+          [
+            "file",
+            "tests/test_integration_adapters.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/pure/R17/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R18",
+        "condition": "production",
+        "ref_dt": "2026-03-21",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "experiments/memory_replay.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/production/R18/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R18",
+        "condition": "pure",
+        "ref_dt": "2026-03-21",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "FAIL",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "REFERENCE_TIME.md"
+          ],
+          [
+            "file",
+            "syke/MEMEX.md"
+          ]
+        ],
+        "missing_artifacts": [
+          [
+            "file",
+            "REFERENCE_TIME.md"
+          ]
+        ],
+        "codegate_verdict": "fail",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/pure/R18/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R18",
+        "condition": "zero",
+        "ref_dt": "2026-03-21",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "experiments/memory_replay.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/zero/R18/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R19",
+        "condition": "zero",
+        "ref_dt": "2026-03-21",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/zero/R19/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R19",
+        "condition": "pure",
+        "ref_dt": "2026-03-21",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/pure/R19/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_opus_judge",
+        "probe": "R19",
+        "condition": "production",
+        "ref_dt": "2026-03-21",
+        "llm_verdict": "fail",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "fail",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/evidence/production/R19/local_git_anchor.json"
+      }
+    ],
+    "gpt_ask_gpt_judge": [
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R01",
+        "condition": "production",
+        "ref_dt": "2026-03-08",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "tests/test_daemon.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/production/R01/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R01",
+        "condition": "zero",
+        "ref_dt": "2026-03-08",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "tests/test_daemon.py"
+          ],
+          [
+            "file",
+            "codex/auth.json"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/zero/R01/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R01",
+        "condition": "pure",
+        "ref_dt": "2026-03-08",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "FOUNDATIONS.md"
+          ],
+          [
+            "file",
+            "AGENTS.md"
+          ],
+          [
+            "file",
+            "BRAINSTORM.md"
+          ],
+          [
+            "file",
+            "scripts/test-and-monitor.sh"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/pure/R01/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R02",
+        "condition": "zero",
+        "ref_dt": "2026-03-08",
+        "llm_verdict": "fail",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "syke/config.toml"
+          ],
+          [
+            "file",
+            "SKILL.md"
+          ],
+          [
+            "file",
+            "docs/CONFIG_REFERENCE.md"
+          ],
+          [
+            "file",
+            "docs/PROVIDERS.md"
+          ],
+          [
+            "file",
+            "CHANGELOG.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "fail",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/zero/R02/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R02",
+        "condition": "production",
+        "ref_dt": "2026-03-08",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "FAIL",
+        "d_committed_note": "1/1 shas not in anchor: ['7eb35c8']",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "AGENTS.md"
+          ],
+          [
+            "file",
+            "scripts/test-and-monitor.sh"
+          ],
+          [
+            "file",
+            "tests/test_persistence.py"
+          ],
+          [
+            "file",
+            "CHANGELOG.md"
+          ],
+          [
+            "file",
+            "SECURITY.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "fail",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/production/R02/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R03",
+        "condition": "production",
+        "ref_dt": "2026-03-11",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "SKILL.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/production/R03/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R02",
+        "condition": "pure",
+        "ref_dt": "2026-03-08",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "issue",
+            "#13"
+          ],
+          [
+            "file",
+            "AGENTS.md"
+          ],
+          [
+            "file",
+            "CLAUDE.md"
+          ],
+          [
+            "issue",
+            "#11"
+          ],
+          [
+            "file",
+            "syke/config.toml"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/pure/R02/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R03",
+        "condition": "zero",
+        "ref_dt": "2026-03-11",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "SKILL.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/zero/R03/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R03",
+        "condition": "pure",
+        "ref_dt": "2026-03-11",
+        "llm_verdict": "fail",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "fail",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/pure/R03/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R04",
+        "condition": "production",
+        "ref_dt": "2026-03-12",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "roadmap-internal.md"
+          ],
+          [
+            "file",
+            "FOUNDATIONS.md"
+          ],
+          [
+            "issue",
+            "#14"
+          ],
+          [
+            "file",
+            "docs/MEMEX_EVOLUTION.md"
+          ],
+          [
+            "file",
+            "MEMEX_EVOLUTION.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/production/R04/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R05",
+        "condition": "production",
+        "ref_dt": "2026-03-13",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "research/memory-landscape.md"
+          ],
+          [
+            "issue",
+            "#10"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/production/R05/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R04",
+        "condition": "zero",
+        "ref_dt": "2026-03-12",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "issue",
+            "#14"
+          ],
+          [
+            "file",
+            "Users/saxenauts/Documents/personal/syke/research/roadmap-internal.md"
+          ],
+          [
+            "file",
+            "Users/saxenauts/Documents/personal/syke/FOUNDATIONS.md"
+          ],
+          [
+            "file",
+            "research/roadmap-internal.md"
+          ],
+          [
+            "file",
+            "docs/MEMEX_EVOLUTION.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/zero/R04/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R04",
+        "condition": "pure",
+        "ref_dt": "2026-03-12",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "issue",
+            "#14"
+          ],
+          [
+            "file",
+            "docs/CONFIG_REFERENCE.md"
+          ],
+          [
+            "file",
+            "syke/cli.py"
+          ],
+          [
+            "file",
+            "Users/saxenauts/Documents/personal/syke/research/roadmap-internal.md"
+          ],
+          [
+            "file",
+            "Users/saxenauts/Documents/personal/syke/FOUNDATIONS.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/pure/R04/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R05",
+        "condition": "zero",
+        "ref_dt": "2026-03-13",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "MEMEX_EVOLUTION.md"
+          ],
+          [
+            "issue",
+            "#10"
+          ],
+          [
+            "issue",
+            "#15"
+          ],
+          [
+            "issue",
+            "#16"
+          ],
+          [
+            "issue",
+            "#1"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/zero/R05/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R05",
+        "condition": "pure",
+        "ref_dt": "2026-03-13",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "SKILL.md"
+          ],
+          [
+            "file",
+            "MEMEX_EVOLUTION.md"
+          ],
+          [
+            "file",
+            "dataset_builder.py"
+          ],
+          [
+            "file",
+            "evolve_skill.py"
+          ],
+          [
+            "file",
+            "constraints.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/pure/R05/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R06",
+        "condition": "production",
+        "ref_dt": "2026-03-13",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/production/R06/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R07",
+        "condition": "production",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "OBSERVE-PLAN.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/production/R07/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R06",
+        "condition": "pure",
+        "ref_dt": "2026-03-13",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "issue",
+            "#10"
+          ],
+          [
+            "issue",
+            "#12"
+          ],
+          [
+            "issue",
+            "#14"
+          ],
+          [
+            "issue",
+            "#15"
+          ],
+          [
+            "issue",
+            "#7"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/pure/R06/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R06",
+        "condition": "zero",
+        "ref_dt": "2026-03-13",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "research/wave1-lighthouse-observe.md"
+          ],
+          [
+            "file",
+            "health.py"
+          ],
+          [
+            "issue",
+            "#10"
+          ],
+          [
+            "issue",
+            "#12"
+          ],
+          [
+            "issue",
+            "#14"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/zero/R06/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R07",
+        "condition": "zero",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "fail",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "issue",
+            "#8"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "fail",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/zero/R07/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R08",
+        "condition": "zero",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "fail",
+        "d_time_code": "PASS",
+        "d_artifact_code": "FAIL",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "adapters/claude-code.md"
+          ],
+          [
+            "file",
+            "REFERENCE_TIME.md"
+          ],
+          [
+            "file",
+            "adapters/codex.md"
+          ],
+          [
+            "file",
+            "PSYCHE.md"
+          ],
+          [
+            "issue",
+            "#8"
+          ]
+        ],
+        "missing_artifacts": [
+          [
+            "file",
+            "REFERENCE_TIME.md"
+          ],
+          [
+            "file",
+            "PSYCHE.md"
+          ]
+        ],
+        "codegate_verdict": "fail",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/zero/R08/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R08",
+        "condition": "production",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "fail",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "adapters/claude-code.md"
+          ],
+          [
+            "file",
+            "adapters/codex.md"
+          ],
+          [
+            "issue",
+            "#1"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "fail",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/production/R08/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R08",
+        "condition": "pure",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/pure/R08/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R09",
+        "condition": "zero",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "fail",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "fail",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/zero/R09/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R09",
+        "condition": "production",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "fail",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "fail",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/production/R09/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R09",
+        "condition": "pure",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "syke/db.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/pure/R09/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R07",
+        "condition": "pure",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "MEMEX.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/pure/R07/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R10",
+        "condition": "production",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/production/R10/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R10",
+        "condition": "zero",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/zero/R10/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R11",
+        "condition": "production",
+        "ref_dt": "2026-03-15",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/production/R11/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R10",
+        "condition": "pure",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "CLAUDE.md"
+          ],
+          [
+            "file",
+            "AGENTS.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/pure/R10/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R11",
+        "condition": "zero",
+        "ref_dt": "2026-03-15",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/zero/R11/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R12",
+        "condition": "production",
+        "ref_dt": "2026-03-15",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/production/R12/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R12",
+        "condition": "zero",
+        "ref_dt": "2026-03-15",
+        "llm_verdict": "fail",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "OBSERVE-ARCHITECTURE.md"
+          ],
+          [
+            "file",
+            "ADAPTER-PROTOCOL.md"
+          ],
+          [
+            "file",
+            "claude-code.toml"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "fail",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/zero/R12/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R11",
+        "condition": "pure",
+        "ref_dt": "2026-03-15",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/pure/R11/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R13",
+        "condition": "production",
+        "ref_dt": "2026-03-15",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/production/R13/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R12",
+        "condition": "pure",
+        "ref_dt": "2026-03-15",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "ADAPTER-PROTOCOL.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/pure/R12/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R13",
+        "condition": "zero",
+        "ref_dt": "2026-03-15",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/zero/R13/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R13",
+        "condition": "pure",
+        "ref_dt": "2026-03-15",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/pure/R13/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R14",
+        "condition": "production",
+        "ref_dt": "2026-03-16",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/production/R14/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R14",
+        "condition": "zero",
+        "ref_dt": "2026-03-16",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "tests/test_observe.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/zero/R14/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R15",
+        "condition": "zero",
+        "ref_dt": "2026-03-16",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/zero/R15/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R15",
+        "condition": "production",
+        "ref_dt": "2026-03-16",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/production/R15/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R15",
+        "condition": "pure",
+        "ref_dt": "2026-03-16",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "tests/test_observe.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/pure/R15/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R16",
+        "condition": "zero",
+        "ref_dt": "2026-03-19",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "FAIL",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "db5cb6db...jsonl"
+          ],
+          [
+            "file",
+            "AGENTS.md"
+          ],
+          [
+            "file",
+            "CLAUDE.md"
+          ],
+          [
+            "file",
+            "JULES.md"
+          ],
+          [
+            "file",
+            "syke-memory-research/db5cb6db-7787-44e4-9f02-2e6afe09d132.jsonl"
+          ]
+        ],
+        "missing_artifacts": [
+          [
+            "file",
+            "db5cb6db...jsonl"
+          ]
+        ],
+        "codegate_verdict": "fail",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/zero/R16/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R14",
+        "condition": "pure",
+        "ref_dt": "2026-03-16",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "Users/saxenauts/Documents/personal/syke/.archive/sandbox-timeline-20260317.html"
+          ],
+          [
+            "file",
+            "tests/test_observe.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/pure/R14/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R16",
+        "condition": "production",
+        "ref_dt": "2026-03-19",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "docs/observe-architecture.html"
+          ],
+          [
+            "file",
+            "SKILL.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/production/R16/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R16",
+        "condition": "pure",
+        "ref_dt": "2026-03-19",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/pure/R16/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R17",
+        "condition": "production",
+        "ref_dt": "2026-03-20",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "syke/memory/synthesis.py"
+          ],
+          [
+            "file",
+            "syke/db.py"
+          ],
+          [
+            "file",
+            "Users/saxenauts/Documents/personal/syke/docs/observe-architecture.html"
+          ],
+          [
+            "file",
+            "tests/test_persistence.py"
+          ],
+          [
+            "file",
+            "syke/sense/healing.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/production/R17/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R17",
+        "condition": "pure",
+        "ref_dt": "2026-03-20",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "syke/memory/skills/synthesis.md"
+          ],
+          [
+            "file",
+            "docs/observe-architecture.html"
+          ],
+          [
+            "file",
+            "REPLAY_SANDBOX.md"
+          ],
+          [
+            "file",
+            "world-model.html"
+          ],
+          [
+            "file",
+            "dataset.json"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/pure/R17/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R17",
+        "condition": "zero",
+        "ref_dt": "2026-03-20",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "docs/synthesis-architecture.html"
+          ],
+          [
+            "file",
+            "syke/memory/skills/synthesis.md"
+          ],
+          [
+            "file",
+            "docs/observe-architecture.html"
+          ],
+          [
+            "file",
+            "docs/OBSERVE-ARCHITECTURE.md"
+          ],
+          [
+            "file",
+            "syke/memory/synthesis.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/zero/R17/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R18",
+        "condition": "production",
+        "ref_dt": "2026-03-21",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "docs/SANDBOX.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/production/R18/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R18",
+        "condition": "zero",
+        "ref_dt": "2026-03-21",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "syke/sense/intelligence.py"
+          ],
+          [
+            "file",
+            "tests/sandbox/conftest.py"
+          ],
+          [
+            "file",
+            "tests/sandbox/helpers.py"
+          ],
+          [
+            "file",
+            "syke/sense/sandbox.py"
+          ],
+          [
+            "file",
+            "replay_results.json"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/zero/R18/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R18",
+        "condition": "pure",
+        "ref_dt": "2026-03-21",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "FAIL",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "experiments/memory_replay.py"
+          ],
+          [
+            "file",
+            "memex/vNNN.md"
+          ]
+        ],
+        "missing_artifacts": [
+          [
+            "file",
+            "memex/vNNN.md"
+          ]
+        ],
+        "codegate_verdict": "fail",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/pure/R18/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R19",
+        "condition": "zero",
+        "ref_dt": "2026-03-21",
+        "llm_verdict": "fail",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "fail",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/zero/R19/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R19",
+        "condition": "pure",
+        "ref_dt": "2026-03-21",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "manifest.json"
+          ],
+          [
+            "issue",
+            "#9"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/pure/R19/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_gpt_judge",
+        "probe": "R19",
+        "condition": "production",
+        "ref_dt": "2026-03-21",
+        "llm_verdict": "fail",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "fail",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/evidence/production/R19/local_git_anchor.json"
+      }
+    ],
+    "opus_ask_gpt_judge": [
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R01",
+        "condition": "zero",
+        "ref_dt": "2026-03-08",
+        "llm_verdict": "fail",
+        "d_time_code": "PASS",
+        "d_artifact_code": "FAIL",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "REFERENCE_TIME.md"
+          ],
+          [
+            "file",
+            "claude-code.md"
+          ],
+          [
+            "file",
+            "PSYCHE.md"
+          ],
+          [
+            "file",
+            "codex.md"
+          ]
+        ],
+        "missing_artifacts": [
+          [
+            "file",
+            "REFERENCE_TIME.md"
+          ],
+          [
+            "file",
+            "PSYCHE.md"
+          ]
+        ],
+        "codegate_verdict": "fail",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/zero/R01/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R01",
+        "condition": "production",
+        "ref_dt": "2026-03-08",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "formatters.py"
+          ],
+          [
+            "file",
+            "SECURITY.md"
+          ],
+          [
+            "file",
+            "AGENTS.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/production/R01/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R01",
+        "condition": "pure",
+        "ref_dt": "2026-03-08",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "AGENTS.md"
+          ],
+          [
+            "file",
+            "BRAINSTORM.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/pure/R01/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R02",
+        "condition": "production",
+        "ref_dt": "2026-03-08",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "issue",
+            "#11"
+          ],
+          [
+            "issue",
+            "#13"
+          ],
+          [
+            "file",
+            "CONFIG_REFERENCE.md"
+          ],
+          [
+            "file",
+            "config_file.py"
+          ],
+          [
+            "file",
+            "PROVIDERS.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/production/R02/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R02",
+        "condition": "zero",
+        "ref_dt": "2026-03-08",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "issue",
+            "#11"
+          ],
+          [
+            "file",
+            "test-and-monitor.sh"
+          ],
+          [
+            "file",
+            "syke/config.toml"
+          ],
+          [
+            "file",
+            "formatters.py"
+          ],
+          [
+            "file",
+            "AGENTS.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/zero/R02/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R03",
+        "condition": "production",
+        "ref_dt": "2026-03-11",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "MEMEX_EVOLUTION.md"
+          ],
+          [
+            "file",
+            "SKILL.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/production/R03/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R02",
+        "condition": "pure",
+        "ref_dt": "2026-03-08",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "AGENTS.md"
+          ],
+          [
+            "file",
+            "formatters.py"
+          ],
+          [
+            "file",
+            "CLAUDE.md"
+          ],
+          [
+            "file",
+            "strategies/ingest/gmail-oauth.md"
+          ],
+          [
+            "file",
+            "docs/CONFIG_REFERENCE.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/pure/R02/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R03",
+        "condition": "zero",
+        "ref_dt": "2026-03-11",
+        "llm_verdict": "fail",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "synthesis.py"
+          ],
+          [
+            "file",
+            "ARCHITECTURE.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "fail",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/zero/R03/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R04",
+        "condition": "production",
+        "ref_dt": "2026-03-12",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "issue",
+            "#14"
+          ],
+          [
+            "file",
+            "MEMEX_EVOLUTION.md"
+          ],
+          [
+            "file",
+            "FOUNDATIONS.md"
+          ],
+          [
+            "issue",
+            "#10"
+          ],
+          [
+            "issue",
+            "#15"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/production/R04/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R03",
+        "condition": "pure",
+        "ref_dt": "2026-03-11",
+        "llm_verdict": "fail",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "issue",
+            "#23039"
+          ],
+          [
+            "issue",
+            "#23160"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "fail",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/pure/R03/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R04",
+        "condition": "zero",
+        "ref_dt": "2026-03-12",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "SKILL.md"
+          ],
+          [
+            "file",
+            "FOUNDATIONS.md"
+          ],
+          [
+            "file",
+            "MEMEX_EVOLUTION.md"
+          ],
+          [
+            "file",
+            "syke/llm/env.py"
+          ],
+          [
+            "file",
+            "syke/cli.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/zero/R04/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R04",
+        "condition": "pure",
+        "ref_dt": "2026-03-12",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "issue",
+            "#14"
+          ],
+          [
+            "issue",
+            "#10"
+          ],
+          [
+            "file",
+            "research/roadmap-internal.md"
+          ],
+          [
+            "file",
+            "FOUNDATIONS.md"
+          ],
+          [
+            "file",
+            "daemon.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/pure/R04/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R05",
+        "condition": "production",
+        "ref_dt": "2026-03-13",
+        "llm_verdict": "fail",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "FAIL",
+        "d_committed_note": "1/1 shas not in anchor: ['508b4e1']",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "fitness.py"
+          ],
+          [
+            "issue",
+            "#18"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "fail",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/production/R05/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R05",
+        "condition": "pure",
+        "ref_dt": "2026-03-13",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "issue",
+            "#12"
+          ],
+          [
+            "file",
+            "roadmap-internal.md"
+          ],
+          [
+            "file",
+            "MEMEX_EVOLUTION.md"
+          ],
+          [
+            "file",
+            "FOUNDATIONS.md"
+          ],
+          [
+            "file",
+            "synthesis.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/pure/R05/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R05",
+        "condition": "zero",
+        "ref_dt": "2026-03-13",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "research/memory-landscape.md"
+          ],
+          [
+            "file",
+            "MEMEX_EVOLUTION.md"
+          ],
+          [
+            "issue",
+            "#15"
+          ],
+          [
+            "issue",
+            "#3"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/zero/R05/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R06",
+        "condition": "zero",
+        "ref_dt": "2026-03-13",
+        "llm_verdict": "fail",
+        "d_time_code": "FAIL",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [
+          "2026-04-16"
+        ],
+        "top_artifacts": [
+          [
+            "issue",
+            "#7"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "fail",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/zero/R06/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R06",
+        "condition": "pure",
+        "ref_dt": "2026-03-13",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "roadmap-internal.md"
+          ],
+          [
+            "file",
+            "FOUNDATIONS.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/pure/R06/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R06",
+        "condition": "production",
+        "ref_dt": "2026-03-13",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "issue",
+            "#18"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/production/R06/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R07",
+        "condition": "production",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "OBSERVE-PLAN.md"
+          ],
+          [
+            "file",
+            "FOUNDATIONS.md"
+          ],
+          [
+            "file",
+            "parsers.py"
+          ],
+          [
+            "issue",
+            "#10"
+          ],
+          [
+            "issue",
+            "#14"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/production/R07/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R08",
+        "condition": "zero",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "fail",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "claude-code.md"
+          ],
+          [
+            "file",
+            "codex.md"
+          ],
+          [
+            "issue",
+            "#8"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "fail",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/zero/R08/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R07",
+        "condition": "zero",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "issue",
+            "#9"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/zero/R07/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R07",
+        "condition": "pure",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "MEMEX.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/pure/R07/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R08",
+        "condition": "pure",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "fail",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "fail",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/pure/R08/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R09",
+        "condition": "zero",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "fail",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "claude-code.md"
+          ],
+          [
+            "file",
+            "codex.md"
+          ],
+          [
+            "issue",
+            "#8"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "fail",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/zero/R09/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R09",
+        "condition": "production",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/production/R09/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R08",
+        "condition": "production",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "constants.py"
+          ],
+          [
+            "file",
+            "parsers.py"
+          ],
+          [
+            "issue",
+            "#2"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/production/R08/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R09",
+        "condition": "pure",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "OBSERVE-PRINCIPLES.md"
+          ],
+          [
+            "file",
+            "claude_code.py"
+          ],
+          [
+            "file",
+            "constants.py"
+          ],
+          [
+            "file",
+            "synthesis.py"
+          ],
+          [
+            "file",
+            "observe.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/pure/R09/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R10",
+        "condition": "zero",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "fail",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "fail",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/zero/R10/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R10",
+        "condition": "pure",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "fail",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "fail",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/pure/R10/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R10",
+        "condition": "production",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/production/R10/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R11",
+        "condition": "pure",
+        "ref_dt": "2026-03-15",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "SKILL.md"
+          ],
+          [
+            "file",
+            "OBSERVE-PRINCIPLES.md"
+          ],
+          [
+            "file",
+            "aider.chat.history.md"
+          ],
+          [
+            "file",
+            "claude/settings.json"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/pure/R11/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R11",
+        "condition": "production",
+        "ref_dt": "2026-03-15",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "health.py"
+          ],
+          [
+            "file",
+            "AGENTS.md"
+          ],
+          [
+            "file",
+            "CLAUDE.md"
+          ],
+          [
+            "file",
+            "cli.py"
+          ],
+          [
+            "file",
+            "db.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/production/R11/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R11",
+        "condition": "zero",
+        "ref_dt": "2026-03-15",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "SKILL.md"
+          ],
+          [
+            "file",
+            "ADAPTER-PROTOCOL.md"
+          ],
+          [
+            "file",
+            "handler.py"
+          ],
+          [
+            "file",
+            "watcher.py"
+          ],
+          [
+            "file",
+            "tailer.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/zero/R11/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R12",
+        "condition": "production",
+        "ref_dt": "2026-03-15",
+        "llm_verdict": "fail",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "OBSERVE-PRINCIPLES.md"
+          ],
+          [
+            "file",
+            "parsers.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "fail",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/production/R12/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R12",
+        "condition": "zero",
+        "ref_dt": "2026-03-15",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/zero/R12/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R13",
+        "condition": "production",
+        "ref_dt": "2026-03-15",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "FAIL",
+        "d_committed_note": "6/6 shas not in anchor: ['80acb6c', '4d3f4c0', '0195a8b', '2a9b29d', '7afd378']",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "SKILL.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "fail",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/production/R13/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R13",
+        "condition": "zero",
+        "ref_dt": "2026-03-15",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "docs/OBSERVE-SCHEMA.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/zero/R13/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R13",
+        "condition": "pure",
+        "ref_dt": "2026-03-15",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "claude_code.py"
+          ],
+          [
+            "file",
+            "codex.py"
+          ],
+          [
+            "file",
+            "pi.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/pure/R13/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R12",
+        "condition": "pure",
+        "ref_dt": "2026-03-15",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/pure/R12/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R14",
+        "condition": "zero",
+        "ref_dt": "2026-03-16",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/zero/R14/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R14",
+        "condition": "production",
+        "ref_dt": "2026-03-16",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "sisyphus/notepads/observe-sense/HANDOFF.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/production/R14/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R15",
+        "condition": "production",
+        "ref_dt": "2026-03-16",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "experiments/memory_replay.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/production/R15/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R14",
+        "condition": "pure",
+        "ref_dt": "2026-03-16",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "intelligence.py"
+          ],
+          [
+            "file",
+            "registry.py"
+          ],
+          [
+            "file",
+            "healing.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/pure/R14/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R15",
+        "condition": "zero",
+        "ref_dt": "2026-03-16",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "experiments/memory_replay.py"
+          ],
+          [
+            "file",
+            "sense/intelligence.py"
+          ],
+          [
+            "file",
+            "sense/registry.py"
+          ],
+          [
+            "file",
+            "sense/healing.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/zero/R15/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R15",
+        "condition": "pure",
+        "ref_dt": "2026-03-16",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "experiments/memory_replay.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/pure/R15/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R16",
+        "condition": "production",
+        "ref_dt": "2026-03-19",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "Observe-architecture.html"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/production/R16/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R16",
+        "condition": "zero",
+        "ref_dt": "2026-03-19",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "observe-architecture.html"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/zero/R16/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R17",
+        "condition": "zero",
+        "ref_dt": "2026-03-20",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/zero/R17/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R16",
+        "condition": "pure",
+        "ref_dt": "2026-03-19",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "syke/memory/skills/synthesis.md"
+          ],
+          [
+            "file",
+            "synthesis.py"
+          ],
+          [
+            "file",
+            "syke-map.md"
+          ],
+          [
+            "file",
+            "tools.py"
+          ],
+          [
+            "file",
+            "db.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/pure/R16/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R17",
+        "condition": "production",
+        "ref_dt": "2026-03-20",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "issue",
+            "#9"
+          ],
+          [
+            "file",
+            "SKILL.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/production/R17/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R17",
+        "condition": "pure",
+        "ref_dt": "2026-03-20",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "synthesis-architecture.html"
+          ],
+          [
+            "file",
+            "observe-architecture.html"
+          ],
+          [
+            "file",
+            "synthesis.py"
+          ],
+          [
+            "issue",
+            "#9"
+          ],
+          [
+            "file",
+            "tests/test_integration_adapters.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/pure/R17/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R18",
+        "condition": "production",
+        "ref_dt": "2026-03-21",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "experiments/memory_replay.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/production/R18/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R18",
+        "condition": "pure",
+        "ref_dt": "2026-03-21",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "FAIL",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "REFERENCE_TIME.md"
+          ],
+          [
+            "file",
+            "syke/MEMEX.md"
+          ]
+        ],
+        "missing_artifacts": [
+          [
+            "file",
+            "REFERENCE_TIME.md"
+          ]
+        ],
+        "codegate_verdict": "fail",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/pure/R18/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R18",
+        "condition": "zero",
+        "ref_dt": "2026-03-21",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "experiments/memory_replay.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/zero/R18/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R19",
+        "condition": "zero",
+        "ref_dt": "2026-03-21",
+        "llm_verdict": "fail",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "fail",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/zero/R19/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R19",
+        "condition": "pure",
+        "ref_dt": "2026-03-21",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/pure/R19/local_git_anchor.json"
+      },
+      {
+        "run_key": "opus_ask_gpt_judge",
+        "probe": "R19",
+        "condition": "production",
+        "ref_dt": "2026-03-21",
+        "llm_verdict": "fail",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "fail",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/evidence/production/R19/local_git_anchor.json"
+      }
+    ],
+    "gpt_ask_opus_judge": [
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R01",
+        "condition": "production",
+        "ref_dt": "2026-03-08",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "tests/test_daemon.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/production/R01/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R01",
+        "condition": "zero",
+        "ref_dt": "2026-03-08",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "tests/test_daemon.py"
+          ],
+          [
+            "file",
+            "codex/auth.json"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/zero/R01/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R01",
+        "condition": "pure",
+        "ref_dt": "2026-03-08",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "FOUNDATIONS.md"
+          ],
+          [
+            "file",
+            "AGENTS.md"
+          ],
+          [
+            "file",
+            "BRAINSTORM.md"
+          ],
+          [
+            "file",
+            "scripts/test-and-monitor.sh"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/pure/R01/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R02",
+        "condition": "zero",
+        "ref_dt": "2026-03-08",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "syke/config.toml"
+          ],
+          [
+            "file",
+            "SKILL.md"
+          ],
+          [
+            "file",
+            "docs/CONFIG_REFERENCE.md"
+          ],
+          [
+            "file",
+            "docs/PROVIDERS.md"
+          ],
+          [
+            "file",
+            "CHANGELOG.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/zero/R02/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R02",
+        "condition": "production",
+        "ref_dt": "2026-03-08",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "FAIL",
+        "d_committed_note": "1/1 shas not in anchor: ['7eb35c8']",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "AGENTS.md"
+          ],
+          [
+            "file",
+            "scripts/test-and-monitor.sh"
+          ],
+          [
+            "file",
+            "tests/test_persistence.py"
+          ],
+          [
+            "file",
+            "CHANGELOG.md"
+          ],
+          [
+            "file",
+            "SECURITY.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "fail",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/production/R02/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R03",
+        "condition": "production",
+        "ref_dt": "2026-03-11",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "SKILL.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/production/R03/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R02",
+        "condition": "pure",
+        "ref_dt": "2026-03-08",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "issue",
+            "#13"
+          ],
+          [
+            "file",
+            "AGENTS.md"
+          ],
+          [
+            "file",
+            "CLAUDE.md"
+          ],
+          [
+            "issue",
+            "#11"
+          ],
+          [
+            "file",
+            "syke/config.toml"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/pure/R02/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R03",
+        "condition": "zero",
+        "ref_dt": "2026-03-11",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "SKILL.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/zero/R03/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R03",
+        "condition": "pure",
+        "ref_dt": "2026-03-11",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/pure/R03/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R04",
+        "condition": "production",
+        "ref_dt": "2026-03-12",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "roadmap-internal.md"
+          ],
+          [
+            "file",
+            "FOUNDATIONS.md"
+          ],
+          [
+            "issue",
+            "#14"
+          ],
+          [
+            "file",
+            "docs/MEMEX_EVOLUTION.md"
+          ],
+          [
+            "file",
+            "MEMEX_EVOLUTION.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/production/R04/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R05",
+        "condition": "production",
+        "ref_dt": "2026-03-13",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "research/memory-landscape.md"
+          ],
+          [
+            "issue",
+            "#10"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/production/R05/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R04",
+        "condition": "zero",
+        "ref_dt": "2026-03-12",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "issue",
+            "#14"
+          ],
+          [
+            "file",
+            "Users/saxenauts/Documents/personal/syke/research/roadmap-internal.md"
+          ],
+          [
+            "file",
+            "Users/saxenauts/Documents/personal/syke/FOUNDATIONS.md"
+          ],
+          [
+            "file",
+            "research/roadmap-internal.md"
+          ],
+          [
+            "file",
+            "docs/MEMEX_EVOLUTION.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/zero/R04/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R04",
+        "condition": "pure",
+        "ref_dt": "2026-03-12",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "issue",
+            "#14"
+          ],
+          [
+            "file",
+            "docs/CONFIG_REFERENCE.md"
+          ],
+          [
+            "file",
+            "syke/cli.py"
+          ],
+          [
+            "file",
+            "Users/saxenauts/Documents/personal/syke/research/roadmap-internal.md"
+          ],
+          [
+            "file",
+            "Users/saxenauts/Documents/personal/syke/FOUNDATIONS.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/pure/R04/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R05",
+        "condition": "zero",
+        "ref_dt": "2026-03-13",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "MEMEX_EVOLUTION.md"
+          ],
+          [
+            "issue",
+            "#10"
+          ],
+          [
+            "issue",
+            "#15"
+          ],
+          [
+            "issue",
+            "#16"
+          ],
+          [
+            "issue",
+            "#1"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/zero/R05/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R05",
+        "condition": "pure",
+        "ref_dt": "2026-03-13",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "SKILL.md"
+          ],
+          [
+            "file",
+            "MEMEX_EVOLUTION.md"
+          ],
+          [
+            "file",
+            "dataset_builder.py"
+          ],
+          [
+            "file",
+            "evolve_skill.py"
+          ],
+          [
+            "file",
+            "constraints.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/pure/R05/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R06",
+        "condition": "production",
+        "ref_dt": "2026-03-13",
+        "llm_verdict": "invalid",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "invalid",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/production/R06/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R07",
+        "condition": "production",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "OBSERVE-PLAN.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/production/R07/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R06",
+        "condition": "pure",
+        "ref_dt": "2026-03-13",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "issue",
+            "#10"
+          ],
+          [
+            "issue",
+            "#12"
+          ],
+          [
+            "issue",
+            "#14"
+          ],
+          [
+            "issue",
+            "#15"
+          ],
+          [
+            "issue",
+            "#7"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/pure/R06/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R06",
+        "condition": "zero",
+        "ref_dt": "2026-03-13",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "research/wave1-lighthouse-observe.md"
+          ],
+          [
+            "file",
+            "health.py"
+          ],
+          [
+            "issue",
+            "#10"
+          ],
+          [
+            "issue",
+            "#12"
+          ],
+          [
+            "issue",
+            "#14"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/zero/R06/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R07",
+        "condition": "zero",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "fail",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "issue",
+            "#8"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "fail",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/zero/R07/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R08",
+        "condition": "zero",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "FAIL",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "adapters/claude-code.md"
+          ],
+          [
+            "file",
+            "REFERENCE_TIME.md"
+          ],
+          [
+            "file",
+            "adapters/codex.md"
+          ],
+          [
+            "file",
+            "PSYCHE.md"
+          ],
+          [
+            "issue",
+            "#8"
+          ]
+        ],
+        "missing_artifacts": [
+          [
+            "file",
+            "REFERENCE_TIME.md"
+          ],
+          [
+            "file",
+            "PSYCHE.md"
+          ]
+        ],
+        "codegate_verdict": "fail",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/zero/R08/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R08",
+        "condition": "production",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "fail",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "adapters/claude-code.md"
+          ],
+          [
+            "file",
+            "adapters/codex.md"
+          ],
+          [
+            "issue",
+            "#1"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "fail",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/production/R08/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R08",
+        "condition": "pure",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/pure/R08/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R09",
+        "condition": "zero",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/zero/R09/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R09",
+        "condition": "production",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/production/R09/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R09",
+        "condition": "pure",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "syke/db.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/pure/R09/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R07",
+        "condition": "pure",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "MEMEX.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/pure/R07/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R10",
+        "condition": "production",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/production/R10/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R10",
+        "condition": "zero",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/zero/R10/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R11",
+        "condition": "production",
+        "ref_dt": "2026-03-15",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/production/R11/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R10",
+        "condition": "pure",
+        "ref_dt": "2026-03-14",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "CLAUDE.md"
+          ],
+          [
+            "file",
+            "AGENTS.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/pure/R10/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R11",
+        "condition": "zero",
+        "ref_dt": "2026-03-15",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/zero/R11/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R12",
+        "condition": "production",
+        "ref_dt": "2026-03-15",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/production/R12/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R12",
+        "condition": "zero",
+        "ref_dt": "2026-03-15",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "OBSERVE-ARCHITECTURE.md"
+          ],
+          [
+            "file",
+            "ADAPTER-PROTOCOL.md"
+          ],
+          [
+            "file",
+            "claude-code.toml"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/zero/R12/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R11",
+        "condition": "pure",
+        "ref_dt": "2026-03-15",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/pure/R11/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R13",
+        "condition": "production",
+        "ref_dt": "2026-03-15",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/production/R13/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R12",
+        "condition": "pure",
+        "ref_dt": "2026-03-15",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "ADAPTER-PROTOCOL.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/pure/R12/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R13",
+        "condition": "zero",
+        "ref_dt": "2026-03-15",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/zero/R13/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R13",
+        "condition": "pure",
+        "ref_dt": "2026-03-15",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/pure/R13/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R14",
+        "condition": "production",
+        "ref_dt": "2026-03-16",
+        "llm_verdict": "invalid",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "invalid",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/production/R14/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R14",
+        "condition": "zero",
+        "ref_dt": "2026-03-16",
+        "llm_verdict": "invalid",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "tests/test_observe.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "invalid",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/zero/R14/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R15",
+        "condition": "zero",
+        "ref_dt": "2026-03-16",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/zero/R15/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R15",
+        "condition": "production",
+        "ref_dt": "2026-03-16",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/production/R15/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R15",
+        "condition": "pure",
+        "ref_dt": "2026-03-16",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "tests/test_observe.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/pure/R15/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R16",
+        "condition": "zero",
+        "ref_dt": "2026-03-19",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "FAIL",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "db5cb6db...jsonl"
+          ],
+          [
+            "file",
+            "AGENTS.md"
+          ],
+          [
+            "file",
+            "CLAUDE.md"
+          ],
+          [
+            "file",
+            "JULES.md"
+          ],
+          [
+            "file",
+            "syke-memory-research/db5cb6db-7787-44e4-9f02-2e6afe09d132.jsonl"
+          ]
+        ],
+        "missing_artifacts": [
+          [
+            "file",
+            "db5cb6db...jsonl"
+          ]
+        ],
+        "codegate_verdict": "fail",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/zero/R16/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R14",
+        "condition": "pure",
+        "ref_dt": "2026-03-16",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "Users/saxenauts/Documents/personal/syke/.archive/sandbox-timeline-20260317.html"
+          ],
+          [
+            "file",
+            "tests/test_observe.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/pure/R14/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R16",
+        "condition": "production",
+        "ref_dt": "2026-03-19",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "docs/observe-architecture.html"
+          ],
+          [
+            "file",
+            "SKILL.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/production/R16/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R16",
+        "condition": "pure",
+        "ref_dt": "2026-03-19",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/pure/R16/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R17",
+        "condition": "production",
+        "ref_dt": "2026-03-20",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "syke/memory/synthesis.py"
+          ],
+          [
+            "file",
+            "syke/db.py"
+          ],
+          [
+            "file",
+            "Users/saxenauts/Documents/personal/syke/docs/observe-architecture.html"
+          ],
+          [
+            "file",
+            "tests/test_persistence.py"
+          ],
+          [
+            "file",
+            "syke/sense/healing.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/production/R17/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R17",
+        "condition": "pure",
+        "ref_dt": "2026-03-20",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "syke/memory/skills/synthesis.md"
+          ],
+          [
+            "file",
+            "docs/observe-architecture.html"
+          ],
+          [
+            "file",
+            "REPLAY_SANDBOX.md"
+          ],
+          [
+            "file",
+            "world-model.html"
+          ],
+          [
+            "file",
+            "dataset.json"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/pure/R17/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R17",
+        "condition": "zero",
+        "ref_dt": "2026-03-20",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "docs/synthesis-architecture.html"
+          ],
+          [
+            "file",
+            "syke/memory/skills/synthesis.md"
+          ],
+          [
+            "file",
+            "docs/observe-architecture.html"
+          ],
+          [
+            "file",
+            "docs/OBSERVE-ARCHITECTURE.md"
+          ],
+          [
+            "file",
+            "syke/memory/synthesis.py"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/zero/R17/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R18",
+        "condition": "production",
+        "ref_dt": "2026-03-21",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "docs/SANDBOX.md"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/production/R18/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R18",
+        "condition": "zero",
+        "ref_dt": "2026-03-21",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "syke/sense/intelligence.py"
+          ],
+          [
+            "file",
+            "tests/sandbox/conftest.py"
+          ],
+          [
+            "file",
+            "tests/sandbox/helpers.py"
+          ],
+          [
+            "file",
+            "syke/sense/sandbox.py"
+          ],
+          [
+            "file",
+            "replay_results.json"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "pass",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/zero/R18/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R18",
+        "condition": "pure",
+        "ref_dt": "2026-03-21",
+        "llm_verdict": "pass",
+        "d_time_code": "PASS",
+        "d_artifact_code": "FAIL",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "experiments/memory_replay.py"
+          ],
+          [
+            "file",
+            "memex/vNNN.md"
+          ]
+        ],
+        "missing_artifacts": [
+          [
+            "file",
+            "memex/vNNN.md"
+          ]
+        ],
+        "codegate_verdict": "fail",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/pure/R18/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R19",
+        "condition": "zero",
+        "ref_dt": "2026-03-21",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/zero/R19/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R19",
+        "condition": "pure",
+        "ref_dt": "2026-03-21",
+        "llm_verdict": "partial",
+        "d_time_code": "PASS",
+        "d_artifact_code": "PASS",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [
+          [
+            "file",
+            "manifest.json"
+          ],
+          [
+            "issue",
+            "#9"
+          ]
+        ],
+        "missing_artifacts": [],
+        "codegate_verdict": "partial",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/pure/R19/local_git_anchor.json"
+      },
+      {
+        "run_key": "gpt_ask_opus_judge",
+        "probe": "R19",
+        "condition": "production",
+        "ref_dt": "2026-03-21",
+        "llm_verdict": "fail",
+        "d_time_code": "PASS",
+        "d_artifact_code": "NA",
+        "d_committed_code": "NA",
+        "d_committed_note": "answer names no commit-framed hex token",
+        "leaked_dates": [],
+        "top_artifacts": [],
+        "missing_artifacts": [],
+        "codegate_verdict": "fail",
+        "anchor_resolved": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/evidence/production/R19/local_git_anchor.json"
+      }
+    ]
+  },
+  "agreed_pass": [
+    {
+      "agent": "gpt_agent",
+      "probe": "R01",
+      "condition": "pure",
+      "a_cg": "pass",
+      "b_cg": "pass",
+      "survives": true,
+      "a_fail_axis": [],
+      "b_fail_axis": [],
+      "a_missing_art": [],
+      "b_missing_art": []
+    },
+    {
+      "agent": "gpt_agent",
+      "probe": "R04",
+      "condition": "production",
+      "a_cg": "pass",
+      "b_cg": "pass",
+      "survives": true,
+      "a_fail_axis": [],
+      "b_fail_axis": [],
+      "a_missing_art": [],
+      "b_missing_art": []
+    },
+    {
+      "agent": "gpt_agent",
+      "probe": "R12",
+      "condition": "production",
+      "a_cg": "pass",
+      "b_cg": "pass",
+      "survives": true,
+      "a_fail_axis": [],
+      "b_fail_axis": [],
+      "a_missing_art": [],
+      "b_missing_art": []
+    },
+    {
+      "agent": "gpt_agent",
+      "probe": "R13",
+      "condition": "pure",
+      "a_cg": "pass",
+      "b_cg": "pass",
+      "survives": true,
+      "a_fail_axis": [],
+      "b_fail_axis": [],
+      "a_missing_art": [],
+      "b_missing_art": []
+    },
+    {
+      "agent": "gpt_agent",
+      "probe": "R15",
+      "condition": "zero",
+      "a_cg": "pass",
+      "b_cg": "pass",
+      "survives": true,
+      "a_fail_axis": [],
+      "b_fail_axis": [],
+      "a_missing_art": [],
+      "b_missing_art": []
+    },
+    {
+      "agent": "opus_agent",
+      "probe": "R02",
+      "condition": "production",
+      "a_cg": "pass",
+      "b_cg": "pass",
+      "survives": true,
+      "a_fail_axis": [],
+      "b_fail_axis": [],
+      "a_missing_art": [],
+      "b_missing_art": []
+    },
+    {
+      "agent": "opus_agent",
+      "probe": "R11",
+      "condition": "pure",
+      "a_cg": "pass",
+      "b_cg": "pass",
+      "survives": true,
+      "a_fail_axis": [],
+      "b_fail_axis": [],
+      "a_missing_art": [],
+      "b_missing_art": []
+    },
+    {
+      "agent": "opus_agent",
+      "probe": "R13",
+      "condition": "production",
+      "a_cg": "fail",
+      "b_cg": "fail",
+      "survives": false,
+      "a_fail_axis": [
+        "d_committed_code"
+      ],
+      "b_fail_axis": [
+        "d_committed_code"
+      ],
+      "a_missing_art": [],
+      "b_missing_art": []
+    },
+    {
+      "agent": "opus_agent",
+      "probe": "R13",
+      "condition": "pure",
+      "a_cg": "pass",
+      "b_cg": "pass",
+      "survives": true,
+      "a_fail_axis": [],
+      "b_fail_axis": [],
+      "a_missing_art": [],
+      "b_missing_art": []
+    }
+  ],
+  "resolvable": {
+    "opus_ask_opus_judge": {
+      "n_cells": 57,
+      "slice_ok": 57,
+      "anchor_ok": 57,
+      "ref_dt_ok": 57
+    },
+    "gpt_ask_gpt_judge": {
+      "n_cells": 57,
+      "slice_ok": 57,
+      "anchor_ok": 57,
+      "ref_dt_ok": 57
+    },
+    "opus_ask_gpt_judge": {
+      "n_cells": 57,
+      "slice_ok": 57,
+      "anchor_ok": 57,
+      "ref_dt_ok": 57
+    },
+    "gpt_ask_opus_judge": {
+      "n_cells": 57,
+      "slice_ok": 57,
+      "anchor_ok": 57,
+      "ref_dt_ok": 57
+    }
+  }
+}

@@ -1,0 +1,60 @@
+{
+  "version": 1,
+  "created_at": "2026-04-21T11:02:00-07:00",
+  "scope": "descriptive exploration only; overlapping buckets; no decisions",
+  "source_artifacts": [
+    "results/20260421_calibration_subset_triage.md",
+    "results/20260421_high_priority_claim_audit.md",
+    "results/20260421_exploration_counts.md"
+  ],
+  "patterns": [
+    {
+      "name": "stale_or_wrong_latest_thread_selection",
+      "rough_count": "about 12 cells",
+      "description": "Answer locks onto an older adjacent thread, freezes the state too early, or chooses a different surface as latest.",
+      "example_cells": ["R03/production", "R19/production", "R19/zero", "R14/*"]
+    },
+    {
+      "name": "unsupported_durable_memory_or_persistence_claims",
+      "rough_count": "about 5-6 cells",
+      "description": "Answer asserts syke.db/MEMEX writeback, refresh, or durable persistence without evidence.",
+      "example_cells": ["R09/production", "R14/production", "R14/pure", "R13/production"]
+    },
+    {
+      "name": "storage_state_vs_work_state_conflation",
+      "rough_count": "about 4-5 cells",
+      "description": "Answer treats empty/minimal store state as if it describes active work state.",
+      "example_cells": ["R08/production", "R08/pure", "R08/zero", "R14/zero"]
+    },
+    {
+      "name": "invented_identifiers_or_overtrusted_handles",
+      "rough_count": "about 3-4 cells",
+      "description": "UUIDs or thread labels are presented as recovered facts rather than reconstructed handles.",
+      "example_cells": ["R07/pure", "R07/zero", "R09/production"]
+    },
+    {
+      "name": "numeric_overprecision_or_count_drift",
+      "rough_count": "about 6-7 cells",
+      "description": "Thread counts, proof counts, cycle counts, timestamps, or event totals exceed packet support.",
+      "example_cells": ["R07/production", "R09/pure", "R14/production", "R15/pure", "R19/zero"]
+    },
+    {
+      "name": "packet_insufficiency_or_non_reconstructable_slice",
+      "rough_count": "about 4-5 cells",
+      "description": "Available packet is too thin or indirect to recover intended design/history state cleanly.",
+      "example_cells": ["R03/pure", "R03/zero", "R18/production", "R07/zero", "R08/pure"]
+    },
+    {
+      "name": "boundary_ambiguity",
+      "rough_count": "widespread across borderline rows",
+      "description": "Judges differ on how much staleness, unsupported detail, or partial support remains passable.",
+      "example_cells": ["R05/production", "R07/production", "R09/pure", "R18/zero", "R19/zero"]
+    },
+    {
+      "name": "generation_timeout",
+      "rough_count": "1 clear cell",
+      "description": "Answer source produced no substantive content because generation timed out.",
+      "example_cells": ["R19/production opus-4.6"]
+    }
+  ]
+}

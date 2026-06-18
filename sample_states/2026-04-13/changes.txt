@@ -1,0 +1,23 @@
+state_id	daily_2026-04-13
+reference_time	2026-04-13T23:59:59-07:00
+visible_change_rows	18
+
+change_kind	old_status	new_status	path
+added_or_became_available	unavailable	approximate	research/n1-memory-lab/claude-thesis-notes-20260521/archive/real-ask-history/NE_1_3_BATCH_10_FINAL_4_V1.md
+added_or_became_available	unavailable	approximate	research/n1-memory-lab/claude-thesis-notes-20260521/archive/real-ask-history/NE_1_3_BATCH_2_CANDIDATES_V1.md
+added_or_became_available	unavailable	approximate	research/n1-memory-lab/claude-thesis-notes-20260521/archive/real-ask-history/NE_1_3_BATCH_3_CANDIDATES_V1.md
+added_or_became_available	unavailable	approximate	research/n1-memory-lab/claude-thesis-notes-20260521/archive/real-ask-history/NE_1_3_BATCH_4_CANDIDATES_V1.md
+added_or_became_available	unavailable	approximate	research/n1-memory-lab/claude-thesis-notes-20260521/archive/real-ask-history/NE_1_3_BATCH_5_CANDIDATES_V1.md
+added_or_became_available	unavailable	approximate	research/n1-memory-lab/claude-thesis-notes-20260521/archive/real-ask-history/NE_1_3_BATCH_6_CANDIDATES_V1.md
+added_or_became_available	unavailable	approximate	research/n1-memory-lab/claude-thesis-notes-20260521/archive/real-ask-history/NE_1_3_BATCH_7_CANDIDATES_V1.md
+added_or_became_available	unavailable	approximate	research/n1-memory-lab/claude-thesis-notes-20260521/archive/real-ask-history/NE_1_3_BATCH_8_CANDIDATES_V1.md
+added_or_became_available	unavailable	approximate	research/n1-memory-lab/claude-thesis-notes-20260521/archive/real-ask-history/NE_1_3_BATCH_9_CANDIDATES_V1.md
+added_or_became_available	unavailable	approximate	research/n1-memory-lab/claude-thesis-notes-20260521/archive/real-ask-history/NE_1_3_FIRST_REAL_SET_V1.md
+added_or_became_available	unavailable	approximate	research/n1-memory-lab/claude-thesis-notes-20260521/archive/real-ask-history/NE_1_3_MONTH_MAP_V1.md
+added_or_became_available	unavailable	approximate	research/n1-memory-lab/claude-thesis-notes-20260521/archive/real-ask-history/NE_1_3_REAL_ASKS_ONLY_V1.md
+added_or_became_available	unavailable	approximate	research/n1-memory-lab/claude-thesis-notes-20260521/archive/real-ask-history/NE_1_3_REAL_ASK_EVALS_V1.md
+added_or_became_available	unavailable	approximate	research/n1-memory-lab/claude-thesis-notes-20260521/archive/real-ask-history/NE_1_3_REAL_ASK_EVALS_V1.yaml
+added_or_became_available	unavailable	approximate	research/n1-memory-lab/claude-thesis-notes-20260521/archive/real-ask-history/NE_1_3_REAL_ASK_EVAL_SET_V2.md
+added_or_became_available	unavailable	approximate	research/n1-memory-lab/claude-thesis-notes-20260521/archive/real-ask-history/NE_1_3_REAL_ASK_EVAL_SET_V2.yaml
+added_or_became_available	unavailable	approximate	research/n1-memory-lab/claude-thesis-notes-20260521/archive/real-ask-history/NE_1_3_RECURRENCE_PRIORITY_V1.md
+added_or_became_available	unavailable	approximate	research/n1-memory-lab/claude-thesis-notes-20260521/archive/real-ask-history/NE_1_3_REPEAT_SHAPES_V1.md

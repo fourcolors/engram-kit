@@ -1,0 +1,36 @@
+commit_index	commit	time_pt	date_pt	subject
+1	032b518ea8312a931d930d78f47e6143df52db0e	2026-04-20T17:17:38-07:00	2026-04-20	Import research/n1-memory-lab/ from syke repo (canonical eval set + judge method)
+2	08a4a63cb41797ba3ad8838dbb57089485a63920	2026-04-20T17:22:49-07:00	2026-04-20	Import remaining n1-memory-lab research content from syke repo
+3	6a3d049d37582fa577bc7e95efc9eb1011372933	2026-04-20T18:37:06-07:00	2026-04-20	Self-contain replay-lab paths for sibling-repo layout
+4	78e823b0d70cd3edb96a4c08787701dc79f6aef8	2026-04-20T18:49:35-07:00	2026-04-20	Add σ_ε intra-rater measurement and companion formalism notes
+5	bff5a34068d518419ac7d54a4d9460614d1af66b	2026-04-20T19:08:27-07:00	2026-04-20	Narrow judge calibration to the surviving replay packet
+6	d0fd1d720e377132a97ab89a20dac5cdece4691f	2026-04-20T19:18:36-07:00	2026-04-20	Restore primitive-first framing in judge calibration
+7	3295070f8234143f70be9ae26f0f3b0f97b9c7a7	2026-04-20T21:45:37-07:00	2026-04-20	Restore space between source_ref: and value (broke yaml parse)
+8	4272f24eb73e0b079ad8a38c605b033585a01653	2026-04-21T13:57:23-07:00	2026-04-21	Add judge-calibration research corpus and field map
+9	217bcf5e73b4fb16b630b90950c819e56459bb16	2026-04-21T15:24:20-07:00	2026-04-21	Add WHERE_WE_ARE v0.1.0 baseline + supporting research artifacts
+10	746cec9c8b3a95e04ccbab67239a6b8d6d2d4e79	2026-04-21T15:27:11-07:00	2026-04-21	WHERE_WE_ARE v0.1.1 — naming board + arc timeline
+11	e307363a7d92cf35f16d43a3b5580474aef970b6	2026-04-21T15:28:52-07:00	2026-04-21	WHERE_WE_ARE v0.1.2 — rubric collapse visualization
+12	a1d3543c1cc27c6e15bc21ee20e30e4eb582f7c8	2026-04-21T15:36:48-07:00	2026-04-21	WHERE_WE_ARE v0.2.0 — revised calculations on fresh gpt-5.4 heavy reps
+13	86a4f1b395826970944cf5fb7002eff348f58f19	2026-04-21T15:43:04-07:00	2026-04-21	WHERE_WE_ARE v0.2.1 — integrate v0.2 findings into section 4 narrative
+14	ac95848dfbad7f19f7f8fe13c11c35c4ba18aeae	2026-04-21T16:03:52-07:00	2026-04-21	v0.2.2 — blind-condition (A1) code + A3 rejection + two bg agents in flight
+15	b3a3e824f4249f8e0544e176a38851be4af4420b	2026-04-21T16:05:45-07:00	2026-04-21	Fix blind-rerun script to use syke venv python (uuid_extensions + pi stack)
+16	2d48305a4957588db2f8270c5d35f1346cd425a6	2026-04-21T16:10:01-07:00	2026-04-21	v0.2.3 — judge-view audit + Autorubric coverage matrix
+17	c27122eb7098f4ba0b63071448e730599cb78a98	2026-04-21T16:19:11-07:00	2026-04-21	Blind-eval leak audit + extended SYKE_BLIND_PACKET coverage
+18	f54dfbf92298ca1d91bb4c850947ca968161649b	2026-04-21T16:28:51-07:00	2026-04-21	v0.2.4 — full double-blind 4-arm rerun launched in bg
+19	e2ddf2d2e107fb5c7c1ab5603bc876e625a0d287	2026-04-21T16:59:36-07:00	2026-04-21	v0.2.5 — Pi/Azure auth bug found + worked around; all 4 blind arms live
+20	ceb862ac9ebef246d27ac00c05a334c71b4e3023	2026-04-21T17:12:06-07:00	2026-04-21	v0.2.6 — correct the root-cause attribution: syke pi_client allowlist
+21	80e1b4677939db5b04eaf9e72d08872b5e3d4155	2026-04-21T17:51:15-07:00	2026-04-21	v0.2.7 — §01–§12 FROZEN; §13 active surface opened with draft checklist
+22	d144b0cbc8c852f92067d502d5a0d40a6dc3fd27	2026-04-21T18:11:26-07:00	2026-04-21	v0.2.8 — §13 collapsed; paused for next session
+23	90ef57822b4775c6929b8179664430a4ed0e6d07	2026-04-21T18:24:34-07:00	2026-04-21	v0.2.9 — tab layout; active tab is the default view
+24	b0609f7603e09121968ee74e3deea2252bd2d03a	2026-04-21T19:00:36-07:00	2026-04-21	v0.2.10 — paper-usage discipline: active / framing / gated
+25	1b93b47b9ed7c2bed395a88d3e1098b418a5293a	2026-04-21T19:04:31-07:00	2026-04-21	Handoff doc + personal note — kept even though next session continues here
+26	6758b493a12dd69fe7d1a07d6d02730c4f088692	2026-04-21T19:11:25-07:00	2026-04-21	Field notes — non-deliverable thinking piece at end of long session
+27	c88e9e9fb398bfffdc0a1c59ee1805840c7760d3	2026-04-21T19:25:07-07:00	2026-04-21	v0.2.11 — memory-as-living-system axes + asks→primitives→rubric→asks loop
+28	dfcf8df169e344e02cff5836b7aa4edf9f104784	2026-04-21T19:29:32-07:00	2026-04-21	v0.2.12 — n=1 as enabling constraint, not limitation
+29	9c752db959b807821da725e74e5fac3e18e3ad0a	2026-04-21T19:32:55-07:00	2026-04-21	Per-tab TOC — each tab is its own long page, its own navigation
+30	59f265978d8e682ebc81a778002b1558c837be06	2026-04-21T19:36:07-07:00	2026-04-21	Field notes — on release (second non-deliverable thinking piece)
+31	19899ac4c4a3bd60bdb4efab27ceadfb350c623d	2026-04-21T19:42:11-07:00	2026-04-21	Field notes — deep literature review on n=1 personal memory substrate
+32	01a176f9d73f1b16ea486cc43108d2ec8fd51c5f	2026-04-21T20:53:30-07:00	2026-04-21	v0.2.13 — blind rerun landed · σ_γ is structural, not self-preference
+33	a13ba3f4710948be2c49378bce87bc525a326672	2026-04-21T21:03:47-07:00	2026-04-21	v0.2.14 — correction: blind-rerun delta within sample noise, fork not resolved
+34	ab32836d10e20afd22a260de1bcaefcc90eebf0a	2026-04-21T21:04:32-07:00	2026-04-21	Next-session delta note — blind rerun landed, v0.2.13 overclaimed, v0.2.14 corrected
+35	80edd598054f19496b001076dcb2e28fb6430933	2026-04-21T23:51:28-07:00	2026-04-21	v0.2.15–v0.2.17 — pooled re-read, simplified formalism, Math tab upgrade

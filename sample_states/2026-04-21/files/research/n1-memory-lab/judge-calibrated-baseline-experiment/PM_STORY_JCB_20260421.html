@@ -1,0 +1,388 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JCB PM Story - 2026-04-21</title>
+  <style>
+    :root {
+      --bg: #0b1220;
+      --card: #111a2c;
+      --text: #e8eefc;
+      --muted: #9fb0d2;
+      --accent: #56b6ff;
+      --ok: #78e08f;
+      --warn: #ffcc66;
+      --bad: #ff8a8a;
+      --line: #23314d;
+      --mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      --sans: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    }
+    body {
+      margin: 0;
+      font-family: var(--sans);
+      background: linear-gradient(180deg, #08111f 0%, #0c1527 100%);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    main {
+      max-width: 1080px;
+      margin: 0 auto;
+      padding: 28px 18px 56px;
+    }
+    h1, h2, h3 { margin: 0 0 10px; }
+    h1 { font-size: 30px; letter-spacing: 0.2px; }
+    h2 { font-size: 21px; margin-top: 26px; }
+    h3 { font-size: 17px; margin-top: 18px; }
+    p { margin: 8px 0; color: var(--text); }
+    .muted { color: var(--muted); }
+    .badge {
+      display: inline-block;
+      margin-right: 8px;
+      margin-top: 6px;
+      padding: 4px 8px;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      font-size: 12px;
+      color: var(--muted);
+      background: rgba(255, 255, 255, 0.02);
+    }
+    .grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(auto-fit, minmax(210px, 1fr));
+      margin-top: 12px;
+    }
+    .card {
+      background: var(--card);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 12px;
+    }
+    .card .label { font-size: 12px; color: var(--muted); text-transform: uppercase; letter-spacing: 0.05em; }
+    .card .value { font-size: 26px; font-weight: 700; margin-top: 3px; }
+    .ok { color: var(--ok); }
+    .warn { color: var(--warn); }
+    .bad { color: var(--bad); }
+    .panel {
+      margin-top: 12px;
+      background: rgba(17, 26, 44, 0.7);
+      border: 1px solid var(--line);
+      border-radius: 12px;
+      padding: 14px;
+    }
+    table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-top: 10px;
+      font-size: 14px;
+    }
+    th, td {
+      border: 1px solid var(--line);
+      padding: 8px;
+      vertical-align: top;
+      text-align: left;
+    }
+    th { color: var(--muted); font-weight: 600; background: rgba(255,255,255,0.02); }
+    code, pre { font-family: var(--mono); }
+    pre {
+      background: #0a1324;
+      border: 1px solid var(--line);
+      border-radius: 10px;
+      padding: 10px;
+      overflow: auto;
+      margin: 10px 0;
+      font-size: 13px;
+    }
+    ul { margin: 8px 0 8px 20px; padding: 0; }
+    li { margin: 5px 0; }
+    a { color: var(--accent); text-decoration: none; }
+    a:hover { text-decoration: underline; }
+    .small { font-size: 12px; color: var(--muted); }
+    .divider { height: 1px; background: var(--line); margin: 18px 0; }
+  </style>
+</head>
+<body>
+  <main>
+    <h1>Judge-Calibrated Baseline: PM Story</h1>
+    <p class="muted">Built from the current tracker and result artifacts. This is the "what all those JCB steps were actually doing" version.</p>
+    <div>
+      <span class="badge">Date: 2026-04-21</span>
+      <span class="badge">Task tracker: JCB</span>
+      <span class="badge">Scope: judge calibration, not architecture ranking</span>
+    </div>
+
+    <section class="panel">
+      <h2>1) The one-paragraph story</h2>
+      <p>JCB was a 63-task risk-burn-down program to make sure our judge instrument is trustworthy before we compare memory architectures. We split the work into construct definition, packet/schema hygiene, judge reliability, judge-bias measurement, rubric diagnostics, robustness checks, and "later methods" gates. The result is not "who won architecture." The result is: we measured what is stable, found what is confounded, and pinned what data is still missing.</p>
+      <p><strong>In short:</strong> the checklist was a scientific control system, not a feature backlog.</p>
+    </section>
+
+    <section>
+      <h2>2) Why there were so many JCB items</h2>
+      <div class="grid">
+        <div class="card">
+          <div class="label">Total tasks</div>
+          <div class="value">63</div>
+          <div class="small"><a href="TASKS.json">TASKS.json</a></div>
+        </div>
+        <div class="card">
+          <div class="label">Completed</div>
+          <div class="value ok">55</div>
+          <div class="small">Execution lane completed</div>
+        </div>
+        <div class="card">
+          <div class="label">Blocked</div>
+          <div class="value warn">2</div>
+          <div class="small">Needs human labels + clean generation repeats</div>
+        </div>
+        <div class="card">
+          <div class="label">Deferred</div>
+          <div class="value">3</div>
+          <div class="small">By design, not forgotten</div>
+        </div>
+        <div class="card">
+          <div class="label">In progress</div>
+          <div class="value">3</div>
+          <div class="small">Ongoing maintenance lanes</div>
+        </div>
+      </div>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Workstream</th>
+            <th>Why it exists</th>
+            <th>Representative JCB IDs</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Construct + schema definition</td>
+            <td>Lock what is being measured before any score interpretation.</td>
+            <td><code>JCB-001..008, JCB-020</code></td>
+          </tr>
+          <tr>
+            <td>Core measurement math</td>
+            <td>Compute denominator, same-answer swaps, same-judge repeats, and rubric diagnostics.</td>
+            <td><code>JCB-010..017, JCB-031..033, JCB-041, JCB-059</code></td>
+          </tr>
+          <tr>
+            <td>Bias + reliability extensions</td>
+            <td>Check same-family effects, abstention/coverage, false-premise handling, boundary failures.</td>
+            <td><code>JCB-019, JCB-022..029, JCB-052..058</code></td>
+          </tr>
+          <tr>
+            <td>Reporting discipline</td>
+            <td>Preserve examples, attribution tables, lineage, run logs, claim ledgers.</td>
+            <td><code>JCB-037, JCB-038, JCB-042..045, JCB-055, JCB-060</code></td>
+          </tr>
+          <tr>
+            <td>Future-method gatekeeping</td>
+            <td>Prevent premature use of advanced methods before assumptions hold.</td>
+            <td><code>JCB-034..036, JCB-039..040</code></td>
+          </tr>
+          <tr>
+            <td>Synthesis and taxonomy</td>
+            <td>Map to foundations, computational-neuroscience framing, and recall-vs-beyond-recall axes.</td>
+            <td><code>JCB-061..063</code></td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>3) Math we actually used</h2>
+      <p>These are the equations that drove the checklist decisions.</p>
+      <pre>Observed verdict model:
+Y = Judge(r_t, q_t, E_t, rubric, model, scale, prompt_order, stochasticity)
+
+Variance-decomposition frame:
+X = mu + alpha + beta + gamma + epsilon
+
+Inter-rater agreement:
+kappa = (p_observed - p_chance) / (1 - p_chance)
+
+Rubric schema adherence:
+verdict ~ criterion_scores   ->  R^2, adjusted R^2, reverse ablation</pre>
+
+      <table>
+        <thead>
+          <tr>
+            <th>Quantity</th>
+            <th>Current value</th>
+            <th>Evidence</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>Clean cross-judge shift (Opus minus GPT on same GPT answers)</td>
+            <td><code>+0.500</code> (single clean arm), revised clean average <code>+0.5694</code> over 4 GPT-5.4 reps</td>
+            <td><a href="results/20260421_measurement_audit.json">measurement_audit.json</a>, <a href="results/20260421_cross_judge_clean_gpt54.json">cross_judge_clean_gpt54.json</a></td>
+            <td class="ok">Measured</td>
+          </tr>
+          <tr>
+            <td>Cross-judge weighted kappa (3-level, clean)</td>
+            <td><code>0.239</code> (single arm), clean 4-rep mean <code>0.195</code></td>
+            <td><a href="results/20260421_measurement_audit.json">measurement_audit.json</a>, <a href="results/20260421_cross_judge_clean_gpt54.json">cross_judge_clean_gpt54.json</a></td>
+            <td class="ok">Measured</td>
+          </tr>
+          <tr>
+            <td>Cross-judge binary useful-vs-fail kappa (clean)</td>
+            <td><code>0.411</code> (important: not 0.87)</td>
+            <td><a href="results/20260421_measurement_audit.json">measurement_audit.json</a></td>
+            <td class="ok">Measured</td>
+          </tr>
+          <tr>
+            <td>Judge stochasticity sigma_epsilon (Opus 4-call)</td>
+            <td><code>sigma_eps_cell = 0.1873</code>, <code>sigma_eps_pooled = 0.329</code>, flip rate <code>19/45 = 42.2%</code></td>
+            <td><a href="results/20260421_measurement_audit.json">measurement_audit.json</a></td>
+            <td class="ok">Measured</td>
+          </tr>
+          <tr>
+            <td>Judge stochasticity sigma_epsilon (clean GPT-5.4 heavy)</td>
+            <td><code>sigma_eps_cell = 0.1836</code>, <code>sigma_eps_pooled = 0.5053</code>, flips <code>22/57</code>, full-band flips <code>2</code></td>
+            <td><a href="results/20260421_sigma_eps_gpt_heavy_clean.json">sigma_eps_gpt_heavy_clean.json</a></td>
+            <td class="ok">Measured</td>
+          </tr>
+          <tr>
+            <td>Rubric schema adherence R^2 (full / drop-state / state-only)</td>
+            <td>GPT: <code>0.754 / 0.738 / 0.606</code><br>Opus: <code>0.862 / 0.840 / 0.731</code></td>
+            <td><a href="results/20260421_measurement_audit.json">measurement_audit.json</a>, <a href="results/20260421_rubric_minimal_vs_full_diag.json">rubric_minimal_vs_full_diag.json</a></td>
+            <td class="ok">Measured</td>
+          </tr>
+          <tr>
+            <td>Judge asymmetry (strictly higher cells)</td>
+            <td>Opus strictly higher than every GPT rep: <code>22/54</code>; reverse: <code>0/54</code></td>
+            <td><a href="results/20260421_cross_judge_clean_gpt54.json">cross_judge_clean_gpt54.json</a></td>
+            <td class="ok">Measured</td>
+          </tr>
+          <tr>
+            <td>Probe variance sigma_alpha</td>
+            <td>Not fit as a clean variance term yet</td>
+            <td><a href="results/20260421_probe_difficulty_audit.md">probe_difficulty_audit.md</a></td>
+            <td class="warn">Open</td>
+          </tr>
+          <tr>
+            <td>Generation variance sigma_beta</td>
+            <td>Blocked: no clean repeated answer generations per cell</td>
+            <td><a href="results/20260421_generation_variance_readiness_audit.json">generation_variance_readiness_audit.json</a></td>
+            <td class="bad">Blocked</td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+    <section>
+      <h2>4) Paper -> math -> checklist mapping</h2>
+      <p>These are the main papers that directly informed operations, with the exact checklist behavior they drove.</p>
+      <table>
+        <thead>
+          <tr>
+            <th>Paper</th>
+            <th>What we borrowed</th>
+            <th>Where it appears in JCB</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td>CyclicJudge (2603.01865)</td>
+            <td>Judge identity as explicit variance component; decomposition mindset.</td>
+            <td><code>JCB-031, JCB-032, JCB-058</code></td>
+          </tr>
+          <tr>
+            <td>When Judgment Becomes Noise (2509.20293)</td>
+            <td>Schema adherence + factor collapse checks before trusting aggregates.</td>
+            <td><code>JCB-013, JCB-014, JCB-015, JCB-059</code></td>
+          </tr>
+          <tr>
+            <td>Rating Roulette (2510.27106)</td>
+            <td>Mandatory same-judge reruns.</td>
+            <td><code>JCB-012, JCB-031</code></td>
+          </tr>
+          <tr>
+            <td>Criterion-Referenceability (2603.14732)</td>
+            <td>Gate probes by what can actually be verified from evidence.</td>
+            <td><code>JCB-007, JCB-008, JCB-020</code></td>
+          </tr>
+          <tr>
+            <td>Trust or Escalate (2407.18370) + SCOPE (2602.13110)</td>
+            <td>Abstention/escalation and accepted-set coverage instead of forced verdicts.</td>
+            <td><code>JCB-022, JCB-023, JCB-057</code></td>
+          </tr>
+          <tr>
+            <td>Self-Preference Bias (2604.06996)</td>
+            <td>Measure same-family effects explicitly, do not assume neutral judges.</td>
+            <td><code>JCB-019, JCB-058</code></td>
+          </tr>
+          <tr>
+            <td>Evaluating the Evaluator (2408.08781)</td>
+            <td>Minimal vs full rubric A/B; rubric verbosity must earn value.</td>
+            <td><code>JCB-041, JCB-059</code></td>
+          </tr>
+          <tr>
+            <td>LongMemEval / MemoryArena / LifeBench</td>
+            <td>Keep "memory beyond recall" framing and task-neighbor pressure.</td>
+            <td><code>JCB-039, JCB-061..063</code></td>
+          </tr>
+        </tbody>
+      </table>
+      <p class="small">Full verified sweep (33 arXiv IDs): <a href="PAPER_MAP.md">PAPER_MAP.md</a></p>
+    </section>
+
+    <section>
+      <h2>5) What is proven vs not proven</h2>
+      <h3>Proven enough to use now</h3>
+      <ul>
+        <li>Judge identity materially shifts verdicts on same answers (<code>+0.5</code> clean, <code>+0.5694</code> in 4-rep clean extension).</li>
+        <li>Judge stochasticity is real and nontrivial; exact number depends on estimator and judge family.</li>
+        <li>The current 12-subcategory rubric is over-specified/collapsed around strongly correlated latent signal.</li>
+        <li>Abstention/coverage framing is practical on current subset (13 accepted, 17 abstained; audited false-premise capture 1.0 in subset).</li>
+      </ul>
+
+      <h3>Not proven yet (and explicitly blocked/deferred)</h3>
+      <ul>
+        <li>Architecture ranking claims: out of scope until <code>sigma_beta</code> and stronger human calibration are available.</li>
+        <li>Clean generation variance (<code>JCB-030</code>) is blocked by missing repeated fresh generations under fixed configs.</li>
+        <li>Correlated judge error on gold subset (<code>JCB-021</code>) is blocked by missing human-reviewed labels.</li>
+        <li>Later methods are intentionally gated: CyclicJudge rotation, conformal intervals, IRT, bias-bounded guarantees.</li>
+      </ul>
+    </section>
+
+    <section>
+      <h2>6) PM readout: what to tell stakeholders today</h2>
+      <div class="panel">
+        <p><strong>We ran a calibration program, not a model race.</strong> The 63-task checklist existed to make verdicts interpretable first.</p>
+        <p><strong>The instrument has measurable behavior now.</strong> We can quantify judge disagreement, judge stochasticity, and rubric collapse with reproducible numbers from disk.</p>
+        <p><strong>Two blockers remain before architecture claims.</strong> Human-labeled calibration subset and clean repeated generations per model/condition/probe.</p>
+        <p><strong>This is good science progress.</strong> We now know exactly which claims are safe to make and which are still hypothesis-only.</p>
+      </div>
+    </section>
+
+    <section>
+      <h2>7) Evidence index (primary files)</h2>
+      <ul>
+        <li><a href="TASKS.json">TASKS.json</a></li>
+        <li><a href="STATUS.json">STATUS.json</a></li>
+        <li><a href="EXPERIMENT_CHECKLIST.md">EXPERIMENT_CHECKLIST.md</a></li>
+        <li><a href="PAPER_MAP.md">PAPER_MAP.md</a></li>
+        <li><a href="notes/MATH_ONE_PAGER_20260421.md">notes/MATH_ONE_PAGER_20260421.md</a></li>
+        <li><a href="results/20260421_measurement_audit.json">results/20260421_measurement_audit.json</a></li>
+        <li><a href="results/20260421_cross_judge_clean_gpt54.json">results/20260421_cross_judge_clean_gpt54.json</a></li>
+        <li><a href="results/20260421_sigma_eps_gpt_heavy_clean.json">results/20260421_sigma_eps_gpt_heavy_clean.json</a></li>
+        <li><a href="results/20260421_judge_family_sensitivity.json">results/20260421_judge_family_sensitivity.json</a></li>
+        <li><a href="results/20260421_rubric_minimal_vs_full_diag.json">results/20260421_rubric_minimal_vs_full_diag.json</a></li>
+        <li><a href="results/20260421_abstention_coverage_metrics.json">results/20260421_abstention_coverage_metrics.json</a></li>
+        <li><a href="results/20260421_session_boundary_audit.md">results/20260421_session_boundary_audit.md</a></li>
+        <li><a href="results/20260421_zero_condition_smoke_test.md">results/20260421_zero_condition_smoke_test.md</a></li>
+        <li><a href="results/20260421_provenance_lineage_audit.md">results/20260421_provenance_lineage_audit.md</a></li>
+        <li><a href="results/20260421_generation_variance_readiness_audit.json">results/20260421_generation_variance_readiness_audit.json</a></li>
+      </ul>
+    </section>
+
+    <div class="divider"></div>
+    <p class="small">Compiled for PM readability from current local artifacts. No edits were made to <code>WHERE_WE_ARE_20260421.html</code>.</p>
+  </main>
+</body>
+</html>

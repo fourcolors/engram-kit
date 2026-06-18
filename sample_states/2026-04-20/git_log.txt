@@ -1,0 +1,8 @@
+commit_index	commit	time_pt	date_pt	subject
+1	032b518ea8312a931d930d78f47e6143df52db0e	2026-04-20T17:17:38-07:00	2026-04-20	Import research/n1-memory-lab/ from syke repo (canonical eval set + judge method)
+2	08a4a63cb41797ba3ad8838dbb57089485a63920	2026-04-20T17:22:49-07:00	2026-04-20	Import remaining n1-memory-lab research content from syke repo
+3	6a3d049d37582fa577bc7e95efc9eb1011372933	2026-04-20T18:37:06-07:00	2026-04-20	Self-contain replay-lab paths for sibling-repo layout
+4	78e823b0d70cd3edb96a4c08787701dc79f6aef8	2026-04-20T18:49:35-07:00	2026-04-20	Add σ_ε intra-rater measurement and companion formalism notes
+5	bff5a34068d518419ac7d54a4d9460614d1af66b	2026-04-20T19:08:27-07:00	2026-04-20	Narrow judge calibration to the surviving replay packet
+6	d0fd1d720e377132a97ab89a20dac5cdece4691f	2026-04-20T19:18:36-07:00	2026-04-20	Restore primitive-first framing in judge calibration
+7	3295070f8234143f70be9ae26f0f3b0f97b9c7a7	2026-04-20T21:45:37-07:00	2026-04-20	Restore space between source_ref: and value (broke yaml parse)

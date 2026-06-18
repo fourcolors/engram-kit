@@ -1,0 +1,32 @@
+{
+  "version": 1,
+  "created_at": "2026-04-21",
+  "task_id": "JCB-030",
+  "status": "blocked_readiness_audit",
+  "required_for_clean_generation_variance": [
+    "same ask model",
+    "same condition",
+    "same probe packet",
+    ">=2 repeated answer generations per cell",
+    "no model-family substitution in repeats"
+  ],
+  "available_repeat_like_runs": {
+    "gpt_mini_contaminated_diag": "ne13-real-15d-gpt54-rep2-20260420T144210Z",
+    "gpt_mini_intra_rep1": "ne13-real-15d-gpt54ask-gpt54judge-intrarater-20260420T200314Z",
+    "gpt_mini_intra_rep5": "ne13-real-15d-gpt54ask-gpt54judge-intrarater-rep5-20260421T051720Z",
+    "gpt_mini_intra_rep6": "ne13-real-15d-gpt54ask-gpt54judge-intrarater-rep6-20260421T051720Z",
+    "opus_intra_rep1": "ne13-real-15d-opusask-opusjudge-intrarater-20260420T200314Z",
+    "opus_intra_rep2": "ne13-real-15d-opus46-intrarater-rep2-20260420T222645Z",
+    "opus_intra_rep3": "ne13-real-15d-opus46-intrarater-rep3-20260420T222645Z"
+  },
+  "blockers": [
+    "available repeats are judge-repeat runs over reused answers, not clean repeated answer generations per cell",
+    "gpt-side repeat artifacts involve gpt-5.4-mini judge config and contaminated rep lanes, not clean gpt-5.4 generation repeats",
+    "no paired repeated generation set available across both ask models with fixed packet and fixed judge config"
+  ],
+  "next_data_needed": [
+    "collect >=2 clean answer generations per probe/condition for gpt-5.4 ask model",
+    "collect >=2 clean answer generations per probe/condition for claude-opus-4-6 ask model",
+    "freeze judge config for downstream variance separation"
+  ]
+}

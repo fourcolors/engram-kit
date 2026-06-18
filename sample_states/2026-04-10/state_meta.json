@@ -1,0 +1,14 @@
+{
+  "approximate_present_paths": 11,
+  "cadence_id": "daily",
+  "date": "2026-04-10",
+  "exact_present_paths": 0,
+  "excluded_paths": 99,
+  "git_commits_new": 0,
+  "git_commits_visible": 0,
+  "present_paths": 11,
+  "reference_time": "2026-04-10T23:59:59-07:00",
+  "schema": "engram.sample_state_meta.v0",
+  "state_id": "daily_2026-04-10",
+  "unavailable_paths": 22475
+}

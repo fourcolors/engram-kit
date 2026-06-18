@@ -1,0 +1,448 @@
+{
+  "arms": {
+    "gpt-ans-gpt-judge": {
+      "n_canon": 57,
+      "n_blind": 57,
+      "n_common": 57,
+      "n_pooled": 114,
+      "verdict_dist": {
+        "canon": {
+          "pass": 6,
+          "partial": 41,
+          "fail": 10,
+          "n": 57
+        },
+        "blind": {
+          "pass": 3,
+          "partial": 45,
+          "fail": 9,
+          "n": 57
+        },
+        "pooled": {
+          "pass": 9,
+          "partial": 86,
+          "fail": 19,
+          "n": 114
+        }
+      },
+      "mean_verdict": {
+        "canon": {
+          "mean": 0.9298,
+          "sd": 0.5298,
+          "se": 0.0702
+        },
+        "blind": {
+          "mean": 0.8947,
+          "sd": 0.4506,
+          "se": 0.0597
+        },
+        "pooled": {
+          "mean": 0.9123,
+          "sd": 0.4899,
+          "se": 0.0459
+        }
+      },
+      "paired_shift_blind_minus_canon": {
+        "n": 57,
+        "mean": -0.0351,
+        "sd_of_diffs": 0.4211,
+        "se_of_mean": 0.0558,
+        "shift_in_SE_units": -0.63
+      },
+      "sigma_epsilon_hat_from_pairs": 0.2978
+    },
+    "gpt-ans-opus-judge": {
+      "n_canon": 54,
+      "n_blind": 55,
+      "n_common": 53,
+      "n_pooled": 109,
+      "verdict_dist": {
+        "canon": {
+          "pass": 26,
+          "partial": 25,
+          "fail": 3,
+          "n": 54
+        },
+        "blind": {
+          "pass": 29,
+          "partial": 20,
+          "fail": 6,
+          "n": 55
+        },
+        "pooled": {
+          "pass": 55,
+          "partial": 45,
+          "fail": 9,
+          "n": 109
+        }
+      },
+      "mean_verdict": {
+        "canon": {
+          "mean": 1.4259,
+          "sd": 0.6019,
+          "se": 0.0819
+        },
+        "blind": {
+          "mean": 1.4182,
+          "sd": 0.6856,
+          "se": 0.0924
+        },
+        "pooled": {
+          "mean": 1.422,
+          "sd": 0.6425,
+          "se": 0.0615
+        }
+      },
+      "paired_shift_blind_minus_canon": {
+        "n": 53,
+        "mean": 0.0189,
+        "sd_of_diffs": 0.4996,
+        "se_of_mean": 0.0686,
+        "shift_in_SE_units": 0.27
+      },
+      "sigma_epsilon_hat_from_pairs": 0.3533
+    },
+    "opus-ans-opus-judge": {
+      "n_canon": 57,
+      "n_blind": 56,
+      "n_common": 56,
+      "n_pooled": 113,
+      "verdict_dist": {
+        "canon": {
+          "pass": 28,
+          "partial": 21,
+          "fail": 8,
+          "n": 57
+        },
+        "blind": {
+          "pass": 21,
+          "partial": 25,
+          "fail": 10,
+          "n": 56
+        },
+        "pooled": {
+          "pass": 49,
+          "partial": 46,
+          "fail": 18,
+          "n": 113
+        }
+      },
+      "mean_verdict": {
+        "canon": {
+          "mean": 1.3509,
+          "sd": 0.7194,
+          "se": 0.0953
+        },
+        "blind": {
+          "mean": 1.1964,
+          "sd": 0.7241,
+          "se": 0.0968
+        },
+        "pooled": {
+          "mean": 1.2743,
+          "sd": 0.7227,
+          "se": 0.068
+        }
+      },
+      "paired_shift_blind_minus_canon": {
+        "n": 56,
+        "mean": -0.1607,
+        "sd_of_diffs": 0.5318,
+        "se_of_mean": 0.0711,
+        "shift_in_SE_units": -2.26
+      },
+      "sigma_epsilon_hat_from_pairs": 0.376
+    },
+    "opus-ans-gpt-judge": {
+      "n_canon": 57,
+      "n_blind": 56,
+      "n_common": 56,
+      "n_pooled": 113,
+      "verdict_dist": {
+        "canon": {
+          "pass": 5,
+          "partial": 39,
+          "fail": 13,
+          "n": 57
+        },
+        "blind": {
+          "pass": 0,
+          "partial": 31,
+          "fail": 25,
+          "n": 56
+        },
+        "pooled": {
+          "pass": 5,
+          "partial": 70,
+          "fail": 38,
+          "n": 113
+        }
+      },
+      "mean_verdict": {
+        "canon": {
+          "mean": 0.8596,
+          "sd": 0.549,
+          "se": 0.0727
+        },
+        "blind": {
+          "mean": 0.5536,
+          "sd": 0.5016,
+          "se": 0.067
+        },
+        "pooled": {
+          "mean": 0.708,
+          "sd": 0.5458,
+          "se": 0.0513
+        }
+      },
+      "paired_shift_blind_minus_canon": {
+        "n": 56,
+        "mean": -0.3036,
+        "sd_of_diffs": 0.5016,
+        "se_of_mean": 0.067,
+        "shift_in_SE_units": -4.53
+      },
+      "sigma_epsilon_hat_from_pairs": 0.3547
+    }
+  },
+  "sigma_gamma": {
+    "canon": {
+      "mean": 0.5,
+      "sd": 0.5746,
+      "se": 0.0782,
+      "n": 54,
+      "asymmetry": {
+        "opus_higher": 27,
+        "gpt_higher": 1,
+        "ties": 26,
+        "n": 54
+      }
+    },
+    "blind": {
+      "mean": 0.5273,
+      "sd": 0.6041,
+      "se": 0.0815,
+      "n": 55,
+      "asymmetry": {
+        "opus_higher": 26,
+        "gpt_higher": 0,
+        "ties": 29,
+        "n": 55
+      }
+    },
+    "pooled": {
+      "mean": 0.5138,
+      "sd": 0.5871,
+      "se": 0.0562,
+      "n": 109,
+      "asymmetry": {
+        "opus_higher": 53,
+        "gpt_higher": 1,
+        "ties": 55,
+        "n": 109
+      },
+      "z_vs_zero": 9.14,
+      "ci95": [
+        0.404,
+        0.624
+      ]
+    },
+    "canon_vs_blind_shift": {
+      "mean_delta": 0.0273,
+      "se_of_delta": 0.1129,
+      "shift_in_SE_units": 0.24
+    }
+  },
+  "per_probe": [
+    {
+      "probe_id": "R08",
+      "n_votes": 24,
+      "pass": 1,
+      "partial": 7,
+      "fail": 16,
+      "mean_score": 0.375,
+      "pass_rate": 0.042,
+      "fail_rate": 0.667
+    },
+    {
+      "probe_id": "R19",
+      "n_votes": 24,
+      "pass": 3,
+      "partial": 7,
+      "fail": 14,
+      "mean_score": 0.542,
+      "pass_rate": 0.125,
+      "fail_rate": 0.583
+    },
+    {
+      "probe_id": "R09",
+      "n_votes": 24,
+      "pass": 3,
+      "partial": 10,
+      "fail": 11,
+      "mean_score": 0.667,
+      "pass_rate": 0.125,
+      "fail_rate": 0.458
+    },
+    {
+      "probe_id": "R07",
+      "n_votes": 24,
+      "pass": 2,
+      "partial": 15,
+      "fail": 7,
+      "mean_score": 0.792,
+      "pass_rate": 0.083,
+      "fail_rate": 0.292
+    },
+    {
+      "probe_id": "R10",
+      "n_votes": 23,
+      "pass": 5,
+      "partial": 10,
+      "fail": 8,
+      "mean_score": 0.87,
+      "pass_rate": 0.217,
+      "fail_rate": 0.348
+    },
+    {
+      "probe_id": "R03",
+      "n_votes": 24,
+      "pass": 6,
+      "partial": 11,
+      "fail": 7,
+      "mean_score": 0.958,
+      "pass_rate": 0.25,
+      "fail_rate": 0.292
+    },
+    {
+      "probe_id": "R01",
+      "n_votes": 24,
+      "pass": 5,
+      "partial": 15,
+      "fail": 4,
+      "mean_score": 1.042,
+      "pass_rate": 0.208,
+      "fail_rate": 0.167
+    },
+    {
+      "probe_id": "R18",
+      "n_votes": 23,
+      "pass": 4,
+      "partial": 16,
+      "fail": 3,
+      "mean_score": 1.043,
+      "pass_rate": 0.174,
+      "fail_rate": 0.13
+    },
+    {
+      "probe_id": "R06",
+      "n_votes": 22,
+      "pass": 5,
+      "partial": 13,
+      "fail": 4,
+      "mean_score": 1.045,
+      "pass_rate": 0.227,
+      "fail_rate": 0.182
+    },
+    {
+      "probe_id": "R14",
+      "n_votes": 21,
+      "pass": 4,
+      "partial": 15,
+      "fail": 2,
+      "mean_score": 1.095,
+      "pass_rate": 0.19,
+      "fail_rate": 0.095
+    },
+    {
+      "probe_id": "R02",
+      "n_votes": 24,
+      "pass": 6,
+      "partial": 17,
+      "fail": 1,
+      "mean_score": 1.208,
+      "pass_rate": 0.25,
+      "fail_rate": 0.042
+    },
+    {
+      "probe_id": "R04",
+      "n_votes": 24,
+      "pass": 7,
+      "partial": 15,
+      "fail": 2,
+      "mean_score": 1.208,
+      "pass_rate": 0.292,
+      "fail_rate": 0.083
+    },
+    {
+      "probe_id": "R11",
+      "n_votes": 24,
+      "pass": 6,
+      "partial": 17,
+      "fail": 1,
+      "mean_score": 1.208,
+      "pass_rate": 0.25,
+      "fail_rate": 0.042
+    },
+    {
+      "probe_id": "R05",
+      "n_votes": 24,
+      "pass": 8,
+      "partial": 15,
+      "fail": 1,
+      "mean_score": 1.292,
+      "pass_rate": 0.333,
+      "fail_rate": 0.042
+    },
+    {
+      "probe_id": "R12",
+      "n_votes": 24,
+      "pass": 11,
+      "partial": 10,
+      "fail": 3,
+      "mean_score": 1.333,
+      "pass_rate": 0.458,
+      "fail_rate": 0.125
+    },
+    {
+      "probe_id": "R15",
+      "n_votes": 24,
+      "pass": 8,
+      "partial": 16,
+      "fail": 0,
+      "mean_score": 1.333,
+      "pass_rate": 0.333,
+      "fail_rate": 0.0
+    },
+    {
+      "probe_id": "R17",
+      "n_votes": 24,
+      "pass": 8,
+      "partial": 16,
+      "fail": 0,
+      "mean_score": 1.333,
+      "pass_rate": 0.333,
+      "fail_rate": 0.0
+    },
+    {
+      "probe_id": "R16",
+      "n_votes": 24,
+      "pass": 10,
+      "partial": 14,
+      "fail": 0,
+      "mean_score": 1.417,
+      "pass_rate": 0.417,
+      "fail_rate": 0.0
+    },
+    {
+      "probe_id": "R13",
+      "n_votes": 24,
+      "pass": 16,
+      "partial": 8,
+      "fail": 0,
+      "mean_score": 1.667,
+      "pass_rate": 0.667,
+      "fail_rate": 0.0
+    }
+  ]
+}

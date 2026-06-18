@@ -1,0 +1,72 @@
+{
+  "version": 1,
+  "created_at": "2026-04-21",
+  "scope": "unsupported/false-premise probe inclusion set for judge calibration",
+  "rows": [
+    {
+      "probe_id": "R03",
+      "target_slice": "both",
+      "criterion_referenceability": "medium",
+      "retrieval_character": "search-like",
+      "max_unsupported_bundle_rate_in_audited_rows": 0.75,
+      "inclusion_reason": "high_unsupported_bundle_rate"
+    },
+    {
+      "probe_id": "R07",
+      "target_slice": "historical",
+      "criterion_referenceability": "high",
+      "retrieval_character": "search-like",
+      "max_unsupported_bundle_rate_in_audited_rows": 0.6667,
+      "inclusion_reason": "high_unsupported_bundle_rate"
+    },
+    {
+      "probe_id": "R08",
+      "target_slice": "tip",
+      "criterion_referenceability": "low",
+      "retrieval_character": "reconstruction-like",
+      "max_unsupported_bundle_rate_in_audited_rows": 0.5,
+      "inclusion_reason": "low_referenceability"
+    },
+    {
+      "probe_id": "R09",
+      "target_slice": "landscape",
+      "criterion_referenceability": "medium",
+      "retrieval_character": "search-like",
+      "max_unsupported_bundle_rate_in_audited_rows": 0.75,
+      "inclusion_reason": "high_unsupported_bundle_rate"
+    },
+    {
+      "probe_id": "R11",
+      "target_slice": "historical",
+      "criterion_referenceability": "low",
+      "retrieval_character": "reconstruction-like",
+      "max_unsupported_bundle_rate_in_audited_rows": 0.0,
+      "inclusion_reason": "low_referenceability"
+    },
+    {
+      "probe_id": "R13",
+      "target_slice": "historical",
+      "criterion_referenceability": "low",
+      "retrieval_character": "reconstruction-like",
+      "max_unsupported_bundle_rate_in_audited_rows": 0.0,
+      "inclusion_reason": "low_referenceability"
+    },
+    {
+      "probe_id": "R18",
+      "target_slice": "historical",
+      "criterion_referenceability": "low",
+      "retrieval_character": "reconstruction-like",
+      "max_unsupported_bundle_rate_in_audited_rows": 0.0,
+      "inclusion_reason": "low_referenceability"
+    },
+    {
+      "probe_id": "R19",
+      "target_slice": "tip",
+      "criterion_referenceability": "medium",
+      "retrieval_character": "search-like",
+      "max_unsupported_bundle_rate_in_audited_rows": 1.0,
+      "inclusion_reason": "high_unsupported_bundle_rate"
+    }
+  ],
+  "count": 8
+}

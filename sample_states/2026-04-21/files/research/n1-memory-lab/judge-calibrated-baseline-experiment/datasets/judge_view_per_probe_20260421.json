@@ -1,0 +1,2120 @@
+{
+  "version": 1,
+  "created_at": "2026-04-21",
+  "scope": "JUDGE_VIEW_AUDIT across production/pure/zero for gpt54 + opus judges, NE-1.3 R01-R19 canonical final runs",
+  "source_runs": [
+    "ne13-real-15d-gpt54-final-20260420T071500Z",
+    "ne13-real-15d-opus46-final-20260420T071500Z"
+  ],
+  "probes": [
+    {
+      "probe_id": "R01",
+      "question": "what's the current state of things? what am I working on, what's active, what's the latest?",
+      "reference_dt": "2026-03-08",
+      "reference_cutoff_iso": "2026-03-08T23:59:59-07:00",
+      "source_surface": "claude-code",
+      "packet_bytes": {
+        "production": 5344,
+        "pure": 5859,
+        "zero": 8039
+      },
+      "slice_summary": {
+        "cycle": "2026-03-08T23:59:59-07:00",
+        "bundle": "ne-1.3",
+        "sources": {
+          "claude-code": {
+            "jsonl_files": 147,
+            "jsonl_lines": 9589,
+            "db_rows": {}
+          },
+          "codex": {
+            "jsonl_files": 0,
+            "jsonl_lines": 0,
+            "db_rows": {}
+          },
+          "opencode": {
+            "jsonl_files": 0,
+            "jsonl_lines": 0,
+            "db_rows": {}
+          }
+        },
+        "total_elapsed_sec": 0.685
+      },
+      "answers": {
+        "production": {
+          "answer_len": 2636,
+          "verdict": "partial",
+          "tool_calls": 21,
+          "ask_mode": "syke",
+          "memex_chars": 125
+        },
+        "zero": {
+          "answer_len": 5215,
+          "verdict": "partial",
+          "tool_calls": 19,
+          "ask_mode": "zero",
+          "memex_chars": 1081
+        },
+        "pure": {
+          "answer_len": 3163,
+          "verdict": "pass",
+          "tool_calls": 31,
+          "ask_mode": "pure",
+          "memex_chars": 0
+        }
+      },
+      "judge_tool_calls": {
+        "gpt54_judge": {
+          "production": {
+            "total": 14,
+            "by_name": {
+              "read": 4,
+              "bash": 9,
+              "submit_judge_verdict": 1
+            }
+          },
+          "pure": {
+            "total": 19,
+            "by_name": {
+              "read": 8,
+              "bash": 10,
+              "submit_judge_verdict": 1
+            }
+          },
+          "zero": {
+            "total": 21,
+            "by_name": {
+              "read": 10,
+              "bash": 10,
+              "submit_judge_verdict": 1
+            }
+          }
+        },
+        "opus_judge": {
+          "production": {
+            "total": 22,
+            "by_name": {
+              "read": 2,
+              "bash": 19,
+              "submit_judge_verdict": 1
+            }
+          },
+          "pure": {
+            "total": 39,
+            "by_name": {
+              "read": 2,
+              "bash": 36,
+              "submit_judge_verdict": 1
+            }
+          },
+          "zero": {
+            "total": 13,
+            "by_name": {
+              "read": 1,
+              "bash": 11,
+              "submit_judge_verdict": 1
+            }
+          }
+        }
+      }
+    },
+    {
+      "probe_id": "R02",
+      "question": "What did we work on yesterday March 7 2026 and today March 8 2026? List everything \u2014 commits, features, fixes, releases, any work at all. Be exhaustive.",
+      "reference_dt": "2026-03-08",
+      "reference_cutoff_iso": "2026-03-08T23:59:59-07:00",
+      "source_surface": "claude-code",
+      "packet_bytes": {
+        "production": 14437,
+        "pure": 20360,
+        "zero": 18867
+      },
+      "slice_summary": {
+        "cycle": "2026-03-08T23:59:59-07:00",
+        "bundle": "ne-1.3",
+        "sources": {
+          "claude-code": {
+            "jsonl_files": 147,
+            "jsonl_lines": 9589,
+            "db_rows": {}
+          },
+          "codex": {
+            "jsonl_files": 0,
+            "jsonl_lines": 0,
+            "db_rows": {}
+          },
+          "opencode": {
+            "jsonl_files": 0,
+            "jsonl_lines": 0,
+            "db_rows": {}
+          }
+        },
+        "total_elapsed_sec": 0.697
+      },
+      "answers": {
+        "zero": {
+          "answer_len": 15342,
+          "verdict": "fail",
+          "tool_calls": 20,
+          "ask_mode": "zero",
+          "memex_chars": 1081
+        },
+        "production": {
+          "answer_len": 11201,
+          "verdict": "partial",
+          "tool_calls": 30,
+          "ask_mode": "syke",
+          "memex_chars": 125
+        },
+        "pure": {
+          "answer_len": 16890,
+          "verdict": "partial",
+          "tool_calls": 35,
+          "ask_mode": "pure",
+          "memex_chars": 0
+        }
+      },
+      "judge_tool_calls": {
+        "gpt54_judge": {
+          "production": {
+            "total": 20,
+            "by_name": {
+              "read": 6,
+              "bash": 13,
+              "submit_judge_verdict": 1
+            }
+          },
+          "pure": {
+            "total": 7,
+            "by_name": {
+              "read": 2,
+              "bash": 3,
+              "submit_judge_verdict": 2
+            }
+          },
+          "zero": {
+            "total": 14,
+            "by_name": {
+              "read": 3,
+              "bash": 9,
+              "submit_judge_verdict": 2
+            }
+          }
+        },
+        "opus_judge": {
+          "production": {
+            "total": 38,
+            "by_name": {
+              "read": 3,
+              "bash": 34,
+              "submit_judge_verdict": 1
+            }
+          },
+          "pure": {
+            "total": 27,
+            "by_name": {
+              "read": 3,
+              "bash": 23,
+              "submit_judge_verdict": 1
+            }
+          },
+          "zero": {
+            "total": 31,
+            "by_name": {
+              "read": 1,
+              "bash": 29,
+              "submit_judge_verdict": 1
+            }
+          }
+        }
+      }
+    },
+    {
+      "probe_id": "R03",
+      "question": "what was I last working on and what's the current status of synthesis modernization?",
+      "reference_dt": "2026-03-11",
+      "reference_cutoff_iso": "2026-03-11T23:59:59-07:00",
+      "source_surface": "claude-code",
+      "packet_bytes": {
+        "production": 4507,
+        "pure": 5861,
+        "zero": 4208
+      },
+      "slice_summary": {
+        "cycle": "2026-03-11T23:59:59-07:00",
+        "bundle": "ne-1.3",
+        "sources": {
+          "claude-code": {
+            "jsonl_files": 403,
+            "jsonl_lines": 21733,
+            "db_rows": {}
+          },
+          "codex": {
+            "jsonl_files": 0,
+            "jsonl_lines": 0,
+            "db_rows": {}
+          },
+          "opencode": {
+            "jsonl_files": 0,
+            "jsonl_lines": 0,
+            "db_rows": {}
+          }
+        },
+        "total_elapsed_sec": 0.797
+      },
+      "answers": {
+        "production": {
+          "answer_len": 1784,
+          "verdict": "partial",
+          "tool_calls": 12,
+          "ask_mode": "syke",
+          "memex_chars": 125
+        },
+        "zero": {
+          "answer_len": 1506,
+          "verdict": "partial",
+          "tool_calls": 23,
+          "ask_mode": "zero",
+          "memex_chars": 1142
+        },
+        "pure": {
+          "answer_len": 3044,
+          "verdict": "fail",
+          "tool_calls": 22,
+          "ask_mode": "pure",
+          "memex_chars": 0
+        }
+      },
+      "judge_tool_calls": {
+        "gpt54_judge": {
+          "production": {
+            "total": 15,
+            "by_name": {
+              "read": 3,
+              "bash": 11,
+              "submit_judge_verdict": 1
+            }
+          },
+          "pure": {
+            "total": 14,
+            "by_name": {
+              "read": 6,
+              "bash": 7,
+              "submit_judge_verdict": 1
+            }
+          },
+          "zero": {
+            "total": 25,
+            "by_name": {
+              "read": 10,
+              "bash": 14,
+              "submit_judge_verdict": 1
+            }
+          }
+        },
+        "opus_judge": {
+          "production": {
+            "total": 25,
+            "by_name": {
+              "read": 1,
+              "bash": 23,
+              "submit_judge_verdict": 1
+            }
+          },
+          "pure": {
+            "total": 40,
+            "by_name": {
+              "read": 1,
+              "bash": 38,
+              "submit_judge_verdict": 1
+            }
+          },
+          "zero": {
+            "total": 22,
+            "by_name": {
+              "read": 1,
+              "bash": 20,
+              "submit_judge_verdict": 1
+            }
+          }
+        }
+      }
+    },
+    {
+      "probe_id": "R04",
+      "question": "give me my work log today PST entire day",
+      "reference_dt": "2026-03-12",
+      "reference_cutoff_iso": "2026-03-12T23:59:59-07:00",
+      "source_surface": "claude-code",
+      "packet_bytes": {
+        "production": 10431,
+        "pure": 13049,
+        "zero": 10796
+      },
+      "slice_summary": {
+        "cycle": "2026-03-12T23:59:59-07:00",
+        "bundle": "ne-1.3",
+        "sources": {
+          "claude-code": {
+            "jsonl_files": 526,
+            "jsonl_lines": 27804,
+            "db_rows": {}
+          },
+          "codex": {
+            "jsonl_files": 0,
+            "jsonl_lines": 0,
+            "db_rows": {}
+          },
+          "opencode": {
+            "jsonl_files": 0,
+            "jsonl_lines": 0,
+            "db_rows": {}
+          }
+        },
+        "total_elapsed_sec": 0.81
+      },
+      "answers": {
+        "production": {
+          "answer_len": 7493,
+          "verdict": "pass",
+          "tool_calls": 17,
+          "ask_mode": "syke",
+          "memex_chars": 125
+        },
+        "zero": {
+          "answer_len": 7706,
+          "verdict": "partial",
+          "tool_calls": 14,
+          "ask_mode": "zero",
+          "memex_chars": 1158
+        },
+        "pure": {
+          "answer_len": 9763,
+          "verdict": "partial",
+          "tool_calls": 17,
+          "ask_mode": "pure",
+          "memex_chars": 0
+        }
+      },
+      "judge_tool_calls": {
+        "gpt54_judge": {
+          "production": {
+            "total": 19,
+            "by_name": {
+              "read": 7,
+              "bash": 11,
+              "submit_judge_verdict": 1
+            }
+          },
+          "pure": {
+            "total": 28,
+            "by_name": {
+              "read": 13,
+              "bash": 13,
+              "submit_judge_verdict": 2
+            }
+          },
+          "zero": {
+            "total": 29,
+            "by_name": {
+              "read": 9,
+              "bash": 19,
+              "submit_judge_verdict": 1
+            }
+          }
+        },
+        "opus_judge": {
+          "production": {
+            "total": 26,
+            "by_name": {
+              "read": 1,
+              "bash": 24,
+              "submit_judge_verdict": 1
+            }
+          },
+          "pure": {
+            "total": 39,
+            "by_name": {
+              "read": 1,
+              "bash": 37,
+              "submit_judge_verdict": 1
+            }
+          },
+          "zero": {
+            "total": 28,
+            "by_name": {
+              "read": 1,
+              "bash": 26,
+              "submit_judge_verdict": 1
+            }
+          }
+        }
+      }
+    },
+    {
+      "probe_id": "R05",
+      "question": "what are all my current open threads, priorities, and unfinished work? include: research vectors (ACE, GEPA, sleep/dream, filesystem), open bugs, hackathon plans, memory system studies, continual learning research",
+      "reference_dt": "2026-03-13",
+      "reference_cutoff_iso": "2026-03-13T23:59:59-07:00",
+      "source_surface": "claude-code",
+      "packet_bytes": {
+        "production": 10438,
+        "pure": 13220,
+        "zero": 11055
+      },
+      "slice_summary": {
+        "cycle": "2026-03-13T23:59:59-07:00",
+        "bundle": "ne-1.3",
+        "sources": {
+          "claude-code": {
+            "jsonl_files": 797,
+            "jsonl_lines": 36071,
+            "db_rows": {}
+          },
+          "codex": {
+            "jsonl_files": 0,
+            "jsonl_lines": 0,
+            "db_rows": {}
+          },
+          "opencode": {
+            "jsonl_files": 1,
+            "jsonl_lines": 180,
+            "db_rows": {}
+          }
+        },
+        "total_elapsed_sec": 0.913
+      },
+      "answers": {
+        "production": {
+          "answer_len": 7306,
+          "verdict": "partial",
+          "tool_calls": 21,
+          "ask_mode": "syke",
+          "memex_chars": 125
+        },
+        "zero": {
+          "answer_len": 7868,
+          "verdict": "partial",
+          "tool_calls": 39,
+          "ask_mode": "zero",
+          "memex_chars": 1262
+        },
+        "pure": {
+          "answer_len": 9926,
+          "verdict": "partial",
+          "tool_calls": 22,
+          "ask_mode": "pure",
+          "memex_chars": 0
+        }
+      },
+      "judge_tool_calls": {
+        "gpt54_judge": {
+          "production": {
+            "total": 14,
+            "by_name": {
+              "read": 5,
+              "bash": 8,
+              "submit_judge_verdict": 1
+            }
+          },
+          "pure": {
+            "total": 21,
+            "by_name": {
+              "read": 4,
+              "bash": 15,
+              "submit_judge_verdict": 2
+            }
+          },
+          "zero": {
+            "total": 19,
+            "by_name": {
+              "read": 6,
+              "bash": 11,
+              "submit_judge_verdict": 2
+            }
+          }
+        },
+        "opus_judge": {
+          "production": {
+            "total": 23,
+            "by_name": {
+              "read": 1,
+              "bash": 21,
+              "submit_judge_verdict": 1
+            }
+          },
+          "pure": {
+            "total": 26,
+            "by_name": {
+              "read": 1,
+              "bash": 24,
+              "submit_judge_verdict": 1
+            }
+          },
+          "zero": {
+            "total": 38,
+            "by_name": {
+              "read": 1,
+              "bash": 36,
+              "submit_judge_verdict": 1
+            }
+          }
+        }
+      }
+    },
+    {
+      "probe_id": "R06",
+      "question": "what was I last working on in syke? what was left to do? what were the most recent threads and decisions?",
+      "reference_dt": "2026-03-13",
+      "reference_cutoff_iso": "2026-03-13T23:59:59-07:00",
+      "source_surface": "claude-code",
+      "packet_bytes": {
+        "production": 9454,
+        "pure": 7117,
+        "zero": 8657
+      },
+      "slice_summary": {
+        "cycle": "2026-03-13T23:59:59-07:00",
+        "bundle": "ne-1.3",
+        "sources": {
+          "claude-code": {
+            "jsonl_files": 797,
+            "jsonl_lines": 36071,
+            "db_rows": {}
+          },
+          "codex": {
+            "jsonl_files": 0,
+            "jsonl_lines": 0,
+            "db_rows": {}
+          },
+          "opencode": {
+            "jsonl_files": 1,
+            "jsonl_lines": 180,
+            "db_rows": {}
+          }
+        },
+        "total_elapsed_sec": 0.966
+      },
+      "answers": {
+        "production": {
+          "answer_len": 6488,
+          "verdict": "partial",
+          "tool_calls": 26,
+          "ask_mode": "syke",
+          "memex_chars": 125
+        },
+        "pure": {
+          "answer_len": 4235,
+          "verdict": "partial",
+          "tool_calls": 24,
+          "ask_mode": "pure",
+          "memex_chars": 0
+        },
+        "zero": {
+          "answer_len": 5730,
+          "verdict": "partial",
+          "tool_calls": 40,
+          "ask_mode": "zero",
+          "memex_chars": 1262
+        }
+      },
+      "judge_tool_calls": {
+        "gpt54_judge": {
+          "production": {
+            "total": 23,
+            "by_name": {
+              "read": 4,
+              "bash": 18,
+              "submit_judge_verdict": 1
+            }
+          },
+          "pure": {
+            "total": 28,
+            "by_name": {
+              "read": 12,
+              "bash": 15,
+              "submit_judge_verdict": 1
+            }
+          },
+          "zero": {
+            "total": 16,
+            "by_name": {
+              "read": 5,
+              "bash": 9,
+              "submit_judge_verdict": 2
+            }
+          }
+        },
+        "opus_judge": {
+          "production": {
+            "total": 48,
+            "by_name": {
+              "read": 1,
+              "bash": 46,
+              "submit_judge_verdict": 1
+            }
+          },
+          "pure": {
+            "total": 25,
+            "by_name": {
+              "read": 1,
+              "bash": 23,
+              "submit_judge_verdict": 1
+            }
+          },
+          "zero": {
+            "total": 34,
+            "by_name": {
+              "read": 6,
+              "bash": 27,
+              "submit_judge_verdict": 1
+            }
+          }
+        }
+      }
+    },
+    {
+      "probe_id": "R07",
+      "question": "remember all the threads we made yesterday and map the timeline for today and yesterday",
+      "reference_dt": "2026-03-14",
+      "reference_cutoff_iso": "2026-03-14T23:59:59-07:00",
+      "source_surface": "opencode",
+      "packet_bytes": {
+        "production": 9002,
+        "pure": 7417,
+        "zero": 4272
+      },
+      "slice_summary": {
+        "cycle": "2026-03-14T23:59:59-07:00",
+        "bundle": "ne-1.3",
+        "sources": {
+          "claude-code": {
+            "jsonl_files": 2990,
+            "jsonl_lines": 72223,
+            "db_rows": {}
+          },
+          "codex": {
+            "jsonl_files": 0,
+            "jsonl_lines": 0,
+            "db_rows": {}
+          },
+          "opencode": {
+            "jsonl_files": 2,
+            "jsonl_lines": 772,
+            "db_rows": {}
+          }
+        },
+        "total_elapsed_sec": 1.589
+      },
+      "answers": {
+        "production": {
+          "answer_len": 6134,
+          "verdict": "partial",
+          "tool_calls": 22,
+          "ask_mode": "syke",
+          "memex_chars": 125
+        },
+        "zero": {
+          "answer_len": 1638,
+          "verdict": "fail",
+          "tool_calls": 23,
+          "ask_mode": "zero",
+          "memex_chars": 1284
+        },
+        "pure": {
+          "answer_len": 4525,
+          "verdict": "partial",
+          "tool_calls": 27,
+          "ask_mode": "pure",
+          "memex_chars": 0
+        }
+      },
+      "judge_tool_calls": {
+        "gpt54_judge": {
+          "production": {
+            "total": 24,
+            "by_name": {
+              "read": 10,
+              "bash": 13,
+              "submit_judge_verdict": 1
+            }
+          },
+          "pure": {
+            "total": 16,
+            "by_name": {
+              "read": 4,
+              "bash": 10,
+              "submit_judge_verdict": 2
+            }
+          },
+          "zero": {
+            "total": 14,
+            "by_name": {
+              "read": 5,
+              "bash": 7,
+              "submit_judge_verdict": 2
+            }
+          }
+        },
+        "opus_judge": {
+          "production": {
+            "total": 40,
+            "by_name": {
+              "read": 1,
+              "bash": 38,
+              "submit_judge_verdict": 1
+            }
+          },
+          "pure": {
+            "total": 25,
+            "by_name": {
+              "read": 3,
+              "bash": 21,
+              "submit_judge_verdict": 1
+            }
+          },
+          "zero": {
+            "total": 35,
+            "by_name": {
+              "read": 1,
+              "bash": 33,
+              "submit_judge_verdict": 1
+            }
+          }
+        }
+      }
+    },
+    {
+      "probe_id": "R08",
+      "question": "okay where are we now",
+      "reference_dt": "2026-03-14",
+      "reference_cutoff_iso": "2026-03-14T23:59:59-07:00",
+      "source_surface": "opencode",
+      "packet_bytes": {
+        "production": 3504,
+        "pure": 6517,
+        "zero": 3891
+      },
+      "slice_summary": {
+        "cycle": "2026-03-14T23:59:59-07:00",
+        "bundle": "ne-1.3",
+        "sources": {
+          "claude-code": {
+            "jsonl_files": 2990,
+            "jsonl_lines": 72223,
+            "db_rows": {}
+          },
+          "codex": {
+            "jsonl_files": 0,
+            "jsonl_lines": 0,
+            "db_rows": {}
+          },
+          "opencode": {
+            "jsonl_files": 2,
+            "jsonl_lines": 772,
+            "db_rows": {}
+          }
+        },
+        "total_elapsed_sec": 1.577
+      },
+      "answers": {
+        "zero": {
+          "answer_len": 1340,
+          "verdict": "fail",
+          "tool_calls": 8,
+          "ask_mode": "zero",
+          "memex_chars": 1284
+        },
+        "production": {
+          "answer_len": 967,
+          "verdict": "fail",
+          "tool_calls": 15,
+          "ask_mode": "syke",
+          "memex_chars": 125
+        },
+        "pure": {
+          "answer_len": 3866,
+          "verdict": "partial",
+          "tool_calls": 18,
+          "ask_mode": "pure",
+          "memex_chars": 0
+        }
+      },
+      "judge_tool_calls": {
+        "gpt54_judge": {
+          "production": {
+            "total": 15,
+            "by_name": {
+              "read": 5,
+              "bash": 8,
+              "submit_judge_verdict": 2
+            }
+          },
+          "pure": {
+            "total": 19,
+            "by_name": {
+              "read": 5,
+              "bash": 13,
+              "submit_judge_verdict": 1
+            }
+          },
+          "zero": {
+            "total": 22,
+            "by_name": {
+              "read": 8,
+              "bash": 12,
+              "submit_judge_verdict": 2
+            }
+          }
+        },
+        "opus_judge": {
+          "production": {
+            "total": 28,
+            "by_name": {
+              "read": 1,
+              "bash": 26,
+              "submit_judge_verdict": 1
+            }
+          },
+          "pure": {
+            "total": 18,
+            "by_name": {
+              "read": 1,
+              "bash": 16,
+              "submit_judge_verdict": 1
+            }
+          },
+          "zero": {
+            "total": 15,
+            "by_name": {
+              "read": 1,
+              "bash": 13,
+              "submit_judge_verdict": 1
+            }
+          }
+        }
+      }
+    },
+    {
+      "probe_id": "R09",
+      "question": "what is the updated thread map now",
+      "reference_dt": "2026-03-14",
+      "reference_cutoff_iso": "2026-03-14T23:59:59-07:00",
+      "source_surface": "opencode",
+      "packet_bytes": {
+        "production": 4185,
+        "pure": 7330,
+        "zero": 5795
+      },
+      "slice_summary": {
+        "cycle": "2026-03-14T23:59:59-07:00",
+        "bundle": "ne-1.3",
+        "sources": {
+          "claude-code": {
+            "jsonl_files": 2990,
+            "jsonl_lines": 72223,
+            "db_rows": {}
+          },
+          "codex": {
+            "jsonl_files": 0,
+            "jsonl_lines": 0,
+            "db_rows": {}
+          },
+          "opencode": {
+            "jsonl_files": 2,
+            "jsonl_lines": 772,
+            "db_rows": {}
+          }
+        },
+        "total_elapsed_sec": 1.571
+      },
+      "answers": {
+        "zero": {
+          "answer_len": 3161,
+          "verdict": "fail",
+          "tool_calls": 13,
+          "ask_mode": "zero",
+          "memex_chars": 1284
+        },
+        "production": {
+          "answer_len": 1612,
+          "verdict": "fail",
+          "tool_calls": 26,
+          "ask_mode": "syke",
+          "memex_chars": 125
+        },
+        "pure": {
+          "answer_len": 4500,
+          "verdict": "pass",
+          "tool_calls": 15,
+          "ask_mode": "pure",
+          "memex_chars": 0
+        }
+      },
+      "judge_tool_calls": {
+        "gpt54_judge": {
+          "production": {
+            "total": 19,
+            "by_name": {
+              "read": 3,
+              "bash": 14,
+              "submit_judge_verdict": 2
+            }
+          },
+          "pure": {
+            "total": 15,
+            "by_name": {
+              "read": 5,
+              "bash": 8,
+              "submit_judge_verdict": 2
+            }
+          },
+          "zero": {
+            "total": 16,
+            "by_name": {
+              "read": 3,
+              "bash": 11,
+              "submit_judge_verdict": 2
+            }
+          }
+        },
+        "opus_judge": {
+          "production": {
+            "total": 26,
+            "by_name": {
+              "read": 1,
+              "bash": 24,
+              "submit_judge_verdict": 1
+            }
+          },
+          "pure": {
+            "total": 19,
+            "by_name": {
+              "read": 1,
+              "bash": 17,
+              "submit_judge_verdict": 1
+            }
+          },
+          "zero": {
+            "total": 10,
+            "by_name": {
+              "read": 1,
+              "bash": 8,
+              "submit_judge_verdict": 1
+            }
+          }
+        }
+      }
+    },
+    {
+      "probe_id": "R10",
+      "question": "What was the memory tools landscape study? What did we learn about memorix, claude-mem, and other tools? What patterns were worth adopting vs skipping? What is the cross-platform federation gap?",
+      "reference_dt": "2026-03-14",
+      "reference_cutoff_iso": "2026-03-14T23:59:59-07:00",
+      "source_surface": "claude-code",
+      "packet_bytes": {
+        "production": 7803,
+        "pure": 15599,
+        "zero": 10025
+      },
+      "slice_summary": {
+        "cycle": "2026-03-14T23:59:59-07:00",
+        "bundle": "ne-1.3",
+        "sources": {
+          "claude-code": {
+            "jsonl_files": 2990,
+            "jsonl_lines": 72223,
+            "db_rows": {}
+          },
+          "codex": {
+            "jsonl_files": 0,
+            "jsonl_lines": 0,
+            "db_rows": {}
+          },
+          "opencode": {
+            "jsonl_files": 2,
+            "jsonl_lines": 772,
+            "db_rows": {}
+          }
+        },
+        "total_elapsed_sec": 1.604
+      },
+      "answers": {
+        "production": {
+          "answer_len": 4743,
+          "verdict": "partial",
+          "tool_calls": 24,
+          "ask_mode": "syke",
+          "memex_chars": 125
+        },
+        "zero": {
+          "answer_len": 6885,
+          "verdict": "partial",
+          "tool_calls": 44,
+          "ask_mode": "zero",
+          "memex_chars": 1284
+        },
+        "pure": {
+          "answer_len": 12319,
+          "verdict": "partial",
+          "tool_calls": 23,
+          "ask_mode": "pure",
+          "memex_chars": 0
+        }
+      },
+      "judge_tool_calls": {
+        "gpt54_judge": {
+          "production": {
+            "total": 15,
+            "by_name": {
+              "read": 3,
+              "bash": 11,
+              "submit_judge_verdict": 1
+            }
+          },
+          "pure": {
+            "total": 30,
+            "by_name": {
+              "read": 9,
+              "bash": 19,
+              "submit_judge_verdict": 2
+            }
+          },
+          "zero": {
+            "total": 20,
+            "by_name": {
+              "read": 7,
+              "bash": 11,
+              "submit_judge_verdict": 2
+            }
+          }
+        },
+        "opus_judge": {
+          "production": {
+            "total": 40,
+            "by_name": {
+              "read": 1,
+              "bash": 38,
+              "submit_judge_verdict": 1
+            }
+          },
+          "pure": {
+            "total": 14,
+            "by_name": {
+              "read": 1,
+              "bash": 12,
+              "submit_judge_verdict": 1
+            }
+          },
+          "zero": {
+            "total": 16,
+            "by_name": {
+              "read": 1,
+              "bash": 14,
+              "submit_judge_verdict": 1
+            }
+          }
+        }
+      }
+    },
+    {
+      "probe_id": "R11",
+      "question": "What is the full vision for Observe? Everything we discussed \u2014 hook listener, tool reduction, federation, real-time capture, what adapters need to exist, what the complete Observe layer looks like when it's done.",
+      "reference_dt": "2026-03-15",
+      "reference_cutoff_iso": "2026-03-15T23:59:59-07:00",
+      "source_surface": "claude-code",
+      "packet_bytes": {
+        "production": 16877,
+        "pure": 15436,
+        "zero": 14671
+      },
+      "slice_summary": {
+        "cycle": "2026-03-15T23:59:59-07:00",
+        "bundle": "ne-1.3",
+        "sources": {
+          "claude-code": {
+            "jsonl_files": 3139,
+            "jsonl_lines": 82260,
+            "db_rows": {}
+          },
+          "codex": {
+            "jsonl_files": 0,
+            "jsonl_lines": 0,
+            "db_rows": {}
+          },
+          "opencode": {
+            "jsonl_files": 2,
+            "jsonl_lines": 929,
+            "db_rows": {}
+          }
+        },
+        "total_elapsed_sec": 1.736
+      },
+      "answers": {
+        "production": {
+          "answer_len": 13350,
+          "verdict": "partial",
+          "tool_calls": 19,
+          "ask_mode": "syke",
+          "memex_chars": 125
+        },
+        "zero": {
+          "answer_len": 11254,
+          "verdict": "partial",
+          "tool_calls": 23,
+          "ask_mode": "zero",
+          "memex_chars": 1304
+        },
+        "pure": {
+          "answer_len": 12006,
+          "verdict": "partial",
+          "tool_calls": 26,
+          "ask_mode": "pure",
+          "memex_chars": 0
+        }
+      },
+      "judge_tool_calls": {
+        "gpt54_judge": {
+          "production": {
+            "total": 21,
+            "by_name": {
+              "read": 6,
+              "bash": 14,
+              "submit_judge_verdict": 1
+            }
+          },
+          "pure": {
+            "total": 20,
+            "by_name": {
+              "read": 4,
+              "bash": 14,
+              "submit_judge_verdict": 2
+            }
+          },
+          "zero": {
+            "total": 21,
+            "by_name": {
+              "read": 6,
+              "bash": 14,
+              "submit_judge_verdict": 1
+            }
+          }
+        },
+        "opus_judge": {
+          "production": {
+            "total": 32,
+            "by_name": {
+              "read": 1,
+              "bash": 30,
+              "submit_judge_verdict": 1
+            }
+          },
+          "pure": {
+            "total": 29,
+            "by_name": {
+              "read": 1,
+              "bash": 27,
+              "submit_judge_verdict": 1
+            }
+          },
+          "zero": {
+            "total": 37,
+            "by_name": {
+              "read": 1,
+              "bash": 35,
+              "submit_judge_verdict": 1
+            }
+          }
+        }
+      }
+    },
+    {
+      "probe_id": "R12",
+      "question": "what specific next steps were discussed for Observe after Phase 2?",
+      "reference_dt": "2026-03-15",
+      "reference_cutoff_iso": "2026-03-15T23:59:59-07:00",
+      "source_surface": "claude-code",
+      "packet_bytes": {
+        "production": 4004,
+        "pure": 4323,
+        "zero": 4055
+      },
+      "slice_summary": {
+        "cycle": "2026-03-15T23:59:59-07:00",
+        "bundle": "ne-1.3",
+        "sources": {
+          "claude-code": {
+            "jsonl_files": 3139,
+            "jsonl_lines": 82260,
+            "db_rows": {}
+          },
+          "codex": {
+            "jsonl_files": 0,
+            "jsonl_lines": 0,
+            "db_rows": {}
+          },
+          "opencode": {
+            "jsonl_files": 2,
+            "jsonl_lines": 929,
+            "db_rows": {}
+          }
+        },
+        "total_elapsed_sec": 1.7
+      },
+      "answers": {
+        "production": {
+          "answer_len": 1408,
+          "verdict": "pass",
+          "tool_calls": 16,
+          "ask_mode": "syke",
+          "memex_chars": 125
+        },
+        "zero": {
+          "answer_len": 1445,
+          "verdict": "fail",
+          "tool_calls": 7,
+          "ask_mode": "zero",
+          "memex_chars": 1304
+        },
+        "pure": {
+          "answer_len": 1714,
+          "verdict": "partial",
+          "tool_calls": 14,
+          "ask_mode": "pure",
+          "memex_chars": 0
+        }
+      },
+      "judge_tool_calls": {
+        "gpt54_judge": {
+          "production": {
+            "total": 27,
+            "by_name": {
+              "read": 5,
+              "bash": 20,
+              "submit_judge_verdict": 2
+            }
+          },
+          "pure": {
+            "total": 21,
+            "by_name": {
+              "read": 6,
+              "bash": 13,
+              "submit_judge_verdict": 2
+            }
+          },
+          "zero": {
+            "total": 13,
+            "by_name": {
+              "read": 4,
+              "bash": 7,
+              "submit_judge_verdict": 2
+            }
+          }
+        },
+        "opus_judge": {
+          "production": {
+            "total": 36,
+            "by_name": {
+              "read": 1,
+              "bash": 34,
+              "submit_judge_verdict": 1
+            }
+          },
+          "pure": {
+            "total": 40,
+            "by_name": {
+              "read": 1,
+              "bash": 38,
+              "submit_judge_verdict": 1
+            }
+          },
+          "zero": {
+            "total": 36,
+            "by_name": {
+              "read": 1,
+              "bash": 34,
+              "submit_judge_verdict": 1
+            }
+          }
+        }
+      }
+    },
+    {
+      "probe_id": "R13",
+      "question": "what was the evolution of the adapter-as-compiler concept?",
+      "reference_dt": "2026-03-15",
+      "reference_cutoff_iso": "2026-03-15T23:59:59-07:00",
+      "source_surface": "claude-code",
+      "packet_bytes": {
+        "production": 5560,
+        "pure": 6267,
+        "zero": 5781
+      },
+      "slice_summary": {
+        "cycle": "2026-03-15T23:59:59-07:00",
+        "bundle": "ne-1.3",
+        "sources": {
+          "claude-code": {
+            "jsonl_files": 3139,
+            "jsonl_lines": 82260,
+            "db_rows": {}
+          },
+          "codex": {
+            "jsonl_files": 0,
+            "jsonl_lines": 0,
+            "db_rows": {}
+          },
+          "opencode": {
+            "jsonl_files": 2,
+            "jsonl_lines": 929,
+            "db_rows": {}
+          }
+        },
+        "total_elapsed_sec": 1.662
+      },
+      "answers": {
+        "production": {
+          "answer_len": 2856,
+          "verdict": "partial",
+          "tool_calls": 24,
+          "ask_mode": "syke",
+          "memex_chars": 125
+        },
+        "zero": {
+          "answer_len": 3034,
+          "verdict": "partial",
+          "tool_calls": 15,
+          "ask_mode": "zero",
+          "memex_chars": 1304
+        },
+        "pure": {
+          "answer_len": 3485,
+          "verdict": "pass",
+          "tool_calls": 22,
+          "ask_mode": "pure",
+          "memex_chars": 0
+        }
+      },
+      "judge_tool_calls": {
+        "gpt54_judge": {
+          "production": {
+            "total": 18,
+            "by_name": {
+              "read": 5,
+              "bash": 12,
+              "submit_judge_verdict": 1
+            }
+          },
+          "pure": {
+            "total": 24,
+            "by_name": {
+              "read": 4,
+              "bash": 18,
+              "submit_judge_verdict": 2
+            }
+          },
+          "zero": {
+            "total": 17,
+            "by_name": {
+              "read": 8,
+              "bash": 7,
+              "submit_judge_verdict": 2
+            }
+          }
+        },
+        "opus_judge": {
+          "production": {
+            "total": 18,
+            "by_name": {
+              "read": 3,
+              "bash": 14,
+              "submit_judge_verdict": 1
+            }
+          },
+          "pure": {
+            "total": 31,
+            "by_name": {
+              "read": 2,
+              "bash": 28,
+              "submit_judge_verdict": 1
+            }
+          },
+          "zero": {
+            "total": 31,
+            "by_name": {
+              "read": 1,
+              "bash": 29,
+              "submit_judge_verdict": 1
+            }
+          }
+        }
+      }
+    },
+    {
+      "probe_id": "R14",
+      "question": "check it what happened in the last session don't forget it please",
+      "reference_dt": "2026-03-16",
+      "reference_cutoff_iso": "2026-03-16T23:59:59-07:00",
+      "source_surface": "opencode",
+      "packet_bytes": {
+        "production": 3152,
+        "pure": 4419,
+        "zero": 3946
+      },
+      "slice_summary": {
+        "cycle": "2026-03-16T23:59:59-07:00",
+        "bundle": "ne-1.3",
+        "sources": {
+          "claude-code": {
+            "jsonl_files": 3362,
+            "jsonl_lines": 89377,
+            "db_rows": {}
+          },
+          "codex": {
+            "jsonl_files": 0,
+            "jsonl_lines": 0,
+            "db_rows": {}
+          },
+          "opencode": {
+            "jsonl_files": 3,
+            "jsonl_lines": 1986,
+            "db_rows": {}
+          }
+        },
+        "total_elapsed_sec": 1.724
+      },
+      "answers": {
+        "production": {
+          "answer_len": 589,
+          "verdict": "partial",
+          "tool_calls": 19,
+          "ask_mode": "syke",
+          "memex_chars": 125
+        },
+        "zero": {
+          "answer_len": 1336,
+          "verdict": "partial",
+          "tool_calls": 18,
+          "ask_mode": "zero",
+          "memex_chars": 1360
+        },
+        "pure": {
+          "answer_len": 1826,
+          "verdict": "partial",
+          "tool_calls": 22,
+          "ask_mode": "pure",
+          "memex_chars": 0
+        }
+      },
+      "judge_tool_calls": {
+        "gpt54_judge": {
+          "production": {
+            "total": 20,
+            "by_name": {
+              "read": 8,
+              "bash": 10,
+              "submit_judge_verdict": 2
+            }
+          },
+          "pure": {
+            "total": 21,
+            "by_name": {
+              "read": 8,
+              "bash": 11,
+              "submit_judge_verdict": 2
+            }
+          },
+          "zero": {
+            "total": 22,
+            "by_name": {
+              "read": 8,
+              "bash": 13,
+              "submit_judge_verdict": 1
+            }
+          }
+        },
+        "opus_judge": {
+          "production": {
+            "total": 17,
+            "by_name": {
+              "read": 2,
+              "bash": 14,
+              "submit_judge_verdict": 1
+            }
+          },
+          "pure": {
+            "total": 45,
+            "by_name": {
+              "read": 1,
+              "bash": 43,
+              "submit_judge_verdict": 1
+            }
+          },
+          "zero": {
+            "total": 34,
+            "by_name": {
+              "read": 1,
+              "bash": 32,
+              "submit_judge_verdict": 1
+            }
+          }
+        }
+      }
+    },
+    {
+      "probe_id": "R15",
+      "question": "can we get back to the previous thread of running our tests for observe layer, with real data as if I set up the system fresh in that two week window ?",
+      "reference_dt": "2026-03-16",
+      "reference_cutoff_iso": "2026-03-16T23:59:59-07:00",
+      "source_surface": "opencode",
+      "packet_bytes": {
+        "production": 4790,
+        "pure": 5610,
+        "zero": 4756
+      },
+      "slice_summary": {
+        "cycle": "2026-03-16T23:59:59-07:00",
+        "bundle": "ne-1.3",
+        "sources": {
+          "claude-code": {
+            "jsonl_files": 3362,
+            "jsonl_lines": 89377,
+            "db_rows": {}
+          },
+          "codex": {
+            "jsonl_files": 0,
+            "jsonl_lines": 0,
+            "db_rows": {}
+          },
+          "opencode": {
+            "jsonl_files": 3,
+            "jsonl_lines": 1986,
+            "db_rows": {}
+          }
+        },
+        "total_elapsed_sec": 1.834
+      },
+      "answers": {
+        "zero": {
+          "answer_len": 2001,
+          "verdict": "pass",
+          "tool_calls": 11,
+          "ask_mode": "zero",
+          "memex_chars": 1360
+        },
+        "production": {
+          "answer_len": 2084,
+          "verdict": "partial",
+          "tool_calls": 16,
+          "ask_mode": "syke",
+          "memex_chars": 125
+        },
+        "pure": {
+          "answer_len": 2840,
+          "verdict": "partial",
+          "tool_calls": 19,
+          "ask_mode": "pure",
+          "memex_chars": 0
+        }
+      },
+      "judge_tool_calls": {
+        "gpt54_judge": {
+          "production": {
+            "total": 23,
+            "by_name": {
+              "read": 5,
+              "bash": 17,
+              "submit_judge_verdict": 1
+            }
+          },
+          "pure": {
+            "total": 18,
+            "by_name": {
+              "read": 5,
+              "bash": 11,
+              "submit_judge_verdict": 2
+            }
+          },
+          "zero": {
+            "total": 21,
+            "by_name": {
+              "read": 8,
+              "bash": 12,
+              "submit_judge_verdict": 1
+            }
+          }
+        },
+        "opus_judge": {
+          "production": {
+            "total": 17,
+            "by_name": {
+              "read": 1,
+              "bash": 15,
+              "submit_judge_verdict": 1
+            }
+          },
+          "pure": {
+            "total": 30,
+            "by_name": {
+              "read": 1,
+              "bash": 28,
+              "submit_judge_verdict": 1
+            }
+          },
+          "zero": {
+            "total": 23,
+            "by_name": {
+              "read": 1,
+              "bash": 21,
+              "submit_judge_verdict": 1
+            }
+          }
+        }
+      }
+    },
+    {
+      "probe_id": "R16",
+      "question": "what did I work on yesterday March 18 2026 about Syke Synthesis, Syke Map, architecture, skill files, tool reduction, or architectural decisions?",
+      "reference_dt": "2026-03-19",
+      "reference_cutoff_iso": "2026-03-19T23:59:59-07:00",
+      "source_surface": "claude-code",
+      "packet_bytes": {
+        "production": 8707,
+        "pure": 6747,
+        "zero": 6638
+      },
+      "slice_summary": {
+        "cycle": "2026-03-19T23:59:59-07:00",
+        "bundle": "ne-1.3",
+        "sources": {
+          "claude-code": {
+            "jsonl_files": 3658,
+            "jsonl_lines": 108094,
+            "db_rows": {}
+          },
+          "codex": {
+            "jsonl_files": 0,
+            "jsonl_lines": 0,
+            "db_rows": {}
+          },
+          "opencode": {
+            "jsonl_files": 3,
+            "jsonl_lines": 2003,
+            "db_rows": {}
+          }
+        },
+        "total_elapsed_sec": 1.867
+      },
+      "answers": {
+        "zero": {
+          "answer_len": 3737,
+          "verdict": "partial",
+          "tool_calls": 30,
+          "ask_mode": "zero",
+          "memex_chars": 1393
+        },
+        "production": {
+          "answer_len": 5775,
+          "verdict": "partial",
+          "tool_calls": 40,
+          "ask_mode": "syke",
+          "memex_chars": 125
+        },
+        "pure": {
+          "answer_len": 3836,
+          "verdict": "partial",
+          "tool_calls": 32,
+          "ask_mode": "pure",
+          "memex_chars": 0
+        }
+      },
+      "judge_tool_calls": {
+        "gpt54_judge": {
+          "production": {
+            "total": 41,
+            "by_name": {
+              "read": 10,
+              "bash": 29,
+              "submit_judge_verdict": 2
+            }
+          },
+          "pure": {
+            "total": 18,
+            "by_name": {
+              "read": 6,
+              "bash": 10,
+              "submit_judge_verdict": 2
+            }
+          },
+          "zero": {
+            "total": 12,
+            "by_name": {
+              "read": 2,
+              "bash": 8,
+              "submit_judge_verdict": 2
+            }
+          }
+        },
+        "opus_judge": {
+          "production": {
+            "total": 35,
+            "by_name": {
+              "read": 1,
+              "bash": 33,
+              "submit_judge_verdict": 1
+            }
+          },
+          "pure": {
+            "total": 58,
+            "by_name": {
+              "read": 3,
+              "bash": 54,
+              "submit_judge_verdict": 1
+            }
+          },
+          "zero": {
+            "total": 44,
+            "by_name": {
+              "read": 1,
+              "bash": 42,
+              "submit_judge_verdict": 1
+            }
+          }
+        }
+      }
+    },
+    {
+      "probe_id": "R17",
+      "question": "What happened in the last one week? What did I work on, what was built, what broke, what changed? Be thorough \u2014 cover all platforms, all sessions, all projects.",
+      "reference_dt": "2026-03-20",
+      "reference_cutoff_iso": "2026-03-20T23:59:59-07:00",
+      "source_surface": "claude-code",
+      "packet_bytes": {
+        "production": 17653,
+        "pure": 25223,
+        "zero": 17435
+      },
+      "slice_summary": {
+        "cycle": "2026-03-20T23:59:59-07:00",
+        "bundle": "ne-1.3",
+        "sources": {
+          "claude-code": {
+            "jsonl_files": 3752,
+            "jsonl_lines": 114680,
+            "db_rows": {}
+          },
+          "codex": {
+            "jsonl_files": 1,
+            "jsonl_lines": 17,
+            "db_rows": {}
+          },
+          "opencode": {
+            "jsonl_files": 3,
+            "jsonl_lines": 2003,
+            "db_rows": {}
+          }
+        },
+        "total_elapsed_sec": 1.926
+      },
+      "answers": {
+        "production": {
+          "answer_len": 14417,
+          "verdict": "partial",
+          "tool_calls": 19,
+          "ask_mode": "syke",
+          "memex_chars": 125
+        },
+        "pure": {
+          "answer_len": 21529,
+          "verdict": "partial",
+          "tool_calls": 28,
+          "ask_mode": "pure",
+          "memex_chars": 0
+        },
+        "zero": {
+          "answer_len": 14208,
+          "verdict": "partial",
+          "tool_calls": 30,
+          "ask_mode": "zero",
+          "memex_chars": 1413
+        }
+      },
+      "judge_tool_calls": {
+        "gpt54_judge": {
+          "production": {
+            "total": 26,
+            "by_name": {
+              "read": 6,
+              "bash": 18,
+              "submit_judge_verdict": 2
+            }
+          },
+          "pure": {
+            "total": 25,
+            "by_name": {
+              "read": 7,
+              "bash": 17,
+              "submit_judge_verdict": 1
+            }
+          },
+          "zero": {
+            "total": 27,
+            "by_name": {
+              "read": 8,
+              "bash": 17,
+              "submit_judge_verdict": 2
+            }
+          }
+        },
+        "opus_judge": {
+          "production": {
+            "total": 37,
+            "by_name": {
+              "read": 1,
+              "bash": 35,
+              "submit_judge_verdict": 1
+            }
+          },
+          "pure": {
+            "total": 38,
+            "by_name": {
+              "read": 1,
+              "bash": 36,
+              "submit_judge_verdict": 1
+            }
+          },
+          "zero": {
+            "total": 39,
+            "by_name": {
+              "read": 3,
+              "bash": 35,
+              "submit_judge_verdict": 1
+            }
+          }
+        }
+      }
+    },
+    {
+      "probe_id": "R18",
+      "question": "what was the design for the syke sandbox and replay harness? what dataset were we supposed to use, what date range, and how was the experiment designed?",
+      "reference_dt": "2026-03-21",
+      "reference_cutoff_iso": "2026-03-21T23:59:59-07:00",
+      "source_surface": "claude-code",
+      "packet_bytes": {
+        "production": 10746,
+        "pure": 7359,
+        "zero": 10583
+      },
+      "slice_summary": {
+        "cycle": "2026-03-21T23:59:59-07:00",
+        "bundle": "ne-1.3",
+        "sources": {
+          "claude-code": {
+            "jsonl_files": 4238,
+            "jsonl_lines": 129946,
+            "db_rows": {}
+          },
+          "codex": {
+            "jsonl_files": 1,
+            "jsonl_lines": 17,
+            "db_rows": {}
+          },
+          "opencode": {
+            "jsonl_files": 3,
+            "jsonl_lines": 2003,
+            "db_rows": {}
+          }
+        },
+        "total_elapsed_sec": 2.224
+      },
+      "answers": {
+        "production": {
+          "answer_len": 7631,
+          "verdict": "partial",
+          "tool_calls": 29,
+          "ask_mode": "syke",
+          "memex_chars": 125
+        },
+        "zero": {
+          "answer_len": 7383,
+          "verdict": "partial",
+          "tool_calls": 26,
+          "ask_mode": "zero",
+          "memex_chars": 1433
+        },
+        "pure": {
+          "answer_len": 4442,
+          "verdict": "partial",
+          "tool_calls": 21,
+          "ask_mode": "pure",
+          "memex_chars": 0
+        }
+      },
+      "judge_tool_calls": {
+        "gpt54_judge": {
+          "production": {
+            "total": 22,
+            "by_name": {
+              "read": 6,
+              "bash": 14,
+              "submit_judge_verdict": 2
+            }
+          },
+          "pure": {
+            "total": 18,
+            "by_name": {
+              "read": 4,
+              "bash": 13,
+              "submit_judge_verdict": 1
+            }
+          },
+          "zero": {
+            "total": 28,
+            "by_name": {
+              "read": 7,
+              "bash": 20,
+              "submit_judge_verdict": 1
+            }
+          }
+        },
+        "opus_judge": {
+          "production": {
+            "total": 33,
+            "by_name": {
+              "read": 1,
+              "bash": 31,
+              "submit_judge_verdict": 1
+            }
+          },
+          "pure": {
+            "total": 37,
+            "by_name": {
+              "read": 1,
+              "bash": 35,
+              "submit_judge_verdict": 1
+            }
+          },
+          "zero": {
+            "total": 38,
+            "by_name": {
+              "read": 1,
+              "bash": 36,
+              "submit_judge_verdict": 1
+            }
+          }
+        }
+      }
+    },
+    {
+      "probe_id": "R19",
+      "question": "what happened last? what was I working on most recently?",
+      "reference_dt": "2026-03-21",
+      "reference_cutoff_iso": "2026-03-21T23:59:59-07:00",
+      "source_surface": "claude-code",
+      "packet_bytes": {
+        "production": 3871,
+        "pure": 3847,
+        "zero": 4431
+      },
+      "slice_summary": {
+        "cycle": "2026-03-21T23:59:59-07:00",
+        "bundle": "ne-1.3",
+        "sources": {
+          "claude-code": {
+            "jsonl_files": 4238,
+            "jsonl_lines": 129946,
+            "db_rows": {}
+          },
+          "codex": {
+            "jsonl_files": 1,
+            "jsonl_lines": 17,
+            "db_rows": {}
+          },
+          "opencode": {
+            "jsonl_files": 3,
+            "jsonl_lines": 2003,
+            "db_rows": {}
+          }
+        },
+        "total_elapsed_sec": 2.082
+      },
+      "answers": {
+        "zero": {
+          "answer_len": 1733,
+          "verdict": "fail",
+          "tool_calls": 13,
+          "ask_mode": "zero",
+          "memex_chars": 1433
+        },
+        "pure": {
+          "answer_len": 1150,
+          "verdict": "partial",
+          "tool_calls": 28,
+          "ask_mode": "pure",
+          "memex_chars": 0
+        },
+        "production": {
+          "answer_len": 1178,
+          "verdict": "fail",
+          "tool_calls": 17,
+          "ask_mode": "syke",
+          "memex_chars": 125
+        }
+      },
+      "judge_tool_calls": {
+        "gpt54_judge": {
+          "production": {
+            "total": 21,
+            "by_name": {
+              "read": 5,
+              "bash": 14,
+              "submit_judge_verdict": 2
+            }
+          },
+          "pure": {
+            "total": 23,
+            "by_name": {
+              "read": 11,
+              "bash": 11,
+              "submit_judge_verdict": 1
+            }
+          },
+          "zero": {
+            "total": 23,
+            "by_name": {
+              "read": 8,
+              "bash": 14,
+              "submit_judge_verdict": 1
+            }
+          }
+        },
+        "opus_judge": {
+          "production": {
+            "total": 3,
+            "by_name": {
+              "read": 1,
+              "bash": 1,
+              "submit_judge_verdict": 1
+            }
+          },
+          "pure": {
+            "total": 36,
+            "by_name": {
+              "read": 1,
+              "bash": 34,
+              "submit_judge_verdict": 1
+            }
+          },
+          "zero": {
+            "total": 30,
+            "by_name": {
+              "read": 2,
+              "bash": 27,
+              "submit_judge_verdict": 1
+            }
+          }
+        }
+      }
+    }
+  ]
+}

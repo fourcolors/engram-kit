@@ -1,0 +1,1020 @@
+{
+  "total": 203,
+  "asks": [
+    {
+      "ts": "2026-03-12T06:50:07",
+      "q": "where is the memex document I am writing? the one with a hand-written introduction",
+      "source": "cc/-Users-saxenauts-Documents-personal"
+    },
+    {
+      "ts": "2026-03-12T07:29:02",
+      "q": "what did we push to Persona today, what are the SOTA benchmark results?",
+      "source": "cc/-Users-saxenauts-Documents-personal"
+    },
+    {
+      "ts": "2026-03-13T02:48:10",
+      "q": "What is OMEGA in the agentic memory space? Give me a technical breakdown. Also what is Teknium doing with Hermes GEPA - the self-evolution agent stuff?",
+      "source": "cc/-Users-saxenauts-Documents-personal"
+    },
+    {
+      "ts": "2026-03-13T02:51:43",
+      "q": "Give me everything you know about GEPA - the full technical mechanism, how evolutionary prompt optimization works step by step, the mutation operators, fitness evaluation, the TurboGEPA fork, Pydantic integration, optimize_anything API. Also give me the full architecture of hermes-agent-self-evolution - how it uses DSPy + GEPA together, what the PR generation loop looks like, what skills it evolves, how the fitness function works. I need teaching-level detail.",
+      "source": "cc/-Users-saxenauts-Documents-personal"
+    },
+    {
+      "ts": "2026-03-13T03:11:41",
+      "q": "Where is the Syke source code? Give me the full path to the main codebase, the key directories, and the entry points. Also where is the synthesis pipeline code specifically?",
+      "source": "cc/-Users-saxenauts-Documents-personal"
+    },
+    {
+      "ts": "2026-03-13T04:57:33",
+      "q": "What is the user doing right now with Perplexity? Any active research sessions, searches, or topics being explored? Check recent events and timeline.",
+      "source": "cc/-Users-saxenauts-Documents-personal"
+    },
+    {
+      "ts": "2026-03-13T05:53:14",
+      "q": "What is the user's experience with Claude Desktop co-work mode? Any frustrations about CLI support, terminal access, or limitations compared to Claude Code CLI?",
+      "source": "cc/-Users-saxenauts-Documents-personal"
+    },
+    {
+      "ts": "2026-03-13T09:58:58",
+      "q": "what did the autonomous research find?",
+      "source": "hermes"
+    },
+    {
+      "ts": "2026-03-14T03:13:13",
+      "q": "what was achieved with autoresearch on memory in hermes? what were the results and findings?",
+      "source": "cc/-Users-saxenauts-Documents-personal"
+    },
+    {
+      "ts": "2026-03-14T03:17:55",
+      "q": "what did we achieve with the autoresearch on memory in hermes? what were the key findings, results, and outcomes?",
+      "source": "cc/-Users-saxenauts-Documents-personal"
+    },
+    {
+      "ts": "2026-03-14T03:55:51",
+      "q": "health reports, nura reports, claude cowork sessions related to health analysis, any medical or health data work",
+      "source": "cc/-Users-saxenauts-Documents-personal"
+    },
+    {
+      "ts": "2026-03-14T18:48:32",
+      "q": "What was the recent issue with agents not working in OpenCode because haiku didn't work but opus did? Looking for details about the problem, what was tried, and current status.",
+      "source": "cc/-Users-saxenauts-Documents-personal"
+    },
+    {
+      "ts": "2026-03-15T01:32:40",
+      "q": "What projects is the user actively working on? Which ones are old/inactive/abandoned? Specifically give me the status of: syke, syke-deli, syke-memory-research, syke-repo, vibes-cli, hermes-vibes-lab, lifeOS, vak, vector-plus-studio, CLIProxyAPI, opencode-claude-max-proxy, hermes-agent, hermes-agent-self-evolution, agentic-context-engine, content-system, saxenauts-website, eder-new-website, strudel-experiments, claude-hack, claude-persona-video, 3headedfractal, autoresearch-at-home, sacred, talks, openclaw-workspace, The Bit River",
+      "source": "cc/-Users-saxenauts-Documents-personal"
+    },
+    {
+      "ts": "2026-03-15T03:22:43",
+      "q": "What are the user's money goals, financial situation, income targets, monetization plans? Also what are their branding goals, personal brand strategy, how they want to be perceived, content/audience building plans?",
+      "source": "cc/-Users-saxenauts-Documents-personal"
+    },
+    {
+      "ts": "2026-03-15T04:30:25",
+      "q": "What are the user's preferences for how they work? Specifically: preferred tech stack, languages, frameworks, hosting/deployment preferences, design aesthetic preferences, data ownership philosophy, writing style, format preferences, how they like to structure projects, tools they use regularly, any strong opinions on platforms or technologies",
+      "source": "cc/-Users-saxenauts-Documents-personal"
+    },
+    {
+      "ts": "2026-03-15T04:55:32",
+      "q": "What proxy is Utkarsh using? Pi Agent setup, LLM proxy, Claude proxy, or any proxy configuration mentioned?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-17T07:40:47",
+      "q": "what is the full context on game theory? any past conversations, sessions, decisions made using game theory, how Utkarsh thinks about it, what worked, what didn't",
+      "source": "cc/-Users-saxenauts-Documents-personal"
+    },
+    {
+      "ts": "2026-03-17T07:41:59",
+      "q": "game theory context, past decisions, how Utkarsh uses it",
+      "source": "cc/-Users-saxenauts-Documents-personal"
+    },
+    {
+      "ts": "2026-03-18T02:32:57",
+      "q": "What does the synthesis daemon do? What is the prompt complexity, context length, and what model qualities does it need? What does the sandbox replay loop look like?",
+      "source": "cc/-Users-saxenauts-Documents-personal"
+    },
+    {
+      "ts": "2026-03-21T04:33:41",
+      "q": "what happened last \u2014 recent sessions, last activity, what was I working on",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-21T04:34:08",
+      "q": "what happened last? what was I working on most recently?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-21T04:48:21",
+      "q": "what is the design aesthetic and design language for syke? visual style, colors, typography, UI philosophy?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-21T05:04:10",
+      "q": "what is the history of hacks and patches in this codebase? specifically around the LiteLLM proxy, Kimi middleware, and any known technical debt or workarounds we've been accumulating",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-21T05:14:08",
+      "q": "what is the QEMU task? what was the controversy or GitHub issue? what was I working on with QEMU?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-21T05:44:46",
+      "q": "what is the philosophy behind syke's synthesis? what are the core design principles, the primitives, the aesthetic? how does utkarsh think about memory, about what to keep and what to discard? what is the vibe \u2014 the research context, the design language, the way he talks about this system? give me everything about the intent behind synthesis.",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-21T06:17:19",
+      "q": "What research have we done and what research did we want to do? Specifically around recursive self-improvement, self-scaffolding, eval design, RLM, ALMA, GEPA, Darwin Godel Machine, autoresearch, the improvement loop. What threads were opened that we haven't closed?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-21T07:21:01",
+      "q": "what work was done on cost tracking, litellm proxy cost, base_model resolution, accurate per-model cost tracking? there was a fix for the pricing mismatch between the proxy model and the actual model.",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-21T07:46:05",
+      "q": "What boom-crash data do we have? Specifically the pointer ablation experiment results \u2014 what versions, what sizes, what was recorded? Any replay run results with boom-crash dynamics?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-21T17:06:46",
+      "q": "did I mention GOS or any specific formal framework called GOS or genotype-organism-space in any previous sessions? Any references to a specific mathematical framework I wanted to study for the genotype-phenotype work?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-21T20:28:37",
+      "q": "what theories were we discussing yesterday about formalizing something?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-22T01:12:06",
+      "q": "What and when was our last discussion about learning Mac, models, LM Studio, and related topics?",
+      "source": "cc/-Users-saxenauts-Documents-personal"
+    },
+    {
+      "ts": "2026-03-22T01:13:46",
+      "q": "What are the user's typical Mac usage patterns, compute intensity, workflows, and any data on how they use their M2 Max day to day?",
+      "source": "cc/-Users-saxenauts-Documents-personal"
+    },
+    {
+      "ts": "2026-03-22T04:01:36",
+      "q": "What is the typical token usage per synthesis cycle? How many tokens in, how many turns, how long does each synthesis run take? Any data on per-cycle cost or token counts from the synthesis daemon logs.",
+      "source": "cc/-Users-saxenauts-Documents-personal"
+    },
+    {
+      "ts": "2026-03-22T04:02:11",
+      "q": "What is the typical per-cycle token usage for the Syke synthesis daemon? Input tokens, output tokens, number of turns, duration per cycle.",
+      "source": "cc/-Users-saxenauts-Documents-personal"
+    },
+    {
+      "ts": "2026-03-22T07:56:45",
+      "q": "what happened on March 21 2026? what runs did we do, how many synthesis cycles, what was the activity that caused 72 million input tokens?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-22T08:11:08",
+      "q": "what is my opencode setup? what changes did we make regarding quota proxy, provider config, any middleware or routing changes?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-22T08:41:57",
+      "q": "what is the history of the reasoning_content / thinking traces problem with LiteLLM proxy and Kimi/Azure? what patches did we make, what bugs did we file, what was the status? the thinking blocks are not showing up for GPT-5 Mini through the proxy.",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-22T08:54:30",
+      "q": "what did we build for the LiteLLM multi-provider setup? how does the proxy handle different API formats? we built something to make all kinds of APIs work through a single proxy. how does the provider routing work? what about the Kimi passthrough middleware and the reasoning_content patches?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-22T16:16:41",
+      "q": "how did we plan to make LiteLLM work with the Claude Agent SDK for the Responses API? there was a specific approach for making non-Anthropic models work with reasoning through LiteLLM's /v1/messages endpoint. What was the architecture we discussed?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-22T16:42:38",
+      "q": "what is the history of us adding and removing middleware patches in litellm_proxy.py? how many times have we patched and reverted? what patches have we added, removed, broken, fixed? the reasoning_content patches, kimi patches, azure patches \u2014 what is the full timeline of changes to litellm_proxy.py?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-22T18:15:29",
+      "q": "where were we? what was the last session working on?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-22T18:57:59",
+      "q": "what is sisyphus doing with thinking traces / reasoning traces in opencode? how are they solving the same problem of getting thinking content through to the client?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-22T19:32:33",
+      "q": "what did we learn about Codex sandboxing? what was the codex approach to containment, isolation, sandbox? how does codex handle agent boundaries?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-22T19:33:35",
+      "q": "what is Azure saying about thinking traces / reasoning traces issue? any documentation, announcements, or known limitations about reasoning content visibility through their API?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-22T19:40:05",
+      "q": "what is 1+1",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-22T19:43:10",
+      "q": "what did I discuss about sandboxing or agent containment in my codex sessions? specifically about how codex itself runs agents in sandboxed environments, firecracker, microVMs, or any isolation approach",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-22T20:11:38",
+      "q": "what projects am I working on",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-22T20:12:15",
+      "q": "what opencode sessions did I have on January 17 2026",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-22T20:39:13",
+      "q": "what changed with Kimi K2? what was the fix? was there a Kimi K2 update or issue resolution recently?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-22T20:44:05",
+      "q": "what were we trying to do with thinking traces and reasoning content? not the bug, but the actual goal. what was the plan for capturing and using thinking traces in the sandbox experiments?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-22T21:23:50",
+      "q": "what was I working on last week",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-23T05:40:52",
+      "q": "what is Psyche? how does it work? what projects is it part of?",
+      "source": "cc/-Users-saxenauts-Documents-personal"
+    },
+    {
+      "ts": "2026-03-23T07:38:27",
+      "q": "What do the logs show about actual syke synthesis usage? Token counts, costs, duration, how many turns per cycle, prompt sizes \u2014 any metrics from real synthesis and ask runs.",
+      "source": "cc/-Users-saxenauts-Documents-personal"
+    },
+    {
+      "ts": "2026-03-23T20:21:01",
+      "q": "What was our issue with using local Qwen? What happened when we tried it, what problems did we hit?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-23T21:22:25",
+      "q": "What just happened with the local model run? Check the most recent notes, events, or observations about running a local model or Qwen. What did we try and what happened?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-24T00:17:22",
+      "q": "what was I working on in my last session about 10-15 minutes ago? I was doing phase 2 commits on the observe refactor",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-24T00:17:50",
+      "q": "what were the phase 2 observe refactor changes? look at claude-code events from the last hour",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-24T01:59:00",
+      "q": "what changes did we make to opencode and oh-my-opencode configuration recently? what was the intent behind those changes?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-24T02:20:29",
+      "q": "what was the discussion about SQLite harness adapters and multiple harness types? How were we going to handle SQLite-based harnesses like hermes and opencode in the adapter generation pipeline?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-24T04:50:39",
+      "q": "what are all the loops? the entire list of loops, feedback loops, research loops, self-scaffolding loops, observe loops, memory loops, everything",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-24T05:14:13",
+      "q": "what loops have been opened, closed, or left open in the last few days? I mean the architectural loops \u2014 observe, adapter healing, synthesis, experiments, self-scaffolding, everything. What got closed, what's still open, what's blocked?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-24T05:22:45",
+      "q": "How was observe-rt / real-time ingestion working last week? Was it running as a persistent daemon process, or was there some other mechanism? I need to understand how syke ask was getting real-time data without depending on the 15-min daemon sync cycle. Check the timeline for any observe-rt, watcher, or real-time transport related events.",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-24T05:29:31",
+      "q": "what loops have been opened, closed, or left open in the last few days? architectural loops \u2014 observe, adapter healing, synthesis, experiments, self-scaffolding. What got closed, what's still open, what's blocked?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-24T05:30:27",
+      "q": "what loops opened, closed, or left open in the last few days? observe, adapter, synthesis, experiments \u2014 what got closed, what's still open?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-24T07:37:35",
+      "q": "Give me the full list of all architectural loops in syke \u2014 observe, adapter, synthesis, ask, healing, self-scaffolding, experiments, all of them. For each one, tell me: is it closed (working), open (not done), or broken. Check the events DB for recent activity, check the memex, check everything you have.",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-24T15:59:24",
+      "q": "what is 2+2",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-24T16:28:57",
+      "q": "explain why the sky is blue in one sentence",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-24T16:29:28",
+      "q": "why is sky blue, one sentence",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-24T16:31:18",
+      "q": "explain the relationship between entropy and information theory in 2 sentences",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-24T19:29:14",
+      "q": "what was just fixed with thinking traces on azure?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-24T19:30:08",
+      "q": "explain entropy in one sentence",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-24T19:31:16",
+      "q": "explain why sky is blue in one sentence",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-24T19:32:51",
+      "q": "If I have 3 boxes, one with 2 red balls, one with 2 blue balls, and one with 1 red and 1 blue, and all labels are wrong, what is the minimum number of balls I need to draw to correctly label all boxes?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-24T19:33:46",
+      "q": "what did opencode fix today regarding the litellm proxy thinking traces? check the opencode session events for the actual changes made",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-24T19:35:07",
+      "q": "what did opencode change in litellm_proxy.py today? specifically the patches for thinking, _azure_translate_patched, _azure_process_event_patched flags, and the reordering of patches before litellm imports. check the opencode events from the last 3 hours",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-24T19:53:41",
+      "q": "what was I working on around March 19-22 regarding synthesis experiments, baselines, and replay runs? What were the four conditions, what contamination issues were found, and what was the experimental protocol?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-24T22:00:50",
+      "q": "What is Syke? What is the company building, the full research direction, the thesis, the product vision, and the meta-strategy? Give me everything - the research papers, the product, the website, all of it.",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-27T23:27:48",
+      "q": "What was our vision about a week ago around self-scaffolding, self-observation, and the idea that the harness is the product? What were we thinking about those concepts around March 20-21 2026?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-27T23:33:16",
+      "q": "What is the golden gate data? Do we have any golden gate dataset or experiment data? What was I referring to when I mentioned golden gate in the context of syke experiments?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-28T00:30:45",
+      "q": "What was the diagnosis on the daemon busy-poll CPU spin bug? The syke daemon process (PID running syke daemon run --interval 900) is at 100% CPU in a tight select_poll_poll loop while the Pi child is sleeping at 0%. The poll isn't blocking. Has this been seen before? What's the fix?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-28T01:08:04",
+      "q": "What did we learn from reading the HyperAgents paper by Clune? What were the key mechanisms we wanted to steal for syke's synthesis loop? What was the connection to self-scaffolding?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-28T05:07:15",
+      "q": "What memory benchmarks, datasets, and evaluation systems have we studied? List every specific benchmark, dataset, or eval framework we've looked at \u2014 names like LongMemEval, BEAM, AMemGym, MemSim, PersonaMem, MemoryArena, etc. Include what each one does and why we looked at it. Also list any competitor memory systems we tracked \u2014 like ACE, ALMA, Mem0, Zep, etc.",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-28T07:55:29",
+      "q": "What do we know about memorix, spacebot, and other code-focused memory systems? Any open platforms for developer memory that we studied? What about forgetting, hallucination prevention, and staying in context for coding agents?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-28T08:42:40",
+      "q": "what is the UX and branding principle for Psyche/Syke? what colors, what aesthetic, what design philosophy?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-28T09:50:03",
+      "q": "where do the azure cost/credit tracking scripts live? what scripts does the user have for checking azure spending?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-28T13:59:09",
+      "q": "What case studies, recorded patterns, experiment notes, and todos do we have? What did syke record about our working patterns, decision patterns, research findings, and project milestones? Give me everything you know about what's been tracked and recorded.",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-28T15:00:12",
+      "q": "what is the omocon talk about? what's the current state of the deck, any recent feedback or changes?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-28T15:08:46",
+      "q": "what is the memory landscape we are trying to show in the omocon talk? what's the positioning -- how do we frame structured vs unstructured memory, and where does syke sit? what's the point of the landscape slide?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-28T15:11:28",
+      "q": "what do we know about Honcho? how does it compare to Syke? what's their approach to memory and identity?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-28T15:19:57",
+      "q": "what was the list of relevant memory players/competitors we compiled yesterday for the omocon talk landscape slide? the specific list of systems",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-28T15:21:12",
+      "q": "we compiled a huge list of memory systems and competitors, probably had dozens of entries. find that full list from recent sessions. it was for the omocon talk landscape. check the last few days of sessions",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-28T16:30:12",
+      "q": "What were all the discussions last night and today about benchmark data vs real NE-1 data? What specific comparisons, numbers, structural differences, and honest claims were worked through? Include everything about how real data differs from LoCoMo, LongMemEval, BEAM, PersonaMem, LifeBench. What was the user's stance on benchmarks? What did we discover about the shape of real data that benchmarks can't capture?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-29T09:10:04",
+      "q": "what's my current status \u2014 what am I working on, what's recent, anything broken?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-30T23:15:14",
+      "q": "what do we know about self-scaffolding harnesses? what research have we done on recursive self-improvement, meta-scaffolding, agents that modify their own prompts or tools or workflows? include anything from HyperAgents, ALMA, or similar systems",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-31T03:51:07",
+      "q": "what visualization work did we do in the last 3-4 days? specifically about memory blocks visualization. check around march 27-28-29",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-31T18:29:32",
+      "q": "what's the current state of the repo and research? what are my latest instructions and open loops? what branch am I on and what's dirty?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-31T18:32:19",
+      "q": "what has the user been doing in Codex recently? what research tasks, codex sessions, and instructions have they given? focus on codex-sourced evidence",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-31T18:33:56",
+      "q": "what are the user's exact latest instructions and perspective they just gave in codex? I want their full words, directives, and framing \u2014 not a summary. What did they literally say about how to approach the research, what matters, what to do next? Include their exact quotes and instructions verbatim where possible.",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-31T18:34:49",
+      "q": "retrieve the user's most recent codex instructions in full detail. what perspective did they share about research direction, what did they tell codex to do, and what framing or priorities did they set? include as much detail as possible from the evidence",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-31T19:54:31",
+      "q": "what is happening in codex right now? what tasks are running, what experiments are active, what did the user most recently tell codex to do? focus on the latest codex activity and any running experiments or tasks",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-03-31T19:55:58",
+      "q": "what did we learn from studying competitor prompts? what specific competitor systems did we analyze, what patterns did we find, and what did the user say about them? include any reactions or decisions the user made based on the competitor analysis",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-03T06:45:23",
+      "q": "what are we doing on codex with concurrent synthesis and what's the discussion",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-03T06:46:55",
+      "q": "what are we doing on codex with concurrent synthesis and whats the discussion",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-03T06:51:53",
+      "q": "when did issue 32 (syke ask blocking during synthesis) first appear or get noticed? was it always there since the Pi runtime migration or did something change to make it worse?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-03T06:57:50",
+      "q": "what did we discuss about code quality, god functions, or refactoring in recent sessions?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-04T06:50:42",
+      "q": "what is happening with codex setup testing right now? How is the agent installing and setting up syke?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-05T00:19:16",
+      "q": "what market research have we done on real users? Where are the files, data, user interviews, surveys, competitive analysis, persona work, or any user research artifacts? Map everything you know about user research we've conducted.",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-05T03:06:24",
+      "q": "what do we know about the farza tweet or andrew farah or fieldtheory that was shared recently",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-05T03:12:05",
+      "q": "what is the exact tweet URL or tweet ID for the FarzaTV Farzapedia tweet about building a personal wiki from diary entries",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-05T04:55:57",
+      "q": "What do we know about sandboxing research, Codex sandboxing, cantrip, excalibur, and how we're modeling execution environments? Include anything about isolation, containers, firecracker, gVisor, or sandbox architectures we've studied.",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-05T05:15:06",
+      "q": "What was the debate or conversation utkarsh had with Codex about sandboxing, execution environments, cantrip, excalibur? What was he trying to do or figure out? Include the full thread of reasoning and any back-and-forth arguments.",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-05T05:27:14",
+      "q": "What was the discussion about Syke doing real-time reach out, adapters being about going OUT not just ingesting, the hard sandboxing primitive, and how to design the right sandbox for Syke? There was a debate about outbound adapters, real-time observation, and the hard enforcement layer. Get the full thread.",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-06T06:27:23",
+      "q": "Where is the Karpathy gist analysis, the personal wiki skill, the full analysis of the 688 people thread, and any research on Karpathy's file-based knowledge base approach? Give me all file paths.",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-06T20:49:42",
+      "q": "what work was done on astrology with economic cycles in the moooney project",
+      "source": "cc/-Users-saxenauts-Documents-personal-mooo"
+    },
+    {
+      "ts": "2026-04-06T20:50:38",
+      "q": "I have an adapter document at ~/.syke/adapters/adapter-opencode.md that describes the opencode harness. Read it, then explore the data it points to. What do you find?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-06T20:55:36",
+      "q": "Using the adapter at ~/.syke/adapters/adapter-opencode.md, tell me what I've been working on in opencode recently.",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-06T20:56:51",
+      "q": "Using the adapter at ~/.syke/adapters/adapter-opencode.md, find my most active opencode session this week and walk me through what happened in it.",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-06T20:58:28",
+      "q": "If you were going to track what you've already seen in the opencode database so you don't re-read everything next time, how would you do it? Think about this from the perspective of maintaining a cursor or bookmark. The adapter is at ~/.syke/adapters/adapter-opencode.md if you need to reference it.",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-06T21:00:04",
+      "q": "I have an adapter document at ~/.syke/adapters/adapter-claude-code.md that describes the claude-code harness. Read it, then explore the data it points to. Tell me what you find \u2014 how much data is there, what format, what's the recent activity about?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-06T21:01:44",
+      "q": "Using the adapter at ~/.syke/adapters/adapter-claude-code.md, tell me what I've been working on in claude-code this past week. Focus on the themes and projects, not individual sessions.",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-06T21:03:33",
+      "q": "Using the adapter at ~/.syke/adapters/adapter-claude-code.md, find the claude-code session where I was working on the sandbox design with codex. Walk me through what happened \u2014 what decisions were made, what was debated.",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-06T21:47:04",
+      "q": "Compare what I was working on in opencode versus claude-code this past week. Use the adapters at ~/.syke/adapters/adapter-opencode.md and ~/.syke/adapters/adapter-claude-code.md. Are there overlapping projects or themes? Where did I use which tool?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-06T21:49:25",
+      "q": "I have an adapter document at ~/.syke/adapters/adapter-codex.md that describes the codex harness. Read it, then explore the data it points to. What do you find \u2014 how much data, what format, recent activity?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-06T21:50:38",
+      "q": "I have an adapter document at ~/.syke/adapters/adapter-hermes.md that describes the hermes harness. Read it, explore the data. What do you find?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-06T21:53:10",
+      "q": "I have an adapter document at ~/.syke/adapters/adapter-cursor.md that describes the cursor harness. Read it, explore the data. What do you find?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-06T21:56:23",
+      "q": "I have adapter documents at ~/.syke/adapters/. Read adapter-antigravity.md and explore the antigravity harness data. Then read adapter-gemini-cli.md and explore gemini-cli data. Then read adapter-copilot.md and explore copilot data. For each, tell me briefly: what data exists, what format, any issues.",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-06T22:51:14",
+      "q": "Read all adapter documents at ~/.syke/adapters/. Survey the harness data on this machine across all of them. Who is this person? What are they building? What do they care about? What does their daily work look like across these tools?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-06T22:51:16",
+      "q": "What was I doing on April 4th, 2026? Check all harnesses using the adapters at ~/.syke/adapters/. Reconstruct the day \u2014 what happened, in what order, across which tools.",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-06T22:51:17",
+      "q": "Look at my work over the past month across all harnesses (use adapters at ~/.syke/adapters/). Are there decisions I made and then reversed? Threads I started and abandoned? Recurring themes I keep coming back to? What patterns do you see that I might not be aware of?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-06T22:51:28",
+      "q": "What have I been up to?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-06T22:51:29",
+      "q": "What was I doing in January 2025? Check all harnesses using adapters at ~/.syke/adapters/.",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-06T22:51:30",
+      "q": "Did I decide to use Docker for Syke's sandboxing or not? Check all harnesses using adapters at ~/.syke/adapters/. I want to know if there was a decision and whether it changed over time.",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-06T23:01:42",
+      "q": "Read the adapters at ~/.syke/adapters/. I want you to find our research on Karpathy's personal wiki thread, the 688-people market analysis, the competitive landscape of memory systems, and the council/evaluation frameworks we've been developing. Search across claude-code and codex sessions. What did we actually find? What are the real criteria that memory systems should be judged on? Be honest about what the data says vs what's just narrative.",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-06T23:12:58",
+      "q": "Using adapters at ~/.syke/adapters/, trace the 'sandbox design' thread across ALL harnesses. I want every session that touched this topic, in every tool, with timestamps. Show me the chain \u2014 how did this idea move between tools? What connected each step to the next? What was the route?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-06T23:13:01",
+      "q": "Using adapters at ~/.syke/adapters/, find every session in the last month where I was asking about or researching OTHER memory systems \u2014 Mem0, Letta, Honcho, MemGPT, basic-memory, EverMemOS, anything. Trace the chain: which tool did I use for each, what did I learn, and how did each finding feed into the next session? Show the actual connections.",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-06T23:13:04",
+      "q": "Using adapters at ~/.syke/adapters/, find sessions where I started something in one tool and continued it in another. Not the same topic \u2014 the SAME task or decision that moved between harnesses. For each one: what was the task, where did it start, where did it go, why did it move, and what was the timestamp gap? Give me every example you can find.",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-06T23:13:07",
+      "q": "Using adapters at ~/.syke/adapters/, look at all my sessions in the past month. Find clusters \u2014 groups of sessions across different harnesses that are about the same underlying project or question, even if the words are different. What are the actual clusters? How many sessions in each? Which harnesses? What's the time span? Show me the topology of my work.",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-06T23:13:10",
+      "q": "Using adapters at ~/.syke/adapters/, find the queries and commands the agent actually ran during our recent adapter validation experiments. I want to see the ROUTES \u2014 what SQL queries worked for opencode, what grep patterns worked for claude-code, what bash commands navigated codex. These are the actual navigation primitives. List every distinct query/command pattern you can find, grouped by harness.",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-07T02:10:26",
+      "q": "what do you know about me?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-07T02:11:09",
+      "q": "Read MEMEX.md in the workspace. What are my active projects and what am I working on?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-07T02:20:43",
+      "q": "Read MEMEX.md. What are my top 3 active projects right now? Be brief.",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-07T02:21:03",
+      "q": "Read the adapter markdown at ~/.syke/data/saxenauts/adapters/claude-code/adapter.md. Then check what claude-code data exists at the paths it describes. How many sessions do I have?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-07T02:25:32",
+      "q": "What have I been working on in opencode recently?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-07T02:44:26",
+      "q": "Check the codex harness for any recent sessions where I was reviewing or discussing the syke v2 architecture, the adapter markdowns, the big delete, or the removal of the old pipeline. What did codex have to say about it?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-07T02:51:35",
+      "q": "Check the codex harness for the LATEST session \u2014 the most recent one. What was it about? What did the codex agent say or do in that session?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-07T03:11:19",
+      "q": "What is the latest codex session? Check all paths including OMX. What was it about?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-07T03:23:40",
+      "q": "what's going on?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-07T03:23:41",
+      "q": "what is syke?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-07T03:23:42",
+      "q": "what was my last claude-code session about?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-07T03:25:01",
+      "q": "what am I working on?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-07T03:25:02",
+      "q": "what am I working on right now in syke?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-07T03:25:04",
+      "q": "what files do you see in your workspace?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-07T03:25:56",
+      "q": "what did I do in hermes last week?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-07T03:25:58",
+      "q": "did I work on the same thing in opencode and claude-code yesterday?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-07T03:25:59",
+      "q": "tell me about the sandbox decision",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-07T05:47:36",
+      "q": "Summarize what happened today \u2014 April 6-7 2026. Check all harnesses. What changed in the syke codebase, what experiments were run, what decisions were made, what got committed?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-07T06:07:39",
+      "q": "what was the last thing recorded about the april 6-7 session? what open loops were flagged?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-07T07:07:13",
+      "q": "what is the current state of the syke project? what loops are open, what was recently closed? give me the architecture as you understand it now",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-07T07:42:19",
+      "q": "who are you?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-07T07:42:20",
+      "q": "what should I be working on right now?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-07T07:42:21",
+      "q": "what did I work on yesterday across all my tools? give me a timeline",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-07T07:45:19",
+      "q": "read the opencode adapter and tell me: how many sessions do I have, what are the most recent 3 about, and what schema tables exist?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-07T07:45:21",
+      "q": "what design decisions have I reversed or changed my mind about in the last month? look at the evidence, not just the memex",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-07T07:45:23",
+      "q": "what is the mass of jupiter?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-07T19:49:16",
+      "q": "what am I discussing in codex right now about events.db? check the most recent codex sessions",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-07T21:59:56",
+      "q": "what time is it?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-07T22:10:53",
+      "q": "what cycle are we on?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-07T22:19:00",
+      "q": "what did codex think about sandbox design for syke? check the codex sessions for sandbox discussions, architecture decisions, and any concrete proposals",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-07T22:51:35",
+      "q": "read the opencode adapter and tell me how many sessions I have",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-07T23:21:59",
+      "q": "read the opencode adapter and count how many sessions I have",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-07T23:33:07",
+      "q": "what has codex done with traces and rollout? check the most recent codex sessions from today for any work on trace_store, persist_rollout_trace, logging, tracing, or self-observation cleanup. what is the rationale?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-07T23:54:39",
+      "q": "read the opencode adapter. then: 1) count total sessions 2) list the schema tables 3) what is the todo table schema? 4) are there step-start parts? answer with evidence",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-07T23:54:41",
+      "q": "read the codex adapter. find my most recent codex session from today and tell me what it was about",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-08T01:27:27",
+      "q": "what harnesses do you see?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-08T03:45:33",
+      "q": "what is codex discussing about sandbox right now? check the most recent codex session from today, specifically about replay sandbox, sandboxing design, or any sandbox-related architecture decisions",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-08T17:44:00",
+      "q": "list every open loop, unfinished task, known bug, next step, and unresolved question across all routes \u2014 be exhaustive",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-09T00:48:01",
+      "q": "what runtime or daemon limits did we hit when trying to run parallel sessions? what was the issue with concurrent Pi runtimes or synthesis locks?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-09T03:11:24",
+      "q": "what is the user doing right now in other Claude Code sessions? check the latest activity across harnesses in the last few minutes",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-10T02:07:04",
+      "q": "what are saksham's human design birth details and chart results from previous sessions?",
+      "source": "cc/-Users-saxenauts-Documents-personal-mooo"
+    },
+    {
+      "ts": "2026-04-10T02:07:51",
+      "q": "what are the user's human design chart details - type, profile, authority, birth date, birth time - from any previous session?",
+      "source": "cc/-Users-saxenauts-Documents-personal-mooo"
+    },
+    {
+      "ts": "2026-04-10T03:12:51",
+      "q": "what is the user's current company, what does it do, what is its current state team revenue, and is syke part of it or separate? what is the relationship between the current O-1 sponsor company and the syke project?",
+      "source": "cc/-Users-saxenauts-Documents-personal-mooo"
+    },
+    {
+      "ts": "2026-04-10T23:35:50",
+      "q": "What has been learned about adapter markdown quality and structure over time? Why are the production adapters for codex, claude-code, opencode, hermes, cursor, copilot, gemini-cli, antigravity structured the way they are \u2014 what sections were added and why? What do agents actually need when reading these adapters to answer questions about past work? Were there failure modes found when adapters were too short or too long? Any specific format decisions that turned out to matter?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-12T10:34:03",
+      "q": "What decisions have we made about the OS sandbox design? What was the original containment strategy, what worked and what didn't? What did we decide about filesystem sandboxing for the Pi agent?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-12T11:10:00",
+      "q": "What is the latest OMX feedback or conversation? Any recent omx sessions, artifacts, or plans?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-12T22:51:06",
+      "q": "What work did we do on benchmark design in the last 4-5 days? What were the key decisions about eval taxonomy, probe design, scoring? What did we decide about simplification and what principles did we settle on?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-13T02:04:32",
+      "q": "What did we discuss and decide with OMX about the benchmark evaluation design? What experiments is OMX running now? What were the key decisions about how to evaluate the memory system?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-13T07:06:47",
+      "q": "What updates were made to the codex harness or adapter recently? Any codex-related changes in the last day or two?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-13T07:11:06",
+      "q": "What changed in the replay viz, benchmark runner, or replay lab since the last round of edits? Any new commits or file changes in the last few hours?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-13T07:13:28",
+      "q": "What changed in the replay viz or benchmark runner in the last few hours? Any new work by OMX or Claude?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-13T19:44:10",
+      "q": "What is the current state of the eval design work? What decisions have been made about the NE-1.3 first pass, benchmark runner, and experiment design in the last few hours? What is the user working on right now with codex?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-13T22:10:52",
+      "q": "What new docs or changes did codex create in the last hour or two? Check _internal/analysis/ and any other new files. What is the latest eval design thinking?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-13T22:54:04",
+      "q": "Was there a previous version of the replay visualization that showed individual memory blocks, memory cards, or a memory detail panel? Where was it?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-13T22:58:08",
+      "q": "About two weeks ago (late March / early April 2026), there was a replay visualization that had a memory section showing individual memory blocks, memory cards, or a detailed memory panel. This was before the replay lab moved to _internal/syke-replay-lab. What did that visualization look like? What sections did it have for showing memories? How were memories displayed \u2014 as blocks, cards, expandable items? What was the layout?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-14T01:48:27",
+      "q": "Reconstruct the first version of the memory tab from experiments/replay_viz.html \u2014 the one with expandable memory cards in a single column. I need the exact design spec: CSS classes, HTML structure, JS rendering function, color scheme, status dot colors, lifecycle line, purple 'changed today' edge, how truncation worked, how expand/collapse worked. Give me enough detail to rebuild it.",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-14T01:49:12",
+      "q": "Reconstruct the memory tab from experiments/replay_viz.html \u2014 the version with green and blue blocks in a grid layout. It had its own dedicated tab (alongside Replay and Trace). Memories were shown as colored square blocks. I need: exact CSS (colors, grid layout, block sizing, hover states), HTML structure for the tab, JS rendering function, what the green vs blue colors meant, how the grid was laid out, what the hover tooltip showed, what the click-to-inspect detail strip looked like, how linked memories were visualized, and the legend (active/dead/linked/today). Enough detail to rebuild it exactly.",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-14T22:48:30",
+      "q": "what is the current state of pi_ask.py rework and what is the uncommitted work trying to solve? Also confirm: is the 19-item Azure-mini benchmark smoke still running, did the race fix hold, and what is the latest on MEMEX projection leak?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-14T22:54:14",
+      "q": "Codex reports the 15-day zero replay is over. Confirm: did the 15-day zero replay complete? Full cycle count, final artifact location, any errors or interrupts, and what is the current state of the 19-item benchmark smoke? Also give the latest MEMEX projection leak counts as of right now.",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-15T06:53:05",
+      "q": "What has Codex done recently and what is it actively working on right now? Focus on the last 2-3 hours. I want to know: benchmark_runner changes, judge-trace capture, any judge-refusal fix landing, new eval runs, anything about the Pi-native submit_judge_verdict path, and any current in-flight work.",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-16T07:12:52",
+      "q": "What is Syke? What is the N=1 task? What is the replay sandbox and benchmark trying to prove? What is the current state of the project and where is it going?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-16T07:19:11",
+      "q": "What was the null prompt design and zero condition? What were the different memory architecture conditions we were testing? What was the persona work? What old asymmetries in memory systems were we tracking that have been resolved? What is the current list of benchmark conditions and what does each one vary?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-16T07:21:47",
+      "q": "What was the null prompt design? What were the persona experiments? What were the asymmetries in older memory benchmarks that LOCOMO and LongMemEval expose \u2014 specifically why does everyone score high on those but they don't reflect real personal continuity?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-16T07:38:36",
+      "q": "What has Codex been working on most recently? What are the latest changes to the replay sandbox and eval benchmark wiring?",
+      "source": "claude-code/syke"
+    },
+    {
+      "ts": "2026-04-16T08:12:41",
+      "q": "Give me everything you know about the current state of the replay sandbox and eval benchmark. What has Codex worked on most recently in this area? What conditions exist, what runs have been done, what are the open problems, what was the last thing that changed in the benchmark wiring or judge design? Be exhaustive.",
+      "source": "claude-code/syke"
+    }
+  ]
+}

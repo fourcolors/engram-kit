@@ -1,0 +1,964 @@
+{
+  "generated_at": "2026-04-21",
+  "notes": [
+    "pass/partial/fail treated as noisy ordinal observations",
+    "gpt_mini_intra_* runs are available same-judge repeats but are gpt-5.4-mini judge config, not clean full gpt-5.4 judge repeats",
+    "old ab07 runs are older-packet replication checks, not canonical Apr 20 architecture evidence"
+  ],
+  "runs": {
+    "gpt_final": "ne13-real-15d-gpt54-final-20260420T071500Z",
+    "opus_final": "ne13-real-15d-opus46-final-20260420T071500Z",
+    "gpt_answers_opus_judge": "ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z",
+    "opus_answers_gpt_judge": "ne13-real-15d-opusask-gpt54judge-20260420T144210Z",
+    "opus_intra_rep1": "ne13-real-15d-opusask-opusjudge-intrarater-20260420T200314Z",
+    "opus_intra_rep2": "ne13-real-15d-opus46-intrarater-rep2-20260420T222645Z",
+    "opus_intra_rep3": "ne13-real-15d-opus46-intrarater-rep3-20260420T222645Z",
+    "gpt_mini_intra_rep1": "ne13-real-15d-gpt54ask-gpt54judge-intrarater-20260420T200314Z",
+    "gpt_mini_intra_rep5": "ne13-real-15d-gpt54ask-gpt54judge-intrarater-rep5-20260421T051720Z",
+    "gpt_mini_intra_rep6": "ne13-real-15d-gpt54ask-gpt54judge-intrarater-rep6-20260421T051720Z",
+    "gpt_mini_contaminated_diag": "ne13-real-15d-gpt54-rep2-20260420T144210Z",
+    "gpt_mini_answers_opus_judge": "ne13-real-15d-gpt54rep2-opusjudge-20260420T200314Z",
+    "old_gpt_baseline": "ne13_15d_timefix_baseline_gpt54_20260416T171500Z",
+    "old_opus_rep1": "ab07-opus-judge-rep1",
+    "old_opus_rep2": "ab07-opus-judge-rep2",
+    "old_opus_rep3": "ab07-opus-judge-rep3"
+  },
+  "denominator_audit": {
+    "gpt_final": {
+      "run_key": "gpt_final",
+      "run_name": "ne13-real-15d-gpt54-final-20260420T071500Z",
+      "path": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z/benchmark_results.json",
+      "expected_cells": 57,
+      "items": 57,
+      "valid": 57,
+      "invalid": 0,
+      "missing": 0,
+      "counts": {
+        "partial": 41,
+        "pass": 6,
+        "fail": 10
+      },
+      "conditions": {
+        "production": 19,
+        "zero": 19,
+        "pure": 19
+      },
+      "probe_count": 19,
+      "config": {
+        "ask_model": "gpt-5.4",
+        "judge_model": "gpt-5.4",
+        "ask_provider": "openai-codex",
+        "judge_provider": "openai-codex",
+        "judge_only_from": null
+      }
+    },
+    "opus_final": {
+      "run_key": "opus_final",
+      "run_name": "ne13-real-15d-opus46-final-20260420T071500Z",
+      "path": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z/benchmark_results.json",
+      "expected_cells": 57,
+      "items": 57,
+      "valid": 57,
+      "invalid": 0,
+      "missing": 0,
+      "counts": {
+        "fail": 8,
+        "pass": 28,
+        "partial": 21
+      },
+      "conditions": {
+        "zero": 19,
+        "production": 19,
+        "pure": 19
+      },
+      "probe_count": 19,
+      "config": {
+        "ask_model": "claude-opus-4-6",
+        "judge_model": "claude-opus-4-6",
+        "ask_provider": "azure-anthropic-foundry",
+        "judge_provider": "azure-anthropic-foundry",
+        "judge_only_from": null
+      }
+    },
+    "gpt_answers_opus_judge": {
+      "run_key": "gpt_answers_opus_judge",
+      "run_name": "ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z",
+      "path": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z/benchmark_results.json",
+      "expected_cells": 57,
+      "items": 57,
+      "valid": 54,
+      "invalid": 3,
+      "missing": 0,
+      "counts": {
+        "partial": 25,
+        "pass": 26,
+        "invalid": 3,
+        "fail": 3
+      },
+      "conditions": {
+        "production": 19,
+        "zero": 19,
+        "pure": 19
+      },
+      "probe_count": 19,
+      "config": {
+        "ask_model": "reused-from-source-run",
+        "judge_model": "claude-opus-4-6",
+        "ask_provider": null,
+        "judge_provider": "azure-anthropic-foundry",
+        "judge_only_from": "/Users/saxenauts/Documents/personal/syke/_internal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z"
+      }
+    },
+    "opus_answers_gpt_judge": {
+      "run_key": "opus_answers_gpt_judge",
+      "run_name": "ne13-real-15d-opusask-gpt54judge-20260420T144210Z",
+      "path": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-gpt54judge-20260420T144210Z/benchmark_results.json",
+      "expected_cells": 57,
+      "items": 57,
+      "valid": 57,
+      "invalid": 0,
+      "missing": 0,
+      "counts": {
+        "fail": 13,
+        "partial": 39,
+        "pass": 5
+      },
+      "conditions": {
+        "zero": 19,
+        "production": 19,
+        "pure": 19
+      },
+      "probe_count": 19,
+      "config": {
+        "ask_model": "reused-from-source-run",
+        "judge_model": "gpt-5.4-mini",
+        "ask_provider": null,
+        "judge_provider": "openai-codex",
+        "judge_only_from": "/Users/saxenauts/Documents/personal/syke/_internal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z"
+      }
+    },
+    "opus_intra_rep1": {
+      "run_key": "opus_intra_rep1",
+      "run_name": "ne13-real-15d-opusask-opusjudge-intrarater-20260420T200314Z",
+      "path": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opusask-opusjudge-intrarater-20260420T200314Z/benchmark_results.json",
+      "expected_cells": 57,
+      "items": 57,
+      "valid": 55,
+      "invalid": 2,
+      "missing": 0,
+      "counts": {
+        "fail": 10,
+        "pass": 26,
+        "invalid": 2,
+        "partial": 19
+      },
+      "conditions": {
+        "zero": 19,
+        "production": 19,
+        "pure": 19
+      },
+      "probe_count": 19,
+      "config": {
+        "ask_model": "reused-from-source-run",
+        "judge_model": "claude-opus-4-6",
+        "ask_provider": null,
+        "judge_provider": "azure-anthropic-foundry",
+        "judge_only_from": "/Users/saxenauts/Documents/personal/syke/_internal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z"
+      }
+    },
+    "opus_intra_rep2": {
+      "run_key": "opus_intra_rep2",
+      "run_name": "ne13-real-15d-opus46-intrarater-rep2-20260420T222645Z",
+      "path": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-intrarater-rep2-20260420T222645Z/benchmark_results.json",
+      "expected_cells": 57,
+      "items": 57,
+      "valid": 49,
+      "invalid": 8,
+      "missing": 0,
+      "counts": {
+        "fail": 7,
+        "pass": 27,
+        "partial": 15,
+        "invalid": 8
+      },
+      "conditions": {
+        "zero": 19,
+        "production": 19,
+        "pure": 19
+      },
+      "probe_count": 19,
+      "config": {
+        "ask_model": "reused-from-source-run",
+        "judge_model": "claude-opus-4-6",
+        "ask_provider": null,
+        "judge_provider": "azure-anthropic-foundry",
+        "judge_only_from": "/Users/saxenauts/Documents/personal/syke/_internal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z"
+      }
+    },
+    "opus_intra_rep3": {
+      "run_key": "opus_intra_rep3",
+      "run_name": "ne13-real-15d-opus46-intrarater-rep3-20260420T222645Z",
+      "path": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-opus46-intrarater-rep3-20260420T222645Z/benchmark_results.json",
+      "expected_cells": 57,
+      "items": 57,
+      "valid": 53,
+      "invalid": 4,
+      "missing": 0,
+      "counts": {
+        "fail": 9,
+        "pass": 27,
+        "partial": 17,
+        "invalid": 4
+      },
+      "conditions": {
+        "zero": 19,
+        "production": 19,
+        "pure": 19
+      },
+      "probe_count": 19,
+      "config": {
+        "ask_model": "reused-from-source-run",
+        "judge_model": "claude-opus-4-6",
+        "ask_provider": null,
+        "judge_provider": "azure-anthropic-foundry",
+        "judge_only_from": "/Users/saxenauts/Documents/personal/syke/_internal/syke-replay-lab/runs/ne13-real-15d-opus46-final-20260420T071500Z"
+      }
+    },
+    "gpt_mini_intra_rep1": {
+      "run_key": "gpt_mini_intra_rep1",
+      "run_name": "ne13-real-15d-gpt54ask-gpt54judge-intrarater-20260420T200314Z",
+      "path": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-gpt54judge-intrarater-20260420T200314Z/benchmark_results.json",
+      "expected_cells": 57,
+      "items": 57,
+      "valid": 57,
+      "invalid": 0,
+      "missing": 0,
+      "counts": {
+        "partial": 43,
+        "pass": 9,
+        "fail": 5
+      },
+      "conditions": {
+        "production": 19,
+        "zero": 19,
+        "pure": 19
+      },
+      "probe_count": 19,
+      "config": {
+        "ask_model": "reused-from-source-run",
+        "judge_model": "gpt-5.4-mini",
+        "ask_provider": null,
+        "judge_provider": "openai-codex",
+        "judge_only_from": "/Users/saxenauts/Documents/personal/syke/_internal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z"
+      }
+    },
+    "gpt_mini_intra_rep5": {
+      "run_key": "gpt_mini_intra_rep5",
+      "run_name": "ne13-real-15d-gpt54ask-gpt54judge-intrarater-rep5-20260421T051720Z",
+      "path": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-gpt54judge-intrarater-rep5-20260421T051720Z/benchmark_results.json",
+      "expected_cells": 57,
+      "items": 57,
+      "valid": 54,
+      "invalid": 3,
+      "missing": 0,
+      "counts": {
+        "pass": 13,
+        "partial": 36,
+        "fail": 5,
+        "invalid": 3
+      },
+      "conditions": {
+        "production": 19,
+        "zero": 19,
+        "pure": 19
+      },
+      "probe_count": 19,
+      "config": {
+        "ask_model": "reused-from-source-run",
+        "judge_model": "gpt-5.4-mini",
+        "ask_provider": null,
+        "judge_provider": "openai-codex",
+        "judge_only_from": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z"
+      }
+    },
+    "gpt_mini_intra_rep6": {
+      "run_key": "gpt_mini_intra_rep6",
+      "run_name": "ne13-real-15d-gpt54ask-gpt54judge-intrarater-rep6-20260421T051720Z",
+      "path": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54ask-gpt54judge-intrarater-rep6-20260421T051720Z/benchmark_results.json",
+      "expected_cells": 57,
+      "items": 57,
+      "valid": 54,
+      "invalid": 3,
+      "missing": 0,
+      "counts": {
+        "partial": 38,
+        "fail": 6,
+        "pass": 10,
+        "invalid": 3
+      },
+      "conditions": {
+        "production": 19,
+        "zero": 19,
+        "pure": 19
+      },
+      "probe_count": 19,
+      "config": {
+        "ask_model": "reused-from-source-run",
+        "judge_model": "gpt-5.4-mini",
+        "ask_provider": null,
+        "judge_provider": "openai-codex",
+        "judge_only_from": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-final-20260420T071500Z"
+      }
+    },
+    "gpt_mini_contaminated_diag": {
+      "run_key": "gpt_mini_contaminated_diag",
+      "run_name": "ne13-real-15d-gpt54-rep2-20260420T144210Z",
+      "path": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54-rep2-20260420T144210Z/benchmark_results.json",
+      "expected_cells": 57,
+      "items": 57,
+      "valid": 57,
+      "invalid": 0,
+      "missing": 0,
+      "counts": {
+        "partial": 37,
+        "pass": 6,
+        "fail": 14
+      },
+      "conditions": {
+        "syke": 19,
+        "zero": 19,
+        "pure": 19
+      },
+      "probe_count": 19,
+      "config": {
+        "ask_model": "gpt-5.4-mini",
+        "judge_model": "gpt-5.4-mini",
+        "ask_provider": "openai-codex",
+        "judge_provider": "openai-codex",
+        "judge_only_from": null
+      }
+    },
+    "gpt_mini_answers_opus_judge": {
+      "run_key": "gpt_mini_answers_opus_judge",
+      "run_name": "ne13-real-15d-gpt54rep2-opusjudge-20260420T200314Z",
+      "path": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13-real-15d-gpt54rep2-opusjudge-20260420T200314Z/benchmark_results.json",
+      "expected_cells": 57,
+      "items": 57,
+      "valid": 55,
+      "invalid": 2,
+      "missing": 0,
+      "counts": {
+        "partial": 27,
+        "fail": 18,
+        "pass": 10,
+        "invalid": 2
+      },
+      "conditions": {
+        "syke": 19,
+        "zero": 19,
+        "pure": 19
+      },
+      "probe_count": 19,
+      "config": {
+        "ask_model": "reused-from-source-run",
+        "judge_model": "claude-opus-4-6",
+        "ask_provider": null,
+        "judge_provider": "azure-anthropic-foundry",
+        "judge_only_from": "/Users/saxenauts/Documents/personal/syke/_internal/syke-replay-lab/runs/ne13-real-15d-gpt54-rep2-20260420T144210Z"
+      }
+    },
+    "old_gpt_baseline": {
+      "run_key": "old_gpt_baseline",
+      "run_name": "ne13_15d_timefix_baseline_gpt54_20260416T171500Z",
+      "path": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ne13_15d_timefix_baseline_gpt54_20260416T171500Z/benchmark_results.json",
+      "expected_cells": 57,
+      "items": 57,
+      "valid": 54,
+      "invalid": 3,
+      "missing": 0,
+      "counts": {
+        "partial": 34,
+        "fail": 16,
+        "pass": 4,
+        "invalid": 3
+      },
+      "conditions": {
+        "zero": 19,
+        "syke": 19,
+        "pure": 19
+      },
+      "probe_count": 19,
+      "config": {
+        "ask_model": "gpt-5.4",
+        "judge_model": "gpt-5.4",
+        "ask_provider": null,
+        "judge_provider": null,
+        "judge_only_from": null
+      }
+    },
+    "old_opus_rep1": {
+      "run_key": "old_opus_rep1",
+      "run_name": "ab07-opus-judge-rep1",
+      "path": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ab07-opus-judge-rep1/benchmark_results.json",
+      "expected_cells": 57,
+      "items": 57,
+      "valid": 57,
+      "invalid": 0,
+      "missing": 0,
+      "counts": {
+        "pass": 25,
+        "partial": 24,
+        "fail": 8
+      },
+      "conditions": {
+        "zero": 19,
+        "syke": 19,
+        "pure": 19
+      },
+      "probe_count": 19,
+      "config": {
+        "ask_model": "reused-from-source-run",
+        "judge_model": "claude-opus-4-6",
+        "ask_provider": null,
+        "judge_provider": "azure-anthropic-foundry",
+        "judge_only_from": "/Users/saxenauts/Documents/personal/syke/_internal/syke-replay-lab/runs/ne13_15d_timefix_baseline_gpt54_20260416T171500Z"
+      }
+    },
+    "old_opus_rep2": {
+      "run_key": "old_opus_rep2",
+      "run_name": "ab07-opus-judge-rep2",
+      "path": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ab07-opus-judge-rep2/benchmark_results.json",
+      "expected_cells": 57,
+      "items": 57,
+      "valid": 57,
+      "invalid": 0,
+      "missing": 0,
+      "counts": {
+        "pass": 25,
+        "partial": 22,
+        "fail": 10
+      },
+      "conditions": {
+        "zero": 19,
+        "syke": 19,
+        "pure": 19
+      },
+      "probe_count": 19,
+      "config": {
+        "ask_model": "reused-from-source-run",
+        "judge_model": "claude-opus-4-6",
+        "ask_provider": null,
+        "judge_provider": "azure-anthropic-foundry",
+        "judge_only_from": "/Users/saxenauts/Documents/personal/syke/_internal/syke-replay-lab/runs/ne13_15d_timefix_baseline_gpt54_20260416T171500Z"
+      }
+    },
+    "old_opus_rep3": {
+      "run_key": "old_opus_rep3",
+      "run_name": "ab07-opus-judge-rep3",
+      "path": "/Users/saxenauts/Documents/personal/syke-replay-lab/runs/ab07-opus-judge-rep3/benchmark_results.json",
+      "expected_cells": 57,
+      "items": 57,
+      "valid": 57,
+      "invalid": 0,
+      "missing": 0,
+      "counts": {
+        "pass": 21,
+        "partial": 28,
+        "fail": 8
+      },
+      "conditions": {
+        "zero": 19,
+        "syke": 19,
+        "pure": 19
+      },
+      "probe_count": 19,
+      "config": {
+        "ask_model": "reused-from-source-run",
+        "judge_model": "claude-opus-4-6",
+        "ask_provider": null,
+        "judge_provider": "azure-anthropic-foundry",
+        "judge_only_from": "/Users/saxenauts/Documents/personal/syke/_internal/syke-replay-lab/runs/ne13_15d_timefix_baseline_gpt54_20260416T171500Z"
+      }
+    }
+  },
+  "same_answer_judge_swaps": [
+    {
+      "name": "gpt_answers__gpt_judge_vs_opus_judge",
+      "overlap": 54,
+      "exact": 0.48148148148148145,
+      "weighted_kappa_linear": 0.23906705539358597,
+      "mean_delta_b_minus_a": 0.5,
+      "binary_useful_exact": 0.8703703703703703,
+      "binary_kappa": 0.4112149532710281,
+      "adjacent_disagreements": 27,
+      "full_band_disagreements": 1
+    },
+    {
+      "name": "opus_answers__opus_judge_vs_gpt_mini_judge",
+      "overlap": 57,
+      "exact": 0.5087719298245614,
+      "weighted_kappa_linear": 0.33976833976833976,
+      "mean_delta_b_minus_a": -0.49122807017543857,
+      "binary_useful_exact": 0.9122807017543859,
+      "binary_kappa": 0.7118301314459048,
+      "adjacent_disagreements": 26,
+      "full_band_disagreements": 2
+    },
+    {
+      "name": "old_gpt_answers__gpt_judge_vs_ab07_opus_rep1",
+      "overlap": 54,
+      "exact": 0.46296296296296297,
+      "weighted_kappa_linear": 0.2765773552290406,
+      "mean_delta_b_minus_a": 0.5,
+      "binary_useful_exact": 0.8518518518518519,
+      "binary_kappa": 0.5846153846153848,
+      "adjacent_disagreements": 27,
+      "full_band_disagreements": 2
+    }
+  ],
+  "same_judge_repeats": [
+    {
+      "name": "opus_answers__opus_judge_4_calls",
+      "run_names": [
+        "ne13-real-15d-opus46-final-20260420T071500Z",
+        "ne13-real-15d-opusask-opusjudge-intrarater-20260420T200314Z",
+        "ne13-real-15d-opus46-intrarater-rep2-20260420T222645Z",
+        "ne13-real-15d-opus46-intrarater-rep3-20260420T222645Z"
+      ],
+      "common_valid_cells": 45,
+      "all_reps_exact_cells": 26,
+      "flip_cells": 19,
+      "flip_rate": 0.4222222222222222,
+      "adjacent_flip_cells": 19,
+      "full_band_flip_cells": 0,
+      "mean_cell_sigma": 0.1872934051172336,
+      "per_probe_flip_counts": {
+        "R01": 1,
+        "R03": 2,
+        "R04": 2,
+        "R06": 1,
+        "R07": 2,
+        "R08": 1,
+        "R11": 2,
+        "R12": 2,
+        "R14": 2,
+        "R15": 2,
+        "R18": 1,
+        "R19": 1
+      },
+      "pairwise": [
+        {
+          "a": "ne13-real-15d-opus46-final-20260420T071500Z",
+          "b": "ne13-real-15d-opusask-opusjudge-intrarater-20260420T200314Z",
+          "overlap": 55,
+          "exact": 0.8,
+          "weighted_kappa_linear": 0.7415634344297308,
+          "binary_useful_exact": 0.9636363636363636,
+          "binary_kappa": 0.8674698795180723
+        },
+        {
+          "a": "ne13-real-15d-opus46-final-20260420T071500Z",
+          "b": "ne13-real-15d-opus46-intrarater-rep2-20260420T222645Z",
+          "overlap": 49,
+          "exact": 0.7551020408163265,
+          "weighted_kappa_linear": 0.6632302405498283,
+          "binary_useful_exact": 0.9387755102040817,
+          "binary_kappa": 0.7341772151898736
+        },
+        {
+          "a": "ne13-real-15d-opus46-final-20260420T071500Z",
+          "b": "ne13-real-15d-opus46-intrarater-rep3-20260420T222645Z",
+          "overlap": 53,
+          "exact": 0.8113207547169812,
+          "weighted_kappa_linear": 0.7507055503292568,
+          "binary_useful_exact": 0.9622641509433962,
+          "binary_kappa": 0.853185595567867
+        },
+        {
+          "a": "ne13-real-15d-opusask-opusjudge-intrarater-20260420T200314Z",
+          "b": "ne13-real-15d-opus46-intrarater-rep2-20260420T222645Z",
+          "overlap": 47,
+          "exact": 0.8297872340425532,
+          "weighted_kappa_linear": 0.7783018867924528,
+          "binary_useful_exact": 0.9787234042553191,
+          "binary_kappa": 0.920741989881956
+        },
+        {
+          "a": "ne13-real-15d-opusask-opusjudge-intrarater-20260420T200314Z",
+          "b": "ne13-real-15d-opus46-intrarater-rep3-20260420T222645Z",
+          "overlap": 51,
+          "exact": 0.803921568627451,
+          "weighted_kappa_linear": 0.7519455252918288,
+          "binary_useful_exact": 1.0,
+          "binary_kappa": 1.0
+        },
+        {
+          "a": "ne13-real-15d-opus46-intrarater-rep2-20260420T222645Z",
+          "b": "ne13-real-15d-opus46-intrarater-rep3-20260420T222645Z",
+          "overlap": 47,
+          "exact": 0.7021276595744681,
+          "weighted_kappa_linear": 0.5923172242874846,
+          "binary_useful_exact": 0.9787234042553191,
+          "binary_kappa": 0.9108159392789372
+        }
+      ]
+    },
+    {
+      "name": "gpt_answers__gpt_mini_judge_available_calls",
+      "run_names": [
+        "ne13-real-15d-gpt54ask-gpt54judge-intrarater-20260420T200314Z",
+        "ne13-real-15d-gpt54ask-gpt54judge-intrarater-rep5-20260421T051720Z",
+        "ne13-real-15d-gpt54ask-gpt54judge-intrarater-rep6-20260421T051720Z"
+      ],
+      "common_valid_cells": 51,
+      "all_reps_exact_cells": 26,
+      "flip_cells": 25,
+      "flip_rate": 0.49019607843137253,
+      "adjacent_flip_cells": 25,
+      "full_band_flip_cells": 0,
+      "mean_cell_sigma": 0.23108064744658408,
+      "per_probe_flip_counts": {
+        "R01": 2,
+        "R02": 1,
+        "R03": 2,
+        "R04": 1,
+        "R05": 2,
+        "R06": 2,
+        "R07": 1,
+        "R11": 2,
+        "R12": 2,
+        "R13": 2,
+        "R14": 2,
+        "R15": 2,
+        "R16": 1,
+        "R17": 1,
+        "R18": 1,
+        "R19": 1
+      },
+      "pairwise": [
+        {
+          "a": "ne13-real-15d-gpt54ask-gpt54judge-intrarater-20260420T200314Z",
+          "b": "ne13-real-15d-gpt54ask-gpt54judge-intrarater-rep5-20260421T051720Z",
+          "overlap": 54,
+          "exact": 0.6666666666666666,
+          "weighted_kappa_linear": 0.3268698060941828,
+          "binary_useful_exact": 0.9629629629629629,
+          "binary_kappa": 0.7795918367346936
+        },
+        {
+          "a": "ne13-real-15d-gpt54ask-gpt54judge-intrarater-20260420T200314Z",
+          "b": "ne13-real-15d-gpt54ask-gpt54judge-intrarater-rep6-20260421T051720Z",
+          "overlap": 54,
+          "exact": 0.6666666666666666,
+          "weighted_kappa_linear": 0.29565217391304344,
+          "binary_useful_exact": 0.9444444444444444,
+          "binary_kappa": 0.6966292134831459
+        },
+        {
+          "a": "ne13-real-15d-gpt54ask-gpt54judge-intrarater-rep5-20260421T051720Z",
+          "b": "ne13-real-15d-gpt54ask-gpt54judge-intrarater-rep6-20260421T051720Z",
+          "overlap": 51,
+          "exact": 0.6470588235294118,
+          "weighted_kappa_linear": 0.2839313572542902,
+          "binary_useful_exact": 0.9215686274509803,
+          "binary_kappa": 0.5565217391304343
+        }
+      ]
+    },
+    {
+      "name": "old_gpt_answers__ab07_opus_3_calls",
+      "run_names": [
+        "ab07-opus-judge-rep1",
+        "ab07-opus-judge-rep2",
+        "ab07-opus-judge-rep3"
+      ],
+      "common_valid_cells": 57,
+      "all_reps_exact_cells": 31,
+      "flip_cells": 26,
+      "flip_rate": 0.45614035087719296,
+      "adjacent_flip_cells": 25,
+      "full_band_flip_cells": 1,
+      "mean_cell_sigma": 0.22108087018778094,
+      "per_probe_flip_counts": {
+        "R01": 1,
+        "R02": 1,
+        "R03": 3,
+        "R05": 1,
+        "R06": 2,
+        "R07": 2,
+        "R08": 1,
+        "R09": 2,
+        "R10": 1,
+        "R11": 1,
+        "R12": 2,
+        "R14": 2,
+        "R15": 2,
+        "R16": 1,
+        "R17": 1,
+        "R18": 2,
+        "R19": 1
+      },
+      "pairwise": [
+        {
+          "a": "ab07-opus-judge-rep1",
+          "b": "ab07-opus-judge-rep2",
+          "overlap": 57,
+          "exact": 0.6666666666666666,
+          "weighted_kappa_linear": 0.5377128953771289,
+          "binary_useful_exact": 0.9649122807017544,
+          "binary_kappa": 0.8683602771362586
+        },
+        {
+          "a": "ab07-opus-judge-rep1",
+          "b": "ab07-opus-judge-rep3",
+          "overlap": 57,
+          "exact": 0.7192982456140351,
+          "weighted_kappa_linear": 0.6129032258064516,
+          "binary_useful_exact": 1.0,
+          "binary_kappa": 1.0
+        },
+        {
+          "a": "ab07-opus-judge-rep2",
+          "b": "ab07-opus-judge-rep3",
+          "overlap": 57,
+          "exact": 0.6842105263157895,
+          "weighted_kappa_linear": 0.579163248564397,
+          "binary_useful_exact": 0.9649122807017544,
+          "binary_kappa": 0.8683602771362586
+        }
+      ]
+    }
+  ],
+  "rubric_diagnostics": {
+    "gpt_judge_pooled": {
+      "full": {
+        "n": 114,
+        "p": 12,
+        "r2": 0.7537997173577015,
+        "adjusted_r2": 0.7245481986279234
+      },
+      "drop_state_transition_tracking": {
+        "n": 114,
+        "p": 11,
+        "r2": 0.7378309545249815,
+        "adjusted_r2": 0.7095578221698324
+      },
+      "state_transition_only": {
+        "n": 114,
+        "p": 1,
+        "r2": 0.6063821512960308,
+        "adjusted_r2": 0.6028677062183168
+      },
+      "factor_collapse": {
+        "n": 114,
+        "top_abs_correlations": [
+          {
+            "a": "continuity.active_thread_selection",
+            "b": "continuity.salience_relevance",
+            "r": 0.8406644569891676,
+            "abs_r": 0.8406644569891676
+          },
+          {
+            "a": "continuity.salience_relevance",
+            "b": "continuity.continuation_value",
+            "r": 0.8405201331899421,
+            "abs_r": 0.8405201331899421
+          },
+          {
+            "a": "continuity.salience_relevance",
+            "b": "coherence.cross_harness_braid",
+            "r": 0.7228891592939636,
+            "abs_r": 0.7228891592939636
+          },
+          {
+            "a": "continuity.active_thread_selection",
+            "b": "continuity.continuation_value",
+            "r": 0.7177693446363732,
+            "abs_r": 0.7177693446363732
+          },
+          {
+            "a": "continuity.salience_relevance",
+            "b": "continuity.state_transition_tracking",
+            "r": 0.7171256870546286,
+            "abs_r": 0.7171256870546286
+          },
+          {
+            "a": "continuity.state_transition_tracking",
+            "b": "coherence.cross_harness_braid",
+            "r": 0.7121952915122914,
+            "abs_r": 0.7121952915122914
+          },
+          {
+            "a": "continuity.salience_relevance",
+            "b": "continuity.forgetting_residue_control",
+            "r": 0.7090556542204669,
+            "abs_r": 0.7090556542204669
+          },
+          {
+            "a": "continuity.state_transition_tracking",
+            "b": "coherence.cross_session_consistency",
+            "r": 0.6998253414697241,
+            "abs_r": 0.6998253414697241
+          },
+          {
+            "a": "factual_grounding.support",
+            "b": "coherence.cross_session_consistency",
+            "r": 0.6939393443240081,
+            "abs_r": 0.6939393443240081
+          },
+          {
+            "a": "continuity.state_transition_tracking",
+            "b": "continuity.continuation_value",
+            "r": 0.6873304362688353,
+            "abs_r": 0.6873304362688353
+          },
+          {
+            "a": "continuity.salience_relevance",
+            "b": "coherence.artifact_routing_consistency",
+            "r": 0.6859358181762127,
+            "abs_r": 0.6859358181762127
+          },
+          {
+            "a": "continuity.continuation_value",
+            "b": "coherence.cross_harness_braid",
+            "r": 0.6842678990688227,
+            "abs_r": 0.6842678990688227
+          },
+          {
+            "a": "continuity.active_thread_selection",
+            "b": "continuity.forgetting_residue_control",
+            "r": 0.6820015032389366,
+            "abs_r": 0.6820015032389366
+          },
+          {
+            "a": "continuity.active_thread_selection",
+            "b": "coherence.cross_harness_braid",
+            "r": 0.679211044883874,
+            "abs_r": 0.679211044883874
+          },
+          {
+            "a": "continuity.forgetting_residue_control",
+            "b": "coherence.cross_harness_braid",
+            "r": 0.6780735897450295,
+            "abs_r": 0.6780735897450295
+          }
+        ]
+      }
+    },
+    "opus_judge_pooled": {
+      "full": {
+        "n": 111,
+        "p": 12,
+        "r2": 0.8621389065233833,
+        "adjusted_r2": 0.8452579563017568
+      },
+      "drop_state_transition_tracking": {
+        "n": 111,
+        "p": 11,
+        "r2": 0.8397430098960383,
+        "adjusted_r2": 0.8219366776622649
+      },
+      "state_transition_only": {
+        "n": 111,
+        "p": 1,
+        "r2": 0.7306220628475739,
+        "adjusted_r2": 0.7281507056259919
+      },
+      "factor_collapse": {
+        "n": 111,
+        "top_abs_correlations": [
+          {
+            "a": "continuity.active_thread_selection",
+            "b": "continuity.continuation_value",
+            "r": 0.9108903042216178,
+            "abs_r": 0.9108903042216178
+          },
+          {
+            "a": "continuity.salience_relevance",
+            "b": "continuity.continuation_value",
+            "r": 0.8759536985193961,
+            "abs_r": 0.8759536985193961
+          },
+          {
+            "a": "continuity.active_thread_selection",
+            "b": "continuity.salience_relevance",
+            "r": 0.8554766153229297,
+            "abs_r": 0.8554766153229297
+          },
+          {
+            "a": "continuity.continuation_value",
+            "b": "coherence.cross_session_consistency",
+            "r": 0.8451597204366803,
+            "abs_r": 0.8451597204366803
+          },
+          {
+            "a": "continuity.salience_relevance",
+            "b": "coherence.cross_session_consistency",
+            "r": 0.8147585177630959,
+            "abs_r": 0.8147585177630959
+          },
+          {
+            "a": "continuity.state_transition_tracking",
+            "b": "coherence.cross_session_consistency",
+            "r": 0.7981082996550193,
+            "abs_r": 0.7981082996550193
+          },
+          {
+            "a": "continuity.active_thread_selection",
+            "b": "coherence.cross_session_consistency",
+            "r": 0.7888635543277998,
+            "abs_r": 0.7888635543277998
+          },
+          {
+            "a": "continuity.continuation_value",
+            "b": "coherence.cross_harness_braid",
+            "r": 0.7820994800006031,
+            "abs_r": 0.7820994800006031
+          },
+          {
+            "a": "continuity.active_thread_selection",
+            "b": "coherence.cross_harness_braid",
+            "r": 0.7714376188596852,
+            "abs_r": 0.7714376188596852
+          },
+          {
+            "a": "continuity.state_transition_tracking",
+            "b": "continuity.continuation_value",
+            "r": 0.7657579027922893,
+            "abs_r": 0.7657579027922893
+          },
+          {
+            "a": "continuity.salience_relevance",
+            "b": "coherence.cross_harness_braid",
+            "r": 0.7569095146922131,
+            "abs_r": 0.7569095146922131
+          },
+          {
+            "a": "factual_grounding.support",
+            "b": "coherence.cross_session_consistency",
+            "r": 0.744140792937238,
+            "abs_r": 0.744140792937238
+          },
+          {
+            "a": "continuity.state_transition_tracking",
+            "b": "coherence.artifact_routing_consistency",
+            "r": 0.741945451117405,
+            "abs_r": 0.741945451117405
+          },
+          {
+            "a": "factual_grounding.support",
+            "b": "coherence.artifact_routing_consistency",
+            "r": 0.7407689968230098,
+            "abs_r": 0.7407689968230098
+          },
+          {
+            "a": "continuity.active_thread_selection",
+            "b": "continuity.state_transition_tracking",
+            "r": 0.7375689968758289,
+            "abs_r": 0.7375689968758289
+          }
+        ]
+      }
+    }
+  }
+}

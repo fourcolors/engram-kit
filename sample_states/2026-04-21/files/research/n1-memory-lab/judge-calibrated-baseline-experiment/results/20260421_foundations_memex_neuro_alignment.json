@@ -1,0 +1,362 @@
+{
+  "date": "2026-04-21",
+  "scope": "exploration_only_no_architecture_ranking",
+  "source_docs": [
+    "/Users/saxenauts/Documents/personal/syke/FOUNDATIONS.md",
+    "/Users/saxenauts/Documents/personal/syke/docs/MEMEX_EVOLUTION.md",
+    "/Users/saxenauts/Documents/personal/syke-replay-lab/research/n1-memory-lab/judge-calibrated-baseline-experiment/notes/MATH_ONE_PAGER_20260421.md",
+    "/Users/saxenauts/Documents/personal/syke-replay-lab/research/n1-memory-lab/judge-calibrated-baseline-experiment/PAPER_MAP.md",
+    "/Users/saxenauts/Documents/personal/syke-replay-lab/research/n1-memory-lab/judge-calibrated-baseline-experiment/SOURCE_NOTES.md",
+    "/Users/saxenauts/Documents/personal/syke-replay-lab/research/n1-memory-lab/judge-calibrated-baseline-experiment/TASKS.json"
+  ],
+  "constraints": [
+    "zero is a valid bounded-packet condition (not no-tool/no-retrieval)",
+    "pass/partial/fail are noisy ordinal observations",
+    "no architecture ranking in this phase"
+  ],
+  "foundation_alignment": [
+    {
+      "principles": [
+        "P2 Ledger, Not Disk",
+        "P5 Evidence != Inference"
+      ],
+      "implication_for_judge_design": "Score claim lineage against immutable artifacts and contradiction checks before verdict aggregation.",
+      "measurable_signal": [
+        "claim_support_rate",
+        "artifact_citation_rate",
+        "unsupported_claim_rate",
+        "contradicted_claim_rate",
+        "provenance_gap_rate"
+      ],
+      "task_updates": [
+        "JCB-042",
+        "JCB-043",
+        "JCB-038",
+        "JCB-028",
+        "JCB-029"
+      ],
+      "task_additions": [
+        "JCB-055",
+        "JCB-057"
+      ]
+    },
+    {
+      "principles": [
+        "P6 Temporal First-Class"
+      ],
+      "implication_for_judge_design": "Normalize time and freshness target before retrieval/scoring.",
+      "measurable_signal": [
+        "stale_state_error_rate",
+        "freshness_target_accuracy",
+        "time_normalization_delta"
+      ],
+      "task_updates": [
+        "JCB-006",
+        "JCB-007",
+        "JCB-026",
+        "JCB-033"
+      ],
+      "task_additions": [
+        "JCB-053"
+      ]
+    },
+    {
+      "principles": [
+        "P3 Session as Atomic Unit"
+      ],
+      "implication_for_judge_design": "Preserve packet/session boundaries and audit cross-session contamination.",
+      "measurable_signal": [
+        "packet_session_mismatch_rate",
+        "cross_session_contamination_rate"
+      ],
+      "task_updates": [
+        "JCB-004",
+        "JCB-020",
+        "JCB-046",
+        "JCB-050"
+      ],
+      "task_additions": [
+        "JCB-054"
+      ]
+    },
+    {
+      "principles": [
+        "P4 Agent Crawls Text",
+        "P8 Fast + Deep"
+      ],
+      "implication_for_judge_design": "Separate search-surface access from reconstruction quality; do not collapse into one scalar.",
+      "measurable_signal": [
+        "search_vs_reconstruction_split",
+        "retrieval_degenerate_rate",
+        "evidence_found_vs_used_gap"
+      ],
+      "task_updates": [
+        "JCB-028",
+        "JCB-029",
+        "JCB-037",
+        "JCB-041"
+      ],
+      "task_additions": [
+        "JCB-051",
+        "JCB-052",
+        "JCB-056"
+      ]
+    },
+    {
+      "principles": [
+        "P1 Memory IS Identity",
+        "P7 Static + Dynamic",
+        "P11 The Map Appears"
+      ],
+      "implication_for_judge_design": "Track map growth/drift dynamics across batches, not only one-shot verdicts.",
+      "measurable_signal": [
+        "coverage_growth",
+        "pointer_emergence_rate",
+        "batch_drift",
+        "routing_compression_delta"
+      ],
+      "task_updates": [
+        "JCB-026",
+        "JCB-037",
+        "JCB-043",
+        "JCB-044",
+        "JCB-045",
+        "JCB-050"
+      ],
+      "task_additions": [
+        "JCB-060"
+      ]
+    },
+    {
+      "principles": [
+        "P9 Person + Agents Portable",
+        "P10 Accept Change"
+      ],
+      "implication_for_judge_design": "Treat judge/model-family and version effects as measured conditions; freeze rubric versions per run.",
+      "measurable_signal": [
+        "judge_family_shift",
+        "self_family_preference_gap",
+        "version_drift_delta"
+      ],
+      "task_updates": [
+        "JCB-018",
+        "JCB-019",
+        "JCB-024",
+        "JCB-031",
+        "JCB-032",
+        "JCB-041"
+      ],
+      "task_additions": [
+        "JCB-058",
+        "JCB-059"
+      ]
+    }
+  ],
+  "neuro_constructs": [
+    {
+      "construct": "consolidation",
+      "observable": "memex version growth and route emergence over batches",
+      "candidate_metrics": [
+        "memory_yield_per_batch",
+        "pointer_density",
+        "chars_retained_per_event"
+      ],
+      "required_fields": [
+        "event_id",
+        "created_at",
+        "memex_version",
+        "memory_id",
+        "source_event_ids",
+        "links",
+        "memory_ops"
+      ],
+      "minimal_experiment": "Run synthesis with and without memex pre-read on the same batch and compare route emergence.",
+      "caveat": "Prompt framing can mimic consolidation effects.",
+      "paper_anchors": [
+        "ALMA 2602.07755",
+        "ACE 2510.04618",
+        "GEPA 2507.19457"
+      ]
+    },
+    {
+      "construct": "interference",
+      "observable": "duplicate/contradictory memory behavior and rubric factor collapse",
+      "candidate_metrics": [
+        "contradiction_rate",
+        "duplicate_overlap",
+        "delta_r2_under_ablation"
+      ],
+      "required_fields": [
+        "superseded_by",
+        "memory_text_diffs",
+        "rubric_scores",
+        "probe_type"
+      ],
+      "minimal_experiment": "Inject overlapping/conflicting event slices and measure merge vs split behavior.",
+      "caveat": "Could reflect pruning policy instead of interference.",
+      "paper_anchors": [
+        "When Judgment Becomes Noise 2509.20293",
+        "RRD 2602.05125",
+        "CyclicJudge 2603.01865"
+      ]
+    },
+    {
+      "construct": "retrieval_cue_dependence",
+      "observable": "pointer-led routing and memex-first retrieval behavior",
+      "candidate_metrics": [
+        "cue_follow_rate",
+        "retrieval_hop_count",
+        "latency_delta_with_cue_masking"
+      ],
+      "required_fields": [
+        "query_text",
+        "memex_snapshot",
+        "retrieval_trace",
+        "timestamps"
+      ],
+      "minimal_experiment": "Mask pointer cues on matched asks and compare path + answer stability.",
+      "caveat": "Cue availability can correlate with easier items.",
+      "paper_anchors": [
+        "RULERS 2601.08654",
+        "Criterion-Referenceability 2603.14732",
+        "No Free Labels 2503.05061"
+      ]
+    },
+    {
+      "construct": "recency_gradient",
+      "observable": "older items compress while newer items retain detail",
+      "candidate_metrics": [
+        "age_slope_detail_retention",
+        "pointer_density_by_age_bucket"
+      ],
+      "required_fields": [
+        "created_at",
+        "updated_at",
+        "active",
+        "memex_diff_versions"
+      ],
+      "minimal_experiment": "Compare retention/pointer depth across age buckets.",
+      "caveat": "Salience effects can confound recency effects.",
+      "paper_anchors": [
+        "LongMemEval 2410.10813",
+        "MemoryArena 2602.16313",
+        "LifeBench 2603.03781"
+      ]
+    },
+    {
+      "construct": "reconsolidation",
+      "observable": "post-ask rewrites and pointer rewiring after new evidence",
+      "candidate_metrics": [
+        "post_query_revision_rate",
+        "pointer_rewiring_rate",
+        "before_after_edit_distance"
+      ],
+      "required_fields": [
+        "ask_logs",
+        "retrieval_trace",
+        "memex_before_after",
+        "memory_ops"
+      ],
+      "minimal_experiment": "Ask -> add evidence -> ask again; compare memory rewrites and routing changes.",
+      "caveat": "Generic summarization drift can appear as reconsolidation.",
+      "paper_anchors": [
+        "ACE 2510.04618",
+        "ALMA 2602.07755"
+      ]
+    },
+    {
+      "construct": "forgetting_residue_control",
+      "observable": "decayed/archive behavior and stale reference residue",
+      "candidate_metrics": [
+        "stale_reference_rate",
+        "archived_item_residual_recall",
+        "pointer_half_life"
+      ],
+      "required_fields": [
+        "active",
+        "superseded_by",
+        "archive_timestamp",
+        "retrieval_hits_by_age"
+      ],
+      "minimal_experiment": "Stop reinforcement on a tracked set and probe residue over time.",
+      "caveat": "Decay policy choices can dominate the signal.",
+      "paper_anchors": [
+        "LongMemEval 2410.10813",
+        "MemoryArena 2602.16313"
+      ]
+    },
+    {
+      "construct": "state_reinstatement_continuity",
+      "observable": "state_transition_tracking behavior across session boundaries",
+      "candidate_metrics": [
+        "cross_session_state_consistency",
+        "axis_level_r2"
+      ],
+      "required_fields": [
+        "probe_metadata",
+        "session_id",
+        "answers",
+        "rubric_scores",
+        "judge_id"
+      ],
+      "minimal_experiment": "Probe before and after a state shift; score continuity of operative state.",
+      "caveat": "Can collapse into style/length cues if not grounded.",
+      "paper_anchors": [
+        "When Judgment Becomes Noise 2509.20293",
+        "Criterion-Referenceability 2603.14732"
+      ]
+    },
+    {
+      "construct": "precision_gating",
+      "observable": "judge shift/flicker plus stability gain under useful-collapse",
+      "candidate_metrics": [
+        "abstention_precision",
+        "low_confidence_disagreement_rate",
+        "calibration_error_when_available"
+      ],
+      "required_fields": [
+        "verdict",
+        "confidence_or_logits",
+        "abstain_flag",
+        "repeat_calls"
+      ],
+      "minimal_experiment": "Apply abstain/escalate threshold and measure accepted-set reliability.",
+      "caveat": "Probability calibration is blocked without human labels.",
+      "paper_anchors": [
+        "Trust or Escalate 2407.18370",
+        "Rating Roulette 2510.27106",
+        "KalshiBench 2512.16030"
+      ]
+    }
+  ],
+  "staged_math": {
+    "now": [
+      "keep zero as a valid bounded-packet condition",
+      "compute descriptive metrics for consolidation/interference/cue-dependence/recency/reconsolidation/forgetting/continuity",
+      "keep judge diagnostics separated: gamma and epsilon observed, beta not clean",
+      "partition probes by referenceability and retrieval-degeneracy",
+      "keep architecture ranking out of scope"
+    ],
+    "later": [
+      "collect human-reviewed calibration labels",
+      "collect clean repeated answer generations for uncontaminated beta",
+      "fit mixed-effects or G-theory alpha/beta/gamma/epsilon decomposition",
+      "only after that, consider comparative architecture claims"
+    ]
+  },
+  "new_task_ids": [
+    "JCB-051",
+    "JCB-052",
+    "JCB-053",
+    "JCB-054",
+    "JCB-055",
+    "JCB-056",
+    "JCB-057",
+    "JCB-058",
+    "JCB-059",
+    "JCB-060",
+    "JCB-061",
+    "JCB-062",
+    "JCB-063"
+  ]
+}

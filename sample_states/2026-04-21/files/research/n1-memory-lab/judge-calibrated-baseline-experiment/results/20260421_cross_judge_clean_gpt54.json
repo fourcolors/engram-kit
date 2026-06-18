@@ -1,0 +1,31 @@
+{
+  "source": {
+    "gpt_reps": [
+      "ne13-real-15d-gpt54-final-20260420T071500Z",
+      "ne13-15d-gpt54heavy-intrarater-rep1-20260421T185347Z",
+      "ne13-15d-gpt54heavy-intrarater-rep2-20260421T185347Z",
+      "ne13-15d-gpt54heavy-intrarater-rep3-20260421T185347Z"
+    ],
+    "opus_run": "ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z",
+    "answer_set": "Apr 20 canonical gpt-agent final",
+    "computed_on": "2026-04-21",
+    "note": "Clean cross-judge read. Replaces the retracted gpt-5.4-mini-confounded arm."
+  },
+  "common_cells": 54,
+  "per_rep_shift_opus_minus_gpt": {
+    "gpt-orig": 0.5,
+    "gpt-heavy-rep1": 0.5741,
+    "gpt-heavy-rep2": 0.6481,
+    "gpt-heavy-rep3": 0.5556
+  },
+  "mean_clean_arm_shift_opus_minus_gpt54": 0.5694,
+  "per_rep_weighted_kappa": {
+    "gpt-orig": 0.2391,
+    "gpt-heavy-rep1": 0.2214,
+    "gpt-heavy-rep2": 0.1088,
+    "gpt-heavy-rep3": 0.2105
+  },
+  "mean_clean_arm_weighted_kappa": 0.195,
+  "opus_strictly_higher_cells": 22,
+  "gpt_strictly_higher_cells": 0
+}

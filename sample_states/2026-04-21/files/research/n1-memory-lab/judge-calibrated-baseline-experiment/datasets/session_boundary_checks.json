@@ -1,0 +1,779 @@
+{
+  "schema": {
+    "name": "session_boundary_checks",
+    "version": 1,
+    "row_granularity": "one row per boundary-sensitive probe x condition cell with two answer-source blocks",
+    "sources": [
+      "results/20260421_calibration_subset_packets.json",
+      "results/20260421_calibration_cell_matrix.json",
+      "results/20260421_high_priority_claim_audit.md",
+      "datasets/probe_metadata.json"
+    ]
+  },
+  "boundary_rule": {
+    "probe_type_inclusion_any_of": [
+      "time_window",
+      "temporal_update",
+      "last_thread",
+      "search"
+    ],
+    "boundary_probe_ids_in_subset": [
+      "R03",
+      "R07",
+      "R13",
+      "R14",
+      "R15",
+      "R19"
+    ],
+    "boundary_cell_count": 18,
+    "boundary_answer_row_count": 36
+  },
+  "summary": {
+    "pair_category_counts": {
+      "adjacent": 14,
+      "full_band": 2,
+      "exact": 18,
+      "invalid_or_missing": 2
+    },
+    "non_exact_count": 16,
+    "non_exact_rate": 0.444,
+    "full_band_count": 2,
+    "invalid_or_missing_count": 2,
+    "by_condition": {
+      "production": {
+        "answer_rows": 12,
+        "non_exact_count": 5,
+        "full_band_count": 0,
+        "invalid_or_missing_count": 1,
+        "non_exact_rate": 0.417
+      },
+      "pure": {
+        "answer_rows": 12,
+        "non_exact_count": 4,
+        "full_band_count": 1,
+        "invalid_or_missing_count": 0,
+        "non_exact_rate": 0.333
+      },
+      "zero": {
+        "answer_rows": 12,
+        "non_exact_count": 7,
+        "full_band_count": 1,
+        "invalid_or_missing_count": 1,
+        "non_exact_rate": 0.583
+      }
+    },
+    "by_condition_and_answer_source": {
+      "production|gpt-5.4": {
+        "answer_rows": 6,
+        "non_exact_count": 3,
+        "full_band_count": 0,
+        "invalid_or_missing_count": 1,
+        "non_exact_rate": 0.5
+      },
+      "production|opus-4.6": {
+        "answer_rows": 6,
+        "non_exact_count": 2,
+        "full_band_count": 0,
+        "invalid_or_missing_count": 0,
+        "non_exact_rate": 0.333
+      },
+      "pure|gpt-5.4": {
+        "answer_rows": 6,
+        "non_exact_count": 2,
+        "full_band_count": 1,
+        "invalid_or_missing_count": 0,
+        "non_exact_rate": 0.333
+      },
+      "pure|opus-4.6": {
+        "answer_rows": 6,
+        "non_exact_count": 2,
+        "full_band_count": 0,
+        "invalid_or_missing_count": 0,
+        "non_exact_rate": 0.333
+      },
+      "zero|gpt-5.4": {
+        "answer_rows": 6,
+        "non_exact_count": 2,
+        "full_band_count": 0,
+        "invalid_or_missing_count": 1,
+        "non_exact_rate": 0.333
+      },
+      "zero|opus-4.6": {
+        "answer_rows": 6,
+        "non_exact_count": 5,
+        "full_band_count": 1,
+        "invalid_or_missing_count": 0,
+        "non_exact_rate": 0.833
+      }
+    },
+    "claim_audit_boundary_flags": {
+      "evaluated_rows": 24,
+      "flagged_rows": 12,
+      "flagged_rate": 0.5,
+      "flag_category_counts": {
+        "stale_or_wrong_thread_selection": 7,
+        "session_or_timeline_boundary_blur": 5,
+        "evidence_surface_boundary_miss": 1
+      }
+    }
+  },
+  "caveats": [
+    "Boundary-sensitive classification is rule-based on probe metadata; it does not relabel rubric truth.",
+    "Claim-audit boundary flags exist only for the high-priority subset and are null for rows outside that markdown audit scope.",
+    "This audit is descriptive and keeps architecture ranking out of scope."
+  ],
+  "checks": [
+    {
+      "probe_id": "R03",
+      "condition": "production",
+      "target_slice": "both",
+      "referenceability": "medium",
+      "retrieval_character": "search-like",
+      "probe_types": [
+        "last_thread",
+        "concept_recall",
+        "next_steps"
+      ],
+      "gpt_5_4": {
+        "pair_category": "adjacent",
+        "judge_a_verdict": "partial",
+        "judge_b_verdict": "pass",
+        "tool_calls": 12,
+        "is_non_exact": true,
+        "is_invalid_or_missing": false,
+        "claim_audit": {
+          "failure_excerpt": "too confident on \"structurally shipped.\"",
+          "boundary_flag_categories": [],
+          "is_boundary_flagged": false
+        }
+      },
+      "opus_4_6": {
+        "pair_category": "adjacent",
+        "judge_a_verdict": "pass",
+        "judge_b_verdict": "partial",
+        "tool_calls": 49,
+        "is_non_exact": true,
+        "is_invalid_or_missing": false,
+        "claim_audit": {
+          "failure_excerpt": "slightly stale on tail-end onboarding/provider shift.",
+          "boundary_flag_categories": [
+            "stale_or_wrong_thread_selection"
+          ],
+          "is_boundary_flagged": true
+        }
+      }
+    },
+    {
+      "probe_id": "R03",
+      "condition": "pure",
+      "target_slice": "both",
+      "referenceability": "medium",
+      "retrieval_character": "search-like",
+      "probe_types": [
+        "last_thread",
+        "concept_recall",
+        "next_steps"
+      ],
+      "gpt_5_4": {
+        "pair_category": "full_band",
+        "judge_a_verdict": "fail",
+        "judge_b_verdict": "pass",
+        "tool_calls": 22,
+        "is_non_exact": true,
+        "is_invalid_or_missing": false,
+        "claim_audit": {
+          "failure_excerpt": "slightly too confident on synthesis closure.",
+          "boundary_flag_categories": [],
+          "is_boundary_flagged": false
+        }
+      },
+      "opus_4_6": {
+        "pair_category": "adjacent",
+        "judge_a_verdict": "partial",
+        "judge_b_verdict": "fail",
+        "tool_calls": 45,
+        "is_non_exact": true,
+        "is_invalid_or_missing": false,
+        "claim_audit": {
+          "failure_excerpt": "underplays later live synthesis/debug thread.",
+          "boundary_flag_categories": [],
+          "is_boundary_flagged": false
+        }
+      }
+    },
+    {
+      "probe_id": "R03",
+      "condition": "zero",
+      "target_slice": "both",
+      "referenceability": "medium",
+      "retrieval_character": "search-like",
+      "probe_types": [
+        "last_thread",
+        "concept_recall",
+        "next_steps"
+      ],
+      "gpt_5_4": {
+        "pair_category": "exact",
+        "judge_a_verdict": "partial",
+        "judge_b_verdict": "partial",
+        "tool_calls": 23,
+        "is_non_exact": false,
+        "is_invalid_or_missing": false,
+        "claim_audit": {
+          "failure_excerpt": "understates later real-profile `finalize_memex` regression.",
+          "boundary_flag_categories": [
+            "stale_or_wrong_thread_selection"
+          ],
+          "is_boundary_flagged": true
+        }
+      },
+      "opus_4_6": {
+        "pair_category": "adjacent",
+        "judge_a_verdict": "partial",
+        "judge_b_verdict": "fail",
+        "tool_calls": 32,
+        "is_non_exact": true,
+        "is_invalid_or_missing": false,
+        "claim_audit": {
+          "failure_excerpt": "stale mid-day snapshot plus wrong landed-status.",
+          "boundary_flag_categories": [
+            "stale_or_wrong_thread_selection"
+          ],
+          "is_boundary_flagged": true
+        }
+      }
+    },
+    {
+      "probe_id": "R07",
+      "condition": "production",
+      "target_slice": "historical",
+      "referenceability": "high",
+      "retrieval_character": "search-like",
+      "probe_types": [
+        "time_window",
+        "cross_source",
+        "delta"
+      ],
+      "gpt_5_4": {
+        "pair_category": "adjacent",
+        "judge_a_verdict": "partial",
+        "judge_b_verdict": "pass",
+        "tool_calls": 22,
+        "is_non_exact": true,
+        "is_invalid_or_missing": false,
+        "claim_audit": {
+          "failure_excerpt": "overprecision on counts.",
+          "boundary_flag_categories": [],
+          "is_boundary_flagged": false
+        }
+      },
+      "opus_4_6": {
+        "pair_category": "exact",
+        "judge_a_verdict": "partial",
+        "judge_b_verdict": "partial",
+        "tool_calls": 17,
+        "is_non_exact": false,
+        "is_invalid_or_missing": false,
+        "claim_audit": {
+          "failure_excerpt": "numerical inflation and timeline compression.",
+          "boundary_flag_categories": [
+            "session_or_timeline_boundary_blur"
+          ],
+          "is_boundary_flagged": true
+        }
+      }
+    },
+    {
+      "probe_id": "R07",
+      "condition": "pure",
+      "target_slice": "historical",
+      "referenceability": "high",
+      "retrieval_character": "search-like",
+      "probe_types": [
+        "time_window",
+        "cross_source",
+        "delta"
+      ],
+      "gpt_5_4": {
+        "pair_category": "exact",
+        "judge_a_verdict": "partial",
+        "judge_b_verdict": "partial",
+        "tool_calls": 27,
+        "is_non_exact": false,
+        "is_invalid_or_missing": false,
+        "claim_audit": {
+          "failure_excerpt": "fabricated recovery shape and overtrusted IDs.",
+          "boundary_flag_categories": [],
+          "is_boundary_flagged": false
+        }
+      },
+      "opus_4_6": {
+        "pair_category": "adjacent",
+        "judge_a_verdict": "pass",
+        "judge_b_verdict": "partial",
+        "tool_calls": 30,
+        "is_non_exact": true,
+        "is_invalid_or_missing": false,
+        "claim_audit": {
+          "failure_excerpt": "overprecision around IDs.",
+          "boundary_flag_categories": [],
+          "is_boundary_flagged": false
+        }
+      }
+    },
+    {
+      "probe_id": "R07",
+      "condition": "zero",
+      "target_slice": "historical",
+      "referenceability": "high",
+      "retrieval_character": "search-like",
+      "probe_types": [
+        "time_window",
+        "cross_source",
+        "delta"
+      ],
+      "gpt_5_4": {
+        "pair_category": "exact",
+        "judge_a_verdict": "fail",
+        "judge_b_verdict": "fail",
+        "tool_calls": 23,
+        "is_non_exact": false,
+        "is_invalid_or_missing": false,
+        "claim_audit": {
+          "failure_excerpt": "wrong evidence surface and false no-traces premise.",
+          "boundary_flag_categories": [
+            "evidence_surface_boundary_miss"
+          ],
+          "is_boundary_flagged": true
+        }
+      },
+      "opus_4_6": {
+        "pair_category": "exact",
+        "judge_a_verdict": "partial",
+        "judge_b_verdict": "partial",
+        "tool_calls": 29,
+        "is_non_exact": false,
+        "is_invalid_or_missing": false,
+        "claim_audit": {
+          "failure_excerpt": "generic and under-reconstructed.",
+          "boundary_flag_categories": [],
+          "is_boundary_flagged": false
+        }
+      }
+    },
+    {
+      "probe_id": "R13",
+      "condition": "production",
+      "target_slice": "historical",
+      "referenceability": "low",
+      "retrieval_character": "reconstruction-like",
+      "probe_types": [
+        "reconstruction",
+        "temporal_update"
+      ],
+      "gpt_5_4": {
+        "pair_category": "adjacent",
+        "judge_a_verdict": "partial",
+        "judge_b_verdict": "pass",
+        "tool_calls": 24,
+        "is_non_exact": true,
+        "is_invalid_or_missing": false,
+        "claim_audit": null
+      },
+      "opus_4_6": {
+        "pair_category": "exact",
+        "judge_a_verdict": "pass",
+        "judge_b_verdict": "pass",
+        "tool_calls": 43,
+        "is_non_exact": false,
+        "is_invalid_or_missing": false,
+        "claim_audit": null
+      }
+    },
+    {
+      "probe_id": "R13",
+      "condition": "pure",
+      "target_slice": "historical",
+      "referenceability": "low",
+      "retrieval_character": "reconstruction-like",
+      "probe_types": [
+        "reconstruction",
+        "temporal_update"
+      ],
+      "gpt_5_4": {
+        "pair_category": "exact",
+        "judge_a_verdict": "pass",
+        "judge_b_verdict": "pass",
+        "tool_calls": 22,
+        "is_non_exact": false,
+        "is_invalid_or_missing": false,
+        "claim_audit": null
+      },
+      "opus_4_6": {
+        "pair_category": "exact",
+        "judge_a_verdict": "pass",
+        "judge_b_verdict": "pass",
+        "tool_calls": 31,
+        "is_non_exact": false,
+        "is_invalid_or_missing": false,
+        "claim_audit": null
+      }
+    },
+    {
+      "probe_id": "R13",
+      "condition": "zero",
+      "target_slice": "historical",
+      "referenceability": "low",
+      "retrieval_character": "reconstruction-like",
+      "probe_types": [
+        "reconstruction",
+        "temporal_update"
+      ],
+      "gpt_5_4": {
+        "pair_category": "adjacent",
+        "judge_a_verdict": "partial",
+        "judge_b_verdict": "pass",
+        "tool_calls": 15,
+        "is_non_exact": true,
+        "is_invalid_or_missing": false,
+        "claim_audit": null
+      },
+      "opus_4_6": {
+        "pair_category": "adjacent",
+        "judge_a_verdict": "pass",
+        "judge_b_verdict": "partial",
+        "tool_calls": 36,
+        "is_non_exact": true,
+        "is_invalid_or_missing": false,
+        "claim_audit": null
+      }
+    },
+    {
+      "probe_id": "R14",
+      "condition": "production",
+      "target_slice": "tip",
+      "referenceability": "high",
+      "retrieval_character": "search-like",
+      "probe_types": [
+        "search",
+        "temporal_update"
+      ],
+      "gpt_5_4": {
+        "pair_category": "invalid_or_missing",
+        "judge_a_verdict": "partial",
+        "judge_b_verdict": "invalid",
+        "tool_calls": 19,
+        "is_non_exact": false,
+        "is_invalid_or_missing": true,
+        "claim_audit": {
+          "failure_excerpt": "right narrow session, but overclaims durable-memory writes and misses broader observe-layer live thread.",
+          "boundary_flag_categories": [],
+          "is_boundary_flagged": false
+        }
+      },
+      "opus_4_6": {
+        "pair_category": "exact",
+        "judge_a_verdict": "partial",
+        "judge_b_verdict": "partial",
+        "tool_calls": 31,
+        "is_non_exact": false,
+        "is_invalid_or_missing": false,
+        "claim_audit": {
+          "failure_excerpt": "chronology overpacked and specifics embellished.",
+          "boundary_flag_categories": [
+            "session_or_timeline_boundary_blur"
+          ],
+          "is_boundary_flagged": true
+        }
+      }
+    },
+    {
+      "probe_id": "R14",
+      "condition": "pure",
+      "target_slice": "tip",
+      "referenceability": "high",
+      "retrieval_character": "search-like",
+      "probe_types": [
+        "search",
+        "temporal_update"
+      ],
+      "gpt_5_4": {
+        "pair_category": "adjacent",
+        "judge_a_verdict": "partial",
+        "judge_b_verdict": "pass",
+        "tool_calls": 22,
+        "is_non_exact": true,
+        "is_invalid_or_missing": false,
+        "claim_audit": {
+          "failure_excerpt": "good core recall plus unverified persistence claim.",
+          "boundary_flag_categories": [],
+          "is_boundary_flagged": false
+        }
+      },
+      "opus_4_6": {
+        "pair_category": "exact",
+        "judge_a_verdict": "partial",
+        "judge_b_verdict": "partial",
+        "tool_calls": 38,
+        "is_non_exact": false,
+        "is_invalid_or_missing": false,
+        "claim_audit": {
+          "failure_excerpt": "mostly right, but file-level detail may be embellished.",
+          "boundary_flag_categories": [],
+          "is_boundary_flagged": false
+        }
+      }
+    },
+    {
+      "probe_id": "R14",
+      "condition": "zero",
+      "target_slice": "tip",
+      "referenceability": "high",
+      "retrieval_character": "search-like",
+      "probe_types": [
+        "search",
+        "temporal_update"
+      ],
+      "gpt_5_4": {
+        "pair_category": "invalid_or_missing",
+        "judge_a_verdict": "partial",
+        "judge_b_verdict": "invalid",
+        "tool_calls": 18,
+        "is_non_exact": false,
+        "is_invalid_or_missing": true,
+        "claim_audit": {
+          "failure_excerpt": "mixes real architecture read with unverified durable-memory write.",
+          "boundary_flag_categories": [],
+          "is_boundary_flagged": false
+        }
+      },
+      "opus_4_6": {
+        "pair_category": "adjacent",
+        "judge_a_verdict": "pass",
+        "judge_b_verdict": "partial",
+        "tool_calls": 27,
+        "is_non_exact": true,
+        "is_invalid_or_missing": false,
+        "claim_audit": {
+          "failure_excerpt": "slight session blending, mostly grounded.",
+          "boundary_flag_categories": [
+            "session_or_timeline_boundary_blur"
+          ],
+          "is_boundary_flagged": true
+        }
+      }
+    },
+    {
+      "probe_id": "R15",
+      "condition": "production",
+      "target_slice": "tip",
+      "referenceability": "high",
+      "retrieval_character": "search-like",
+      "probe_types": [
+        "object_continuity",
+        "search"
+      ],
+      "gpt_5_4": {
+        "pair_category": "exact",
+        "judge_a_verdict": "partial",
+        "judge_b_verdict": "partial",
+        "tool_calls": 16,
+        "is_non_exact": false,
+        "is_invalid_or_missing": false,
+        "claim_audit": null
+      },
+      "opus_4_6": {
+        "pair_category": "adjacent",
+        "judge_a_verdict": "pass",
+        "judge_b_verdict": "partial",
+        "tool_calls": 36,
+        "is_non_exact": true,
+        "is_invalid_or_missing": false,
+        "claim_audit": null
+      }
+    },
+    {
+      "probe_id": "R15",
+      "condition": "pure",
+      "target_slice": "tip",
+      "referenceability": "high",
+      "retrieval_character": "search-like",
+      "probe_types": [
+        "object_continuity",
+        "search"
+      ],
+      "gpt_5_4": {
+        "pair_category": "exact",
+        "judge_a_verdict": "partial",
+        "judge_b_verdict": "partial",
+        "tool_calls": 19,
+        "is_non_exact": false,
+        "is_invalid_or_missing": false,
+        "claim_audit": null
+      },
+      "opus_4_6": {
+        "pair_category": "exact",
+        "judge_a_verdict": "partial",
+        "judge_b_verdict": "partial",
+        "tool_calls": 46,
+        "is_non_exact": false,
+        "is_invalid_or_missing": false,
+        "claim_audit": null
+      }
+    },
+    {
+      "probe_id": "R15",
+      "condition": "zero",
+      "target_slice": "tip",
+      "referenceability": "high",
+      "retrieval_character": "search-like",
+      "probe_types": [
+        "object_continuity",
+        "search"
+      ],
+      "gpt_5_4": {
+        "pair_category": "exact",
+        "judge_a_verdict": "pass",
+        "judge_b_verdict": "pass",
+        "tool_calls": 11,
+        "is_non_exact": false,
+        "is_invalid_or_missing": false,
+        "claim_audit": null
+      },
+      "opus_4_6": {
+        "pair_category": "adjacent",
+        "judge_a_verdict": "pass",
+        "judge_b_verdict": "partial",
+        "tool_calls": 33,
+        "is_non_exact": true,
+        "is_invalid_or_missing": false,
+        "claim_audit": null
+      }
+    },
+    {
+      "probe_id": "R19",
+      "condition": "production",
+      "target_slice": "tip",
+      "referenceability": "medium",
+      "retrieval_character": "search-like",
+      "probe_types": [
+        "search",
+        "object_continuity",
+        "temporal_update"
+      ],
+      "gpt_5_4": {
+        "pair_category": "exact",
+        "judge_a_verdict": "fail",
+        "judge_b_verdict": "fail",
+        "tool_calls": 17,
+        "is_non_exact": false,
+        "is_invalid_or_missing": false,
+        "claim_audit": {
+          "failure_excerpt": "stale thread selection from older LM Studio episode.",
+          "boundary_flag_categories": [
+            "stale_or_wrong_thread_selection"
+          ],
+          "is_boundary_flagged": true
+        }
+      },
+      "opus_4_6": {
+        "pair_category": "exact",
+        "judge_a_verdict": "fail",
+        "judge_b_verdict": "fail",
+        "tool_calls": 0,
+        "is_non_exact": false,
+        "is_invalid_or_missing": false,
+        "claim_audit": {
+          "failure_excerpt": "generation timeout, not reasoning miss.",
+          "boundary_flag_categories": [],
+          "is_boundary_flagged": false
+        }
+      }
+    },
+    {
+      "probe_id": "R19",
+      "condition": "pure",
+      "target_slice": "tip",
+      "referenceability": "medium",
+      "retrieval_character": "search-like",
+      "probe_types": [
+        "search",
+        "object_continuity",
+        "temporal_update"
+      ],
+      "gpt_5_4": {
+        "pair_category": "exact",
+        "judge_a_verdict": "partial",
+        "judge_b_verdict": "partial",
+        "tool_calls": 28,
+        "is_non_exact": false,
+        "is_invalid_or_missing": false,
+        "claim_audit": {
+          "failure_excerpt": "right thread, wrong ordering.",
+          "boundary_flag_categories": [
+            "stale_or_wrong_thread_selection"
+          ],
+          "is_boundary_flagged": true
+        }
+      },
+      "opus_4_6": {
+        "pair_category": "exact",
+        "judge_a_verdict": "partial",
+        "judge_b_verdict": "partial",
+        "tool_calls": 43,
+        "is_non_exact": false,
+        "is_invalid_or_missing": false,
+        "claim_audit": {
+          "failure_excerpt": "stale-session selection plus embellished reconstruction.",
+          "boundary_flag_categories": [
+            "stale_or_wrong_thread_selection"
+          ],
+          "is_boundary_flagged": true
+        }
+      }
+    },
+    {
+      "probe_id": "R19",
+      "condition": "zero",
+      "target_slice": "tip",
+      "referenceability": "medium",
+      "retrieval_character": "search-like",
+      "probe_types": [
+        "search",
+        "object_continuity",
+        "temporal_update"
+      ],
+      "gpt_5_4": {
+        "pair_category": "adjacent",
+        "judge_a_verdict": "fail",
+        "judge_b_verdict": "partial",
+        "tool_calls": 13,
+        "is_non_exact": true,
+        "is_invalid_or_missing": false,
+        "claim_audit": {
+          "failure_excerpt": "merges older interrupted chat with background automation and misses late-3/21 work.",
+          "boundary_flag_categories": [
+            "stale_or_wrong_thread_selection",
+            "session_or_timeline_boundary_blur"
+          ],
+          "is_boundary_flagged": true
+        }
+      },
+      "opus_4_6": {
+        "pair_category": "full_band",
+        "judge_a_verdict": "pass",
+        "judge_b_verdict": "fail",
+        "tool_calls": 27,
+        "is_non_exact": true,
+        "is_invalid_or_missing": false,
+        "claim_audit": {
+          "failure_excerpt": "small timestamp drift and partial-download overstatement, thread itself may be right.",
+          "boundary_flag_categories": [
+            "session_or_timeline_boundary_blur"
+          ],
+          "is_boundary_flagged": true
+        }
+      }
+    }
+  ]
+}

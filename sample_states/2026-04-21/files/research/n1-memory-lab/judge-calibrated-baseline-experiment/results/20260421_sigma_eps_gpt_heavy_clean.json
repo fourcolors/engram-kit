@@ -1,0 +1,45 @@
+{
+  "source": {
+    "reps": [
+      "ne13-real-15d-gpt54-final-20260420T071500Z",
+      "ne13-15d-gpt54heavy-intrarater-rep1-20260421T185347Z",
+      "ne13-15d-gpt54heavy-intrarater-rep2-20260421T185347Z",
+      "ne13-15d-gpt54heavy-intrarater-rep3-20260421T185347Z"
+    ],
+    "judge_model": "gpt-5.4 (NOT gpt-5.4-mini)",
+    "computed_on": "2026-04-21",
+    "note": "Clean GPT intra-rater set. Supersedes the retracted Apr 20 GPT intra-rater (gpt-5.4 baseline vs gpt-5.4-mini rerun)."
+  },
+  "cells_common": 57,
+  "flip_structure": {
+    "all_same": 35,
+    "any_flip": 22,
+    "adjacent_band": 20,
+    "full_band": 2
+  },
+  "sigma_eps_3level": {
+    "cell_wise_pstdev": 0.1836,
+    "pooled_raw_sd": 0.5053
+  },
+  "binary_useful_vs_fail": {
+    "same_cells": 41,
+    "flip_cells": 16,
+    "sigma_eps_collapsed": 0.1262
+  },
+  "pairwise_kappa_weighted": {
+    "original__rep1": 0.5547,
+    "original__rep2": 0.3563,
+    "original__rep3": 0.5575,
+    "rep1__rep2": 0.4811,
+    "rep1__rep3": 0.7127,
+    "rep2__rep3": 0.4042
+  },
+  "per_probe_always_flip": [
+    "R03"
+  ],
+  "per_condition_flip_rate": {
+    "production": 0.3158,
+    "pure": 0.4211,
+    "zero": 0.4211
+  }
+}

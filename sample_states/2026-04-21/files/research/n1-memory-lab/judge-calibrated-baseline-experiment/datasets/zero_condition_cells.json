@@ -1,0 +1,358 @@
+{
+  "schema": {
+    "name": "zero_condition_cells",
+    "version": 1,
+    "row_granularity": "one row per probe under condition=zero with two answer-source blocks",
+    "sources": [
+      "results/20260421_calibration_subset_packets.json",
+      "results/20260421_calibration_cell_matrix.json",
+      "results/20260421_high_priority_claim_audit.md",
+      "datasets/probe_metadata.json"
+    ]
+  },
+  "summary": {
+    "zero_cell_count": 10,
+    "zero_answer_count": 20,
+    "probe_ids": [
+      "R03",
+      "R05",
+      "R07",
+      "R08",
+      "R09",
+      "R13",
+      "R14",
+      "R15",
+      "R18",
+      "R19"
+    ],
+    "target_slice_counts": {
+      "both": 1,
+      "landscape": 2,
+      "historical": 3,
+      "tip": 4
+    },
+    "tool_calls": {
+      "total": 525,
+      "mean_per_answer": 26.25,
+      "min": 8,
+      "max": 75,
+      "answers_with_tool_calls_gt_0": 20,
+      "share_with_tool_calls_gt_0": 1.0
+    },
+    "pair_category_counts": {
+      "exact": 7,
+      "adjacent": 11,
+      "invalid_or_missing": 1,
+      "full_band": 1
+    },
+    "non_exact_count": 12,
+    "non_exact_rate": 0.6,
+    "judge_verdict_counts_combined": {
+      "partial": 18,
+      "fail": 11,
+      "pass": 10,
+      "invalid": 1
+    },
+    "smoke_checks": {
+      "all_rows_condition_zero": true,
+      "all_answers_nonempty": true,
+      "all_answers_have_two_judges": true,
+      "all_answers_have_judge_artifact_paths": true,
+      "all_answers_have_tool_calls_gt_0": true,
+      "matrix_join_complete": true
+    },
+    "comparison_vs_other_conditions": {
+      "production": {
+        "answers": 20,
+        "non_exact": 8,
+        "invalid_or_missing": 1,
+        "mean_tools_per_answer": 26.4,
+        "non_exact_rate": 0.4,
+        "invalid_or_missing_rate": 0.05
+      },
+      "pure": {
+        "answers": 20,
+        "non_exact": 6,
+        "invalid_or_missing": 0,
+        "mean_tools_per_answer": 28.25,
+        "non_exact_rate": 0.3,
+        "invalid_or_missing_rate": 0.0
+      },
+      "zero": {
+        "answers": 20,
+        "non_exact": 12,
+        "invalid_or_missing": 1,
+        "mean_tools_per_answer": 26.25,
+        "non_exact_rate": 0.6,
+        "invalid_or_missing_rate": 0.05
+      }
+    }
+  },
+  "caveats": [
+    "This is a bounded-packet smoke test over the 30-cell calibration subset only; it is not a full-condition evaluation.",
+    "One zero answer row has invalid_or_missing cross-judge category (R14, gpt-5.4), so agreement-based metrics should be read with that hole explicitly in mind.",
+    "High-priority claim audit rows for zero include stale-snapshot and wrong-evidence-surface failures; these are reported as caveats, not relabeled here."
+  ],
+  "cells": [
+    {
+      "probe_id": "R03",
+      "target_slice": "both",
+      "referenceability": "medium",
+      "retrieval_character": "search-like",
+      "gpt_5_4": {
+        "tool_calls": 23,
+        "answer_length": 1506,
+        "judge_a": "gpt-5.4_judge",
+        "judge_a_verdict": "partial",
+        "judge_b": "opus-4.6_judge",
+        "judge_b_verdict": "partial",
+        "pair_category": "exact",
+        "claim_audit_excerpt": "latest work was onboarding/setup/provider strategy, not synthesis (`verified`); Codex first + claude-login warning + `--yes` path (`verified`); synthesis was \"mostly shipped\" with bug1 closed and bug2 open (`inferred`, stale); architecture/default-provider cleanup still open (`verified`). Failure: understates later real-profile `finalize_memex` regression. Human-review question: should \"mostly shipped\" become \"shipped, then hit a fresh validation failure\"?"
+      },
+      "opus_4_6": {
+        "tool_calls": 32,
+        "answer_length": 3847,
+        "judge_a": "opus-4.6_judge",
+        "judge_a_verdict": "partial",
+        "judge_b": "gpt-family_judge",
+        "judge_b_verdict": "fail",
+        "pair_category": "adjacent",
+        "claim_audit_excerpt": "`finalize_memex` rewrite had landed (`contradicted`); HEAD pinned to mid-day `b609bcf` (`contradicted`); later onboarding/provider commits ignored (`contradicted`); synthesis not actually closed (`verified`). Failure: stale mid-day snapshot plus wrong landed-status. Human-review question: why does the answer stop before later 18:49Z and 23:24Z state?"
+      }
+    },
+    {
+      "probe_id": "R05",
+      "target_slice": "landscape",
+      "referenceability": "medium",
+      "retrieval_character": "search-like",
+      "gpt_5_4": {
+        "tool_calls": 39,
+        "answer_length": 7868,
+        "judge_a": "gpt-5.4_judge",
+        "judge_a_verdict": "partial",
+        "judge_b": "opus-4.6_judge",
+        "judge_b_verdict": "pass",
+        "pair_category": "adjacent",
+        "claim_audit_excerpt": null
+      },
+      "opus_4_6": {
+        "tool_calls": 58,
+        "answer_length": 8797,
+        "judge_a": "opus-4.6_judge",
+        "judge_a_verdict": "pass",
+        "judge_b": "gpt-family_judge",
+        "judge_b_verdict": "partial",
+        "pair_category": "adjacent",
+        "claim_audit_excerpt": null
+      }
+    },
+    {
+      "probe_id": "R07",
+      "target_slice": "historical",
+      "referenceability": "high",
+      "retrieval_character": "search-like",
+      "gpt_5_4": {
+        "tool_calls": 23,
+        "answer_length": 1638,
+        "judge_a": "gpt-5.4_judge",
+        "judge_a_verdict": "fail",
+        "judge_b": "opus-4.6_judge",
+        "judge_b_verdict": "fail",
+        "pair_category": "exact",
+        "claim_audit_excerpt": "`syke.db` sparse / MEMEX-only framing (`partly uncheckable`); \"no accessible session traces\" and \"no recoverable threads\" (`contradicted` by corpus); future-dated MEMEX references correctly ignored (`verified`); answer not restart-capable. Failure: wrong evidence surface and false no-traces premise. Human-review question: why not use accessible transcript corpus and git anchor?"
+      },
+      "opus_4_6": {
+        "tool_calls": 29,
+        "answer_length": 2361,
+        "judge_a": "opus-4.6_judge",
+        "judge_a_verdict": "partial",
+        "judge_b": "gpt-family_judge",
+        "judge_b_verdict": "partial",
+        "pair_category": "exact",
+        "claim_audit_excerpt": "major Observe/memory threads present in slice (`verified`); answer too sparse / not restart-capable (`inferred`); overly cautious instead of restoring live thread (`unsupported`); timeline routing fuzzy (`uncheckable`). Failure: generic and under-reconstructed. Human-review question: should it surface concrete Observe and real-time-distribution threads instead of stopping at sparse memory?"
+      }
+    },
+    {
+      "probe_id": "R08",
+      "target_slice": "tip",
+      "referenceability": "low",
+      "retrieval_character": "reconstruction-like",
+      "gpt_5_4": {
+        "tool_calls": 8,
+        "answer_length": 1340,
+        "judge_a": "gpt-5.4_judge",
+        "judge_a_verdict": "fail",
+        "judge_b": "opus-4.6_judge",
+        "judge_b_verdict": "partial",
+        "pair_category": "adjacent",
+        "claim_audit_excerpt": null
+      },
+      "opus_4_6": {
+        "tool_calls": 9,
+        "answer_length": 976,
+        "judge_a": "opus-4.6_judge",
+        "judge_a_verdict": "fail",
+        "judge_b": "gpt-family_judge",
+        "judge_b_verdict": "fail",
+        "pair_category": "exact",
+        "claim_audit_excerpt": null
+      }
+    },
+    {
+      "probe_id": "R09",
+      "target_slice": "landscape",
+      "referenceability": "medium",
+      "retrieval_character": "search-like",
+      "gpt_5_4": {
+        "tool_calls": 13,
+        "answer_length": 3161,
+        "judge_a": "gpt-5.4_judge",
+        "judge_a_verdict": "fail",
+        "judge_b": "opus-4.6_judge",
+        "judge_b_verdict": "partial",
+        "pair_category": "adjacent",
+        "claim_audit_excerpt": null
+      },
+      "opus_4_6": {
+        "tool_calls": 10,
+        "answer_length": 1199,
+        "judge_a": "opus-4.6_judge",
+        "judge_a_verdict": "fail",
+        "judge_b": "gpt-family_judge",
+        "judge_b_verdict": "fail",
+        "pair_category": "exact",
+        "claim_audit_excerpt": null
+      }
+    },
+    {
+      "probe_id": "R13",
+      "target_slice": "historical",
+      "referenceability": "low",
+      "retrieval_character": "reconstruction-like",
+      "gpt_5_4": {
+        "tool_calls": 15,
+        "answer_length": 3034,
+        "judge_a": "gpt-5.4_judge",
+        "judge_a_verdict": "partial",
+        "judge_b": "opus-4.6_judge",
+        "judge_b_verdict": "pass",
+        "pair_category": "adjacent",
+        "claim_audit_excerpt": null
+      },
+      "opus_4_6": {
+        "tool_calls": 36,
+        "answer_length": 5326,
+        "judge_a": "opus-4.6_judge",
+        "judge_a_verdict": "pass",
+        "judge_b": "gpt-family_judge",
+        "judge_b_verdict": "partial",
+        "pair_category": "adjacent",
+        "claim_audit_excerpt": null
+      }
+    },
+    {
+      "probe_id": "R14",
+      "target_slice": "tip",
+      "referenceability": "high",
+      "retrieval_character": "search-like",
+      "gpt_5_4": {
+        "tool_calls": 18,
+        "answer_length": 1336,
+        "judge_a": "gpt-5.4_judge",
+        "judge_a_verdict": "partial",
+        "judge_b": "opus-4.6_judge",
+        "judge_b_verdict": "invalid",
+        "pair_category": "invalid_or_missing",
+        "claim_audit_excerpt": "green test state + uncommitted observe/sense work (`verified`); cold-start replay not settled / syke connect incomplete (`inferred`); SQLite harnesses may need separate handling (`speculative`); new memory + MEMEX projection (`unsupported`). Failure: mixes real architecture read with unverified durable-memory write. Human-review question: are architectural blockers evidence or model inference?"
+      },
+      "opus_4_6": {
+        "tool_calls": 27,
+        "answer_length": 1823,
+        "judge_a": "opus-4.6_judge",
+        "judge_a_verdict": "pass",
+        "judge_b": "gpt-family_judge",
+        "judge_b_verdict": "partial",
+        "pair_category": "adjacent",
+        "claim_audit_excerpt": "`ses_307e0d6d` Mar 16 evening -> Mar 17 (`verified`); observe tests + sandbox investigation + 5 gaps (`verified/inferred`); 17 successful synthesis cycles earlier that day (`verified/inferred`); Kimi-on-Azure failure spiral (`verified/inferred`). Failure: slight session blending, mostly grounded. Human-review question: are timestamps and 17-cycle claim anchored cleanly or stitched from adjacent logs?"
+      }
+    },
+    {
+      "probe_id": "R15",
+      "target_slice": "tip",
+      "referenceability": "high",
+      "retrieval_character": "search-like",
+      "gpt_5_4": {
+        "tool_calls": 11,
+        "answer_length": 2001,
+        "judge_a": "gpt-5.4_judge",
+        "judge_a_verdict": "pass",
+        "judge_b": "opus-4.6_judge",
+        "judge_b_verdict": "pass",
+        "pair_category": "exact",
+        "claim_audit_excerpt": null
+      },
+      "opus_4_6": {
+        "tool_calls": 33,
+        "answer_length": 1682,
+        "judge_a": "opus-4.6_judge",
+        "judge_a_verdict": "pass",
+        "judge_b": "gpt-family_judge",
+        "judge_b_verdict": "partial",
+        "pair_category": "adjacent",
+        "claim_audit_excerpt": null
+      }
+    },
+    {
+      "probe_id": "R18",
+      "target_slice": "historical",
+      "referenceability": "low",
+      "retrieval_character": "reconstruction-like",
+      "gpt_5_4": {
+        "tool_calls": 26,
+        "answer_length": 7383,
+        "judge_a": "gpt-5.4_judge",
+        "judge_a_verdict": "partial",
+        "judge_b": "opus-4.6_judge",
+        "judge_b_verdict": "pass",
+        "pair_category": "adjacent",
+        "claim_audit_excerpt": null
+      },
+      "opus_4_6": {
+        "tool_calls": 75,
+        "answer_length": 3922,
+        "judge_a": "opus-4.6_judge",
+        "judge_a_verdict": "partial",
+        "judge_b": "gpt-family_judge",
+        "judge_b_verdict": "partial",
+        "pair_category": "exact",
+        "claim_audit_excerpt": null
+      }
+    },
+    {
+      "probe_id": "R19",
+      "target_slice": "tip",
+      "referenceability": "medium",
+      "retrieval_character": "search-like",
+      "gpt_5_4": {
+        "tool_calls": 13,
+        "answer_length": 1733,
+        "judge_a": "gpt-5.4_judge",
+        "judge_a_verdict": "fail",
+        "judge_b": "opus-4.6_judge",
+        "judge_b_verdict": "partial",
+        "pair_category": "adjacent",
+        "claim_audit_excerpt": "background synthesis run at 23:57-23:59 with opencode ingestion (`uncheckable`); most recent direct work was Mar 20 interrupted Codex turn (`contradicted`); no later 3/21 direct work (`contradicted`). Failure: merges older interrupted chat with background automation and misses late-3/21 work. Human-review question: why does answer stop at Mar 20 interruption when anchor shows later March 21 activity?"
+      },
+      "opus_4_6": {
+        "tool_calls": 27,
+        "answer_length": 1697,
+        "judge_a": "opus-4.6_judge",
+        "judge_a_verdict": "pass",
+        "judge_b": "gpt-family_judge",
+        "judge_b_verdict": "fail",
+        "pair_category": "full_band",
+        "claim_audit_excerpt": "local LLM setup/benchmarking on M2 Max (`verified/inferred`); Qwen3.5-35B-A3B + partial Qwen3.5-9B + GUI scan limit (`mostly verified`, partial-download overclaim); M5 Max benchmark / bandwidth formula / MLX advantage (`verified/inferred`); end time slightly off (`minor contradiction`). Failure: small timestamp drift and partial-download overstatement, thread itself may be right. Human-review question: does slice support this as latest work, or just nearest adjacent LM Studio session?"
+      }
+    }
+  ]
+}

@@ -1,0 +1,448 @@
+{
+  "generated_at": "2026-04-21",
+  "task_id": "JCB-057",
+  "scope": "abstained_or_escalated_cells_only",
+  "proxy_abstention_rule": "abstain_or_escalate_proxy = audit_false_premise_signal OR triage_false_premise_signal OR matrix_severe_disagreement_signal",
+  "source_artifacts": [
+    "results/20260421_calibration_subset_triage.md",
+    "results/20260421_high_priority_claim_audit.md",
+    "results/20260421_calibration_cell_matrix.json",
+    "datasets/claim_audit_template.json"
+  ],
+  "cells": [
+    {
+      "cell_id": "R03::pure",
+      "probe_id": "R03",
+      "condition": "pure",
+      "triage_likely_cause": "rubric ambiguity",
+      "triage_priority": "high",
+      "high_priority_queue": true,
+      "triage_false_premise_keyword_hits": [],
+      "claim_audit": {
+        "audited": true,
+        "contradicted_count_total": 0,
+        "unsupported_count_total": 0,
+        "false_premise_keyword_hits": []
+      },
+      "matrix_pair_categories": {
+        "gpt_answer_pair_category": "full_band",
+        "opus_answer_pair_category": "adjacent",
+        "severe_disagreement": true,
+        "any_disagreement": true
+      },
+      "proxy_reasons": [
+        "matrix_severe_judge_disagreement"
+      ]
+    },
+    {
+      "cell_id": "R03::zero",
+      "probe_id": "R03",
+      "condition": "zero",
+      "triage_likely_cause": "packet insufficiency",
+      "triage_priority": "medium",
+      "high_priority_queue": false,
+      "triage_false_premise_keyword_hits": [],
+      "claim_audit": {
+        "audited": true,
+        "contradicted_count_total": 3,
+        "unsupported_count_total": 0,
+        "false_premise_keyword_hits": []
+      },
+      "matrix_pair_categories": {
+        "gpt_answer_pair_category": "exact",
+        "opus_answer_pair_category": "adjacent",
+        "severe_disagreement": false,
+        "any_disagreement": true
+      },
+      "proxy_reasons": [
+        "claim_audit_contradicted_or_false_premise_signal"
+      ]
+    },
+    {
+      "cell_id": "R05::production",
+      "probe_id": "R05",
+      "condition": "production",
+      "triage_likely_cause": "rubric ambiguity",
+      "triage_priority": "medium",
+      "high_priority_queue": false,
+      "triage_false_premise_keyword_hits": [],
+      "claim_audit": {
+        "audited": false,
+        "contradicted_count_total": 0,
+        "unsupported_count_total": 0,
+        "false_premise_keyword_hits": []
+      },
+      "matrix_pair_categories": {
+        "gpt_answer_pair_category": "adjacent",
+        "opus_answer_pair_category": "full_band",
+        "severe_disagreement": true,
+        "any_disagreement": true
+      },
+      "proxy_reasons": [
+        "matrix_severe_judge_disagreement"
+      ]
+    },
+    {
+      "cell_id": "R07::pure",
+      "probe_id": "R07",
+      "condition": "pure",
+      "triage_likely_cause": "rubric ambiguity",
+      "triage_priority": "medium-low",
+      "high_priority_queue": false,
+      "triage_false_premise_keyword_hits": [],
+      "claim_audit": {
+        "audited": true,
+        "contradicted_count_total": 0,
+        "unsupported_count_total": 2,
+        "false_premise_keyword_hits": [
+          "invented"
+        ]
+      },
+      "matrix_pair_categories": {
+        "gpt_answer_pair_category": "exact",
+        "opus_answer_pair_category": "adjacent",
+        "severe_disagreement": false,
+        "any_disagreement": true
+      },
+      "proxy_reasons": [
+        "claim_audit_contradicted_or_false_premise_signal"
+      ]
+    },
+    {
+      "cell_id": "R07::zero",
+      "probe_id": "R07",
+      "condition": "zero",
+      "triage_likely_cause": "answer quality",
+      "triage_priority": "high",
+      "high_priority_queue": true,
+      "triage_false_premise_keyword_hits": [],
+      "claim_audit": {
+        "audited": true,
+        "contradicted_count_total": 1,
+        "unsupported_count_total": 1,
+        "false_premise_keyword_hits": [
+          "no recoverable threads",
+          "wrong evidence surface"
+        ]
+      },
+      "matrix_pair_categories": {
+        "gpt_answer_pair_category": "exact",
+        "opus_answer_pair_category": "exact",
+        "severe_disagreement": false,
+        "any_disagreement": false
+      },
+      "proxy_reasons": [
+        "claim_audit_contradicted_or_false_premise_signal"
+      ]
+    },
+    {
+      "cell_id": "R08::production",
+      "probe_id": "R08",
+      "condition": "production",
+      "triage_likely_cause": "answer quality",
+      "triage_priority": "high",
+      "high_priority_queue": true,
+      "triage_false_premise_keyword_hits": [],
+      "claim_audit": {
+        "audited": true,
+        "contradicted_count_total": 2,
+        "unsupported_count_total": 1,
+        "false_premise_keyword_hits": [
+          "misframes"
+        ]
+      },
+      "matrix_pair_categories": {
+        "gpt_answer_pair_category": "exact",
+        "opus_answer_pair_category": "exact",
+        "severe_disagreement": false,
+        "any_disagreement": false
+      },
+      "proxy_reasons": [
+        "claim_audit_contradicted_or_false_premise_signal"
+      ]
+    },
+    {
+      "cell_id": "R08::pure",
+      "probe_id": "R08",
+      "condition": "pure",
+      "triage_likely_cause": "answer quality",
+      "triage_priority": "high",
+      "high_priority_queue": true,
+      "triage_false_premise_keyword_hits": [
+        "wrong world-model"
+      ],
+      "claim_audit": {
+        "audited": true,
+        "contradicted_count_total": 1,
+        "unsupported_count_total": 0,
+        "false_premise_keyword_hits": []
+      },
+      "matrix_pair_categories": {
+        "gpt_answer_pair_category": "exact",
+        "opus_answer_pair_category": "exact",
+        "severe_disagreement": false,
+        "any_disagreement": false
+      },
+      "proxy_reasons": [
+        "claim_audit_contradicted_or_false_premise_signal",
+        "triage_false_premise_pattern_signal"
+      ]
+    },
+    {
+      "cell_id": "R08::zero",
+      "probe_id": "R08",
+      "condition": "zero",
+      "triage_likely_cause": "answer quality",
+      "triage_priority": "high",
+      "high_priority_queue": true,
+      "triage_false_premise_keyword_hits": [
+        "empty/meta-state"
+      ],
+      "claim_audit": {
+        "audited": false,
+        "contradicted_count_total": 0,
+        "unsupported_count_total": 0,
+        "false_premise_keyword_hits": []
+      },
+      "matrix_pair_categories": {
+        "gpt_answer_pair_category": "adjacent",
+        "opus_answer_pair_category": "exact",
+        "severe_disagreement": false,
+        "any_disagreement": true
+      },
+      "proxy_reasons": [
+        "triage_false_premise_pattern_signal"
+      ]
+    },
+    {
+      "cell_id": "R09::production",
+      "probe_id": "R09",
+      "condition": "production",
+      "triage_likely_cause": "answer quality",
+      "triage_priority": "high",
+      "high_priority_queue": true,
+      "triage_false_premise_keyword_hits": [
+        "fabricated",
+        "invented"
+      ],
+      "claim_audit": {
+        "audited": true,
+        "contradicted_count_total": 3,
+        "unsupported_count_total": 1,
+        "false_premise_keyword_hits": [
+          "invented"
+        ]
+      },
+      "matrix_pair_categories": {
+        "gpt_answer_pair_category": "adjacent",
+        "opus_answer_pair_category": "exact",
+        "severe_disagreement": false,
+        "any_disagreement": true
+      },
+      "proxy_reasons": [
+        "claim_audit_contradicted_or_false_premise_signal",
+        "triage_false_premise_pattern_signal"
+      ]
+    },
+    {
+      "cell_id": "R09::pure",
+      "probe_id": "R09",
+      "condition": "pure",
+      "triage_likely_cause": "rubric ambiguity",
+      "triage_priority": "medium",
+      "high_priority_queue": false,
+      "triage_false_premise_keyword_hits": [],
+      "claim_audit": {
+        "audited": true,
+        "contradicted_count_total": 2,
+        "unsupported_count_total": 1,
+        "false_premise_keyword_hits": []
+      },
+      "matrix_pair_categories": {
+        "gpt_answer_pair_category": "adjacent",
+        "opus_answer_pair_category": "exact",
+        "severe_disagreement": false,
+        "any_disagreement": true
+      },
+      "proxy_reasons": [
+        "claim_audit_contradicted_or_false_premise_signal"
+      ]
+    },
+    {
+      "cell_id": "R09::zero",
+      "probe_id": "R09",
+      "condition": "zero",
+      "triage_likely_cause": "answer quality",
+      "triage_priority": "high",
+      "high_priority_queue": true,
+      "triage_false_premise_keyword_hits": [
+        "meta-report instead"
+      ],
+      "claim_audit": {
+        "audited": false,
+        "contradicted_count_total": 0,
+        "unsupported_count_total": 0,
+        "false_premise_keyword_hits": []
+      },
+      "matrix_pair_categories": {
+        "gpt_answer_pair_category": "adjacent",
+        "opus_answer_pair_category": "exact",
+        "severe_disagreement": false,
+        "any_disagreement": true
+      },
+      "proxy_reasons": [
+        "triage_false_premise_pattern_signal"
+      ]
+    },
+    {
+      "cell_id": "R14::production",
+      "probe_id": "R14",
+      "condition": "production",
+      "triage_likely_cause": "answer quality",
+      "triage_priority": "high",
+      "high_priority_queue": true,
+      "triage_false_premise_keyword_hits": [],
+      "claim_audit": {
+        "audited": true,
+        "contradicted_count_total": 0,
+        "unsupported_count_total": 1,
+        "false_premise_keyword_hits": []
+      },
+      "matrix_pair_categories": {
+        "gpt_answer_pair_category": "invalid_or_missing",
+        "opus_answer_pair_category": "exact",
+        "severe_disagreement": true,
+        "any_disagreement": true
+      },
+      "proxy_reasons": [
+        "matrix_severe_judge_disagreement"
+      ]
+    },
+    {
+      "cell_id": "R14::zero",
+      "probe_id": "R14",
+      "condition": "zero",
+      "triage_likely_cause": "answer quality",
+      "triage_priority": "high",
+      "high_priority_queue": true,
+      "triage_false_premise_keyword_hits": [],
+      "claim_audit": {
+        "audited": true,
+        "contradicted_count_total": 0,
+        "unsupported_count_total": 1,
+        "false_premise_keyword_hits": []
+      },
+      "matrix_pair_categories": {
+        "gpt_answer_pair_category": "invalid_or_missing",
+        "opus_answer_pair_category": "adjacent",
+        "severe_disagreement": true,
+        "any_disagreement": true
+      },
+      "proxy_reasons": [
+        "matrix_severe_judge_disagreement"
+      ]
+    },
+    {
+      "cell_id": "R15::production",
+      "probe_id": "R15",
+      "condition": "production",
+      "triage_likely_cause": "answer quality",
+      "triage_priority": "medium",
+      "high_priority_queue": false,
+      "triage_false_premise_keyword_hits": [
+        "invented"
+      ],
+      "claim_audit": {
+        "audited": false,
+        "contradicted_count_total": 0,
+        "unsupported_count_total": 0,
+        "false_premise_keyword_hits": []
+      },
+      "matrix_pair_categories": {
+        "gpt_answer_pair_category": "exact",
+        "opus_answer_pair_category": "adjacent",
+        "severe_disagreement": false,
+        "any_disagreement": true
+      },
+      "proxy_reasons": [
+        "triage_false_premise_pattern_signal"
+      ]
+    },
+    {
+      "cell_id": "R19::production",
+      "probe_id": "R19",
+      "condition": "production",
+      "triage_likely_cause": "answer quality",
+      "triage_priority": "high",
+      "high_priority_queue": true,
+      "triage_false_premise_keyword_hits": [
+        "wrong-thread"
+      ],
+      "claim_audit": {
+        "audited": true,
+        "contradicted_count_total": 3,
+        "unsupported_count_total": 1,
+        "false_premise_keyword_hits": []
+      },
+      "matrix_pair_categories": {
+        "gpt_answer_pair_category": "exact",
+        "opus_answer_pair_category": "exact",
+        "severe_disagreement": false,
+        "any_disagreement": false
+      },
+      "proxy_reasons": [
+        "claim_audit_contradicted_or_false_premise_signal",
+        "triage_false_premise_pattern_signal"
+      ]
+    },
+    {
+      "cell_id": "R19::pure",
+      "probe_id": "R19",
+      "condition": "pure",
+      "triage_likely_cause": "answer quality",
+      "triage_priority": "high",
+      "high_priority_queue": true,
+      "triage_false_premise_keyword_hits": [],
+      "claim_audit": {
+        "audited": true,
+        "contradicted_count_total": 3,
+        "unsupported_count_total": 2,
+        "false_premise_keyword_hits": []
+      },
+      "matrix_pair_categories": {
+        "gpt_answer_pair_category": "exact",
+        "opus_answer_pair_category": "exact",
+        "severe_disagreement": false,
+        "any_disagreement": false
+      },
+      "proxy_reasons": [
+        "claim_audit_contradicted_or_false_premise_signal"
+      ]
+    },
+    {
+      "cell_id": "R19::zero",
+      "probe_id": "R19",
+      "condition": "zero",
+      "triage_likely_cause": "rubric ambiguity",
+      "triage_priority": "high",
+      "high_priority_queue": true,
+      "triage_false_premise_keyword_hits": [],
+      "claim_audit": {
+        "audited": true,
+        "contradicted_count_total": 2,
+        "unsupported_count_total": 0,
+        "false_premise_keyword_hits": []
+      },
+      "matrix_pair_categories": {
+        "gpt_answer_pair_category": "adjacent",
+        "opus_answer_pair_category": "full_band",
+        "severe_disagreement": true,
+        "any_disagreement": true
+      },
+      "proxy_reasons": [
+        "claim_audit_contradicted_or_false_premise_signal",
+        "matrix_severe_judge_disagreement"
+      ]
+    }
+  ]
+}

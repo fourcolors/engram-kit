@@ -1,0 +1,111 @@
+{
+  "date": "2026-04-21",
+  "purpose": "separate recall-axis baselines from beyond-recall continuity/routing failure classes",
+  "recall_axis": {
+    "definition": "fixed-evidence retrieval/update tasks where evidence surface is explicit and checkable",
+    "external_neighbors": [
+      "LongMemEval",
+      "BEAM-like recall suites",
+      "LoCoMo",
+      "PersonaMem"
+    ],
+    "subtypes": [
+      "single-hop fact recall",
+      "multi-session recall",
+      "temporal ordering",
+      "preference recall",
+      "abstention on unsupported asks"
+    ]
+  },
+  "beyond_recall_axes": [
+    {
+      "axis": "live_state_restart",
+      "examples": [
+        "R01",
+        "R03",
+        "R08",
+        "R19"
+      ],
+      "failure_modes": [
+        "stale latest-thread selection",
+        "storage-state vs work-state confusion"
+      ]
+    },
+    {
+      "axis": "bounded_history_enumeration",
+      "examples": [
+        "R02",
+        "R04",
+        "R17",
+        "R20"
+      ],
+      "failure_modes": [
+        "omissions",
+        "count drift"
+      ]
+    },
+    {
+      "axis": "object_continuity_change_history",
+      "examples": [
+        "R10",
+        "R11",
+        "R13",
+        "R21"
+      ],
+      "failure_modes": [
+        "flattened evolution narrative",
+        "wrong transition linking"
+      ]
+    },
+    {
+      "axis": "committed_truth_config_check",
+      "examples": [
+        "R29",
+        "R30",
+        "R31",
+        "R32"
+      ],
+      "failure_modes": [
+        "stale defaults",
+        "config/docs divergence"
+      ]
+    },
+    {
+      "axis": "cross_surface_provenance_audit",
+      "examples": [
+        "R07",
+        "R14",
+        "R17",
+        "R42"
+      ],
+      "failure_modes": [
+        "invented handles",
+        "cross-harness provenance braid failures"
+      ]
+    },
+    {
+      "axis": "gap_analysis_doc_synthesis",
+      "examples": [
+        "R38",
+        "R39",
+        "R40"
+      ],
+      "failure_modes": [
+        "generic summary replacing unresolved-gap analysis"
+      ]
+    },
+    {
+      "axis": "meta_handoff_judge_design_compliance",
+      "examples": [
+        "R44",
+        "R45",
+        "R46"
+      ],
+      "failure_modes": [
+        "drift into ranking claims",
+        "method non-compliance"
+      ]
+    }
+  ],
+  "measurement_rule": "Each axis stands on its own with dedicated failure attribution and judge-calibration math before any aggregate claim."
+}

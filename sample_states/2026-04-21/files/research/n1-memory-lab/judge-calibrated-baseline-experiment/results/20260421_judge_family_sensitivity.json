@@ -1,0 +1,100 @@
+{
+  "generated_at": "2026-04-21",
+  "task_id": "JCB-058",
+  "scope": "judge_family_sensitivity_from_existing_measurement_artifacts",
+  "inputs": [
+    "results/20260421_measurement_audit.json",
+    "results/20260421_calibration_cell_matrix.json",
+    "results/20260421_exploration_counts.json",
+    "notes/MATH_ONE_PAGER_20260421.md"
+  ],
+  "comparisons": {
+    "clean": {
+      "name": "gpt_answers__gpt_judge_vs_opus_judge",
+      "status": "clean",
+      "status_reason": "same answers, flagship-vs-flagship judges (gpt-5.4 vs opus-4.6), no mini-tier substitution",
+      "overlap": 54,
+      "mean_delta_cross_minus_same": 0.5,
+      "mean_delta_same_minus_cross": -0.5,
+      "exact": 0.48148148148148145,
+      "weighted_kappa_linear": 0.23906705539358597,
+      "binary_useful_exact": 0.8703703703703703,
+      "binary_kappa": 0.4112149532710281,
+      "adjacent_disagreements": 27,
+      "full_band_disagreements": 1,
+      "adjacent_disagreement_rate": 0.5,
+      "full_band_disagreement_rate": 0.018518518518518517,
+      "total_disagreement_rate": 0.5185185185185186,
+      "sigma_normalized_shift": {
+        "sigma_source": "same_judge_repeats.opus_answers__opus_judge_4_calls.mean_cell_sigma",
+        "sigma_value": 0.1872934051172336,
+        "abs_delta_over_sigma": 2.6696081460371346
+      }
+    },
+    "confounded": {
+      "name": "opus_answers__opus_judge_vs_gpt_mini_judge",
+      "status": "confounded",
+      "status_reason": "cross-family judge is gpt-5.4-mini (not full gpt-5.4), so family and judge-tier effects are entangled",
+      "overlap": 57,
+      "mean_delta_cross_minus_same": -0.49122807017543857,
+      "mean_delta_same_minus_cross": 0.49122807017543857,
+      "exact": 0.5087719298245614,
+      "weighted_kappa_linear": 0.33976833976833976,
+      "binary_useful_exact": 0.9122807017543859,
+      "binary_kappa": 0.7118301314459048,
+      "adjacent_disagreements": 26,
+      "full_band_disagreements": 2,
+      "adjacent_disagreement_rate": 0.45614035087719296,
+      "full_band_disagreement_rate": 0.03508771929824561,
+      "total_disagreement_rate": 0.49122807017543857,
+      "sigma_normalized_shift_proxy": {
+        "sigma_source": "mean(same_judge_repeats.opus_answers__opus_judge_4_calls.mean_cell_sigma, same_judge_repeats.gpt_answers__gpt_mini_judge_available_calls.mean_cell_sigma)",
+        "sigma_values": {
+          "opus_mean_cell_sigma": 0.1872934051172336,
+          "gpt_mini_mean_cell_sigma": 0.23108064744658408
+        },
+        "sigma_proxy_value": 0.20918702628190883,
+        "abs_delta_over_sigma_proxy": 2.348272160594892
+      }
+    }
+  },
+  "cross_arm_deltas": {
+    "exact_confounded_minus_clean": 0.027290448343079976,
+    "weighted_kappa_confounded_minus_clean": 0.10070128437475379,
+    "binary_useful_exact_confounded_minus_clean": 0.041910331384015564,
+    "binary_kappa_confounded_minus_clean": 0.3006151781748767
+  },
+  "jcb_019_linkage": {
+    "task": "JCB-019",
+    "title": "Measure same-family/self-preference",
+    "quantified_proxy_effect": {
+      "clean_same_minus_cross": -0.5,
+      "confounded_same_minus_cross": 0.49122807017543857,
+      "swing_confounded_minus_clean": 0.9912280701754386,
+      "units": "ordinal verdict points on fail=0, partial=1, pass=2"
+    },
+    "interpretation": "Observed sign flip indicates family-sensitive scoring behavior, but the opus-answer arm is confounded by gpt-5.4-mini cross-family judge tier; treat as proxy, not causal isolation.",
+    "context_note_from_math_one_pager": {
+      "statement": "opus-agent gets +0.13 binary-agreement advantage from opus-judge",
+      "source": "notes/MATH_ONE_PAGER_20260421.md"
+    }
+  },
+  "supporting_subset_signal": {
+    "source": "results/20260421_exploration_counts.json",
+    "judge_pair_categories_by_answer_source": {
+      "gpt-5.4:adjacent": 14,
+      "opus-4.6:adjacent": 9,
+      "gpt-5.4:full_band": 1,
+      "gpt-5.4:exact": 13,
+      "opus-4.6:full_band": 2,
+      "opus-4.6:exact": 19,
+      "gpt-5.4:invalid_or_missing": 2
+    },
+    "note": "descriptive subset only; not the denominator-of-record for calibration claims"
+  },
+  "guardrails": [
+    "no architecture ranking",
+    "pass/partial/fail are noisy ordinal observations",
+    "clean and confounded comparisons must not be merged"
+  ]
+}

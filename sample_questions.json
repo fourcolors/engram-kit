@@ -1,0 +1,61 @@
+{
+  "private_fields_removed": [
+    "precise_answer",
+    "reference_set",
+    "rubric"
+  ],
+  "questions": [
+    {
+      "id": "ftw_v1_apr08_lab_object_boundaries",
+      "question": "I am cold-starting from the earliest lab files. What is this lab trying to compare, what is the actual object under study, and what would be premature to conclude from the Apr 8 state?",
+      "reference_time": "2026-04-08T23:59:59-07:00"
+    },
+    {
+      "id": "ftw_v1_apr10_legacy_archive_boundary",
+      "question": "I found BENCHMARK_ITEMS.yaml, BENCHMARK_RUNSETS.yaml, and PROBE_SEEDS_V1.md under an archive/benchmark-legacy path. Should these be treated as the current task source, or as historical machinery? Explain the boundary.",
+      "reference_time": "2026-04-10T23:59:59-07:00"
+    },
+    {
+      "id": "ftw_v1_apr13_real_ask_v2_lineage",
+      "question": "Inside the archived real-ask-history folder, there are NE_1_3 drafts, month maps, and eval-set files. Which artifact is canonical inside that archive lineage by Apr 13, and what sampling stance does it preserve?",
+      "reference_time": "2026-04-13T23:59:59-07:00"
+    },
+    {
+      "id": "ftw_v1_apr14_s07_denominator_fit",
+      "question": "How is the S07 slice different from LoCoMo and LifeBench according to the local comparison note, and what does that imply for evaluating memory here?",
+      "reference_time": "2026-04-14T23:59:59-07:00"
+    },
+    {
+      "id": "ftw_v1_apr17_judge_salvage_and_real_asks",
+      "question": "Looking at the Apr 17 judge salvage note and the real-ask JSON files, what can be salvaged from the judge runs, and what does the ask corpus change about what memory should track?",
+      "reference_time": "2026-04-17T23:59:59-07:00"
+    },
+    {
+      "id": "ftw_v1_apr18_demand_tags_not_taxonomy",
+      "question": "I opened ask_demands_ne13_20260418.tsv. What did this table add by Apr 18, and why should its labels not become the final benchmark taxonomy?",
+      "reference_time": "2026-04-18T23:59:59-07:00"
+    },
+    {
+      "id": "ftw_v1_apr19_environment_judge_primitives",
+      "question": "Using the Apr 19 environment, ask-surface, and judge-primitives notes, what is the clearest environment definition, and which judge obligations are universal versus conditional?",
+      "reference_time": "2026-04-19T23:59:59-07:00"
+    },
+    {
+      "id": "ftw_v1_apr20_calibration_boundary",
+      "question": "On Apr 20, some archive paths become exact and calibration files appear. What actually changed: evidence confidence, archive/source roles, and judge-calibration stance? Do not turn it into a new architecture result.",
+      "reference_time": "2026-04-20T23:59:59-07:00"
+    },
+    {
+      "id": "ftw_v1_apr21_measurement_instrument_scope",
+      "question": "A new judge-calibrated-baseline-experiment folder appears on Apr 21. Is this an architecture leaderboard? What unit and gates define the experiment before any ranking is allowed?",
+      "reference_time": "2026-04-21T23:59:59-07:00"
+    },
+    {
+      "id": "ftw_v1_apr21_probe_coverage_gaps",
+      "question": "In ASK_SAMPLING_20260421.md, what is missing or underrepresented in the historical 19-probe judge slice, and why does that matter for rubric design?",
+      "reference_time": "2026-04-21T23:59:59-07:00"
+    }
+  ],
+  "schema": "engram.sample_questions.v0",
+  "source_problem_set_id": "first-two-weeks-real-asks-v1"
+}

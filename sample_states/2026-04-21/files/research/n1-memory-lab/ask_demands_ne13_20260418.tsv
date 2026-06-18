@@ -1,0 +1,51 @@
+probe	date	harness	primary	tags	prompt
+R01	2026-03-08	claude-code	STATE_NOW	STATE_NOW,THREAD_MAP	what's the current state of things? what am I working on, what's active, what's the latest?
+R02	2026-03-08	claude-code	TIME_WINDOW	TIME_WINDOW,QUANT,COMMITTED_STATE	What did we work on yesterday March 7 2026 and today March 8 2026? List everything — commits, features, fixes, releases,
+R03	2026-03-11	claude-code	LAST_THREAD	LAST_THREAD,CONCEPT_RECALL,NEXT_STEPS	what was I last working on and what's the current status of synthesis modernization?
+R04	2026-03-12	claude-code	TIME_WINDOW	TIME_WINDOW,QUANT,COMMITTED_STATE	give me my work log today PST entire day
+R05	2026-03-13	claude-code	THREAD_MAP	THREAD_MAP,QUANT,CONCEPT_RECALL	what are all my current open threads, priorities, and unfinished work? include: research vectors (ACE, GEPA, sleep/dream
+R06	2026-03-13	claude-code	LAST_THREAD	LAST_THREAD,NEXT_STEPS,DECISION	what was I last working on in syke? what was left to do? what were the most recent threads and decisions?
+R07	2026-03-14	opencode	TIME_WINDOW	TIME_WINDOW,CROSS_SOURCE,DELTA	remember all the threads we made yesterday and map the timeline for today and yesterday
+R08	2026-03-14	opencode	STATE_NOW	STATE_NOW	okay where are we now
+R09	2026-03-14	opencode	THREAD_MAP	THREAD_MAP,STATE_NOW,DELTA	what is the updated thread map now
+R10	2026-03-14	claude-code	CONCEPT_RECALL	CONCEPT_RECALL	What was the memory tools landscape study? What did we learn about memorix, claude-mem, and other tools? What patterns w
+R11	2026-03-15	claude-code	CONCEPT_RECALL	CONCEPT_RECALL,DECISION	What is the full vision for Observe? Everything we discussed — hook listener, tool reduction, federation, real-time capt
+R12	2026-03-15	claude-code	NEXT_STEPS	NEXT_STEPS,CONCEPT_RECALL	what specific next steps were discussed for Observe after Phase 2?
+R13	2026-03-15	claude-code	CHANGE_HISTORY	CHANGE_HISTORY,CONCEPT_RECALL	what was the evolution of the adapter-as-compiler concept?
+R14	2026-03-16	opencode	LAST_THREAD	LAST_THREAD,CROSS_SOURCE	check it what happened in the last session don't forget it please
+R15	2026-03-16	opencode	CONCEPT_RECALL	CONCEPT_RECALL,NEXT_STEPS,COMMITTED_STATE	can we get back to the previous thread of running our tests for observe layer, with real data as if I set up the system 
+R16	2026-03-19	claude-code	TIME_WINDOW	TIME_WINDOW,DECISION	what did I work on yesterday March 18 2026 about Syke Synthesis, Syke Map, architecture, skill files, tool reduction, or
+R17	2026-03-20	claude-code	TIME_WINDOW	TIME_WINDOW,DELTA,CROSS_SOURCE,QUANT	What happened in the last one week? What did I work on, what was built, what broke, what changed? Be thorough — cover al
+R18	2026-03-21	claude-code	CONCEPT_RECALL	CONCEPT_RECALL,COMMITTED_STATE	what was the design for the syke sandbox and replay harness? what dataset were we supposed to use, what date range, and 
+R19	2026-03-21	claude-code	LAST_THREAD	LAST_THREAD	what happened last? what was I working on most recently?
+R20	2026-03-22	claude-code	TIME_WINDOW	TIME_WINDOW,QUANT,COMMITTED_STATE	what happened on March 21 2026? what runs did we do, how many synthesis cycles, what was the activity that caused 72 mil
+R21	2026-03-22	claude-code	CHANGE_HISTORY	CHANGE_HISTORY,QUANT,COMMITTED_STATE	what is the history of us adding and removing middleware patches in litellm_proxy.py? how many times have we patched and
+R22	2026-03-22	claude-code	CHANGE_HISTORY	CHANGE_HISTORY,COMMITTED_STATE	what is the history of the reasoning_content / thinking traces problem with LiteLLM proxy and Kimi/Azure? what patches d
+R23	2026-03-22	claude-code	CONCEPT_RECALL	CONCEPT_RECALL	what did we learn about Codex sandboxing? what was the codex approach to containment, isolation, sandbox? how does codex
+R24	2026-03-22	claude-code	CONCEPT_RECALL	CONCEPT_RECALL,COMMITTED_STATE	what did we build for the LiteLLM multi-provider setup? how does the proxy handle different API formats? we built someth
+R25	2026-03-23	opencode	STATE_NOW	STATE_NOW	Get a sense of where we are now
+R26	2026-03-23	opencode	CONCEPT_RECALL	CONCEPT_RECALL,DELTA	Work with oracle and see what the observe-rt notes were in this project and what has happened to it now
+R27	2026-03-24	opencode	LAST_THREAD	LAST_THREAD	ask syke where we left off last a few minutes back
+R28	2026-03-24	opencode	LAST_THREAD	LAST_THREAD,CROSS_SOURCE	ask syke where did we leave with claude code last , or wherever
+R29	2026-03-24	claude-code	CONFIG_CHECK	CONFIG_CHECK,COMMITTED_STATE	we made some changes to opencode and ohmyopencode setup config, and its been working wrong now. Get context on this
+R30	2026-03-24	claude-code	CONFIG_CHECK	CONFIG_CHECK,COMMITTED_STATE	Wait. Map the recommended default of ohmyopencode with ours right now
+R31	2026-03-24	claude-code	CONFIG_CHECK	CONFIG_CHECK,COMMITTED_STATE	there is a config setting there for gpt-5.4 as sisyphus, what does that look like, read its docs
+R32	2026-03-24	claude-code	CONFIG_CHECK	CONFIG_CHECK,DECISION	sure but what is the latest recommendation on using gpt 5.4 for sisyphus, he mentioned it
+R33	2026-03-26	opencode	CONCEPT_RECALL	CONCEPT_RECALL,LAST_THREAD	ask syke our bug fixing regarding why pi was not working properly in the last session
+R34	2026-03-26	opencode	TIME_WINDOW	TIME_WINDOW,DECISION,DELTA	give our work timeline and progress and decision making over last one week . Don't use syke
+R35	2026-03-26	opencode	LAST_THREAD	LAST_THREAD	ask syke where we were running our local model experiments last
+R36	2026-04-01	opencode	STATE_NOW	STATE_NOW	ask syke whats up
+R37	2026-04-01	opencode	CONFIG_CHECK	CONFIG_CHECK	Is omo updated to the latest ?
+R38	2026-04-05	claude-code	GAP_ANALYSIS	GAP_ANALYSIS,CONCEPT_RECALL	In the Syke/Karpathy lane, focus only on unresolved gaps and contradictions. What is still missing after concluding that
+R39	2026-04-05	claude-code	DOC_SYNTH	DOC_SYNTH,CONCEPT_RECALL	Read .omx/context/karpathy-council-brief-20260405.md, research/karpathy-market-topology-memo.md, FOUNDATIONS.md, researc
+R40	2026-04-05	claude-code	DOC_SYNTH	DOC_SYNTH,GAP_ANALYSIS	Read .omx/context/karpathy-council-brief-20260405.md, research/karpathy-market-topology-memo.md, research/analysis-hidde
+R41	2026-04-09	opencode	STATE_NOW	STATE_NOW,COMMITTED_STATE	Get a sense of where we are now. And get your update on the repo and our work
+R42	2026-04-09	claude-code	CONCEPT_RECALL	CONCEPT_RECALL	Actually check the omx conversation that I had
+R43	2026-04-09	claude-code	META_HANDOFF	META_HANDOFF,LAST_THREAD	Did you get the context from syke memex only or did you syke ask ? And then what sessions did you read, how did you calc
+R44	2026-04-09	claude-code	CONCEPT_RECALL	CONCEPT_RECALL,META_HANDOFF	Hold on. We want to really know if our LLM as judge design is good and we need to do right research on it, ask syke we d
+R45	2026-04-09	claude-code	META_HANDOFF	META_HANDOFF	No let's actually do a proper scoring method, lets do it right. You need to lookat the benchmark, the scoring mechsnism 
+R46	2026-04-10	opencode	META_HANDOFF	META_HANDOFF,CONCEPT_RECALL	"Resuming benchmark design work. Load _internal/syke-replay-lab/BENCHMARK_DESIGN_FORKS.md. Don't design §2 unilaterally.
+R47	2026-04-10	opencode	LAST_THREAD	LAST_THREAD,META_HANDOFF	Can you pick up what were we doing in last session
+R48	2026-04-10	claude-code	META_HANDOFF	META_HANDOFF	Need to carefully think of this first without jumping too fast. THe main goal is that the agent has to be simulated in t
+R49	2026-04-10	claude-code	META_HANDOFF	META_HANDOFF,CONCEPT_RECALL	No first I want you to do a thorough review whether real syke architecture is now being used, there were other problems 
+R50	2026-04-10	claude-code	META_HANDOFF	META_HANDOFF,COMMITTED_STATE	Show me how replay loop is hardened and why the agent only sees until the simulated present. asks should go inside loop 

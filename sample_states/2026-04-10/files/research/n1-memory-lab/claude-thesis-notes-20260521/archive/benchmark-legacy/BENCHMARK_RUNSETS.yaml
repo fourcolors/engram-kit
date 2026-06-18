@@ -1,0 +1,86 @@
+version: v1
+benchmark: N1-Coherence
+
+runsets:
+  smoke:
+    purpose: Quick sanity check — one probe per live dataset (NE-1.2 is a dead zone)
+    items:
+      - P52
+      - P27
+
+  ne11:
+    purpose: NE-1.1 dataset probes only
+    items:
+      - P03
+      - P04
+      - P05
+      - P36
+      - P51
+      - P52
+      - P53
+      - P54
+      - P55
+      - P56
+      - P57
+      - P58
+
+  ne13:
+    purpose: NE-1.3 dataset probes only
+    items:
+      - P10
+      - P11
+      - P13
+      - P23
+      - P26
+      - P27
+      - P28
+      - P30
+      - P31
+      - P44
+      - P45
+      - P59
+      - P60
+      - P61
+
+  full:
+    purpose: All probes across all datasets (NE-1.2 dropped — bundle dead zone)
+    items_by_dataset:
+      NE-1.1:
+        - P03
+        - P04
+        - P05
+        - P36
+        - P51
+        - P52
+        - P53
+        - P54
+        - P55
+        - P56
+        - P57
+        - P58
+      NE-1.3:
+        - P10
+        - P11
+        - P13
+        - P23
+        - P26
+        - P27
+        - P28
+        - P30
+        - P31
+        - P44
+        - P45
+        - P59
+        - P60
+        - P61
+      cross_dataset:
+        - P24
+        - P29
+        - P34
+        - P38
+        - P39
+        - P40
+        - P42
+        - P43
+        - P46
+        - P48

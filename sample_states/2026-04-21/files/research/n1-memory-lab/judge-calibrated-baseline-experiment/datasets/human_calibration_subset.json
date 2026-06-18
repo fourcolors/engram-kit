@@ -1,0 +1,89 @@
+{
+  "version": 1,
+  "created_at": "2026-04-21",
+  "purpose": "Initial 30-cell human-reviewed calibration subset for judge/rubric validation, not architecture ranking.",
+  "selection_rule": "Ten probes across all three conditions, chosen to cover judge disagreement, same-judge flicker, target-slice ambiguity, low referenceability, committed-truth risk, and search-vs-reconstruction contrast.",
+  "conditions": ["production", "pure", "zero"],
+  "selected_probes": [
+    {
+      "probe_id": "R03",
+      "reason": "last-thread/current-status mixed target; historical notes mention full-band judge disagreement on pure"
+    },
+    {
+      "probe_id": "R05",
+      "reason": "broad open-thread/priorities ask; prioritization and completeness are subjective; historical notes mention structural judge disagreement on production"
+    },
+    {
+      "probe_id": "R07",
+      "reason": "timeline/cross-source ask; known high same-judge instability"
+    },
+    {
+      "probe_id": "R08",
+      "reason": "handle-poor current-state ask; low referenceability; core reconstruction-style diagnostic"
+    },
+    {
+      "probe_id": "R09",
+      "reason": "thread-map/current-state ask; medium referenceability; tests map flattening versus useful structure"
+    },
+    {
+      "probe_id": "R13",
+      "reason": "adapter-as-compiler evolution; low referenceability and retrieval-degeneracy risk"
+    },
+    {
+      "probe_id": "R14",
+      "reason": "last-session/tip recovery; known high same-judge instability"
+    },
+    {
+      "probe_id": "R15",
+      "reason": "previous Observe test thread; committed-truth and object-continuity pressure"
+    },
+    {
+      "probe_id": "R18",
+      "reason": "replay harness design; low referenceability design-doc recall with committed-truth pressure"
+    },
+    {
+      "probe_id": "R19",
+      "reason": "most-recent work ask; target-slice tie risk; historical notes mention structural judge disagreement on zero"
+    }
+  ],
+  "cells": [
+    {"probe_id": "R03", "condition": "production"},
+    {"probe_id": "R03", "condition": "pure"},
+    {"probe_id": "R03", "condition": "zero"},
+    {"probe_id": "R05", "condition": "production"},
+    {"probe_id": "R05", "condition": "pure"},
+    {"probe_id": "R05", "condition": "zero"},
+    {"probe_id": "R07", "condition": "production"},
+    {"probe_id": "R07", "condition": "pure"},
+    {"probe_id": "R07", "condition": "zero"},
+    {"probe_id": "R08", "condition": "production"},
+    {"probe_id": "R08", "condition": "pure"},
+    {"probe_id": "R08", "condition": "zero"},
+    {"probe_id": "R09", "condition": "production"},
+    {"probe_id": "R09", "condition": "pure"},
+    {"probe_id": "R09", "condition": "zero"},
+    {"probe_id": "R13", "condition": "production"},
+    {"probe_id": "R13", "condition": "pure"},
+    {"probe_id": "R13", "condition": "zero"},
+    {"probe_id": "R14", "condition": "production"},
+    {"probe_id": "R14", "condition": "pure"},
+    {"probe_id": "R14", "condition": "zero"},
+    {"probe_id": "R15", "condition": "production"},
+    {"probe_id": "R15", "condition": "pure"},
+    {"probe_id": "R15", "condition": "zero"},
+    {"probe_id": "R18", "condition": "production"},
+    {"probe_id": "R18", "condition": "pure"},
+    {"probe_id": "R18", "condition": "zero"},
+    {"probe_id": "R19", "condition": "production"},
+    {"probe_id": "R19", "condition": "pure"},
+    {"probe_id": "R19", "condition": "zero"}
+  ],
+  "review_questions": [
+    "What is the target state for this probe: tip, landscape, both, historical, or provenance?",
+    "Which answer claims are verified, inferred, speculative, unsupported, contradicted, or uncheckable?",
+    "Is the final observation better described as pass, partial, fail, cannot_determine, packet_insufficient, or rubric_ambiguous?",
+    "Did judge disagreement reflect answer quality, packet insufficiency, rubric ambiguity, or judge error?",
+    "Would acting on this answer reduce wrong-restart risk for the user?"
+  ],
+  "status": "selected_not_reviewed"
+}

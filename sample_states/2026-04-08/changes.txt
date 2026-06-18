@@ -1,0 +1,10 @@
+state_id	daily_2026-04-08
+reference_time	2026-04-08T23:59:59-07:00
+visible_change_rows	5
+
+change_kind	old_status	new_status	path
+initial_present		approximate	research/n1-memory-lab/ARCHITECTURE_CASES_V0.md
+initial_present		approximate	research/n1-memory-lab/ARCHITECTURE_COMPARISON.md
+initial_present		approximate	research/n1-memory-lab/ARCHITECTURE_EXPERIMENT_MATRIX_V1.md
+initial_present		approximate	research/n1-memory-lab/LAB_CHARTER.md
+initial_present		approximate	research/n1-memory-lab/S03_VS_LONGMEMEVAL.md

@@ -1,0 +1,102 @@
+{
+  "gpt-ans-gpt-judge": {
+    "status": "ok",
+    "canon_run": "ne13-real-15d-gpt54-final-20260420T071500Z",
+    "blind_run": "ne13-blind-packet-gpt-ans-gpt-judge-20260421T232644Z",
+    "n_common": 57,
+    "mean_shift_blind_minus_canon": -0.0351,
+    "exact_agreement_3level": 0.8246,
+    "weighted_kappa_3level": 0.587,
+    "binary_exact": 0.9474,
+    "binary_kappa": 0.8106,
+    "flips": {
+      "same": 47,
+      "any_flip": 10,
+      "full_band_pass_fail": 0,
+      "pass_to_lower": 5,
+      "fail_to_higher": 2,
+      "partial_to_pass": 2,
+      "partial_to_fail": 1
+    }
+  },
+  "gpt-ans-opus-judge": {
+    "status": "ok",
+    "canon_run": "ne13-real-15d-gpt54ask-opusjudge-20260420T144210Z",
+    "blind_run": "ne13-blind-packet-gpt-ans-opus-judge-20260422T000952Z",
+    "n_common": 53,
+    "mean_shift_blind_minus_canon": 0.0189,
+    "exact_agreement_3level": 0.7547,
+    "weighted_kappa_3level": 0.6179,
+    "binary_exact": 0.9623,
+    "binary_kappa": 0.731,
+    "flips": {
+      "same": 40,
+      "any_flip": 13,
+      "full_band_pass_fail": 0,
+      "pass_to_lower": 4,
+      "fail_to_higher": 0,
+      "partial_to_pass": 7,
+      "partial_to_fail": 2
+    }
+  },
+  "opus-ans-opus-judge": {
+    "status": "ok",
+    "canon_run": "ne13-real-15d-opus46-final-20260420T071500Z",
+    "blind_run": "ne13-blind-packet-opus-ans-opus-judge-20260422T000952Z",
+    "n_common": 56,
+    "mean_shift_blind_minus_canon": -0.1607,
+    "exact_agreement_3level": 0.75,
+    "weighted_kappa_3level": 0.6523,
+    "binary_exact": 0.9643,
+    "binary_kappa": 0.8679,
+    "flips": {
+      "same": 42,
+      "any_flip": 14,
+      "full_band_pass_fail": 1,
+      "pass_to_lower": 10,
+      "fail_to_higher": 0,
+      "partial_to_pass": 3,
+      "partial_to_fail": 1
+    }
+  },
+  "opus-ans-gpt-judge": {
+    "status": "ok",
+    "canon_run": "ne13-real-15d-opusask-gpt54judge-20260420T144210Z",
+    "blind_run": "ne13-blind-packet-opus-ans-gpt-judge-20260421T232644Z",
+    "n_common": 56,
+    "mean_shift_blind_minus_canon": -0.3036,
+    "exact_agreement_3level": 0.6607,
+    "weighted_kappa_3level": 0.3948,
+    "binary_exact": 0.75,
+    "binary_kappa": 0.4696,
+    "flips": {
+      "same": 37,
+      "any_flip": 19,
+      "full_band_pass_fail": 0,
+      "pass_to_lower": 5,
+      "fail_to_higher": 1,
+      "partial_to_pass": 0,
+      "partial_to_fail": 13
+    }
+  },
+  "cross_judge_sigma_gamma": {
+    "canon_shift_opus_minus_gpt_on_gpt_answers": {
+      "value": 0.5,
+      "n": 54,
+      "note": "Apr 20 canonical \u2014 +0.500 in v0.1, +0.5694 in v0.2 (averaged over 4 reps)"
+    },
+    "blind_shift_opus_minus_gpt_on_gpt_answers": {
+      "value": 0.5273,
+      "n": 55,
+      "note": "Blind-packet rerun \u2014 measures sigma_gamma after double-blinding"
+    },
+    "self_preference_attributable_delta": -0.0273
+  },
+  "asymmetry_under_blind": {
+    "opus_higher": 26,
+    "gpt_higher": 0,
+    "ties": 29,
+    "n_common": 55,
+    "note": "Non-blind was 22 opus-higher / 0 gpt-higher / 32 mixed out of 54."
+  }
+}

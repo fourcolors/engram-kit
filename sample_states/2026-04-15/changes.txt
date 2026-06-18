@@ -1,0 +1,5 @@
+state_id	daily_2026-04-15
+reference_time	2026-04-15T23:59:59-07:00
+visible_change_rows	0
+
+change_kind	old_status	new_status	path

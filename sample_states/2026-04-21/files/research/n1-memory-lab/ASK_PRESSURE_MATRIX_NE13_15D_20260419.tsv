@@ -1,0 +1,25 @@
+probe	date	harness	operative_state	bounded_history	object_continuity	completeness	cross_surface	committed_truth	provenance_audit	notes
+R01	2026-03-08	claude-code	1	0	0	0	0	0	0	current active/latest state
+R02	2026-03-08	claude-code	0	1	0	1	0	1	0	yesterday/today exhaustive work reconstruction
+R03	2026-03-11	claude-code	1	0	1	0	0	0	0	last thread plus current status of synthesis modernization
+R04	2026-03-12	claude-code	0	1	0	1	0	1	0	work log for one bounded day
+R05	2026-03-13	claude-code	1	0	0	1	0	0	0	open threads, priorities, unfinished work
+R06	2026-03-13	claude-code	1	0	0	0	0	0	0	last work, what was left, recent decisions
+R07	2026-03-14	opencode	0	1	0	0	1	0	0	timeline for yesterday/today across threads/surfaces
+R08	2026-03-14	opencode	1	0	0	0	0	0	0	where are we now
+R09	2026-03-14	opencode	1	0	0	0	0	0	0	updated thread map now
+R10	2026-03-14	claude-code	0	0	1	0	0	0	0	memory tools landscape and federation lessons
+R11	2026-03-15	claude-code	0	0	1	0	0	0	0	full Observe vision
+R12	2026-03-15	claude-code	1	0	1	0	0	0	0	next steps discussed for Observe after Phase 2
+R13	2026-03-15	claude-code	0	0	1	0	0	0	0	evolution of adapter-as-compiler
+R14	2026-03-16	opencode	1	1	0	0	1	0	0	last session recovery, likely cross-surface residue/live selection
+R15	2026-03-16	opencode	1	0	1	0	0	1	0	restart observe tests with real data in bounded prior window
+R16	2026-03-19	claude-code	0	1	1	0	0	0	0	yesterday bounded history over named design areas
+R17	2026-03-20	claude-code	0	1	0	1	1	0	0	last-week broad exhaustive cross-platform reconstruction
+R18	2026-03-21	claude-code	0	0	1	0	0	1	0	replay harness design, dataset, date range, experiment design
+R19	2026-03-21	claude-code	1	0	0	0	0	0	0	most recent work / what happened last
+R20	2026-03-22	claude-code	0	1	0	1	0	1	0	day-bounded runs/cycles/tokens accounting
+R21	2026-03-22	claude-code	0	0	1	1	0	1	0	full patch/revert history with counts and timeline
+R22	2026-03-22	claude-code	0	0	1	0	0	1	0	history of reasoning_content problem and status
+R23	2026-03-22	claude-code	0	0	1	0	0	0	0	what was learned about Codex sandboxing
+R24	2026-03-22	claude-code	0	0	1	0	0	1	0	multi-provider setup and routing/patches as built

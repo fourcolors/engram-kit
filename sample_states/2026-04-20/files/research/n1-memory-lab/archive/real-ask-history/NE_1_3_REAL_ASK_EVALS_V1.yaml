@@ -1,0 +1,329 @@
+version: v1
+dataset: NE-1.3
+principle: real asks from raw usage, anchored to time-local continuity situations
+design_note: >
+  These evals are derived from actual asks in raw Mar 13-16 usage. The ask is an
+  indicator of real continuity pressure, not evidence that the answer must
+  already exist in Syke as of that exact moment. Judge against the full raw slice
+  around the ask and the state of the person/work then.
+
+items:
+  - probe_id: P62
+    dataset_id: NE-1.3
+    reference_dt: 2026-03-14
+    reference_ts_local: "2026-03-13 16:15 PST"
+    context_span_hours_before: 36
+    context_span_hours_after: 8
+    family: continuity-restart
+    source: raw-opencode-ask
+    usage_indicator_prompt: "Yo, you remember all the threads we made yesterday and what we were trying to build, map the timeline for today and yesterday for me in PST, working with syke."
+    prompt_text: "Remember all the threads from yesterday and map the timeline for yesterday and today. What were we actually trying to build, and how did the work move?"
+    must_recover:
+      - recent timeline in usable order
+      - main threads across the restart boundary
+      - what the work was actually converging toward
+    useful_if:
+      - lets the user re-enter the work without rereading raw sessions
+      - recovers the active braid rather than one isolated session
+      - names what the work was trying to achieve, not just what happened
+    partial_if:
+      - gets the main line but leaves the timeline fuzzy
+      - recovers threads but not the real convergence point
+      - useful recap but still requires substantial manual reconstruction
+    fail_if:
+      - presents one harness or one session as the whole story
+      - flattens yesterday and today into a generic summary
+      - misses what the work was actually trying to build
+    judge_focus:
+      - temporal ordering
+      - cross-harness braid where present
+      - practical restart value
+    observer_provenance:
+      - NE_1_3_REAL_ASK_EVALS_V1.md:P62
+
+  - probe_id: P63
+    dataset_id: NE-1.3
+    reference_dt: 2026-03-14
+    reference_ts_local: "2026-03-13 19:20 PST"
+    context_span_hours_before: 36
+    context_span_hours_after: 8
+    family: live-state-reentry
+    source: raw-opencode-ask
+    usage_indicator_prompt: "okay where are we now"
+    prompt_text: "Okay, where are we now? What is actually live right now, and what matters next?"
+    must_recover:
+      - current live state
+      - active threads rather than residue
+      - immediate next thing that matters
+    useful_if:
+      - reduces the user's entropy immediately
+      - points at the actual live thread and next move
+      - does not confuse old branch residue for current state
+    partial_if:
+      - mostly right but mixes live work with stale residue
+      - gives a current state without a useful next orientation
+    fail_if:
+      - answers with a static recap
+      - treats historical background as current live state
+      - omits the immediate active thread
+    judge_focus:
+      - live-vs-residue discrimination
+      - currentness
+      - orientation value
+    observer_provenance:
+      - NE_1_3_REAL_ASK_EVALS_V1.md:P63
+
+  - probe_id: P64
+    dataset_id: NE-1.3
+    reference_dt: 2026-03-14
+    reference_ts_local: "2026-03-14 14:57 PST"
+    context_span_hours_before: 30
+    context_span_hours_after: 12
+    family: thread-map-maintenance
+    source: raw-opencode-ask
+    usage_indicator_prompt: "Made some edits on observe, give me a sense. What is the updated thread map now"
+    prompt_text: "After the Observe edits, what is the updated thread map now? What is closed, what is still active, and what is next?"
+    must_recover:
+      - updated thread map
+      - closed vs active vs next distinctions
+      - the effect of the new edits on the map
+    useful_if:
+      - reflects changed state, not yesterday's thread map
+      - preserves the living configuration of the work
+      - helps the user steer the next phase cleanly
+    partial_if:
+      - gets the thread names but not the changed statuses
+      - recovers the map but not what the edits changed
+    fail_if:
+      - replays an older thread map as if nothing changed
+      - loses status distinctions between closed, active, and next
+    judge_focus:
+      - status changes
+      - thread-map fidelity
+      - practical steering value
+    observer_provenance:
+      - NE_1_3_REAL_ASK_EVALS_V1.md:P64
+
+  - probe_id: P65
+    dataset_id: NE-1.3
+    reference_dt: 2026-03-15
+    reference_ts_local: "2026-03-14 19:56 PST"
+    context_span_hours_before: 24
+    context_span_hours_after: 12
+    family: contradiction-repair
+    source: raw-opencode-ask
+    usage_indicator_prompt: "Note down in syke things we learned from the confusions and contradictions and back n forth, these are important notes for memory and versioning, etc."
+    prompt_text: "What did we actually learn from the confusions and contradictions around Observe Phase 2, and how did those corrections change the working model?"
+    must_recover:
+      - the important corrections
+      - what changed because of those corrections
+      - why they matter for future memory/versioning work
+    useful_if:
+      - preserves the corrected model, not the pre-correction story
+      - identifies changed assumptions or boundaries
+      - turns contradiction into usable learning
+    partial_if:
+      - names the contradictions but not what changed
+      - captures lessons vaguely without operational effect
+    fail_if:
+      - treats contradictions as noise
+      - preserves the stale pre-correction model
+      - misses what was learned for future work
+    judge_focus:
+      - correction preservation
+      - changed model vs stale model
+      - operationalized learning
+    observer_provenance:
+      - NE_1_3_REAL_ASK_EVALS_V1.md:P65
+
+  - probe_id: P66
+    dataset_id: NE-1.3
+    reference_dt: 2026-03-16
+    reference_ts_local: "2026-03-16 04:37 PST"
+    context_span_hours_before: 18
+    context_span_hours_after: 8
+    family: handoff-recovery
+    source: raw-opencode-ask
+    usage_indicator_prompt: "Do do do check it what what happened in the last session Holy shit don't forget it please"
+    prompt_text: "Check the handoff. What happened in the last session, and what absolutely must not be forgotten?"
+    must_recover:
+      - the actual last-session thread
+      - the core handoff state
+      - what must be preserved to continue safely
+    useful_if:
+      - gives a crisp restart anchor
+      - points at the right handoff object or equivalent
+      - identifies what matters enough that forgetting it would derail work
+    partial_if:
+      - captures the general thread but not the crucial preserved details
+      - useful but still requires reading multiple artifacts
+    fail_if:
+      - forgets the last-session thread
+      - answers with broad context instead of handoff-critical state
+      - misses what must not be forgotten
+    judge_focus:
+      - handoff readiness
+      - restart fidelity
+      - minimal preserved state
+    observer_provenance:
+      - NE_1_3_REAL_ASK_EVALS_V1.md:P66
+
+  - probe_id: P67
+    dataset_id: NE-1.3
+    reference_dt: 2026-03-16
+    reference_ts_local: "2026-03-16 11:28 PST"
+    context_span_hours_before: 18
+    context_span_hours_after: 10
+    family: return-to-thread
+    source: raw-opencode-ask
+    usage_indicator_prompt: "After everything, can we get back to the previous thread of running our tests for observe layer, with real data as if I set up the system fresh in that two week window ?"
+    prompt_text: "Can we get back to the previous thread of running Observe-layer tests with real data, as if the system were freshly set up in that two-week window? What exactly is that thread now?"
+    must_recover:
+      - the previous thread being resumed
+      - the current blockers or prerequisites
+      - the concrete way back into that thread
+    useful_if:
+      - reconnects to the earlier thread rather than replacing it with generic status
+      - identifies the right prerequisites and test surface
+      - lets work continue with minimal reconstruction
+    partial_if:
+      - recalls the broad testing thread but not how to resume it
+      - gives current context without the right re-entry path
+    fail_if:
+      - loses the previous thread
+      - redirects to a different live lane
+      - cannot name what “that thread” now means
+    judge_focus:
+      - thread persistence through interruption
+      - re-entry path
+      - practical continuation value
+    observer_provenance:
+      - NE_1_3_REAL_ASK_EVALS_V1.md:P67
+
+  - probe_id: P68
+    dataset_id: NE-1.3
+    reference_dt: 2026-03-13
+    reference_ts_local: "2026-03-13 00:00 PST"
+    context_span_hours_before: 24
+    context_span_hours_after: 12
+    family: open-work-graph
+    source: real-syke-ask
+    usage_indicator_prompt: "what are all my current open threads, priorities, and unfinished work?"
+    prompt_text: "What are all my current open threads, priorities, and unfinished work?"
+    must_recover:
+      - active threads
+      - current priorities
+      - unfinished work that is still relevant
+    useful_if:
+      - restores the active work graph in a way the user can act on
+      - distinguishes priorities from background topics
+      - keeps unfinished work tied to current relevance
+    partial_if:
+      - recovers many threads but not priority order
+      - mixes active and merely recent work
+    fail_if:
+      - dumps a broad summary without an actionable work graph
+      - loses major active threads
+      - confuses recent noise with current priorities
+    judge_focus:
+      - live work graph
+      - priority extraction
+      - unfinished vs active distinction
+    observer_provenance:
+      - NE_1_3_REAL_ASK_EVALS_V1.md:P68
+
+  - probe_id: P69
+    dataset_id: NE-1.3
+    reference_dt: 2026-03-14
+    reference_ts_local: "2026-03-14 10:57 PST"
+    context_span_hours_before: 36
+    context_span_hours_after: 8
+    family: pattern-extraction
+    source: real-syke-ask
+    usage_indicator_prompt: "what was the memory tools landscape study? What did we learn about memorix, claude-mem, and other tools? What patterns were worth adopting vs skipping? What is the cross-platform federation gap?"
+    prompt_text: "What was the memory tools landscape study, and what patterns were actually worth adopting versus skipping?"
+    must_recover:
+      - the real study thread
+      - actionable patterns or anti-patterns
+      - why those patterns mattered to current design
+    useful_if:
+      - extracts design-relevant lessons, not just a tool list
+      - preserves what changed current thinking
+      - identifies what to adopt, skip, or steelman
+    partial_if:
+      - remembers the study but mostly lists tools
+      - identifies patterns without tying them to current design needs
+    fail_if:
+      - turns the study into generic landscape chatter
+      - misses the actionable patterns
+      - loses why the study mattered
+    judge_focus:
+      - lesson extraction
+      - pattern relevance
+      - cross-tool design implications
+    observer_provenance:
+      - NE_1_3_REAL_ASK_EVALS_V1.md:P69
+
+  - probe_id: P70
+    dataset_id: NE-1.3
+    reference_dt: 2026-03-15
+    reference_ts_local: "2026-03-15 07:53 PST"
+    context_span_hours_before: 24
+    context_span_hours_after: 10
+    family: post-burst-open-threads
+    source: real-syke-ask
+    usage_indicator_prompt: "What are all the open threads from the Observe work? Hook listener, tool reduction, real-time capture, federation, anything else that was discussed but not implemented."
+    prompt_text: "What are all the open threads from the Observe work, and which of them are still real next steps rather than residue?"
+    must_recover:
+      - open threads from the Observe work
+      - what is still real next work
+      - what should no longer be treated as current
+    useful_if:
+      - separates live next work from older burst residue
+      - gives the user a practical next-work picture
+      - preserves important open loops without keeping everything alive forever
+    partial_if:
+      - gets many open threads but keeps too much residue live
+      - useful list but weak discrimination
+    fail_if:
+      - treats all discussed threads as equally live
+      - over-prunes and drops still-active work
+      - misses major open loops
+    judge_focus:
+      - live-vs-residue
+      - next-work discrimination
+      - post-burst stabilization
+    observer_provenance:
+      - NE_1_3_REAL_ASK_EVALS_V1.md:P70
+
+  - probe_id: P71
+    dataset_id: NE-1.3
+    reference_dt: 2026-03-15
+    reference_ts_local: "2026-03-15 10:09 PST"
+    context_span_hours_before: 24
+    context_span_hours_after: 12
+    family: vision-vs-reality-gap
+    source: real-syke-ask
+    usage_indicator_prompt: "Why might the user feel that Observe is still not complete? What threads are still open? What was promised but not delivered? What's the gap between the vision discussed and what actually works today?"
+    prompt_text: "Why might Observe still not feel complete? What is the gap between the vision and what actually works today?"
+    must_recover:
+      - the active gap between vision and reality
+      - what remains open or undelivered
+      - why the user would still feel incompleteness
+    useful_if:
+      - explains incompleteness honestly without collapsing to generic pessimism
+      - identifies specific open gaps or missing transitions
+      - helps the user understand what remains to stabilize
+    partial_if:
+      - gets the general gap right but not the concrete open loops
+      - useful critique without enough operational detail
+    fail_if:
+      - treats the system as complete when it is not
+      - gives only a broad complaint with no real gap explanation
+      - misses why the user would still feel unresolved
+    judge_focus:
+      - gap honesty
+      - open-loop fidelity
+      - vision-vs-current-state distinction
+    observer_provenance:
+      - NE_1_3_REAL_ASK_EVALS_V1.md:P71
