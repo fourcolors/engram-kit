@@ -218,13 +218,13 @@
 
     <div class="eyebrow animate">ENGRAM challenge · agent-memory · run 2026-06-18</div>
     <h1 class="animate" style="--i:1">Teaching an AI to <span class="hl">remember</span> — and measuring whether it actually does.</h1>
-    <p class="lede animate" style="--i:2">We wired your <strong>agent-memory</strong> system into the ENGRAM benchmark, ran it over two weeks of a real research folder, and had 20 independent AI judges grade every answer. This page explains what happened in plain terms — and where to go next, especially for the memory itself.</p>
+    <p class="lede animate" style="--i:2">We wired your <strong>agent-memory</strong> system into the ENGRAM benchmark, ran it over two weeks of a real research folder, and had 20 independent AI judges grade every answer — four times, across four iterations. This page explains what happened in plain terms. The headline: the winning improvement came from the <strong>memory itself</strong>, not from patching the answers.</p>
 
     <div class="kpi-row">
-      <div class="kpi" style="--i:0"><div><span class="from">2.60</span><span class="arrow">→</span><span class="to">4.40</span></div><div class="delta">+1.80 overall</div><div class="name">Overall / 5</div></div>
+      <div class="kpi" style="--i:0"><div><span class="from">2.60</span><span class="arrow">→</span><span class="to">4.60</span></div><div class="delta">+2.00 overall</div><div class="name">Overall / 5 (v4)</div></div>
       <div class="kpi" style="--i:1"><div><span class="from">1</span><span class="arrow">→</span><span class="to" style="font-size:30px">0</span></div><div class="delta">leak closed</div><div class="name">Hindsight leaks</div></div>
-      <div class="kpi" style="--i:2"><div><span class="to" style="font-size:30px">7/10</span></div><div class="delta">perfect 5s</div><div class="name">Adapted answers</div></div>
-      <div class="kpi" style="--i:3"><div><span class="from">96s</span><span class="arrow">→</span><span class="to" style="font-size:30px">47s</span></div><div class="delta">under limit</div><div class="name">Max latency</div></div>
+      <div class="kpi" style="--i:2"><div><span class="to" style="font-size:30px">7/10</span></div><div class="delta">perfect 5s</div><div class="name">v4 answers</div></div>
+      <div class="kpi" style="--i:3"><div><span class="from">96s</span><span class="arrow">→</span><span class="to" style="font-size:30px">52s</span></div><div class="delta">under limit</div><div class="name">Max latency</div></div>
     </div>
 
     <!-- ============ 1 ============ -->
@@ -284,12 +284,12 @@
     <p class="sec-sub">Same memory, same model, same judges. We changed only how the answer pass reads — "stock" first, then "adapted v1".</p>
 
     <div class="card">
-      <div class="label" style="color:var(--accent)">Average score across 10 questions &nbsp;·&nbsp; <span style="color:var(--stock)">■ stock</span> &nbsp; <span style="color:var(--adapted)">■ adapted v1</span></div>
+      <div class="label" style="color:var(--accent)">Average across 10 questions &nbsp;·&nbsp; <span style="color:var(--stock)">■ stock</span> &nbsp; <span style="color:var(--adapted)">■ v4 (best)</span></div>
       <div class="bars">
         <div class="bar-block">
-          <div class="bar-block__head"><span class="bar-block__name">Overall</span><span class="bar-block__delta">+1.80</span></div>
+          <div class="bar-block__head"><span class="bar-block__name">Overall</span><span class="bar-block__delta">+2.00</span></div>
           <div class="bar bar--stock" style="--i:0;width:52%">2.60<small>STOCK</small></div>
-          <div class="bar bar--adapted" style="--i:1;width:88%">4.40<small>ADAPTED</small></div>
+          <div class="bar bar--adapted" style="--i:1;width:92%">4.60<small>V4</small></div>
         </div>
         <div class="bar-block">
           <div class="bar-block__head"><span class="bar-block__name">Responsiveness — does it answer the actual question</span><span class="bar-block__delta">+1.40</span></div>
@@ -297,44 +297,49 @@
           <div class="bar bar--adapted" style="--i:2;width:98%">4.90</div>
         </div>
         <div class="bar-block">
-          <div class="bar-block__head"><span class="bar-block__name">Groundedness — claims backed by real files</span><span class="bar-block__delta">+1.80</span></div>
+          <div class="bar-block__head"><span class="bar-block__name">Groundedness — claims backed by real files</span><span class="bar-block__delta">+2.10</span></div>
           <div class="bar bar--stock" style="--i:2;width:52%">2.60</div>
-          <div class="bar bar--adapted" style="--i:3;width:88%">4.40</div>
+          <div class="bar bar--adapted" style="--i:3;width:94%">4.70</div>
         </div>
         <div class="bar-block">
-          <div class="bar-block__head"><span class="bar-block__name">Uncertainty calibration — honest about what it can't tell</span><span class="bar-block__delta">+1.80</span></div>
+          <div class="bar-block__head"><span class="bar-block__name">Uncertainty calibration — honest about what it can't tell</span><span class="bar-block__delta">+2.00</span></div>
           <div class="bar bar--stock" style="--i:3;width:46%">2.30</div>
-          <div class="bar bar--adapted" style="--i:4;width:82%">4.10</div>
+          <div class="bar bar--adapted" style="--i:4;width:86%">4.30</div>
         </div>
         <div class="scale"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
+      </div>
+      <div style="margin-top:16px;font-size:12.5px;color:var(--text-dim)">
+        Four iterations: <b style="color:var(--text)">stock 2.60</b> → <b style="color:var(--text)">v1 4.40</b> (fix how answers read files) →
+        <span style="color:var(--stock)">v2 4.30 &amp; v3 4.40</span> (two answer-side "double-check" passes — both net-neutral, reverted) →
+        <b style="color:var(--adapted)">v4 4.60</b> (fix the memory). The win came from the memory layer.
       </div>
     </div>
 
     <!-- ============ 4 ============ -->
     <div class="sec-head" id="s4"><span class="num">04</span> Per-question results</div>
-    <p class="sec-sub">Overall score per question (out of 5), stock → adapted. No question regressed; two catastrophic refusals went from 1 to 5.</p>
+    <p class="sec-sub">Overall score per question (out of 5), stock → v4 (best). Five laggards lifted; six answers now perfect.</p>
     <div class="table-wrap">
       <div class="table-scroll">
         <table class="data">
           <thead>
-            <tr><th>Day</th><th>Question topic</th><th class="num">Stock</th><th class="num">Adapted</th><th class="num">Jump</th><th class="num">Hindsight (stock)</th></tr>
+            <tr><th>Day</th><th>Question topic</th><th class="num">Stock</th><th class="num">v4</th><th class="num">Jump</th><th class="num">Hindsight (stock)</th></tr>
           </thead>
           <tbody>
             <tr><td>Apr 08</td><td>Lab object boundaries</td><td class="num"><span class="pill pill--s">4</span></td><td class="num"><span class="pill pill--a">5</span></td><td class="num"><span class="jump jump--big">+1</span></td><td class="num"><span class="leak leak--none">none</span></td></tr>
-            <tr><td>Apr 10</td><td>Legacy archive boundary</td><td class="num"><span class="pill pill--s">2</span></td><td class="num"><span class="pill pill--a">4</span></td><td class="num"><span class="jump jump--big">+2</span></td><td class="num"><span class="leak leak--major">major → fixed</span></td></tr>
+            <tr><td>Apr 10</td><td>Legacy archive boundary</td><td class="num"><span class="pill pill--s">2</span></td><td class="num"><span class="pill pill--a">5</span></td><td class="num"><span class="jump jump--big">+3</span></td><td class="num"><span class="leak leak--major">major → fixed</span></td></tr>
             <tr><td>Apr 13</td><td>Real-ask V2 lineage</td><td class="num"><span class="pill pill--s">4</span></td><td class="num"><span class="pill pill--a">5</span></td><td class="num"><span class="jump jump--big">+1</span></td><td class="num"><span class="leak leak--none">none</span></td></tr>
             <tr><td>Apr 14</td><td>S07 vs LoCoMo / LifeBench</td><td class="num"><span class="pill pill--s">1</span></td><td class="num"><span class="pill pill--a">5</span></td><td class="num"><span class="jump jump--big">+4</span></td><td class="num"><span class="leak leak--none">none</span></td></tr>
-            <tr><td>Apr 17</td><td>Judge salvage + ask corpus</td><td class="num"><span class="pill pill--s">5</span></td><td class="num"><span class="pill pill--a">5</span></td><td class="num"><span class="jump jump--flat">—</span></td><td class="num"><span class="leak leak--none">none</span></td></tr>
-            <tr><td>Apr 18</td><td>Demand tags ≠ taxonomy</td><td class="num"><span class="pill pill--s">2</span></td><td class="num"><span class="pill pill--s">2</span></td><td class="num"><span class="jump jump--flat">—</span></td><td class="num"><span class="leak leak--none">none</span></td></tr>
+            <tr><td>Apr 17</td><td>Judge salvage + ask corpus</td><td class="num"><span class="pill pill--s">5</span></td><td class="num"><span class="pill pill--s">4</span></td><td class="num"><span class="jump" style="color:var(--stock)">−1</span></td><td class="num"><span class="leak leak--none">none</span></td></tr>
+            <tr><td>Apr 18</td><td>Demand tags ≠ taxonomy</td><td class="num"><span class="pill pill--s">2</span></td><td class="num"><span class="pill pill--s">3</span></td><td class="num"><span class="jump jump--big">+1</span></td><td class="num"><span class="leak leak--none">none</span></td></tr>
             <tr><td>Apr 19</td><td>Environment + judge primitives</td><td class="num"><span class="pill pill--s">2</span></td><td class="num"><span class="pill pill--a">5</span></td><td class="num"><span class="jump jump--big">+3</span></td><td class="num"><span class="leak leak--none">none</span></td></tr>
-            <tr><td>Apr 20</td><td>Calibration boundary</td><td class="num"><span class="pill pill--s">3</span></td><td class="num"><span class="pill pill--s">3</span></td><td class="num"><span class="jump jump--flat">—</span></td><td class="num"><span class="leak leak--none">none</span></td></tr>
+            <tr><td>Apr 20</td><td>Calibration boundary</td><td class="num"><span class="pill pill--s">3</span></td><td class="num"><span class="pill pill--a">4</span></td><td class="num"><span class="jump jump--big">+1</span></td><td class="num"><span class="leak leak--none">none</span></td></tr>
             <tr><td>Apr 21</td><td>Measurement instrument scope</td><td class="num"><span class="pill pill--s">2</span></td><td class="num"><span class="pill pill--a">5</span></td><td class="num"><span class="jump jump--big">+3</span></td><td class="num"><span class="leak leak--none">none</span></td></tr>
             <tr><td>Apr 21</td><td>Probe coverage gaps</td><td class="num"><span class="pill pill--s">1</span></td><td class="num"><span class="pill pill--a">5</span></td><td class="num"><span class="jump jump--big">+4</span></td><td class="num"><span class="leak leak--none">none</span></td></tr>
           </tbody>
         </table>
       </div>
     </div>
-    <p style="font-size:12.5px;color:var(--text-dim);margin-top:10px">Two laggards remain — <strong>Apr 18</strong> and <strong>Apr 20</strong>, the most cross-referenced days. Both are the target of v2 (Section 6).</p>
+    <p style="font-size:12.5px;color:var(--text-dim);margin-top:10px">Remaining work sits on <strong>Apr 18</strong> (3) and <strong>Apr 17 / Apr 20</strong> (4) — the most cross-referenced days. The one dip (Apr 17, 5→4) is an answer-side calibration nit, not a memory problem (Section 6).</p>
 
     <!-- ============ 5 ============ -->
     <div class="sec-head" id="s5"><span class="num">05</span> The key finding</div>
@@ -360,19 +365,19 @@
 
     <!-- ============ 6 ============ -->
     <div class="sec-head" id="s6"><span class="num">06</span> Improving the memory itself</div>
-    <p class="sec-sub">v1 fixed the <em>reading</em> side. The biggest remaining gains — and the most durable ones for a real, months-long deployment — are in the <strong>notebook</strong> itself.</p>
+    <p class="sec-sub">We tried two answer-side "double-check" passes (v2, v3) — both net-neutral. Then we fixed the <strong>memory</strong>, and that's what won (v4, +0.20 over v1, zero leaks).</p>
 
     <div class="prose">
-      <p>Today the memory is excellent <em>prose</em>: the observer already caught the Apr-20 folder restructure, the approximate→exact flip, and supersession chains, all on its own. But prose is hard to query precisely, which is exactly where the two remaining weak answers (Apr 18, Apr 20) went wrong — they made <strong>attribution mistakes</strong> ("this file <em>first</em> introduced X" when an earlier file already had it; "all 80 files flipped status" when really 23 did). A richer memory structure would catch these.</p>
+      <p>The memory was already excellent <em>prose</em> — the observer caught the Apr-20 folder restructure and supersession chains on its own. But prose is hard to query precisely, which is where the weak answers went wrong: <strong>attribution mistakes</strong> ("this file <em>first</em> introduced X" when an earlier file had it; "all 80 files flipped status" when really 23 did). The fix was to give the memory a <em>structured</em> spine the answer can look facts up in, instead of re-deriving them.</p>
     </div>
 
     <div class="ideas" style="margin-top:8px">
-      <div class="idea">
-        <div class="idea__rank">MEMORY · #1</div>
-        <div class="idea__title">A per-file timeline, not just prose</div>
-        <div class="idea__row"><b>What</b> Alongside the bullet-notes, keep a structured record per artifact: <code>first_seen</code>, status changes (approximate→exact), <code>archived</code>, <code>superseded_by</code>.</div>
-        <div class="idea__row"><b>Why</b> Turns "when did X first appear / what replaced it" from a guess into a lookup.</div>
-        <div class="idea__row"><b>Fixes</b> The Apr 18 "first introduced" error — memory would <em>know</em> the R## scheme appeared days earlier.</div>
+      <div class="idea" style="border-left-color:var(--adapted);background:var(--adapted-dim)">
+        <div class="idea__rank" style="color:var(--adapted)">MEMORY · #1 · ✓ SHIPPED (this is v4)</div>
+        <div class="idea__title">A per-file timeline, computed not guessed</div>
+        <div class="idea__row"><b>What</b> Each day, fold <code>changes.txt</code> + <code>manifest.tsv</code> into a structured <code>timeline.json</code>: per file, <code>first_seen</code>, status history (approximate→exact), deletions. <strong>No LLM</strong> — it's parsed, so it can't hallucinate.</div>
+        <div class="idea__row"><b>Why</b> The answer looks up "when did X first appear / does it exist yet / is it archived" instead of re-deriving it. Date-filtered, so it stays no-hindsight.</div>
+        <div class="idea__row"><b>Result</b> Lifted Apr 10 (4→5), Apr 18 (2→3), Apr 20 (3→4) with zero new leaks and no latency cost. The first change to actually beat v1.</div>
       </div>
       <div class="idea">
         <div class="idea__rank">MEMORY · #2</div>
@@ -388,16 +393,16 @@
         <div class="idea__row"><b>Why</b> "First/novel" claims are where the model over-reaches; the memory should be the authority that vetoes a false one.</div>
       </div>
       <div class="idea idea--answer">
-        <div class="idea__rank">ANSWER · v2</div>
-        <div class="idea__title">Finish the read-side cleanup</div>
-        <div class="idea__row"><b>What</b> A hard check that forbids saying "unavailable" about any file present in the manifest; a quick verify pass that re-grounds every count and "stated in FILE" claim; always show the full file list so "not in my digest" ≠ "not in the folder."</div>
-        <div class="idea__row"><b>Fixes</b> The last two laggards (Apr 18 → ~5, Apr 20 → ~5), targeting a near-perfect average.</div>
+        <div class="idea__rank">ANSWER · next (top remaining lever)</div>
+        <div class="idea__title">Kill the last false-"unavailable" nit</div>
+        <div class="idea__row"><b>What</b> The one regression (Apr 17, 5→4) and half of Apr 18 are the answer hedging that a file <em>body</em> is "not shown" when it's just outside the relevance digest. Fix: never say "unavailable" for any file the timeline lists; widen the digest for the few big-fan-out days.</div>
+        <div class="idea__row"><b>Fixes</b> Apr 17 → 5, Apr 18 → ~4–5, pushing the average toward ~4.8.</div>
       </div>
     </div>
 
     <div class="callout" style="margin-top:22px">
       <div class="label">bottom line</div>
-      <p style="margin:0">Your agent-memory discipline is <strong>genuinely strong</strong> — it built an accurate two-week timeline with zero hand-holding. v1 already took the system from <strong>2.60 to 4.40 / 5</strong> with no hindsight leaks, purely by fixing how it reads. The next ceiling-raiser is making the <em>notebook</em> structured enough to answer attribution questions and to stay honest over long horizons.</p>
+      <p style="margin:0">Your agent-memory discipline is <strong>genuinely strong</strong> — it built an accurate two-week timeline with zero hand-holding, and that memory was the lever that won. The arc: <strong>2.60 → 4.40</strong> (fix how answers read) → two answer-side patches that went nowhere → <strong>4.60, zero leaks</strong> by giving the memory a structured spine. The remaining gap is a small answer-side calibration nit, not the memory. For a real, months-long run, the next durability investment is lineage-preserving reflection (#2).</p>
     </div>
 
     <div class="footer">

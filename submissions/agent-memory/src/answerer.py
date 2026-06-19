@@ -20,6 +20,7 @@ from pathlib import Path
 from claude_client import run_claude
 from memory import read_memory, read_memory_asof
 from state_digest import digest_answer_state, digest_answer_state_relevant
+from timeline import timeline_asof
 from util import cap_lines, read_text, render
 
 _FILE_RE = re.compile(r"[A-Za-z0-9_./-]+\.[A-Za-z0-9]{1,6}")
@@ -75,15 +76,18 @@ def run_answer(
         state_ctx = digest_answer_state(state_dir)
         template = (PROMPTS / "answer.md").read_text(encoding="utf-8")
     else:
-        memory = read_memory_asof(memory_dir, _ref_date(reference_time)).strip() \
+        ref_date = _ref_date(reference_time)
+        memory = read_memory_asof(memory_dir, ref_date).strip() \
             or "(no memory recorded as of the reference time)"
         state_ctx = digest_answer_state_relevant(state_dir, qtext)
+        timeline = timeline_asof(memory_dir, ref_date) or "(no structured timeline available)"
         template = (PROMPTS / "answer_adapted.md").read_text(encoding="utf-8")
 
     prompt = render(
         template,
         REFERENCE_TIME=reference_time,
         MEMORY=memory,
+        TIMELINE=(timeline if mode != "stock" else ""),
         STATE_CONTEXT=state_ctx,
         QUESTION=qtext,
     )

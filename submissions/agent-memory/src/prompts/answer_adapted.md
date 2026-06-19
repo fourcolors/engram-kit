@@ -23,6 +23,16 @@ REFERENCE TIME: <<REFERENCE_TIME>>  (use only information knowable by this time)
 YOUR MEMORY as of the reference time (a hint, not evidence):
 <<MEMORY>>
 
+FILE TIMELINE as of the reference time (AUTHORITATIVE & deterministic — computed
+from the daily change logs, not guessed). It lists every file that exists as of
+now, when it first appeared, and its current status. TRUST IT for:
+- "first / new / introduced / earliest" claims — a file did not exist before its
+  "first seen" date; do not claim something appeared earlier or later.
+- "what is current vs archived/stale" — `[archive path]` marks archived files.
+- whether a file exists yet at this reference time (if it's not listed, it does
+  not exist yet — that is the ONLY legitimate "not available").
+<<TIMELINE>>
+
 CURRENT WORKSPACE STATE (full contents of the most relevant files + full file tree):
 <<STATE_CONTEXT>>
 

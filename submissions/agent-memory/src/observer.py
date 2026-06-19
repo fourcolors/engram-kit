@@ -12,6 +12,7 @@ from pathlib import Path
 from claude_client import run_claude
 from memory import append_dated, read_memory, write_memory
 from state_digest import digest_update
+from timeline import update_timeline
 from util import cap_lines, count_lines, render
 
 PROMPTS = Path(__file__).resolve().parent / "prompts"
@@ -27,6 +28,11 @@ def _state_date(state_dir: Path) -> str:
 
 def run_observer(state_dir: Path, memory_dir: Path, *, model: str = "sonnet") -> int:
     date_iso = _state_date(state_dir)
+
+    # Deterministic structured memory: fold today's changes.txt + manifest into
+    # the per-file timeline (first_seen / status history / deletions). No LLM.
+    update_timeline(state_dir, memory_dir)
+
     existing = cap_lines(read_memory(memory_dir), 200) or "(empty — this is the first day)"
     digest = digest_update(state_dir)
 
