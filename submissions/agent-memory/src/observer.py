@@ -9,8 +9,11 @@ from __future__ import annotations
 import sys
 from pathlib import Path
 
+import os
+
 from claude_client import run_claude
 from memory import append_dated, read_memory, write_memory
+from pdf_index import update_pdf_index
 from state_digest import digest_update
 from timeline import update_timeline
 from util import cap_lines, count_lines, render
@@ -32,6 +35,13 @@ def run_observer(state_dir: Path, memory_dir: Path, *, model: str = "sonnet") ->
     # Deterministic structured memory: fold today's changes.txt + manifest into
     # the per-file timeline (first_seen / status history / deletions). No LLM.
     update_timeline(state_dir, memory_dir)
+
+    # PageIndex-style PDF trees (deterministic, 0 LLM). Opt-in via ENGRAM_PDF.
+    if os.environ.get("ENGRAM_PDF", "off") != "off":
+        try:
+            update_pdf_index(state_dir, memory_dir)
+        except Exception as exc:  # never let PDF indexing fail an update
+            print(f"pdf index skipped: {exc}", file=sys.stderr)
 
     existing = cap_lines(read_memory(memory_dir), 200) or "(empty — this is the first day)"
     digest = digest_update(state_dir)

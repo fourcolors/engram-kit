@@ -19,6 +19,7 @@ from pathlib import Path
 
 from claude_client import run_claude
 from memory import read_memory, read_memory_asof
+from pdf_index import select_and_extract
 from state_digest import digest_answer_state, digest_answer_state_relevant
 from timeline import timeline_asof
 from util import cap_lines, read_text, render
@@ -81,6 +82,13 @@ def run_answer(
             or "(no memory recorded as of the reference time)"
         state_ctx = digest_answer_state_relevant(state_dir, qtext)
         timeline = timeline_asof(memory_dir, ref_date) or "(no structured timeline available)"
+        # PageIndex-style PDF retrieval (opt-in): append page-scoped extracts of the
+        # PDF sections the model navigates to. No-hindsight is automatic (state_dir
+        # is the reference-time snapshot).
+        if os.environ.get("ENGRAM_PDF", "off") != "off":
+            pdf_ctx = select_and_extract(state_dir, memory_dir, qtext, model=model)
+            if pdf_ctx:
+                state_ctx = state_ctx + "\n\n" + pdf_ctx
         template = (PROMPTS / "answer_adapted.md").read_text(encoding="utf-8")
 
     prompt = render(

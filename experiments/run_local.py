@@ -57,6 +57,8 @@ def main() -> int:
                     help="heavy verify pass (ENGRAM_VERIFY); v2 experiment, net-negative")
     ap.add_argument("--repair", default="off", choices=["on", "off"],
                     help="surgical false-unavailable repair (ENGRAM_REPAIR); v3 experiment, net-neutral")
+    ap.add_argument("--pdf", default="off", choices=["on", "off"],
+                    help="PageIndex-style PDF retrieval (ENGRAM_PDF)")
     ap.add_argument("--tag", default="", help="answers subdir suffix (default = mode)")
     ap.add_argument("--max-states", type=int, default=0, help="0 = all states")
     ap.add_argument("--only", default="", help="comma-separated question ids")
@@ -78,6 +80,7 @@ def main() -> int:
     env["ENGRAM_MODE"] = args.mode
     env["ENGRAM_VERIFY"] = args.verify
     env["ENGRAM_REPAIR"] = args.repair
+    env["ENGRAM_PDF"] = args.pdf
 
     states = sorted_states(kit)
     if args.max_states:
