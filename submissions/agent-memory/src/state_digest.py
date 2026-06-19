@@ -168,8 +168,10 @@ def digest_answer_state_relevant(
 
     tree = "\n".join(f"files/{p.relative_to(files_root)}" for p in all_files) or "(no files)"
     parts = [
-        "## current file tree (state-relative paths usable as evidence_paths)\n" + tree,
-        "## manifest.tsv\n" + cap_lines(read_text(state_dir / "manifest.tsv"), 300),
+        "## current file tree — EVERY file present in this state (any not listed here is genuinely absent)\n"
+        + tree,
+        "## manifest.tsv (full — path / status exact|approximate / evidence / notes)\n"
+        + read_text(state_dir / "manifest.tsv"),
         "## changes.txt (transitions into this state)\n"
         + (read_text(state_dir / "changes.txt") or "(none)"),
     ]

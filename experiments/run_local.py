@@ -53,6 +53,11 @@ def main() -> int:
     ap.add_argument("--model", default="sonnet")
     ap.add_argument("--mode", default="adapted", choices=["stock", "adapted"],
                     help="answer-pass behavior; memory build is identical for both")
+    ap.add_argument("--verify", default="off", choices=["auto", "always", "off"],
+                    help="heavy verify pass (ENGRAM_VERIFY); v2 experiment, net-negative")
+    ap.add_argument("--repair", default="off", choices=["on", "off"],
+                    help="surgical false-unavailable repair (ENGRAM_REPAIR); v3 experiment, net-neutral")
+    ap.add_argument("--tag", default="", help="answers subdir suffix (default = mode)")
     ap.add_argument("--max-states", type=int, default=0, help="0 = all states")
     ap.add_argument("--only", default="", help="comma-separated question ids")
     ap.add_argument("--timeout", type=int, default=300)
@@ -63,13 +68,16 @@ def main() -> int:
     kit, sub, out = Path(args.kit), Path(args.submission), Path(args.out)
     run_sh = sub / "run.sh"
     mem = out / "memory"
-    ans_dir = out / f"answers_{args.mode}"
+    tag = args.tag or args.mode
+    ans_dir = out / f"answers_{tag}"
     out.mkdir(parents=True, exist_ok=True)
     ans_dir.mkdir(parents=True, exist_ok=True)
 
     env = dict(os.environ)
     env["ENGRAM_MODEL"] = args.model
     env["ENGRAM_MODE"] = args.mode
+    env["ENGRAM_VERIFY"] = args.verify
+    env["ENGRAM_REPAIR"] = args.repair
 
     states = sorted_states(kit)
     if args.max_states:

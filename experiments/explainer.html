@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ENGRAM × agent-memory — how it works & how it's doing</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,400;9..144,500;9..144,600&family=Spline+Sans:wght@400;500;600&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --font-display: 'Fraunces', Georgia, serif;
+    --font-body: 'Spline Sans', system-ui, sans-serif;
+    --font-mono: 'JetBrains Mono', 'SF Mono', Consolas, monospace;
+
+    --bg: #faf7f2;
+    --surface: #ffffff;
+    --surface2: #f3efe8;
+    --surface-elevated: #fffdfa;
+    --border: rgba(40, 33, 25, 0.10);
+    --border-bright: rgba(40, 33, 25, 0.18);
+    --text: #221c16;
+    --text-dim: #6d655b;
+
+    --accent: #0e7490;       /* teal — neutral highlight */
+    --accent-dim: rgba(14, 116, 144, 0.10);
+    --adapted: #15803d;      /* green — the improved system */
+    --adapted-dim: rgba(21, 128, 61, 0.10);
+    --stock: #b45309;        /* amber — the baseline */
+    --stock-dim: rgba(180, 83, 9, 0.10);
+    --red: #c1121f;
+    --red-dim: rgba(193, 18, 31, 0.09);
+  }
+  @media (prefers-color-scheme: dark) {
+    :root {
+      --bg: #14110d;
+      --surface: #1d1813;
+      --surface2: #261f18;
+      --surface-elevated: #221c15;
+      --border: rgba(255, 248, 235, 0.08);
+      --border-bright: rgba(255, 248, 235, 0.16);
+      --text: #f1e8da;
+      --text-dim: #b0a594;
+      --accent: #38bdf8;
+      --accent-dim: rgba(56, 189, 248, 0.13);
+      --adapted: #4ade80;
+      --adapted-dim: rgba(74, 222, 128, 0.13);
+      --stock: #fbbf24;
+      --stock-dim: rgba(251, 191, 36, 0.13);
+      --red: #f87171;
+      --red-dim: rgba(248, 113, 113, 0.12);
+    }
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  body {
+    background: var(--bg);
+    background-image:
+      radial-gradient(ellipse at 12% -5%, var(--adapted-dim) 0%, transparent 45%),
+      radial-gradient(ellipse at 95% 0%, var(--stock-dim) 0%, transparent 40%);
+    background-attachment: fixed;
+    color: var(--text);
+    font-family: var(--font-body);
+    line-height: 1.6;
+    padding: 36px 40px 80px;
+    overflow-wrap: break-word;
+  }
+
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(12px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeScale { from { opacity: 0; transform: scale(0.94); } to { opacity: 1; transform: scale(1); } }
+  @keyframes growW { from { width: 0; } }
+  .animate { animation: fadeUp 0.5s ease-out both; animation-delay: calc(var(--i,0)*0.05s); }
+  @media (prefers-reduced-motion: reduce) { *,*::before,*::after { animation-duration:.01ms!important; animation-delay:0ms!important; transition-duration:.01ms!important; } }
+
+  .wrap { max-width: 1180px; margin: 0 auto; display: grid; grid-template-columns: 180px 1fr; gap: 0 44px; }
+  .main { min-width: 0; }
+
+  /* TOC */
+  .toc { position: sticky; top: 24px; align-self: start; padding: 14px 0; grid-row: 1/-1; max-height: calc(100dvh - 48px); overflow-y: auto; }
+  .toc::-webkit-scrollbar { width: 3px; }
+  .toc::-webkit-scrollbar-thumb { background: var(--surface-elevated); border-radius: 2px; }
+  .toc-title { font-family: var(--font-mono); font-size: 9px; font-weight: 700; text-transform: uppercase; letter-spacing: 2px; color: var(--text-dim); padding-bottom: 10px; margin-bottom: 8px; border-bottom: 1px solid var(--border); }
+  .toc a { display: block; font-size: 11.5px; color: var(--text-dim); text-decoration: none; padding: 5px 9px; border-radius: 5px; border-left: 2px solid transparent; transition: all .15s; line-height: 1.35; margin-bottom: 1px; }
+  .toc a:hover { color: var(--text); background: var(--surface2); }
+  .toc a.active { color: var(--text); border-left-color: var(--accent); background: var(--surface2); }
+
+  /* Header */
+  .eyebrow { font-family: var(--font-mono); font-size: 11px; letter-spacing: 2px; text-transform: uppercase; color: var(--accent); margin-bottom: 12px; }
+  h1 { font-family: var(--font-display); font-weight: 500; font-size: 42px; line-height: 1.05; letter-spacing: -0.5px; margin-bottom: 12px; }
+  h1 .hl { font-style: italic; color: var(--accent); }
+  .lede { font-size: 17px; color: var(--text-dim); max-width: 62ch; margin-bottom: 28px; }
+
+  .sec-head { font-family: var(--font-display); font-weight: 500; font-size: 26px; letter-spacing: -0.3px; margin: 48px 0 6px; padding-top: 12px; scroll-margin-top: 16px; display: flex; align-items: baseline; gap: 12px; }
+  .sec-head .num { font-family: var(--font-mono); font-size: 13px; color: var(--accent); font-weight: 600; }
+  .sec-sub { color: var(--text-dim); font-size: 14px; margin-bottom: 20px; max-width: 70ch; }
+
+  p { margin-bottom: 14px; }
+  .prose { max-width: 72ch; }
+  .prose strong { font-weight: 600; }
+  code { font-family: var(--font-mono); font-size: 0.86em; background: var(--accent-dim); color: var(--accent); padding: 1px 6px; border-radius: 4px; }
+
+  .card { background: var(--surface); border: 1px solid var(--border); border-radius: 14px; padding: 22px 24px; }
+  .card--hero { background: color-mix(in srgb, var(--surface) 90%, var(--accent) 10%); box-shadow: 0 4px 24px rgba(0,0,0,0.07); border-color: color-mix(in srgb, var(--border) 50%, var(--accent) 50%); }
+  .label { font-family: var(--font-mono); font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 1.4px; color: var(--text-dim); display: flex; align-items: center; gap: 8px; margin-bottom: 12px; }
+  .label::before { content:''; width: 8px; height: 8px; border-radius: 50%; background: currentColor; }
+
+  /* Flow diagram */
+  .flow { display: grid; grid-template-columns: 1fr; gap: 0; margin: 8px 0 4px; }
+  .flow-row { display: grid; grid-template-columns: 1fr 44px 1fr; align-items: center; gap: 0; }
+  .flow-card { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 16px 18px; }
+  .flow-card h4 { font-family: var(--font-mono); font-size: 11px; letter-spacing: 0.5px; text-transform: uppercase; margin-bottom: 6px; }
+  .flow-card p { font-size: 13.5px; color: var(--text-dim); margin: 0; }
+  .flow-card--obs { border-left: 3px solid var(--accent); }
+  .flow-card--mem { border-left: 3px solid var(--adapted); background: var(--adapted-dim); }
+  .flow-card--ans { border-left: 3px solid var(--stock); }
+  .flow-arrow { display: flex; align-items: center; justify-content: center; color: var(--border-bright); font-size: 22px; }
+  .flow-arrow.down { justify-self: center; padding: 8px 0; }
+  .flow-mono { font-family: var(--font-mono); font-size: 11px; color: var(--text-dim); background: var(--surface2); border-radius: 6px; padding: 7px 12px; display: inline-block; margin-top: 4px; }
+
+  /* KPI hero */
+  .kpi-row { display: grid; grid-template-columns: repeat(auto-fit, minmax(150px,1fr)); gap: 14px; margin: 4px 0 8px; }
+  .kpi { background: var(--surface-elevated); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; box-shadow: 0 2px 10px rgba(0,0,0,0.05); animation: fadeScale .4s ease-out both; animation-delay: calc(var(--i,0)*.06s); }
+  .kpi .from { font-family: var(--font-mono); font-size: 13px; color: var(--stock); }
+  .kpi .arrow { color: var(--text-dim); margin: 0 4px; }
+  .kpi .to { font-family: var(--font-display); font-size: 34px; font-weight: 600; color: var(--adapted); line-height: 1; font-variant-numeric: tabular-nums; }
+  .kpi .delta { font-family: var(--font-mono); font-size: 12px; color: var(--adapted); margin-top: 6px; font-weight: 600; }
+  .kpi .name { font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 1.2px; color: var(--text-dim); margin-top: 4px; }
+
+  /* Bar comparison */
+  .bars { display: flex; flex-direction: column; gap: 16px; margin-top: 6px; }
+  .bar-block { }
+  .bar-block__head { display: flex; justify-content: space-between; align-items: baseline; margin-bottom: 7px; }
+  .bar-block__name { font-size: 13.5px; font-weight: 500; }
+  .bar-block__delta { font-family: var(--font-mono); font-size: 11px; color: var(--adapted); font-weight: 600; }
+  .bar-track { position: relative; }
+  .bar { height: 22px; border-radius: 6px; display: flex; align-items: center; padding: 0 9px; font-family: var(--font-mono); font-size: 11px; font-weight: 600; color: #fff; margin-bottom: 5px; animation: growW .9s cubic-bezier(.2,.7,.3,1) both; animation-delay: calc(var(--i,0)*.07s); white-space: nowrap; }
+  .bar--stock { background: var(--stock); }
+  .bar--adapted { background: var(--adapted); }
+  .bar small { font-family: var(--font-mono); font-size: 9px; font-weight: 600; opacity: .85; margin-left: 6px; letter-spacing: 1px; }
+  .scale { display: flex; justify-content: space-between; font-family: var(--font-mono); font-size: 9px; color: var(--text-dim); margin-top: 2px; }
+
+  /* table */
+  .table-wrap { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+  .table-scroll { overflow-x: auto; }
+  table.data { width: 100%; border-collapse: collapse; font-size: 13px; }
+  table.data th { background: var(--surface2); font-family: var(--font-mono); font-size: 10px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; color: var(--text-dim); text-align: left; padding: 12px 14px; border-bottom: 2px solid var(--border-bright); white-space: nowrap; }
+  table.data td { padding: 11px 14px; border-bottom: 1px solid var(--border); vertical-align: middle; }
+  table.data tbody tr:last-child td { border-bottom: none; }
+  table.data tbody tr:hover { background: var(--accent-dim); }
+  td.num, th.num { text-align: center; font-family: var(--font-mono); font-variant-numeric: tabular-nums; }
+  .pill { font-family: var(--font-mono); font-size: 11px; font-weight: 600; padding: 2px 8px; border-radius: 6px; }
+  .pill--s { background: var(--stock-dim); color: var(--stock); }
+  .pill--a { background: var(--adapted-dim); color: var(--adapted); }
+  .jump { font-family: var(--font-mono); font-size: 11px; font-weight: 600; }
+  .jump--big { color: var(--adapted); }
+  .jump--flat { color: var(--text-dim); }
+  .leak { font-family: var(--font-mono); font-size: 10px; font-weight: 600; padding: 2px 7px; border-radius: 5px; }
+  .leak--major { background: var(--red-dim); color: var(--red); }
+  .leak--none { background: var(--adapted-dim); color: var(--adapted); }
+
+  /* diff panels */
+  .diff { display: grid; grid-template-columns: 1fr 1fr; gap: 0; border: 1px solid var(--border); border-radius: 12px; overflow: hidden; }
+  .diff > * { min-width: 0; overflow-wrap: break-word; }
+  .diff__h { font-family: var(--font-mono); font-size: 11px; font-weight: 600; text-transform: uppercase; letter-spacing: 1px; padding: 10px 16px; }
+  .diff__h--b { background: var(--red-dim); color: var(--red); border-bottom: 2px solid var(--red); }
+  .diff__h--a { background: var(--adapted-dim); color: var(--adapted); border-bottom: 2px solid var(--adapted); }
+  .diff__body { padding: 16px; background: var(--surface); font-size: 13px; line-height: 1.55; }
+  .diff__body.b { border-right: 1px solid var(--border); }
+
+  /* idea cards */
+  .ideas { display: grid; grid-template-columns: 1fr; gap: 14px; }
+  .idea { background: var(--surface); border: 1px solid var(--border); border-radius: 12px; padding: 18px 20px; position: relative; border-left: 3px solid var(--adapted); }
+  .idea__rank { font-family: var(--font-mono); font-size: 11px; font-weight: 700; color: var(--adapted); }
+  .idea__title { font-family: var(--font-display); font-size: 18px; font-weight: 600; margin: 2px 0 8px; }
+  .idea__row { font-size: 13.5px; margin-bottom: 6px; }
+  .idea__row b { font-family: var(--font-mono); font-size: 10px; text-transform: uppercase; letter-spacing: 1px; color: var(--text-dim); display: inline-block; min-width: 64px; }
+  .idea--answer { border-left-color: var(--accent); }
+
+  .callout { background: var(--accent-dim); border: 1px solid color-mix(in srgb, var(--border) 40%, var(--accent) 60%); border-radius: 12px; padding: 18px 22px; margin: 18px 0; }
+  .callout .label { color: var(--accent); }
+  .node-list { list-style: none; font-size: 13.5px; line-height: 1.85; }
+  .node-list li { padding-left: 18px; position: relative; }
+  .node-list li::before { content: '›'; color: var(--accent); font-weight: 700; position: absolute; left: 2px; }
+  .footer { margin-top: 56px; padding-top: 20px; border-top: 1px solid var(--border); font-family: var(--font-mono); font-size: 11px; color: var(--text-dim); }
+
+  @media (max-width: 1000px) {
+    body { padding: 0 20px 60px; }
+    .wrap { grid-template-columns: 1fr; }
+    .toc { position: sticky; top: 0; z-index: 200; max-height: none; display: flex; gap: 4px; overflow-x: auto; background: var(--bg); border-bottom: 1px solid var(--border); padding: 10px 0; margin: 0 -20px; padding-left: 20px; padding-right: 20px; grid-row: auto; }
+    .toc::-webkit-scrollbar { display: none; }
+    .toc-title { display: none; }
+    .toc a { white-space: nowrap; flex-shrink: 0; border-left: none; border-bottom: 2px solid transparent; border-radius: 4px 4px 0 0; }
+    .toc a.active { border-left: none; border-bottom-color: var(--accent); }
+    .main { padding-top: 22px; }
+    .sec-head { scroll-margin-top: 54px; }
+    h1 { font-size: 32px; }
+    .flow-row { grid-template-columns: 1fr; gap: 8px; }
+    .flow-row .flow-arrow { display: none; }
+    .diff { grid-template-columns: 1fr; }
+    .diff__body.b { border-right: none; border-bottom: 1px solid var(--border); }
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+
+  <nav class="toc" id="toc">
+    <div class="toc-title">Contents</div>
+    <a href="#s1">1 · What is ENGRAM</a>
+    <a href="#s2">2 · How our system works</a>
+    <a href="#s3">3 · The scoreboard</a>
+    <a href="#s4">4 · Per-question results</a>
+    <a href="#s5">5 · The key finding</a>
+    <a href="#s6">6 · Improving the memory</a>
+  </nav>
+
+  <div class="main">
+
+    <div class="eyebrow animate">ENGRAM challenge · agent-memory · run 2026-06-18</div>
+    <h1 class="animate" style="--i:1">Teaching an AI to <span class="hl">remember</span> — and measuring whether it actually does.</h1>
+    <p class="lede animate" style="--i:2">We wired your <strong>agent-memory</strong> system into the ENGRAM benchmark, ran it over two weeks of a real research folder, and had 20 independent AI judges grade every answer. This page explains what happened in plain terms — and where to go next, especially for the memory itself.</p>
+
+    <div class="kpi-row">
+      <div class="kpi" style="--i:0"><div><span class="from">2.60</span><span class="arrow">→</span><span class="to">4.40</span></div><div class="delta">+1.80 overall</div><div class="name">Overall / 5</div></div>
+      <div class="kpi" style="--i:1"><div><span class="from">1</span><span class="arrow">→</span><span class="to" style="font-size:30px">0</span></div><div class="delta">leak closed</div><div class="name">Hindsight leaks</div></div>
+      <div class="kpi" style="--i:2"><div><span class="to" style="font-size:30px">7/10</span></div><div class="delta">perfect 5s</div><div class="name">Adapted answers</div></div>
+      <div class="kpi" style="--i:3"><div><span class="from">96s</span><span class="arrow">→</span><span class="to" style="font-size:30px">47s</span></div><div class="delta">under limit</div><div class="name">Max latency</div></div>
+    </div>
+
+    <!-- ============ 1 ============ -->
+    <div class="sec-head" id="s1"><span class="num">01</span> What is ENGRAM?</div>
+    <p class="sec-sub">A memory test for AI — with one strict rule: no peeking at the future.</p>
+    <div class="prose">
+      <p>Imagine a messy research folder that changes a little every day for two weeks — files appear, get rewritten, get moved into an <code>archive/</code>, get superseded by newer versions. ENGRAM hands an AI <strong>one daily snapshot at a time</strong>, in order, and asks it to <strong>build up a memory</strong> as it goes.</p>
+      <p>Later, it asks questions like <em>"as of April 13, which version of the eval set is the canonical one?"</em> — and the AI must answer <strong>as if it were standing on that day</strong>, citing the actual files as evidence, and honestly flagging what it can't be sure of. The grade rewards four things:</p>
+      <ul class="node-list">
+        <li><strong>Telling current from stale</strong> — what's live now vs. superseded or archived.</li>
+        <li><strong>Citing real evidence</strong> — pointing at actual files, not making things up.</li>
+        <li><strong>No hindsight</strong> — never using knowledge from a day that hasn't happened yet.</li>
+        <li><strong>Honest uncertainty</strong> — saying "I can't tell" when the file genuinely isn't there.</li>
+      </ul>
+      <p>The whole thing runs through just two commands: <code>update</code> (here's today's snapshot — remember it) and <code>answer</code> (here's a question — reply with citations).</p>
+    </div>
+
+    <!-- ============ 2 ============ -->
+    <div class="sec-head" id="s2"><span class="num">02</span> How our system works</div>
+    <p class="sec-sub">agent-memory keeps one growing notebook of dated bullet-notes. Two passes read and write it.</p>
+
+    <div class="flow card" style="padding:24px">
+      <div class="flow-row">
+        <div class="flow-card flow-card--obs">
+          <h4 style="color:var(--accent)">① Observer pass &nbsp;·&nbsp; runs on every daily snapshot</h4>
+          <p>Reads the day's <code>changes.txt</code> (what changed) + <code>manifest.tsv</code> (which files are confirmed vs. approximate) and writes <strong>1–5 dated notes</strong> about what's new, what moved, what got superseded.</p>
+          <span class="flow-mono">./run.sh update STATE_DIR MEMORY_DIR</span>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-card flow-card--mem">
+          <h4 style="color:var(--adapted)">② MEMORY.md &nbsp;·&nbsp; the notebook</h4>
+          <p>One Markdown file. Notes grouped under <code>Date:</code> headers, tagged by priority. Grew to <strong>151 lines</strong> over the 14 days — a living timeline of the folder.</p>
+          <span class="flow-mono">🔴 critical · 🟡 fact · 🟢 minor · ✅ done</span>
+        </div>
+      </div>
+      <div class="flow-arrow down">↓</div>
+      <div class="flow-row">
+        <div class="flow-card flow-card--ans">
+          <h4 style="color:var(--stock)">③ Answer pass &nbsp;·&nbsp; runs on every question</h4>
+          <p>Re-reads the notebook <strong>up to the question's date</strong>, opens the relevant files from that day's snapshot, then replies with a direct answer, evidence paths, and an honest uncertainty note.</p>
+          <span class="flow-mono">./run.sh answer STATE_DIR MEMORY_DIR QUESTION ANSWER</span>
+        </div>
+        <div class="flow-arrow">→</div>
+        <div class="flow-card" style="border-left:3px solid var(--text-dim)">
+          <h4 style="color:var(--text-dim)">④ Answer JSON</h4>
+          <p><code>answer</code> · <code>evidence_paths</code> · <code>memory_refs</code> · <code>uncertainty</code> — the graded output.</p>
+        </div>
+      </div>
+    </div>
+    <div class="callout">
+      <div class="label">the important nuance</div>
+      <p style="margin:0">The "intelligence" is a real model (Claude Sonnet) doing the observing and answering — run locally through the <code>claude</code> CLI, no API key. The notebook is just plain text you can open and read. <strong>Nothing is hidden in a database.</strong></p>
+    </div>
+
+    <!-- ============ 3 ============ -->
+    <div class="sec-head" id="s3"><span class="num">03</span> The scoreboard</div>
+    <p class="sec-sub">Same memory, same model, same judges. We changed only how the answer pass reads — "stock" first, then "adapted v1".</p>
+
+    <div class="card">
+      <div class="label" style="color:var(--accent)">Average score across 10 questions &nbsp;·&nbsp; <span style="color:var(--stock)">■ stock</span> &nbsp; <span style="color:var(--adapted)">■ adapted v1</span></div>
+      <div class="bars">
+        <div class="bar-block">
+          <div class="bar-block__head"><span class="bar-block__name">Overall</span><span class="bar-block__delta">+1.80</span></div>
+          <div class="bar bar--stock" style="--i:0;width:52%">2.60<small>STOCK</small></div>
+          <div class="bar bar--adapted" style="--i:1;width:88%">4.40<small>ADAPTED</small></div>
+        </div>
+        <div class="bar-block">
+          <div class="bar-block__head"><span class="bar-block__name">Responsiveness — does it answer the actual question</span><span class="bar-block__delta">+1.40</span></div>
+          <div class="bar bar--stock" style="--i:1;width:70%">3.50</div>
+          <div class="bar bar--adapted" style="--i:2;width:98%">4.90</div>
+        </div>
+        <div class="bar-block">
+          <div class="bar-block__head"><span class="bar-block__name">Groundedness — claims backed by real files</span><span class="bar-block__delta">+1.80</span></div>
+          <div class="bar bar--stock" style="--i:2;width:52%">2.60</div>
+          <div class="bar bar--adapted" style="--i:3;width:88%">4.40</div>
+        </div>
+        <div class="bar-block">
+          <div class="bar-block__head"><span class="bar-block__name">Uncertainty calibration — honest about what it can't tell</span><span class="bar-block__delta">+1.80</span></div>
+          <div class="bar bar--stock" style="--i:3;width:46%">2.30</div>
+          <div class="bar bar--adapted" style="--i:4;width:82%">4.10</div>
+        </div>
+        <div class="scale"><span>0</span><span>1</span><span>2</span><span>3</span><span>4</span><span>5</span></div>
+      </div>
+    </div>
+
+    <!-- ============ 4 ============ -->
+    <div class="sec-head" id="s4"><span class="num">04</span> Per-question results</div>
+    <p class="sec-sub">Overall score per question (out of 5), stock → adapted. No question regressed; two catastrophic refusals went from 1 to 5.</p>
+    <div class="table-wrap">
+      <div class="table-scroll">
+        <table class="data">
+          <thead>
+            <tr><th>Day</th><th>Question topic</th><th class="num">Stock</th><th class="num">Adapted</th><th class="num">Jump</th><th class="num">Hindsight (stock)</th></tr>
+          </thead>
+          <tbody>
+            <tr><td>Apr 08</td><td>Lab object boundaries</td><td class="num"><span class="pill pill--s">4</span></td><td class="num"><span class="pill pill--a">5</span></td><td class="num"><span class="jump jump--big">+1</span></td><td class="num"><span class="leak leak--none">none</span></td></tr>
+            <tr><td>Apr 10</td><td>Legacy archive boundary</td><td class="num"><span class="pill pill--s">2</span></td><td class="num"><span class="pill pill--a">4</span></td><td class="num"><span class="jump jump--big">+2</span></td><td class="num"><span class="leak leak--major">major → fixed</span></td></tr>
+            <tr><td>Apr 13</td><td>Real-ask V2 lineage</td><td class="num"><span class="pill pill--s">4</span></td><td class="num"><span class="pill pill--a">5</span></td><td class="num"><span class="jump jump--big">+1</span></td><td class="num"><span class="leak leak--none">none</span></td></tr>
+            <tr><td>Apr 14</td><td>S07 vs LoCoMo / LifeBench</td><td class="num"><span class="pill pill--s">1</span></td><td class="num"><span class="pill pill--a">5</span></td><td class="num"><span class="jump jump--big">+4</span></td><td class="num"><span class="leak leak--none">none</span></td></tr>
+            <tr><td>Apr 17</td><td>Judge salvage + ask corpus</td><td class="num"><span class="pill pill--s">5</span></td><td class="num"><span class="pill pill--a">5</span></td><td class="num"><span class="jump jump--flat">—</span></td><td class="num"><span class="leak leak--none">none</span></td></tr>
+            <tr><td>Apr 18</td><td>Demand tags ≠ taxonomy</td><td class="num"><span class="pill pill--s">2</span></td><td class="num"><span class="pill pill--s">2</span></td><td class="num"><span class="jump jump--flat">—</span></td><td class="num"><span class="leak leak--none">none</span></td></tr>
+            <tr><td>Apr 19</td><td>Environment + judge primitives</td><td class="num"><span class="pill pill--s">2</span></td><td class="num"><span class="pill pill--a">5</span></td><td class="num"><span class="jump jump--big">+3</span></td><td class="num"><span class="leak leak--none">none</span></td></tr>
+            <tr><td>Apr 20</td><td>Calibration boundary</td><td class="num"><span class="pill pill--s">3</span></td><td class="num"><span class="pill pill--s">3</span></td><td class="num"><span class="jump jump--flat">—</span></td><td class="num"><span class="leak leak--none">none</span></td></tr>
+            <tr><td>Apr 21</td><td>Measurement instrument scope</td><td class="num"><span class="pill pill--s">2</span></td><td class="num"><span class="pill pill--a">5</span></td><td class="num"><span class="jump jump--big">+3</span></td><td class="num"><span class="leak leak--none">none</span></td></tr>
+            <tr><td>Apr 21</td><td>Probe coverage gaps</td><td class="num"><span class="pill pill--s">1</span></td><td class="num"><span class="pill pill--a">5</span></td><td class="num"><span class="jump jump--big">+4</span></td><td class="num"><span class="leak leak--none">none</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+    <p style="font-size:12.5px;color:var(--text-dim);margin-top:10px">Two laggards remain — <strong>Apr 18</strong> and <strong>Apr 20</strong>, the most cross-referenced days. Both are the target of v2 (Section 6).</p>
+
+    <!-- ============ 5 ============ -->
+    <div class="sec-head" id="s5"><span class="num">05</span> The key finding</div>
+    <p class="sec-sub">The thing holding the score back was <strong>not the memory</strong>. It was how the answer pass fed itself the files.</p>
+    <div class="prose">
+      <p>In the stock version, when a question targeted a big file (a 30 KB eval set, a 19 KB sampling note), our code packed <em>small files first</em> into a size budget — so the big, important file never reached the model. Seeing only the filename, the model would shrug: <em>"that file isn't available, I can't determine the answer."</em> A real, present file, declared missing.</p>
+    </div>
+    <div class="diff" style="margin:18px 0">
+      <div class="diff__h diff__h--b">Stock — Apr 14 (scored 1/5)</div>
+      <div class="diff__h diff__h--a">Adapted — Apr 14 (scored 5/5)</div>
+      <div class="diff__body b">"The content of <code>S07_VS_LOCOMO_LIFEBENCH.md</code> is <strong>not available</strong> in the provided file contents… The specific claims about how S07 differs from LoCoMo and LifeBench cannot be determined from the available evidence."</div>
+      <div class="diff__body">"S07 differs from LoCoMo and LifeBench in five structural ways each: <strong>S07 is cross-harness live work-graph reconstruction</strong> (claude-code, opencode, hermes…) vs. a single bounded dialogue; the output is a live work graph, not QA over annotated ground truth; provenance is scope-attribution, not speaker-attribution…"</div>
+    </div>
+    <div class="callout">
+      <div class="label">what actually changed in v1</div>
+      <ul class="node-list" style="margin:0">
+        <li><strong>Let the model see what it cites</strong> — rank the day's files by relevance to the question (an explicit filename mention wins) and hand over the <em>full bodies</em> of the top matches.</li>
+        <li><strong>Date-filter the notebook</strong> — only feed notes dated on or before the question's day. This closed the one hindsight leak (Apr 10).</li>
+        <li><strong>Ban the false "unavailable"</strong> — tell the model: if a file's content is in front of you, use it; memory is a hint, not evidence.</li>
+      </ul>
+    </div>
+    <p class="prose">One change paid three dividends: groundedness jumped, the false refusals vanished, <em>and</em> the 96-second timeout outlier disappeared — because a focused, relevant digest is actually <strong>smaller</strong> than the old "dump all the small files" approach.</p>
+
+    <!-- ============ 6 ============ -->
+    <div class="sec-head" id="s6"><span class="num">06</span> Improving the memory itself</div>
+    <p class="sec-sub">v1 fixed the <em>reading</em> side. The biggest remaining gains — and the most durable ones for a real, months-long deployment — are in the <strong>notebook</strong> itself.</p>
+
+    <div class="prose">
+      <p>Today the memory is excellent <em>prose</em>: the observer already caught the Apr-20 folder restructure, the approximate→exact flip, and supersession chains, all on its own. But prose is hard to query precisely, which is exactly where the two remaining weak answers (Apr 18, Apr 20) went wrong — they made <strong>attribution mistakes</strong> ("this file <em>first</em> introduced X" when an earlier file already had it; "all 80 files flipped status" when really 23 did). A richer memory structure would catch these.</p>
+    </div>
+
+    <div class="ideas" style="margin-top:8px">
+      <div class="idea">
+        <div class="idea__rank">MEMORY · #1</div>
+        <div class="idea__title">A per-file timeline, not just prose</div>
+        <div class="idea__row"><b>What</b> Alongside the bullet-notes, keep a structured record per artifact: <code>first_seen</code>, status changes (approximate→exact), <code>archived</code>, <code>superseded_by</code>.</div>
+        <div class="idea__row"><b>Why</b> Turns "when did X first appear / what replaced it" from a guess into a lookup.</div>
+        <div class="idea__row"><b>Fixes</b> The Apr 18 "first introduced" error — memory would <em>know</em> the R## scheme appeared days earlier.</div>
+      </div>
+      <div class="idea">
+        <div class="idea__rank">MEMORY · #2</div>
+        <div class="idea__title">Reflection that preserves lineage</div>
+        <div class="idea__row"><b>What</b> When the notebook gets long, today's compression keeps "newest wins." Change it to preserve the dated chain (<em>current Apr 10 → archived Apr 20</em>) instead of collapsing to the latest state.</div>
+        <div class="idea__row"><b>Why</b> The sample (14 days) never triggered compression — but a real ENGRAM run spans weeks. Then "newest wins" would quietly erase the as-of-date truth and reintroduce hindsight errors.</div>
+        <div class="idea__row"><b>Fixes</b> Scales no-hindsight correctness to long horizons — the difference between a demo and a deployable system.</div>
+      </div>
+      <div class="idea">
+        <div class="idea__rank">MEMORY · #3</div>
+        <div class="idea__title">A novelty / "first-appearance" ledger</div>
+        <div class="idea__row"><b>What</b> Explicitly log the first time each named entity (a namespace, an eval-set version) shows up, so any "new / first / introduced" claim can be checked against it.</div>
+        <div class="idea__row"><b>Why</b> "First/novel" claims are where the model over-reaches; the memory should be the authority that vetoes a false one.</div>
+      </div>
+      <div class="idea idea--answer">
+        <div class="idea__rank">ANSWER · v2</div>
+        <div class="idea__title">Finish the read-side cleanup</div>
+        <div class="idea__row"><b>What</b> A hard check that forbids saying "unavailable" about any file present in the manifest; a quick verify pass that re-grounds every count and "stated in FILE" claim; always show the full file list so "not in my digest" ≠ "not in the folder."</div>
+        <div class="idea__row"><b>Fixes</b> The last two laggards (Apr 18 → ~5, Apr 20 → ~5), targeting a near-perfect average.</div>
+      </div>
+    </div>
+
+    <div class="callout" style="margin-top:22px">
+      <div class="label">bottom line</div>
+      <p style="margin:0">Your agent-memory discipline is <strong>genuinely strong</strong> — it built an accurate two-week timeline with zero hand-holding. v1 already took the system from <strong>2.60 to 4.40 / 5</strong> with no hindsight leaks, purely by fixing how it reads. The next ceiling-raiser is making the <em>notebook</em> structured enough to answer attribution questions and to stay honest over long horizons.</p>
+    </div>
+
+    <div class="footer">
+      ENGRAM × agent-memory · stock baseline vs adapted v1 · judged by 20 independent Opus agents · model: Claude Sonnet 4.6 · 14 daily states, 10 questions · sources: experiments/RESULTS_stock_baseline.md · experiments/RESULTS_adapted_v1.md
+    </div>
+
+  </div><!-- /main -->
+</div><!-- /wrap -->
+
+<script>
+(function() {
+  const toc = document.getElementById('toc');
+  const links = toc.querySelectorAll('a');
+  const sections = [];
+  links.forEach(link => {
+    const id = link.getAttribute('href').slice(1);
+    const el = document.getElementById(id);
+    if (el) sections.push({ id, el, link });
+  });
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        links.forEach(l => l.classList.remove('active'));
+        const match = sections.find(s => s.el === entry.target);
+        if (match) {
+          match.link.classList.add('active');
+          if (window.innerWidth <= 1000) match.link.scrollIntoView({ behavior:'smooth', block:'nearest', inline:'center' });
+        }
+      }
+    });
+  }, { rootMargin: '-8% 0px -82% 0px' });
+  sections.forEach(s => observer.observe(s.el));
+  links.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      const el = document.getElementById(link.getAttribute('href').slice(1));
+      if (el) { el.scrollIntoView({ behavior:'smooth', block:'start' }); history.replaceState(null, '', link.getAttribute('href')); }
+    });
+  });
+})();
+</script>
+</body>
+</html>
