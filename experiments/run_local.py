@@ -50,6 +50,7 @@ def main() -> int:
     ap.add_argument("--kit", default=str(REPO))
     ap.add_argument("--submission", default=str(DEFAULT_SUB))
     ap.add_argument("--out", default=str(REPO / "experiments" / "out"))
+    ap.add_argument("--questions", default="", help="path to a questions JSON (default: kit sample_questions.json)")
     ap.add_argument("--model", default="sonnet")
     ap.add_argument("--mode", default="adapted", choices=["stock", "adapted"],
                     help="answer-pass behavior; memory build is identical for both")
@@ -105,7 +106,8 @@ def main() -> int:
         if (mem / "MEMORY.md").exists():
             shutil.copy(mem / "MEMORY.md", out / "MEMORY.snapshot.md")
 
-    questions = json.loads((kit / "sample_questions.json").read_text())["questions"]
+    qpath = Path(args.questions) if args.questions else (kit / "sample_questions.json")
+    questions = json.loads(qpath.read_text())["questions"]
     only = {q for q in args.only.split(",") if q}
     all_states = sorted_states(kit)
     print(f"== answering questions (model={args.model}, mode={args.mode}) ==")
