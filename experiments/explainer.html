@@ -212,6 +212,7 @@
     <a href="#s4">4 · Per-question results</a>
     <a href="#s5">5 · The key finding</a>
     <a href="#s6">6 · Improving the memory</a>
+    <a href="#s7">7 · Reading the PDFs</a>
   </nav>
 
   <div class="main">
@@ -405,8 +406,34 @@
       <p style="margin:0">Your agent-memory discipline is <strong>genuinely strong</strong> — it built an accurate two-week timeline with zero hand-holding, and that memory was the lever that won. The arc: <strong>2.60 → 4.40</strong> (fix how answers read) → two answer-side patches that went nowhere → <strong>4.60, zero leaks</strong> by giving the memory a structured spine. The remaining gap is a small answer-side calibration nit, not the memory. For a real, months-long run, the next durability investment is lineage-preserving reflection (#2).</p>
     </div>
 
+    <!-- ============ 7 ============ -->
+    <div class="sec-head" id="s7"><span class="num">07</span> Reading the PDFs</div>
+    <p class="sec-sub">The corpus has 38 PDFs (34 academic papers) we used to ignore entirely. A <strong>PageIndex-style</strong> index now lets the system actually read them — opt-in, so the 4.60 baseline is untouched.</p>
+
+    <div class="prose">
+      <p>Most RAG systems chop a PDF into ~500-token chunks and retrieve by fuzzy vector similarity — losing the document's structure and giving opaque results. <strong>PageIndex</strong> (the technique we researched) does the opposite: it turns each PDF into a <em>hierarchical table-of-contents tree</em> and lets the model <em>navigate</em> it, like a person flipping to the right chapter. We adopted that idea and made the tree-building <strong>deterministic</strong>: 23 of our 33 papers already ship embedded outlines, so we get a clean tree for free — no LLM, no vectors, ~3.8s to index all 34 papers.</p>
+    </div>
+
+    <div class="diff" style="margin:18px 0">
+      <div class="diff__h diff__h--b">PDF off — answers from a summary file</div>
+      <div class="diff__h diff__h--a">PDF on — reads the actual paper</div>
+      <div class="diff__body b">"…it proposes four core memory competencies: (1) retrieval, (2) test-time learning, (3) long-range, and (4) selective forgetting." <small style="color:var(--text-dim)">Cited a second-hand summary (<code>FIELD_MAP_202604.md</code>); hedged that "the PDF text is not shown."</small></div>
+      <div class="diff__body">"<strong>Accurate Retrieval (AR)</strong> — identify info dispersed through a long history; <strong>Test-Time Learning (TTL)</strong> — learn new tasks from the conversation; <strong>Long-Range Understanding (LRU)</strong> — reason over long-form inputs; <strong>Selective Forgetting (SF)</strong> — forget outdated/conflicting memory." <small style="color:var(--text-dim)">Cited the actual <code>2025_hu_memoryagentbench.pdf</code>; uncertainty: "none."</small></div>
+    </div>
+
+    <div class="callout">
+      <div class="label">how it works</div>
+      <ul class="node-list" style="margin:0">
+        <li><strong>Build (at update, 0 LLM calls):</strong> each PDF → a tree of <code>{node_id, title, page-range}</code> from its embedded outline (or a heading regex, or page windows), cached by content hash in <code>MEMORY_DIR/pdf_index/</code>.</li>
+        <li><strong>Answer (one extra call):</strong> rank PDFs by relevance → show the model the tree <em>titles only</em> → it picks the sections → we extract <em>only those pages</em> → cite the PDF with its page range.</li>
+        <li><strong>No-hindsight, free:</strong> the answer only sees PDFs in that day's snapshot — an Apr-13 question sees zero papers (they appear Apr 21).</li>
+        <li><strong>No vectors, no network, no GPU</strong> — just <code>pdftotext</code> + <code>PyPDF2</code>. Lower rejection-risk than the model dependency itself.</li>
+      </ul>
+    </div>
+    <p style="font-size:12.5px;color:var(--text-dim);margin-top:12px">Regression check on the 10 sample questions (which mostly don't target PDFs): <strong>no PDF-caused regression</strong>. The one question that actually pulled a PDF — Apr 17, the Kaggle cross-harness writeup — improved <strong>4→5</strong>, leak-free; the ±0.1 overall drift is run-to-run judge noise on the PDF-free questions. So it's <strong>kept opt-in</strong> — switch it on for question sets that depend on document contents.</p>
+
     <div class="footer">
-      ENGRAM × agent-memory · stock baseline vs adapted v1 · judged by 20 independent Opus agents · model: Claude Sonnet 4.6 · 14 daily states, 10 questions · sources: experiments/RESULTS_stock_baseline.md · experiments/RESULTS_adapted_v1.md
+      ENGRAM × agent-memory · stock 2.60 → v4 4.60 (memory timeline) · + opt-in PageIndex PDF reading · judged by 20 independent Opus agents · model: Claude Sonnet 4.6 · 14 daily states, 10 questions · sources: experiments/RESULTS_*.md · RESEARCH_pageindex_pdf.md
     </div>
 
   </div><!-- /main -->
