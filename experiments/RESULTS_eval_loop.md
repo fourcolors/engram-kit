@@ -1,38 +1,43 @@
-# Noise-controlled evaluation loop (N=3 averaged)
+# Noise-controlled evaluation loop — final
 
 Harness: `experiments/eval.py` (parallel N-run generation) + `experiments/judge_eval.js`
 (judges every config×repeat×question, aggregates mean per config). Built to beat the
-answer+judge noise floor (single runs swing borderline questions ±3).
+answer+judge noise floor (single runs swing borderline questions ±3). Each config:
+3 runs × 10 questions = 30 answers, each judged once (overall 0–5).
 
-Each config: 3 runs × 10 questions = 30 answers, each judged once (overall 0–5).
-
-## Results
+## Scoreboard (N=3 averaged)
 
 | Config | Mean | Run-means | false-"unavail" | Verdict |
 |---|---|---|---|---|
-| v4 (relationships OFF) | 4.57 | 4.4–4.7 | 4/30 | baseline |
-| **v5 (relationships ON)** | **4.70** | 4.5–4.8 | 5–6/30 | **best so far — KEEP** |
-| b1 (v5 + bigger digest 140k/30) | 4.50 | 4.3–4.7 | 5/30 | **rejected (worse)** |
-| v5 + Opus answer model | _running_ | | | |
+| v4 — relationships OFF, Sonnet | 4.57 | 4.4–4.7 | 4/30 | baseline |
+| v5 — relationships ON, Sonnet | 4.70 | 4.5–4.8 | 5–6/30 | rel = real +0.13 |
+| b1 — v5 + bigger digest (140k/30) | 4.50 | 4.3–4.7 | 5/30 | **rejected (worse)** |
+| v5 — relationships ON, **Opus** | **4.80–4.83** | **4.8–4.9** | 3–4/30 | **BEST** |
+| v6 — Opus + discipline prompt | 4.83 | 4.8–4.9 | 3/30 | = Opus (neutral) |
 
-## Findings
+## What moved the score (and what didn't)
+1. **Relationships ON: +0.13** (4.57→4.70). Real, isolated to apr10 + apr20 (the
+   supersession/transition questions). Confirmed past noise by averaging.
+2. **Opus answer model: +0.13–0.17** (4.70→4.83) — the single biggest lever, and it
+   *collapsed the variance* (run-means flat at 4.8–4.9 vs Sonnet's 4.5–4.8). Fixed the
+   hard reasoning question apr18 (3.3→4.3+).
+3. **Bigger digest: −0.20 (rejected).** More context diluted focus; weak spots are
+   reasoning, not retrieval-starvation.
+4. **Discipline prompt: ~0 (neutral).** Kept (harmless, good practice) but not a win.
 
-**A — relationships are a real, modest win (not noise).** Averaged over 3 runs,
-v5 (4.70) beats v4 (4.57). The gain is isolated exactly where relationships apply:
-apr10 4.33→5.00 and apr20 3.00→3.67; the other 8 questions unchanged. A single
-earlier run had shown v5 *worse* (4.30) — that was an unlucky draw; averaging
-resolved it. **v5 is the confirmed best config.**
+## Best config: relationships ON + Opus ≈ 4.83 / 5
+**9 of 10 questions average a perfect 5.0.** The only holdout is **apr17 ≈ 4.0**,
+stuck across Sonnet AND Opus: it hedges that the 47–54 KB `psyche_asks_*.json` bodies
+are "not shown" (genuinely too big for any digest) and presents some inference as fact.
+Closing it would need data-file-aware excerpting (head/tail/relevant-rows or a computed
+aggregate), not a bigger dump — a clean future lever, low marginal value for one question.
 
-**B1 — bigger digest makes it WORSE (4.50).** Flooding the model with more file
-bodies (140k/30 vs 80k/16) dropped apr18 3.67→2.67 and apr17 4.67→4.00, and did
-NOT reduce false-"unavailable" (5/30 either way). Conclusion: the weak spots are a
-**focus/reasoning** problem, not a retrieval-starvation problem. The relevance
-digest's focus was already right. Rejected.
+## Key methodological lesson
+Single-run scoreboards are unreliable here: the same v5 answer set scored 4.30 and 4.70
+on different judgings. Only N≥3 averaging separated signal (relationships, Opus) from
+noise (everything ±0.1). The eval harness is the durable asset.
 
-## Stable weak spots (both configs, across runs)
-- **apr18 ≈ 3.67** — over-reaches (wrong "first introduced R##" thesis) + hedges.
-- **apr20 ≈ 4.3** — relationships fixed the counts; residual is some hedging.
-- **apr17 ≈ 4.67** — presents inference as documentation.
-
-All three are reasoning-discipline issues. Next lever under test: a stronger answer
-model (Opus) for these nuanced questions.
+## Recommended config
+- `ENGRAM_REL=on` (default), relationships layer + 30-day reflection guard.
+- `ENGRAM_MODEL=opus` for max score (≈4.83); `sonnet` (≈4.70) if the 60s/command limit
+  or cost matters — Opus answers are slower. Declare model choice in the submission README.

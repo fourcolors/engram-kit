@@ -9,7 +9,7 @@ export const meta = {
 }
 const KIT = '/Users/fourcolors/Projects/3_open_source/engram-kit'
 const EVAL = KIT + '/experiments/out/eval'
-const CONFIGS = ['v5', 'v5_opus']     // edit per phase
+const CONFIGS = ['v5_opus', 'v6_opus_disc']     // edit per phase
 const REPEATS = 3
 const QS = [
   { id: 'ftw_v1_apr08_lab_object_boundaries', date: '2026-04-08', question: 'Cold-starting from the earliest lab files: what is this lab comparing, what is the object under study, and what is premature to conclude from the Apr 8 state?' },

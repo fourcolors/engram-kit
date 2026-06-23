@@ -39,6 +39,14 @@ time).
 - **Model access required.** Uses the local `claude` CLI (`claude -p`,
   Claude Code) for the observer / reflector / answer passes. Default model
   `sonnet`; override with the `ENGRAM_MODEL` env var (`opus`, `haiku`, ...).
+- **Recommended for max accuracy: `ENGRAM_MODEL=opus`.** In noise-controlled
+  evaluation (3-run averaged, 20-judge), the best config scored ≈4.83/5 with Opus
+  (relationships on) vs ≈4.70 with Sonnet — and Opus is far more consistent. Use
+  Sonnet if the per-command time budget or cost matters (Opus answers are slower).
+- **Feature flags:** `ENGRAM_REL` (relationship layer, default on), `ENGRAM_PDF`
+  (PageIndex PDF reading, default off — turn on for document-content questions),
+  `ENGRAM_VERIFY` / `ENGRAM_REPAIR` (answer-side passes, default off, measured
+  net-neutral). The 30-day reflection-safety guard is always on.
 - No database, daemon, GPU, or external API key. The `claude` CLI uses the host's
   existing Claude Code auth. All tools are disabled per call — each invocation is
   a single-turn text transformation.

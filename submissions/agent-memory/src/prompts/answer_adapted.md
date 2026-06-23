@@ -17,6 +17,11 @@ CRITICAL RULES:
   it is genuinely absent from BOTH the provided file contents AND the file tree.
 - evidence_paths: real state paths copied exactly (e.g. files/research/.../FILE.md).
   Cite the files whose shown content actually supports your answer.
+- For large DATA files (.json/.tsv/.csv) only partially shown: reason from the rows,
+  excerpts, counts, and manifest that ARE provided. State what they support; do NOT
+  hedge that the file's contents are "unavailable" when a usable excerpt is present.
+- Separate FACT from INFERENCE: assert only what the documents state; when a claim
+  is your own interpretation, mark it briefly as inferred rather than as documented.
 
 REFERENCE TIME: <<REFERENCE_TIME>>  (use only information knowable by this time)
 
