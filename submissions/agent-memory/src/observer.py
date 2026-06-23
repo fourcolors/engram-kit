@@ -6,14 +6,15 @@ file approaches the 200-line cliff, compress with a reflector pass.
 """
 from __future__ import annotations
 
+import os
+import re
 import sys
 from pathlib import Path
-
-import os
 
 from claude_client import run_claude
 from memory import append_dated, read_memory, write_memory
 from pdf_index import update_pdf_index
+from relationships import relationship_bullets
 from state_digest import digest_update
 from timeline import update_timeline
 from util import cap_lines, count_lines, render
@@ -54,8 +55,13 @@ def run_observer(state_dir: Path, memory_dir: Path, *, model: str = "sonnet") ->
     )
     out = run_claude(prompt, model=model).strip()
 
-    if out and NO_OBS not in out:
-        append_dated(memory_dir, date_iso, _clean(out))
+    # Deterministic relationship facts (🔗) live as plain text in the observational
+    # memory alongside the LLM's observations — no separate JSON edge store.
+    rels = relationship_bullets(state_dir)
+    obs = _clean(out) if (out and NO_OBS not in out) else ""
+    section = "\n".join(s for s in (obs, "\n".join(rels)) if s).strip()
+    if section:
+        append_dated(memory_dir, date_iso, section)
 
     _maybe_reflect(memory_dir, model=model)
     return 0
@@ -66,6 +72,21 @@ def _clean(text: str) -> str:
     lines = [ln for ln in text.splitlines() if not ln.strip().startswith("```")]
     lines = [ln for ln in lines if not ln.strip().lower().startswith("date:")]
     return "\n".join(lines).strip()
+
+
+def _dates(text: str) -> set[str]:
+    return set(re.findall(r"^Date:\s*(\d{4}-\d{2}-\d{2})", text, re.M))
+
+
+def _links(text: str) -> set[str]:
+    return {ln.strip() for ln in text.splitlines() if ln.strip().startswith("🔗")}
+
+
+def reflection_is_safe(before: str, after: str) -> bool:
+    """30-day guarantee: reflection may compress, but must NOT (a) drop any Date
+    header (else date-filtering / no-hindsight breaks) or (b) lose any deterministic
+    🔗 relationship fact. Enforced deterministically — not left to the LLM."""
+    return _dates(before).issubset(_dates(after)) and _links(before).issubset(_links(after))
 
 
 def _maybe_reflect(memory_dir: Path, *, model: str) -> None:
@@ -81,9 +102,11 @@ def _maybe_reflect(memory_dir: Path, *, model: str) -> None:
     compressed = "\n".join(
         ln for ln in compressed.splitlines() if not ln.strip().startswith("```")
     ).strip()
-    # Safety: only accept a genuine compression; never let reflection nuke memory.
-    if compressed and count_lines(compressed) < count_lines(text):
+    # Accept only a genuine compression that PRESERVES every date header and every
+    # deterministic relationship fact. Otherwise keep prior memory (fail-safe).
+    if compressed and count_lines(compressed) < count_lines(text) \
+            and reflection_is_safe(text, compressed):
         write_memory(memory_dir, compressed)
     else:
-        print("reflector produced no usable compression; keeping prior memory",
-              file=sys.stderr)
+        print("reflection rejected (would drop a date header or 🔗 fact, or no gain); "
+              "keeping prior memory", file=sys.stderr)

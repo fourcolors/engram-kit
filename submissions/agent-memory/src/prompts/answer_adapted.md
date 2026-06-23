@@ -33,6 +33,12 @@ now, when it first appeared, and its current status. TRUST IT for:
   not exist yet — that is the ONLY legitimate "not available").
 <<TIMELINE>>
 
+DETERMINISTIC CHANGE & RELATIONSHIP FACTS (computed from the change logs, not
+guessed — AUTHORITATIVE). Use these for any "how many changed / what transitioned",
+"what was relocated or archived", or "what supersedes what" claim. Do NOT recount
+transitions yourself; trust these counts.
+<<RELATIONS>>
+
 CURRENT WORKSPACE STATE (full contents of the most relevant files + full file tree):
 <<STATE_CONTEXT>>
 

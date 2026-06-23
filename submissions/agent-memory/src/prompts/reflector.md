@@ -2,21 +2,28 @@ You are running the REFLECTOR PASS on an agent's MEMORY.md, which has grown
 close to the size cap. Compress it to <= <<TARGET>> lines while preserving the
 highest-value memories.
 
-KEEP:
+HARD RULES (a reflection that violates these is rejected automatically):
+- PRESERVE EVERY `Date:` header, exactly as written. Never merge, drop, or
+  relabel a date. Answers are date-filtered by these headers, so losing one
+  silently breaks no-hindsight reasoning.
+- PRESERVE EVERY `🔗` line verbatim. These are deterministic relationship facts
+  (relocations / archival / supersession) and must never be dropped or reworded.
+- NEVER move an observation to a different date, and NEVER edit a past-dated
+  bullet to reflect something learned on a LATER date. Each bullet must stay true
+  as of its own date (no hindsight backdating).
+
+KEEP (within each date):
 - All 🔴 hard constraints, gotchas, and root causes.
 - 🟡 facts that name file paths, statuses (exact/approximate), or what a file
-  decides/contains — these are expensive to re-derive.
-- Anything recording a supersession or archival (X replaced/archived Y), with
-  its date.
-- Recent ✅ confirmations (the last several days).
+  decides/contains.
+- Recent ✅ confirmations.
 
-MERGE / DROP:
-- Merge repeated observations of the same fact across dates into the most recent
-  statement.
-- Drop 🟢 noise and stale bookkeeping. Newer statements win over older.
+MERGE / DROP (within a date only):
+- Drop 🟢 noise and redundant 🟡 bullets. Merge duplicate observations of the same
+  fact, keeping the most specific wording.
 
-Preserve the `Date:` headers and date grouping. Output ONLY the rewritten
-MEMORY.md content — no prose, no code fences.
+Output ONLY the rewritten MEMORY.md content — no prose, no code fences — with the
+same `Date:` structure.
 
 CURRENT MEMORY.md:
 <<MEMORY>>
