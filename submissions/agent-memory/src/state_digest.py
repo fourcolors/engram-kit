@@ -14,6 +14,7 @@ Two answer-side digests:
 """
 from __future__ import annotations
 
+import os
 import re
 from pathlib import Path
 
@@ -129,6 +130,8 @@ def digest_answer_state_relevant(
     directory-name mentions; then query-keyword overlap in path/content; then a
     bump for files that changed into this state.
     """
+    char_budget = int(os.environ.get("ENGRAM_DIGEST_BUDGET", char_budget))
+    max_full = int(os.environ.get("ENGRAM_DIGEST_MAXFULL", max_full))
     files_root = state_dir / "files"
     all_files = _iter_files(files_root)
     text_files = [p for p in all_files if p.suffix.lower() in TEXT_EXTS]
