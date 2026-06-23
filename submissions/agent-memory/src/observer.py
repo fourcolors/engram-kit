@@ -57,7 +57,7 @@ def run_observer(state_dir: Path, memory_dir: Path, *, model: str = "sonnet") ->
 
     # Deterministic relationship facts (🔗) live as plain text in the observational
     # memory alongside the LLM's observations — no separate JSON edge store.
-    rels = relationship_bullets(state_dir)
+    rels = relationship_bullets(state_dir) if os.environ.get("ENGRAM_REL", "on") != "off" else []
     obs = _clean(out) if (out and NO_OBS not in out) else ""
     section = "\n".join(s for s in (obs, "\n".join(rels)) if s).strip()
     if section:

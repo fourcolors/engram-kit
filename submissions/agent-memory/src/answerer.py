@@ -83,7 +83,9 @@ def run_answer(
             or "(no memory recorded as of the reference time)"
         state_ctx = digest_answer_state_relevant(state_dir, qtext)
         timeline = timeline_asof(memory_dir, ref_date) or "(no structured timeline available)"
-        relations = change_summary(state_dir) or "(no deterministic change/relationship facts for this state)"
+        relations = ""
+        if os.environ.get("ENGRAM_REL", "on") != "off":
+            relations = change_summary(state_dir) or "(no deterministic change/relationship facts for this state)"
         # PageIndex-style PDF retrieval (opt-in): append page-scoped extracts of the
         # PDF sections the model navigates to. No-hindsight is automatic (state_dir
         # is the reference-time snapshot).
