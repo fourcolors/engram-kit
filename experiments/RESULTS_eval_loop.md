@@ -12,8 +12,9 @@ answer+judge noise floor (single runs swing borderline questions ±3). Each conf
 | v4 — relationships OFF, Sonnet | 4.57 | 4.4–4.7 | 4/30 | baseline |
 | v5 — relationships ON, Sonnet | 4.70 | 4.5–4.8 | 5–6/30 | rel = real +0.13 |
 | b1 — v5 + bigger digest (140k/30) | 4.50 | 4.3–4.7 | 5/30 | **rejected (worse)** |
-| v5 — relationships ON, **Opus** | **4.80–4.83** | **4.8–4.9** | 3–4/30 | **BEST** |
-| v6 — Opus + discipline prompt | 4.83 | 4.8–4.9 | 3/30 | = Opus (neutral) |
+| v5 — relationships ON, **Opus** | 4.80–4.83 | 4.8–4.9 | 3–4/30 | strong |
+| v6 — Opus + discipline prompt | 4.80–4.83 | 4.7–4.9 | 3–4/30 | = Opus (neutral) |
+| **v7 — Opus + structured data handling** | **4.83** | 4.8–4.9 | **2/30** | **BEST — apr17 4→5, false-unavail halved** |
 
 ## What moved the score (and what didn't)
 1. **Relationships ON: +0.13** (4.57→4.70). Real, isolated to apr10 + apr20 (the
@@ -25,12 +26,14 @@ answer+judge noise floor (single runs swing borderline questions ±3). Each conf
    reasoning, not retrieval-starvation.
 4. **Discipline prompt: ~0 (neutral).** Kept (harmless, good practice) but not a win.
 
-## Best config: relationships ON + Opus ≈ 4.83 / 5
-**9 of 10 questions average a perfect 5.0.** The only holdout is **apr17 ≈ 4.0**,
-stuck across Sonnet AND Opus: it hedges that the 47–54 KB `psyche_asks_*.json` bodies
-are "not shown" (genuinely too big for any digest) and presents some inference as fact.
-Closing it would need data-file-aware excerpting (head/tail/relevant-rows or a computed
-aggregate), not a bigger dump — a clean future lever, low marginal value for one question.
+## Best config: relationships ON + structured ON + Opus ≈ 4.83 / 5
+**apr17 SOLVED (4.0 → 5.0)** by the structured-data handler (`structured.py`): big
+`.json/.tsv/.csv` files are rendered as schema + EXACT value-counts + stratified
+sample + a computed cross-file set-difference ("23 dropped"), instead of being dumped
+or skipped. false-"unavailable" halved (4→2 / 30), no new deps, stdlib only, ~3 ms.
+The only remaining sub-5 is **apr18 ≈ 3.67–4.33** — a hard *reasoning* question (model
+over-reaches on "why not the final taxonomy"); near the model's ceiling, not a tooling
+gap. (apr17's old description below is now historical.)
 
 ## Key methodological lesson
 Single-run scoreboards are unreliable here: the same v5 answer set scored 4.30 and 4.70

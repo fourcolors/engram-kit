@@ -39,6 +39,7 @@ def main() -> int:
     ap.add_argument("--concurrency", type=int, default=5)
     ap.add_argument("--mode", default="adapted")
     ap.add_argument("--rel", default="on")
+    ap.add_argument("--struct", default="on")
     ap.add_argument("--pdf", default="off")
     ap.add_argument("--repair", default="off")
     ap.add_argument("--verify", default="off")
@@ -52,7 +53,8 @@ def main() -> int:
     qs = json.loads(Path(a.questions).read_text())["questions"]
     env = dict(os.environ)
     env.update({"ENGRAM_MODEL": a.model, "ENGRAM_MODE": a.mode, "ENGRAM_REL": a.rel,
-                "ENGRAM_PDF": a.pdf, "ENGRAM_REPAIR": a.repair, "ENGRAM_VERIFY": a.verify})
+                "ENGRAM_STRUCT": a.struct, "ENGRAM_PDF": a.pdf,
+                "ENGRAM_REPAIR": a.repair, "ENGRAM_VERIFY": a.verify})
     if a.budget:
         env["ENGRAM_DIGEST_BUDGET"] = a.budget
     if a.maxfull:

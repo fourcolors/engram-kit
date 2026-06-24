@@ -18,6 +18,7 @@ import os
 import re
 from pathlib import Path
 
+from structured import crossfile_diffs, summarize_structured
 from util import cap_lines, read_text
 
 TEXT_EXTS = {".md", ".txt", ".tsv", ".csv", ".json", ".yaml", ".yml"}
@@ -178,17 +179,31 @@ def digest_answer_state_relevant(
         "## changes.txt (transitions into this state)\n"
         + (read_text(state_dir / "changes.txt") or "(none)"),
     ]
+    struct_on = os.environ.get("ENGRAM_STRUCT", "on") != "off"
+    struct_threshold = 12000
     budget = char_budget
     included: list[str] = []
+    struct_specs: list[tuple[str, Path]] = []  # (rel, path) of structured files in context
     for score, length, rel, content in scored:
         if score <= 0 and included:
             continue
-        block = f"### files/{rel}\n{content}"
+        is_struct = rel.lower().endswith((".json", ".tsv", ".csv"))
+        if struct_on and is_struct and len(content) > struct_threshold:
+            summary = summarize_structured(files_root / rel, rel)
+            block = summary if summary else f"### files/{rel}\n{content[:8000]}\n…(truncated)"
+        else:
+            block = f"### files/{rel}\n{content}"
         if len(included) >= max_full or len(block) > budget:
             continue
         budget -= len(block)
         included.append(block)
+        if is_struct:
+            struct_specs.append((rel, files_root / rel))
     if included:
         parts.append("## relevant file contents (full bodies, ranked by relevance to the question)\n"
                      + "\n\n".join(included))
+    if struct_on and len(struct_specs) >= 2:
+        diff = crossfile_diffs(question, struct_specs)
+        if diff:
+            parts.append(diff)
     return "\n\n".join(parts)
