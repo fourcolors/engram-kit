@@ -1,14 +1,21 @@
 # agent-memory — ENGRAM submission
 
-An ENGRAM memory system built on the **agent-memory** observational discipline
-(the `subagent-memory` skill): a single `MEMORY.md` of dated observation bullets,
-maintained by an LLM-run **observer pass** on each daily state and read back by
-an **answer pass** for each question.
+An ENGRAM memory system built on the **agent-memory** observational discipline:
+an **observer pass** turns each daily state into dated `MEMORY.md` notes + a
+deterministic per-file timeline (first-seen / status / supersession), and an
+**answer pass** answers each question from a relevance-ranked, no-hindsight
+(date-filtered) view of memory + the current state — citing evidence. It also
+reads PDFs (PageIndex-style) and summarizes large data files deterministically.
 
-This is the **stock-first baseline**: it applies the unmodified observer /
-reflector discipline so we can measure how the memory substrate performs on
-ENGRAM before adapting it (e.g. adding no-hindsight date-filtering at answer
-time).
+> ⚠️ **RUNTIME REQUIREMENT — please read before running.**
+> This submission calls a **Claude model at runtime** via the local `claude` CLI
+> (Claude Code), using the host's existing Claude Code auth. **There is no
+> API-key fallback.** To run it, the evaluation environment must provide **Claude
+> model access** — either the `claude` CLI authenticated on `PATH`, or an
+> equivalent the operator wires in. It needs **no** vector DB, GPU, database, or
+> (apart from the model call) network. If your environment can't provide Claude
+> access, please reach out — the model call is isolated in `src/claude_client.py`
+> and can be repointed.
 
 ## Interface
 
