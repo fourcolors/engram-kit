@@ -1,0 +1,6 @@
+# local experiment artifacts
+experiments/out/
+
+# python
+__pycache__/
+*.pyc
